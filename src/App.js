@@ -1,5 +1,9 @@
 import React from 'react';
 import './App.css';
+import { Route, Switch, NavLink } from 'react-router-dom';
+
+import Tabs from './components/Tabs';
+import Home from './components/Home';
 
 class App extends React.Component {
   state = {
@@ -8,15 +12,64 @@ class App extends React.Component {
       { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
       { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
     ],
+
+    selectedTab: '',
+  };
+
+  HandleSelect = (id) => {
+    this.setState({
+      selectedTab: id,
+    });
   };
 
   render() {
-    const { tabs } = this.state;
+    const { tabs, selectedTab } = this.state;
 
     return (
       <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
+        <nav>
+          <ul className="navigation">
+            <li>
+              <NavLink
+                to="/"
+                exact
+                className="navigation__link"
+              >
+                Home
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                to="/tabs"
+                className="navigation__link"
+                onClick={() => { this.setState({ selectedTab: '' }); }}
+              >
+                Tabs
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+
+        <Switch>
+          <Route
+            path="/"
+            exact
+            component={Home}
+          />
+
+          <Route
+            path="/tabs"
+            render={() => (
+              <Tabs
+                tabs={tabs}
+                onTabSelected={this.HandleSelect}
+                selectedTab={selectedTab}
+              />
+            )}
+          />
+        </Switch>
+
       </div>
     );
   }
