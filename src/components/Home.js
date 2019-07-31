@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => (
   <div className="Home">
@@ -12,6 +13,8 @@ const Home = () => (
     {/* eslint-enable */}
 
     <p>lorem ipsum dolor set</p>
+
+    <Link to="/Tabs/">To Tabs</Link>
   </div>
 );
 

@@ -1,36 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 const TabsBlock = ({
   tabs, activeTab, onTabChange, match,
-}) => (
-  <div className="TabsBlock">
-    <h2>You are in Right Place</h2>
+}) => {
+  const { url } = match.match;
+  const getIdFromUrl = url.slice(url.length - 5);
 
-    <ul className="TabsBlock--tabs">
-      {tabs.map(tab => (
-        <li key={tab.id}>
-          <NavLink
-            to={`${match.match.url}/${tab.id}`}
-            exact
-            name={tab.id}
-            onClick={onTabChange}
-            className="TabsBlock--tab"
-          >
-            {tab.title}
-          </NavLink>
-        </li>
-      ))}
-    </ul>
+  return (
+    <div className="TabsBlock">
+      <h2>You are in the Right Place</h2>
 
-    <div className="TabsBlock--content">
-      <p>
-        {activeTab ? tabs.find(tab => tab.id === activeTab).content : ''}
-      </p>
+      <ul className="TabsBlock--tabs">
+        {tabs.map(tab => (
+          <li key={tab.id}>
+            <NavLink
+              to={`/tabs/${tab.id}`}
+              name={tab.id}
+              onClick={onTabChange}
+              className="TabsBlock--tab"
+            >
+              {tab.title}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+
+      <div className="TabsBlock--content">
+        {tabs.some(tab => (tab.id === getIdFromUrl))
+          ? (
+            <img
+              src={tabs.find(tab => (tab.id === getIdFromUrl)).content}
+              alt="background"
+            />
+          )
+          : ''
+        }
+      </div>
+
+      <Link to="/">To Home</Link>
     </div>
-  </div>
-);
+  );
+};
 
 TabsBlock.propTypes = {
   tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
