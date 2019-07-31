@@ -1,14 +1,13 @@
-/* eslint-disable */1
+/* eslint-disable */
 import React from 'react';
-import { BrowserRouter, NavLink, Route, Switch} from 'react-router-dom';
-import './App.css';
+import { NavLink, Route, Switch } from 'react-router-dom';
 import Tabs from './components/Tabs';
 import Home from './components/Home';
+import './App.css';
 
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter>
         <div className="App">
           <div className="main-link-container">
             <NavLink
@@ -32,7 +31,6 @@ class App extends React.Component {
             <Route path="/Tabs" component={Tabs} />
           </Switch>
         </div>
-      </BrowserRouter>
     );
   }
 }
