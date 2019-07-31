@@ -16,6 +16,18 @@ class App extends React.Component {
     selectedTab: '',
   };
 
+  componentWillMount() {
+    if (localStorage.getItem('selectedTab') && this.state.selectedTab === '') {
+      this.setState({
+        selectedTab: localStorage.getItem('selectedTab'),
+      });
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('selectedTab', this.state.selectedTab);
+  }
+
   HandleSelect = (id) => {
     this.setState({
       selectedTab: id,

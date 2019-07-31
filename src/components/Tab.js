@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PropTypes as RouterPropTypes } from 'react-router';
 import { Route, Link } from 'react-router-dom';
 
 const Tab = ({
@@ -40,7 +39,9 @@ Tab.propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
   }).isRequired,
-  match: RouterPropTypes.match.isRequired,
+  match: PropTypes.shape({
+    path: PropTypes.string.isRequired,
+  }).isRequired,
   onTabSelected: PropTypes.func.isRequired,
   selectedTab: PropTypes.string.isRequired,
 };
