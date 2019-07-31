@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Home = () => (
-  <div>
+  <div className="Home">
     <h2>You are on Home page, hell yeah</h2>
     {/* eslint-disable */}
     <img

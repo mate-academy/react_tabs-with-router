@@ -39,23 +39,25 @@ class App extends React.Component {
       <div className="App">
         <Navigation />
 
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
+        <main className="main">
+          {/* eslint-disable-next-line */}
+          <h1>{tabs.length} tabs</h1>
 
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route
-            path="/tabs"
-            render={match => (
-              <TabsBlock
-                tabs={tabs}
-                activeTab={activeTab}
-                onTabChange={this.onTabChange}
-                match={match}
-              />
-            )}
-          />
-        </Switch>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route
+              path="/tabs"
+              render={match => (
+                <TabsBlock
+                  tabs={tabs}
+                  activeTab={activeTab}
+                  onTabChange={this.onTabChange}
+                  match={match}
+                />
+              )}
+            />
+          </Switch>
+        </main>
       </div>
     );
   }
