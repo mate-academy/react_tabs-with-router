@@ -1,1 +1,27 @@
+body {
+  background: antiquewhite;
+}
 
+li {
+  display: inline-block;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+  color: #42485b;
+}
+
+.App {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  color: #42485b;
+}
+
+.App__nav-link {
+  margin: 24px;
+  font-size: 24px;
+}
+
+.App__nav-link:hover {
+  text-decoration: underline;
+}
