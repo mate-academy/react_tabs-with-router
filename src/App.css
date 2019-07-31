@@ -1,1 +1,92 @@
+* {
+  box-sizing: padding-box;
+}
 
+body {
+  background-color: #252525;
+  color: #eee;
+  font: 1em 'PT Sans', sans-serif;
+}
+
+.panel {
+  width: 95%;
+  margin: 50px auto;
+  list-style-type: none;
+}
+
+.menuItem {
+  text-decoration: none;
+  background-color: #252525;
+  color: #eee;
+  font: 1em 'PT Sans', sans-serif;
+  display: block;
+  float: left;
+  padding: 12px 20px;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: background-color 1s;
+  border: 2px solid #4EC6DE;
+}
+
+.tab {
+  text-decoration: none;
+  background-color: #252525;
+  color: #eee;
+  font: 1em 'PT Sans', sans-serif;
+  display: block;
+  float: left;
+  padding: 12px 20px;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: background-color 1s;
+  border-top: 2px solid  #4EC6DE;
+  border-left: 2px solid  #4EC6DE;
+  border-right: 2px solid  #4EC6DE;
+}
+
+.menuItem:hover,
+.tab:hover {
+  background-color: #00768E;
+}
+
+.selected {
+  background-color: #4EC6DE;
+}
+
+.new {
+  clear: both;
+  width: 95%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tabText {
+  width: 95%;
+  margin: 0 auto;
+  clear: both;
+  perspective: 100px;
+}
+
+.tabInner {
+  width: 95%;
+  margin: 0 auto;
+  position: absolute;
+  border: 2px solid #4EC6DE;
+  padding: 10px 30px 40px;
+  line-height: 1.4em;
+  animation: appearence .3s linear;
+  opacity: 1;
+  transform: rotateX(0);
+  transform-origin: top center;
+}
+
+@keyframes appearence {
+  0% {
+    opacity: 1;
+    transform: rotateX(-90deg);
+  }
+  100% {
+    transform: rotateX(0);
+    opacity: 1;
+  }
+}
