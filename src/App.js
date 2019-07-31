@@ -1,4 +1,6 @@
 import React from 'react';
+import { Switch, Route, NavLink } from 'react-router-dom';
+import Tabs from './components/Tabs';
 import './App.css';
 
 class App extends React.Component {
@@ -14,10 +16,38 @@ class App extends React.Component {
     const { tabs } = this.state;
 
     return (
-      <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
-      </div>
+      <>
+        <nav>
+          <ul className="main-nav">
+            <li>
+              <NavLink to="/" exact>
+                Home
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/tabs">
+                Tabs
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+
+        <Switch>
+          <Route
+            path="/"
+            exact
+            component={() => (<h1>Home</h1>)}
+          />
+
+          <Route
+            path="/tabs"
+            component={() => (
+              <Tabs tabs={tabs} />
+            )}
+          />
+        </Switch>
+      </>
     );
   }
 }
