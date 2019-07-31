@@ -21,18 +21,7 @@ const isLocalTabActual = (localActualTab, tabs) => (
 class App extends React.Component {
   state = {
     tabs: tabsOrigin,
-    activeTab: isLocalTabActual(localStorage.activeTab, tabsOrigin),
   };
-
-  onTabChange = (event) => {
-    const { name } = event.target;
-
-    localStorage.activeTab = name;
-
-    this.setState({
-      activeTab: name,
-    });
-  }
 
   render() {
     const { tabs, activeTab } = this.state;
@@ -52,7 +41,6 @@ class App extends React.Component {
               render={match => (
                 <TabsBlock
                   tabs={tabs}
-                  activeTab={activeTab}
                   onTabChange={this.onTabChange}
                   match={match}
                 />

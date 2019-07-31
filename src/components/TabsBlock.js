@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink, Link } from 'react-router-dom';
 
 const TabsBlock = ({
-  tabs, activeTab, onTabChange, match,
+  tabs, onTabChange, match,
 }) => {
   const { url } = match.match;
   const getIdFromUrl = url.slice(url.length - 5);
@@ -46,7 +46,6 @@ const TabsBlock = ({
 
 TabsBlock.propTypes = {
   tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
-  activeTab: PropTypes.string.isRequired,
   onTabChange: PropTypes.func.isRequired,
   match: PropTypes.objectOf(PropTypes.object).isRequired,
 };
