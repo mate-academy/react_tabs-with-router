@@ -19,11 +19,11 @@ Implement `Tabs` component. `current` prop sets the active tab by its `id`.
   />
   ```
 1. Add 2 pages `Home` and `Tabs` 
-    - Home page contains a header `Home` and is shown on `localhost:3000`
-    - Tabs Page contains a header `Tabs` and a `Tabs` component and is shown on `localhost:3000/tabs`
-2. Add navigation so you can go to `Home` or `Tabs`
-    - Navigation should be visible from all the pages
-    - Active link should be highlighted
+    - `Home` page is shown on `localhost:3000` and contains a header `Home` 
+    - `Tabs` page is shown on `localhost:3000/tabs` and contains a header `Tabs` and a `Tabs` component
+2. Add navigation so you can go to `Home` or `Tabs` by clicking on a link
+    - The navigation should be visible from all the pages.
+    - The active link should be highlighted.
 3. When you select a tab the URL should be changed to `/tabs/tab-1`
   (where `tab-1` is an `id` of selected tab)
 4. After page reload you should see the content of a tab matching the `id` from the URL
