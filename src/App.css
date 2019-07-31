@@ -1,1 +1,35 @@
+body {
+  font-family: Arial, sans-serif;
+}
 
+.content {
+  padding: 10px 10px 10px 0;
+  border-top: 1px solid lightgrey;
+}
+
+.button {
+  position: relative;
+  color: cornflowerblue;
+  top: 1px;
+  padding: 10px;
+  background-color: #fff;
+  outline: none;
+  border: 1px solid #fff;
+  border-bottom: 1px solid lightgrey;
+  cursor: pointer;
+}
+
+.button.active {
+  color: #1e1e1e;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: 1px solid lightgrey;
+  border-bottom: 1px solid #fff;
+  cursor: default;
+}
+
+a.active {
+  color: grey;
+  cursor: default;
+  text-decoration: none;
+}
