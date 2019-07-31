@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 
 import Tabs from './components/Tabs';
 import Home from './components/Home';
@@ -26,7 +26,7 @@ class App extends React.Component {
     const { tabs } = this.state;
 
     return (
-      <Router>
+      <div>
         <nav>
           <ul>
             <li>
@@ -56,7 +56,7 @@ class App extends React.Component {
             )}
           />
         </div>
-      </Router>
+      </div>
     );
   }
 }
