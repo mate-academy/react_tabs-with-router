@@ -27,6 +27,7 @@ Implement `Tabs` component. `current` prop sets the active tab by its `id`.
 3. When you select a tab the URL should be changed to `/tabs/tab-1`
   (where `tab-1` is an `id` of selected tab)
 4. After page reload you should see the content of a tab matching the `id` from the URL
+    - If a `id` is not valid or is not set (e.g just `/tabs`) don't show any content 
     
 ## Workflow
 
