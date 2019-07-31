@@ -1,0 +1,41 @@
+.tabs {
+  position: relative;
+  display: inline-flex;
+  height: 300px;
+  background-color: cornflowerblue;
+  border: 1px solid cornflowerblue;
+}
+
+.tab--title {
+  display: inline-block;
+  width: 100px;
+  height: 20px;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: black;
+  border: 1px solid white;
+}
+
+.tab--title:hover {
+  background-color: rgb(203, 214, 233);
+}
+
+.select {
+  background-color: white;
+}
+
+.select .tab--content {
+  display: block;
+}
+
+.tab--content {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 270px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: white;
+}
