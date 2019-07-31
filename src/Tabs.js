@@ -23,7 +23,6 @@ const Tabs = (props) => {
             <li
               id={tab.id}
               key={Math.random()}
-            //  onClick={() => handleSelected(index)}
               className={classnames({
                 'tabs__item': true,
                 'tabs__item--active': selectedTab === index,
@@ -31,7 +30,10 @@ const Tabs = (props) => {
                 })
               }
             >
-              <Link to={`${match.url}/${tab.id}`}  onClick={() => handleSelected(index)}> {tab.title} </Link>
+              <Link to={`${match.url}/${tab.id}`}
+                 onClick={() => handleSelected(index)}>
+                  {tab.title}
+              </Link>
             </li>
           ))
         }
