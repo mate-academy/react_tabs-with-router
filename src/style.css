@@ -1,0 +1,45 @@
+.nav-links {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  font-size: 20px;
+  list-style-type: none;
+  background-color: #f6fafd;
+}
+
+li {
+  padding: 30px;
+}
+
+.active {
+  font-size: 21px;
+  font-weight: 800;
+  color: #090936;
+}
+
+h1 {
+  text-align: center;
+}
+
+.tabs-container {
+  min-width: 350px;
+}
+
+.tab-item {
+  display: inline-block;
+  padding: 10px 30px;
+}
+
+.tab-item--selected {
+  border: solid black;
+  border-width: 1px 1px 0;
+  border-bottom: 2px solid #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.tab-content {
+  border-top: 1px solid black;
+  margin: -17px auto;
+  padding: 10px;
+}
