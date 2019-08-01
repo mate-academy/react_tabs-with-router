@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, Link } from 'react-router-dom';
 
-const TabsBlock = ({
-  tabs, onTabChange, match,
-}) => {
-  const { url } = match.match;
-  const getIdFromUrl = url.slice(url.length - 5);
+const TabsBlock = ({ tabs, params }) => {
+  const { tabId } = params;
+  const src = tabs.find(tab => (tab.id === tabId));
 
   return (
     <div className="TabsBlock">
@@ -18,7 +16,6 @@ const TabsBlock = ({
             <NavLink
               to={`/tabs/${tab.id}`}
               name={tab.id}
-              onClick={onTabChange}
               className="TabsBlock--tab"
             >
               {tab.title}
@@ -28,14 +25,12 @@ const TabsBlock = ({
       </ul>
 
       <div className="TabsBlock--content">
-        {tabs.some(tab => (tab.id === getIdFromUrl))
-          ? (
-            <img
-              src={tabs.find(tab => (tab.id === getIdFromUrl)).content}
-              alt="background"
-            />
-          )
-          : ''
+        {src ? (
+          <img
+            src={src.content}
+            alt="background"
+          />
+        ) : ''
         }
       </div>
 
@@ -46,8 +41,7 @@ const TabsBlock = ({
 
 TabsBlock.propTypes = {
   tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onTabChange: PropTypes.func.isRequired,
-  match: PropTypes.objectOf(PropTypes.object).isRequired,
+  params: PropTypes.shape({ tabId: PropTypes.string }).isRequired,
 };
 
 export default TabsBlock;

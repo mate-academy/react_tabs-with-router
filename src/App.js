@@ -37,12 +37,12 @@ class App extends React.Component {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route
-              path="/tabs/:tabsId?"
-              render={match => (
+              path="/tabs/:tabId?"
+              render={({match}) => (
                 <TabsBlock
                   tabs={tabs}
                   onTabChange={this.onTabChange}
-                  match={match}
+                  params={match.params}
                 />
               )}
             />
