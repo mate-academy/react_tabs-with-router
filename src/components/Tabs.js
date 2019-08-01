@@ -1,36 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import Tab from './Tab';
-
-const Tabs = ({
-  tabs,
-  onTabSelected,
-  selectedTab,
-}) => (
+const Tabs = ({ tabs, tabId }) => (
   <ul className="tabs">
-    <Route
-      path="/tabs"
-      render={({ match }) => tabs
-        .map(tab => (
-          <Tab
-            key={tab.id}
-            tab={tab}
-            onTabSelected={onTabSelected}
-            selectedTab={selectedTab}
-            match={match}
-          />
-        ))
+    {tabs.map(tab => (
+      <li className="tab" key={tab.id}>
+        <Link
+          to={`/tabs/${tab.id}`}
+          exact
+          activeClassName="selected"
+          className="tab__title"
+        >
+          {tab.title}
+        </Link>
+      </li>
+    ))}
+
+    <p className="tab__content">
+      {tabId
+        ? tabs.find(tab => tab.id === tabId).content
+        : null
       }
-    />
+    </p>
   </ul>
 );
 
 Tabs.propTypes = {
   tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onTabSelected: PropTypes.func.isRequired,
-  selectedTab: PropTypes.string.isRequired,
+  tabId: PropTypes.string.isRequired,
 };
 
 export default Tabs;
