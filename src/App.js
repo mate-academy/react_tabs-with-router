@@ -1,7 +1,13 @@
-import React from 'react';
-import './App.css';
+/* eslint-disable react/jsx-max-props-per-line */
+/* eslint-disable-next-line react/jsx-first-prop-new-line */
+/* eslint-disable react/jsx-first-prop-new-line */
+import React, { Component } from 'react';
+import { NavLink, Switch, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Tabs from './components/Tabs';
+import Footer from './components/Footer';
 
-class App extends React.Component {
+class App extends Component {
   state = {
     tabs: [
       { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -14,10 +20,34 @@ class App extends React.Component {
     const { tabs } = this.state;
 
     return (
-      <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
-      </div>
+      <>
+        <header>
+          <ul className="nav-links">
+            <li>
+              <NavLink className="nav-item" to="/" exact>
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-item" to="/tabs">
+                Tabs
+              </NavLink>
+            </li>
+          </ul>
+        </header>
+
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route
+            path="/tabs/:id?"
+            render={props => (
+              <Tabs tabs={tabs} id={props.match.params.id} />
+            )}
+          />
+        </Switch>
+
+        <Footer />
+      </>
     );
   }
 }
