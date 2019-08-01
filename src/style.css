@@ -1,3 +1,7 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .nav-links {
   margin: 0;
   padding: 0;
@@ -11,26 +15,47 @@ li {
   padding: 30px;
 }
 
+.nav-item {
+  text-decoration: none;
+  color: #05056a74;
+}
+
+.nav-item:hover {
+  text-decoration: underline overline;
+}
+
 .active {
-  font-size: 21px;
-  font-weight: 800;
-  color: #090936;
+  color: #021756;
+  text-decoration: underline overline #f6fafd;
+  transition: 1s;
 }
 
 h1 {
+  text-transform: uppercase;
   text-align: center;
+  color: #121267a7;
 }
 
 .tabs-container {
   min-width: 350px;
+  color: black;
+  transition: all 0.8s;
 }
 
 .tab-item {
   display: inline-block;
+  font-size: 20px;
   padding: 10px 30px;
 }
 
+.tab-item > a {
+  color: darkgray;
+  list-style-type: none;
+  text-decoration: none;
+}
+
 .tab-item--selected {
+  color: darkblue;
   border: solid black;
   border-width: 1px 1px 0;
   border-bottom: 2px solid #fff;
@@ -38,7 +63,13 @@ h1 {
   border-top-right-radius: 10px;
 }
 
+.tab-item--selected > a {
+  color: darkblue;
+}
+
 .tab-content {
+  text-align: center;
+  font-size: 16px;
   border-top: 1px solid black;
   margin: -17px auto;
   padding: 10px;

@@ -19,26 +19,32 @@ class App extends Component {
     const { tabs } = this.state;
 
     return (
-      <div className="App">
-        <ul className="nav-links">
-          <li>
-            <NavLink to="/" exact>Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/tabs">Tabs</NavLink>
-          </li>
-        </ul>
+      <>
+        <header>
+          <ul className="nav-links">
+            <li>
+              <NavLink className="nav-item" to="/" exact>
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-item" to="/tabs">
+                Tabs
+              </NavLink>
+            </li>
+          </ul>
+        </header>
+
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/tabs/:id?" render={props => (
-            <Tabs
-              tabs={tabs}
-              id={props.match.params.id}
-            />
-          )}
+          <Route
+            path="/tabs/:id?"
+            render={props => (
+              <Tabs tabs={tabs} id={props.match.params.id} />
+            )}
           />
         </Switch>
-      </div>
+      </>
     );
   }
 }

@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 const Tabs = ({ tabs, id }) => (
   <>
     <h1>Tabs</h1>
-    <div className="tabs-container">
-      <ul>
+    <main className="tabs-container">
+      <ul className="tabs-nav">
         {tabs.map(tabItem => (
           <li
             key={Date.now() * Math.random()}
@@ -18,13 +18,17 @@ const Tabs = ({ tabs, id }) => (
           </li>
         ))}
       </ul>
-    </div>
-
-    {tabs
-      .filter(item => item.id === id)
-      .map(item => (
-        <div key={item.id} className="tab-content">{item.content}</div>
-      ))}
+      {tabs
+        .filter(item => item.id === id)
+        .map(item => (
+          <div key={item.id} className="tab-content">
+            <h4 className="content-item">
+              {id}
+            </h4>
+            {item.content}
+          </div>
+        ))}
+    </main>
   </>
 );
 
