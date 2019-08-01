@@ -1,5 +1,13 @@
 import React from 'react';
 import './App.css';
+import {
+  Route,
+  NavLink,
+  Switch,
+  BrowserRouter,
+} from 'react-router-dom';
+import Home from './Home';
+import Tabs from './Tabs';
 
 class App extends React.Component {
   state = {
@@ -15,8 +23,31 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
+        <BrowserRouter>
+          <nav className="nav">
+            <ul className="nav__list">
+              <li className="nav__item">
+                <NavLink to="/" exact>Home</NavLink>
+              </li>
+              <li className="nav__item">
+                <NavLink to="/tabs">Tabs</NavLink>
+              </li>
+            </ul>
+          </nav>
+
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route
+              path="/tabs/:tabId?"
+              render={({ match }) => (
+                <Tabs
+                  tabs={tabs}
+                  activeTabId={match.params.tabId}
+                />
+              )}
+            />
+          </Switch>
+        </BrowserRouter>
       </div>
     );
   }
