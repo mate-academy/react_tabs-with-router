@@ -1,1 +1,31 @@
 
+.tabs__button {
+  border-radius: 5px;
+  border: 1px solid #124d77;
+  display: inline-block;
+  cursor: pointer;
+  color: rgb(235, 34, 34);
+  font-family: Arial;
+  font-size: 13px;
+  padding: 6px 24px;
+  margin-left: 10%;
+  background-color: yellow;
+}
+
+.tabs__button:hover {
+  background: #3474eb;
+  color: white;
+}
+
+.tabs__content {
+  display: inline-block;
+  text-align: center;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 10%;
+  border: 1px solid black;
+  border-width: 0;
+  box-sizing: border-box;
+  color: rgb(76, 116, 172);
+  border-radius: 5px 5px 0 0;
+}
