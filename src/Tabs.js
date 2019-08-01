@@ -1,17 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
-
 import classnames from 'classnames';
 import './tabs.css';
 
 const Tabs = (props) => {
   const {
+    tabId,
     tabs,
-    match,
-    selectedTab,
-    handleSelected,
   } = props;
 
   return (
@@ -19,19 +15,18 @@ const Tabs = (props) => {
       <h1>{tabs.length} tabs</h1>
       <ul className="tabs">
         {
-          tabs.map((tab, index) => (
+          tabs.map(tab => (
             <li
               id={tab.id}
-              key={Math.random()}
+              key={tab.id}
               className={classnames({
                 'tabs__item': true,
-                'tabs__item--active': selectedTab === index,
-                'active': selectedTab === index,
+                'tabs__item--active': tab.id === tabId,
+                'active': tab.id === tabId,
                 })
               }
             >
-              <Link to={`${match.url}/${tab.id}`}
-                 onClick={() => handleSelected(index)}>
+              <Link to={`/tabs/${tab.id}`}>
                   {tab.title}
               </Link>
             </li>
@@ -39,7 +34,7 @@ const Tabs = (props) => {
         }
       </ul>
       <div className="tabs__content">
-        {tabs[selectedTab].content}
+        {tabId ? tabs.find(tab => tab.id === tabId).content : <h6>Make your choice!</h6>}
       </div>
     </div>
   );
@@ -47,8 +42,7 @@ const Tabs = (props) => {
 
 Tabs.propTypes = {
   tabs:  PropTypes.arrayOf(PropTypes.object).isRequired,
-  selectedTab: PropTypes.number.isRequired,
-  handleSelected: PropTypes.func.isRequired,
+  tabId: PropTypes.string,
 };
 
 export default Tabs;

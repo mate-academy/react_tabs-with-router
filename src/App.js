@@ -9,16 +9,10 @@ import { Route, NavLink } from 'react-router-dom';
 class App extends React.Component {
   state = {
     tabs: tabsContent,
-    selectedTab: 0,
-  };
-
-  handleSelected = (index) => {
-    this.setState({ selectedTab: index });
   };
 
   render() {
-    const { tabs, selectedTab } = this.state;
-
+    const { tabs } = this.state;
     return (
       <>
         <nav>
@@ -29,12 +23,10 @@ class App extends React.Component {
         </nav>
 
         <Route path="/home" component={Home} />
-        <Route path="/tabs/" render = {({ match }) =>
+        <Route path="/tabs/:tabId?" render = {({ match }) =>
           <Tabs
             tabs={tabs}
-            match={match}
-            selectedTab={selectedTab}
-            handleSelected={this.handleSelected}
+            tabId={match.params.tabId}
           /> }
         />
       </>
