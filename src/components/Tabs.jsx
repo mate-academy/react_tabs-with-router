@@ -1,43 +1,46 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Tabs = ({ tabs, activeTabId, handleTabSelected }) => (
-  <BrowserRouter>
-    <h1>Tabs</h1>
-    <div className="Tabs">
-      {tabs.map((tab, index) => (
-        <Link
-          to={`/tabs/${tab.id}`}
-          key={tab.id}
-          type="button"
-          className={classnames({
-            Tabs__Tab: true,
-            'Tabs__Tab--active': index === activeTabId,
-          })}
-          onClick={() => handleTabSelected(index)}
-        >
-          {tab.title}
-        </Link>
-      ))}
+const Tabs = ({ tabs, activeTabId }) => (
+  <div className="Tabs">
+    {tabs.map(tab => (
+      <Link
+        to={`/tabs/${tab.id}`}
+        key={tab.id}
+        type="button"
+        className={classnames({
+          Tabs__Tab: true,
+          'Tabs__Tab--active': tab.id === activeTabId,
+        })}
 
-      <p>{tabs[activeTabId].content}</p>
-    </div>
-  </BrowserRouter>
+      >
+        {tab.title}
+
+      </Link>
+    ))}
+
+    <p>
+      {activeTabId
+        ? tabs.find(tab => tab.id === activeTabId).content
+        : ''}
+    </p>
+  </div>
+
 );
 
 Tabs.propTypes = {
   tabs: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
     title: PropTypes.string,
     content: PropTypes.string,
   })).isRequired,
-  activeTabId: PropTypes.number.isRequired,
-  handleTabSelected: PropTypes.func,
+  activeTabId: PropTypes.string,
 };
 
 Tabs.defaultProps = {
-  handleTabSelected: () => {},
+  activeTabId: '',
 };
 
 export default Tabs;
