@@ -1,25 +1,31 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import './App.css';
+import Tabs from './components/Tabs';
 
-class App extends React.Component {
-  state = {
-    tabs: [
-      { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-      { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-      { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-    ],
-  };
+function App() {
+  return (
+    <div className="App">
+      {/* eslint-disable-next-line */}
+      <Router>
+        <div>
+          <nav>
+            <ul className="nav nav-tabs">
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/">Home</NavLink>
+              </li>
+              <li>
+                <NavLink className="nav-link" to="/tabs">Tabs</NavLink>
+              </li>
+            </ul>
+          </nav>
 
-  render() {
-    const { tabs } = this.state;
-
-    return (
-      <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
-      </div>
-    );
-  }
+          <Route exact path="/" render={() => (<h2>Home</h2>)} />
+          <Route exact path="/tabs" component={Tabs} />
+        </div>
+      </Router>
+    </div>
+  );
 }
 
 export default App;
