@@ -1,25 +1,49 @@
 import React from 'react';
 import './App.css';
+import { Route, Switch, NavLink } from 'react-router-dom';
 
-class App extends React.Component {
-  state = {
-    tabs: [
-      { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-      { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-      { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-    ],
-  };
+import TabsPage from './components/TabsPage';
+import Home from './components/Home';
 
-  render() {
-    const { tabs } = this.state;
+const App = () => (
+  <div className="App">
+    <nav>
+      <ul className="navigation">
+        <li>
+          <NavLink
+            to="/"
+            exact
+            className="navigation__link"
+          >
+            Home
+          </NavLink>
+        </li>
 
-    return (
-      <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
-      </div>
-    );
-  }
-}
+        <li>
+          <NavLink
+            to="/tabs"
+            className="navigation__link"
+          >
+            Tabs
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
+
+    <Switch>
+      <Route
+        path="/"
+        exact
+        component={Home}
+      />
+
+      <Route
+        path="/tabs/:tabId?"
+        exact
+        component={TabsPage}
+      />
+    </Switch>
+  </div>
+);
 
 export default App;
