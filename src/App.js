@@ -19,7 +19,7 @@ class App extends React.Component {
               Home
             </NavLink>
             <NavLink
-              to="/Tabs"
+              to="tabs"
               className="main-link"
               activeClassName="main-link__active"
             >
@@ -28,7 +28,7 @@ class App extends React.Component {
           </div>
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/Tabs" component={Tabs} />
+            <Route path="/tabs/:tabId?" component={Tabs} />
           </Switch>
         </div>
     );
