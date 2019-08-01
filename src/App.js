@@ -1,3 +1,6 @@
+/* eslint-disable react/jsx-max-props-per-line */
+/* eslint-disable-next-line react/jsx-first-prop-new-line */
+/* eslint-disable react/jsx-first-prop-new-line */
 import React, { Component } from 'react';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import Home from './Home';
@@ -10,21 +13,16 @@ class App extends Component {
       { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
       { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
     ],
-    id: 0,
   };
 
-  onTabSelected = id => this.setState({ id });
-
   render() {
-    const { tabs, id } = this.state;
+    const { tabs } = this.state;
 
     return (
       <div className="App">
         <ul className="nav-links">
           <li>
-            <NavLink to="/" exact>
-              Home
-            </NavLink>
+            <NavLink to="/" exact>Home</NavLink>
           </li>
           <li>
             <NavLink to="/tabs">Tabs</NavLink>
@@ -32,16 +30,12 @@ class App extends Component {
         </ul>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route
-            path="/tabs/:id?"
-            render={({ match }) => (
-              <Tabs
-                onTabSelected={this.onTabSelected}
-                tabs={tabs}
-                id={id}
-                match={match}
-              />
-            )}
+          <Route path="/tabs/:id?" render={props => (
+            <Tabs
+              tabs={tabs}
+              id={props.match.params.id}
+            />
+          )}
           />
         </Switch>
       </div>
