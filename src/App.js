@@ -3,8 +3,9 @@
 /* eslint-disable react/jsx-first-prop-new-line */
 import React, { Component } from 'react';
 import { NavLink, Switch, Route } from 'react-router-dom';
-import Home from './Home';
-import Tabs from './Tabs';
+import Home from './components/Home';
+import Tabs from './components/Tabs';
+import Footer from './components/Footer';
 
 class App extends Component {
   state = {
@@ -44,6 +45,8 @@ class App extends Component {
             )}
           />
         </Switch>
+
+        <Footer />
       </>
     );
   }
