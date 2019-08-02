@@ -1,8 +1,9 @@
 import React from 'react';
 import {
-  BrowserRouter,
+  HashRouter,
   Route,
   NavLink,
+  Switch,
 } from 'react-router-dom';
 
 import './App.css';
@@ -10,7 +11,7 @@ import TabsPage from './components/TabsPage';
 import Home from './components/Home';
 
 const App = () => (
-  <BrowserRouter>
+  <HashRouter>
     <div className="App">
 
       <nav>
@@ -20,19 +21,23 @@ const App = () => (
         </ul>
       </nav>
 
-      <Route
-        path="/"
-        exact
-        component={Home}
-      />
+      <Switch>
 
-      <Route
-        path="/tabs/:tabId?"
-        component={TabsPage}
-      />
+        <Route
+          path="/"
+          exact
+          component={Home}
+        />
+
+        <Route
+          path="/tabs/:tabId?"
+          component={TabsPage}
+        />
+
+      </Switch>
 
     </div>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default App;
