@@ -1,14 +1,26 @@
+.tabs {
+  margin-left: 10%;
+  padding: auto;
+  list-style: none;
+  display: flex;
+}
+
+.button {
+  display: block;
+  width: 100px;
+  margin-right: 15px;
+}
 
 .tabs__button {
   border-radius: 5px;
   border: 1px solid #124d77;
-  display: inline-block;
+  margin-right: 10%;
+  display: flex;
   cursor: pointer;
   color: rgb(235, 34, 34);
   font-family: Arial;
   font-size: 13px;
   padding: 6px 24px;
-  margin-left: 10%;
   background-color: yellow;
 }
 

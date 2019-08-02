@@ -3,40 +3,29 @@ import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Tabs = ({
-  tabs, activeTab, selectedTab, match,
-}) => {
-  const url = match.params.id;
-
-  return (
-    <>
-      <div className="tabs">
-        {
-          tabs.map((tab, index) => (
-            <button
-              type="button"
-              className="tabs__button"
-            >
-              <Link
-                onClick={() => selectedTab(index, url)}
-                to={`/tabs/${tab.id}`}
-              >
-                {tab.title}
-              </Link>
-            </button>
-          ))
-        }
-      </div>
-      <div className="tabs__content">
-        {url === tabs[activeTab].id ? `${tabs[activeTab].content}` : ''}
-      </div>
-    </>
-  );
-};
+  tabs, activeTab,
+}) => (
+  <>
+    <div className="tabs">
+      {
+        tabs.map(tab => (
+          <div className="button">
+            <Link className="tabs__button" to={`/tabs/${tab.id}`}>
+              {tab.title}
+            </Link>
+          </div>
+        ))
+      }
+    </div>
+    <div className="tabs__content">
+      {activeTab ? tabs.find(tab => tab.id === activeTab)
+        .content : <h6>You can choose any tab!</h6>}
+    </div>
+  </>
+);
 
 Tabs.propTypes = {
   tabs: propTypes.arrayOf.isRequired,
-  match: propTypes.string.isRequired,
-  selectedTab: propTypes.func.isRequired,
   activeTab: propTypes.number.isRequired,
 };
 
