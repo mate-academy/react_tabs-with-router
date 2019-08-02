@@ -1,1 +1,87 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100i,400,600,600i,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 10px;
+  font-family: Montserrat;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  background-color: #1F2124;
+  color: #9AB76C;
+  user-select: none;
+}
+
+.tabButtons {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  justify-content: center;
+}
+
+.Button {
+  background-color: #40433B;
+  font-size: 25px;
+  width: 300px;
+  height: 50px;
+  border: 0;
+  outline: none;
+  border-radius: 2px;
+  transition: 0.3s;
+  color: black;
+  text-decoration: none;
+}
+
+.Button:hover {
+  background-color: #508769;
+}
+
+.Button:focus {
+  background-color: #63C377;
+}
+
+.Tab {
+  border-bottom: 1px solid #778660;
+  font-size: 20px;
+}
+
+.navigator {
+  display: grid;
+  grid-template-columns: 200px 200px;
+  justify-content: flex-start;
+  list-style: none;
+  margin-left: 180px;
+}
+
+.navigator-link {
+  background-color: #40433B;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  color: #1d1d1d;
+  outline: none;
+  border-radius: 2px;
+}
+
+.active-nav {
+  background-color: #63C377;
+}
+
+.home-page-content {
+  width: 100%;
+  height: 500px;
+  background-image: url(https://images.pexels.com/photos/1252869/pexels-photo-1252869.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 0 10px #7E8280;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+.home-page-content:hover {
+  box-shadow: 0 0 15px #949B98;
+
+}
+
 

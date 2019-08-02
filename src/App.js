@@ -1,23 +1,64 @@
 import React from 'react';
 import './App.css';
+import { Route, NavLink } from 'react-router-dom';
+import API_DATA from './api/API_DATA';
+import Tabs from './components/Tabs';
 
 class App extends React.Component {
   state = {
-    tabs: [
-      { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-      { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-      { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-    ],
+    tabs: API_DATA,
   };
 
   render() {
     const { tabs } = this.state;
 
     return (
-      <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
-      </div>
+        <div className="App">
+          <nav>
+            <ul className="navigator">
+              <li className="navigator-l">
+                <NavLink
+                  activeClassName="active-nav"
+                  className="navigator-link"
+                  to="/"
+                  exact
+                >
+                  Home Page
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  activeClassName="active-nav"
+                  className="navigator-link"
+                  to="/tabs"
+
+                >
+                  Tabs
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <div className="home-page-content">
+              </div>
+            )}
+          />
+          <Route
+            path="/tabs/:id?"
+            render={({ match }) => (
+              <div>
+                <Tabs
+                  tabs={tabs}
+                  tabId={match.params.id}
+                />
+              </div>
+            )}
+          />
+        </div>
     );
   }
 }
