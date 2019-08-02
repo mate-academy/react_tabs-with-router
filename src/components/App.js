@@ -17,7 +17,7 @@ const App = () => (
         </NavLink>
 
         <NavLink
-          isActive={() => window.location.href.includes('/tabs')}
+          isActive={() => window.location.href.includes('/tabs/')}
           activeClassName="nav-link--selected"
           to="/tabs/title-1"
         >
