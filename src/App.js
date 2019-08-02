@@ -43,7 +43,9 @@ class App extends React.Component {
             exact
             path="/"
             render={() => (
-              <div className="home-page-content" />
+              <div className="home-page-content">
+                Home Page
+              </div>
             )}
           />
           <Route
