@@ -3,7 +3,6 @@ import {
   BrowserRouter,
   Route,
   NavLink,
-  Switch,
 } from 'react-router-dom';
 
 import './App.css';
@@ -21,20 +20,16 @@ const App = () => (
         </ul>
       </nav>
 
-      <Switch>
+      <Route
+        path="/"
+        exact
+        component={Home}
+      />
 
-        <Route
-          path="/"
-          exact
-          component={Home}
-        />
-
-        <Route
-          path="/tabs/:tabId?"
-          component={TabsPage}
-        />
-
-      </Switch>
+      <Route
+        path="/tabs/:tabId?"
+        component={TabsPage}
+      />
 
     </div>
   </BrowserRouter>
