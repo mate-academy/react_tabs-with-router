@@ -27,6 +27,7 @@ class App extends React.Component {
           <ul className='menu'>
             <li className='menu__title'>
               <NavLink
+                activeClassName='menu__title-link-active'
                 className='menu__title-link'
                 exact to='/'
               >Home
@@ -34,6 +35,7 @@ class App extends React.Component {
             </li>
             <li className='menu__title'>
               <NavLink
+                activeClassName='menu__title-link-active'
                 className='menu__title-link'
                 to="/tabs"
               >Tabs

@@ -17,10 +17,8 @@ const Tabs = (props) => {
             }
             >
               <NavLink
-                className={`tab__title-link ${tab.id === id
-                  ? 'tab__title-link-active '
-                  : ''}`
-                }
+                activeClassName='tab__title-link-active'
+                className='tab__title-link'
                 to={`/tabs/${tab.id}`}
 
               >
