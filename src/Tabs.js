@@ -9,10 +9,11 @@ const Tabs = ({ tabs, tabId }) => (
   <div
     className="container"
   >
-    <ul>
+    <ul className="container__list">
       {tabs.map(tab => (
         <li
           key={tab.id}
+          className="container__li_active"
         >
           <NavLink to={`/tabs/${tab.id}`}>{tab.title}</NavLink>
         </li>

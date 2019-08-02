@@ -1,26 +1,34 @@
 .active {
-  position: relative;
-  border-width: 1px;
-  border-bottom: 1px solid #fff;
-  z-index: 1;
-  color: #39393a;
-}
-
-.tabs__page {
-  text-decoration: none;
+  color: #4e4eeb;
+  display: inline-block;
+  border: 1px solid #000;
+  width: 70px !important;
+  height: 29px;
+  border-bottom: 1px solid white;
 }
 
 .tabs__home {
-  display: inline-block;
-  width: 50px;
-  height: 30px;
-  line-height: 30px;
-  margin: 0 4px;
-  border: 0 solid #000;
+  text-decoration: none;
+  width: 20px;
   text-align: center;
-  box-sizing: border-box;
-  color: #5e80b0;
-  border-radius: 5px 5px 0 0;
+}
+
+.container__list {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+
+}
+
+.container__li_active {
+  text-decoration: none;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.tabs__position {
+  margin-right: 60px;
 }
 
 .App {
@@ -40,4 +48,5 @@
 
 .App {
   border-bottom: 1px solid black;
+  height: 30px;
 }

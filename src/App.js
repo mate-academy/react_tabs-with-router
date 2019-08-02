@@ -19,13 +19,13 @@ const App = () => (
         <NavLink
           to="/"
           exact
-          className="tabs__home"
+          className="tabs__home tabs__position"
         >
           Home
         </NavLink>
         <NavLink
           to="/tabs"
-          className="tabs__page"
+          className="tabs__home"
         >
           tabsPage
         </NavLink>
