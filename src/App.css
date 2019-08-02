@@ -1,1 +1,49 @@
+body {
+  margin: 0;
+}
 
+ul {
+  background-color: aquamarine;
+  margin: 0;
+  padding-left: 0;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  height: 40px;
+}
+
+li {
+  margin: auto 12px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link:hover {
+  display: block;
+  color: blue;
+}
+
+.active-link {
+  color: green;
+  text-decoration: none;
+}
+
+.tab {
+  text-decoration: none;
+  margin: 0 5px;
+  display: inline-block;
+  box-sizing: border-box;
+  height: 20px;
+  width: 50px;
+  background-color: aquamarine;
+  text-align: center;
+}
+
+.active-tab {
+  text-decoration: underline;
+  background-color: white;
+  color: green;
+}
