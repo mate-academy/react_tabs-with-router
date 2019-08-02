@@ -24,9 +24,21 @@ class App extends React.Component {
     return (
       <div>
         <nav>
-          <ul>
-            <li className='menu__item'><NavLink exact to='/'>Home</NavLink></li>
-            <li className='menu__item'><NavLink to="/tabs">Tabs</NavLink></li>
+          <ul className='menu'>
+            <li className='menu__title'>
+              <NavLink
+                className='menu__title-link'
+                exact to='/'
+              >Home
+              </NavLink>
+            </li>
+            <li className='menu__title'>
+              <NavLink
+                className='menu__title-link'
+                to="/tabs"
+              >Tabs
+              </NavLink>
+            </li>
           </ul>
         </nav>
 

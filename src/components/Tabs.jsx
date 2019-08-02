@@ -7,7 +7,7 @@ const Tabs = (props) => {
 
   return (
     <div>
-      <h2>Tabs page</h2>
+      <h3>Tabs page</h3>
       <ul className='tabs'>
         {
           tabs.map(tab => (

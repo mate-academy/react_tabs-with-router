@@ -2,16 +2,27 @@
   font-family: Roboto, sans-serif;
 }
 
-.menu__item {
+.menu {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.menu__title {
   display: inline-block;
   width: 50px;
   height: 30px;
   line-height: 30px;
-  text-align: center;
-  box-sizing: border-box;
+  margin: 0 4px;
+}
+
+.menu__title-link {
+  text-decoration: none;
+  color: #5e80b0;
 }
 
 .tabs {
+  margin: 0;
+  padding: 0;
   font-weight: 700;
   font-size: 14px;
 }
@@ -44,7 +55,7 @@
 .tab__section {
   border-top: 1px solid black;
   position: relative;
-  top: -16px;
+  top: -2px;
   padding: 10px;
 }
 
