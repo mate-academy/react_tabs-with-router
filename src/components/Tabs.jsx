@@ -1,8 +1,8 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Tabs = (props) => {
-  const {tabs, id} = props;
+  const { tabs, id } = props;
 
 
   return (
@@ -11,14 +11,14 @@ const Tabs = (props) => {
       <ul className='tabs'>
         {
           tabs.map(tab => (
-            <li className={`tab__title ${tab.id === id 
-              ? 'tab__title-active' 
+            <li className={`tab__title ${tab.id === id
+              ? 'tab__title-active'
               : ''}`
-              }
+            }
             >
-              <NavLink 
-                className={`tab__title-link ${tab.id === id 
-                  ? 'tab__title-link-active ' 
+              <NavLink
+                className={`tab__title-link ${tab.id === id
+                  ? 'tab__title-link-active '
                   : ''}`
                 }
                 to={`/tabs/${tab.id}`}
@@ -34,8 +34,8 @@ const Tabs = (props) => {
       <section className='tab__section'>
         {
           tabs.find(tab => tab.id === id)
-          ? tabs.find(tab => tab.id === id).content 
-          : <div>Choose something</div>
+            ? tabs.find(tab => tab.id === id).content
+            : <div>Choose something</div>
         }
       </section>
     </div>

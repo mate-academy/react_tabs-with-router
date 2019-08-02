@@ -19,9 +19,9 @@ class App extends React.Component {
   };
 
   render() {
-    const {tabs, id} = this.state;
+    const { tabs, id } = this.state;
 
-    return(
+    return (
       <div>
         <nav>
           <ul>
@@ -29,15 +29,15 @@ class App extends React.Component {
             <li className='menu__item'><NavLink to="/tabs">Tabs</NavLink></li>
           </ul>
         </nav>
-    
+
         <Switch>
           <Route path='/' exact component={Home} />
-          <Route path='/tabs/:id?' render = {({ match }) =>
+          <Route path='/tabs/:id?' render={({ match }) =>
             <Tabs
               tabs={tabs}
               id={match.params.id}
             />
-        } />
+          } />
         </Switch>
       </div>
     )
