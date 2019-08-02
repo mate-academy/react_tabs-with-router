@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Tab = ({ currentContent }) => (
-  <div>{currentContent.content}</div>
+const Tab = ({ currentTab }) => (
+  <section>
+    <div>{currentTab.content}</div>
+  </section>
 );
 
 Tab.propTypes = {
-  currentContent: PropTypes.string.isRequired,
+  currentTab: PropTypes.string.isRequired,
 };
 
 export default Tab;

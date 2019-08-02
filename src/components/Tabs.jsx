@@ -1,44 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, Route, BrowserRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Tab from './Tab';
 
-const Tabs = ({ tabs, hendleClickShowContent, currentContent }) => (
-  <section>
-    <BrowserRouter>
-      <div className="tabButtons">
-        {tabs.map(tab => (
-          <div key={tab.id}>
-            <Link
-              exact
-              to={`/tabs/tab-${tab.id}`}
-              className="Button"
-              onClick={() => hendleClickShowContent(tab.id)}
-            >
-              {tab.title}
-            </Link>
-          </div>
-        ))}
-      </div>
-      <Route
-        exact
-        path={`/tabs/tab-${currentContent.id}`}
-        render={() => (
-          <Tab currentContent={currentContent} />
-        )}
-      />
-    </BrowserRouter>
+const Tabs = ({ tabs, tabId }) => {
+  console.log(tabId)
 
-  </section>
-);
+  return (
+    <section>
+        <div className="tabButtons">
+          {tabs.map(tab => (
+            <div key={tab.id}>
+              <NavLink
+                to={`/tabs/${tab.id}`}
+                activeClassName="active-nav"
+                className="Button"
+              >
+                {tab.title}
+              </NavLink>
+            </div>
+          ))}
+        </div>
+        <Tab currentTab={tabId ? tabs.find(tab => tab.id === tabId) : ''} />
+    </section>
+  );
+}
 
 Tabs.propTypes = {
   tabs: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
   }).isRequired,
-  hendleClickShowContent: PropTypes.func.isRequired,
-  currentContent: PropTypes.string.isRequired,
 };
 
 export default Tabs;

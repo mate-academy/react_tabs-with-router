@@ -1,6 +1,7 @@
 
 const API_DATA = [
   {
+    id: '1',
     title: 'Redux',
     content: `Abundantly were tree to female image land let.
       Night whose. Herb in yielding his fowl creature two unto.
@@ -15,6 +16,7 @@ const API_DATA = [
       Our image green creepeth it set.`,
   },
   {
+    id: '2',
     title: 'JavaScript',
     content: `All was, form over multiply our day moved
       fourth two winged wherein.
@@ -31,6 +33,7 @@ const API_DATA = [
       Let, midst bearing which signs fifth.`,
   },
   {
+    id: '3',
     title: 'React',
     content: `Form was set years also. Sixth dry hath appear.
       Deep abundantly. Meat were she'd meat spirit there.
