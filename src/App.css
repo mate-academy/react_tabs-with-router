@@ -1,1 +1,56 @@
+.App {
+  font-family: Roboto, sans-serif;
+}
 
+.menu__item {
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.tabs {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.tab__title {
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 4px;
+  border: 1px solid black;
+  border-width: 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.tab__title-link {
+  text-decoration: none;
+  color: #5e80b0;
+}
+
+.tab__title-link-active {
+  color: #39393a;
+}
+
+.tab__title:hover {
+  border-width: 1px;
+}
+
+.tab__section {
+  border-top: 1px solid black;
+  position: relative;
+  top: -16px;
+  padding: 10px;
+}
+
+.tab__title-active {
+  position: relative;
+  border-width: 1px;
+  border-bottom: 1px solid white;
+  z-index: 1;
+}

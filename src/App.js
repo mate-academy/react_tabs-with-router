@@ -1,5 +1,13 @@
 import React from 'react';
-import './App.css';
+import Home from './components/Home'
+import Tabs from './components/Tabs'
+
+import {
+  Route,
+  Switch,
+  Link,
+  NavLink
+} from 'react-router-dom'
 
 class App extends React.Component {
   state = {
@@ -11,15 +19,29 @@ class App extends React.Component {
   };
 
   render() {
-    const { tabs } = this.state;
+    const {tabs, id} = this.state;
 
-    return (
-      <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
+    return(
+      <div>
+        <nav>
+          <ul>
+            <li className='menu__item'><NavLink exact to='/'>Home</NavLink></li>
+            <li className='menu__item'><NavLink to="/tabs">Tabs</NavLink></li>
+          </ul>
+        </nav>
+    
+        <Switch>
+          <Route path='/' exact component={Home} />
+          <Route path='/tabs/:id?' render = {({ match }) =>
+            <Tabs
+              tabs={tabs}
+              id={match.params.id}
+            />
+        } />
+        </Switch>
       </div>
-    );
+    )
   }
-}
+};
 
-export default App;
+export default App
