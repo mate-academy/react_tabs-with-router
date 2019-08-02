@@ -1,1 +1,38 @@
+.App {
+  font-family: sans-serif;
+}
 
+.nav__active-link {
+  border: 1px dashed red;
+}
+
+.tab__link {
+  box-sizing: border-box;
+  position: relative;
+  padding: 3px 5px 0;
+
+  border: 1px solid #777;
+  border-radius: 8px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+
+  background-color: #999;
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+}
+
+.tab__link.active {
+  background-color: #fff;
+
+  border-bottom: 2px solid white;
+  z-index: 1;
+}
+
+.tab__content-wraper {
+  position: relative;
+  box-sizing: border-box;
+  padding: 10px;
+  top: -1px;
+  border: 1px solid #777;
+}
