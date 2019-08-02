@@ -3,8 +3,6 @@ import './App.css';
 
 const App = () => (
   <div className="App">
-    {/* eslint-disable-next-line */}
-    <h1>{tabs.length} tabs</h1>
     <HomePage />
     <TabsPage />
   </div>
