@@ -2,22 +2,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Link,
+  NavLink,
 } from 'react-router-dom';
 
 const Tabs = ({ tabs, tabId }) => (
-  <div>
+  <div
+    className="container"
+  >
     <ul>
       {tabs.map(tab => (
         <li
           key={tab.id}
         >
-          <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+          <NavLink to={`/tabs/${tab.id}`}>{tab.title}</NavLink>
         </li>
       ))}
     </ul>
     <p>
-      {tabId ? tabs.find(tab => tab.id === tabId).content : ''}
+      {tabId
+        ? tabs.find(tab => tab.id === tabId).content : ''}
     </p>
   </div>
 );
