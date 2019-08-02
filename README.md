@@ -15,13 +15,13 @@ Implement `Tabs` component. `current` prop sets the active tab by its `id`.
   ```jsx harmony
   <Tabs
     tabs={tabs}
-    current="tab-2"
+    currentTabId="tab-2"
   />
   ```
 1. Add 2 pages `Home` and `Tabs` 
-    - `Home` page is shown on `localhost:3000` and contains a header `Home` 
-    - `Tabs` page is shown on `localhost:3000/tabs` and contains a header `Tabs` and a `Tabs` component
-2. Add navigation so you can go to `Home` or `Tabs` by clicking on a link
+    - `HomePage` is shown on `localhost:3000` and contains a header `Home` 
+    - `TabsPage` is shown on `localhost:3000/tabs` and contains a header `Tabs` and a `Tabs` component
+2. Add navigation so you can go to `HomePage` or `TabsPage` by clicking on a link
     - The navigation should be visible from all the pages.
     - The active link should be highlighted.
 3. When you select a tab the URL should be changed to `/tabs/tab-1`
