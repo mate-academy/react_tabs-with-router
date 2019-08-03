@@ -1,1 +1,66 @@
+.App {
+  width: 60%;
+  margin: 20px auto;
+  font-size: 18px;
+}
 
+.main-title {
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 30px;
+  background-color: cadetblue;
+  list-style: none;
+}
+
+.navlink {
+  padding: 10px 30px;
+}
+
+.navbar > li > a {
+  color: black;
+  text-decoration: none;
+}
+
+.nav-pills > li > a:hover {
+  color: black;
+}
+
+.active-nav {
+  background-color: black;
+  border: 1px solid lightsteelblue;
+}
+
+.main-title {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.content-tab {
+  display: none;
+}
+
+.tab-form {
+  display: flex;
+}
+
+.dropdown > a {
+  padding: 20px;
+  text-decoration: none;
+}
+
+.active {
+  border: 1px solid rgb(219, 219, 219);
+}
+
+.active-article {
+  display: block;
+  padding: 25px 5px 40px;
+  border: 1px solid rgb(219, 219, 219);
+  border-top: none;
+}
