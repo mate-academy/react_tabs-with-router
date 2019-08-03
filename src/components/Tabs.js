@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 
 const state = {
   tabs: [
@@ -38,29 +38,27 @@ const state = {
 
 function Tabs({ match }) {
   return (
-    <Router>
-      <div>
-        <h2>Explanation from wiki</h2>
-        <ul className="nav nav-tabs">
-          {state.tabs.map(tab => (
-            <li className="nav-item" key={tab.id}>
-              <NavLink
-                className="nav-link"
-                to={`${match.url}/${tab.id}`}
-              >
-                {tab.title}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-        <Route path={`${match.path}/:id`} component={Tab} />
-        <Route
-          exact
-          path={match.path}
-          render={() => <h3>Please select a language.</h3>}
-        />
-      </div>
-    </Router>
+    <div>
+      <h2>Explanation from wiki</h2>
+      <ul className="nav nav-tabs">
+        {state.tabs.map(tab => (
+          <li className="nav-item" key={tab.id}>
+            <NavLink
+              className="nav-link"
+              to={`${match.url}/${tab.id}`}
+            >
+              {tab.title}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+      <Route path={`${match.path}/:id`} component={Tab} />
+      <Route
+        exact
+        path={match.path}
+        render={() => <h3>Please select a language.</h3>}
+      />
+    </div>
   );
 }
 
@@ -73,9 +71,13 @@ function Tab({ match }) {
 }
 
 Tabs.propTypes = {
-  match: PropTypes.arrayOf(PropTypes.object).isRequired,
+  match: PropTypes.shape({
+    path: PropTypes.string.isRequired,
+  }).isRequired,
 };
 Tab.propTypes = {
-  match: PropTypes.arrayOf(PropTypes.array).isRequired,
+  match: PropTypes.shape({
+    path: PropTypes.string.isRequired,
+  }).isRequired,
 };
 export default Tabs;

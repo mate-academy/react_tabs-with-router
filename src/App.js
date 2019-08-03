@@ -12,7 +12,7 @@ function App() {
           <nav>
             <ul className="nav nav-tabs">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/">Home</NavLink>
+                <NavLink exact className="nav-link" to="/">Home</NavLink>
               </li>
               <li>
                 <NavLink className="nav-link" to="/tabs">Tabs</NavLink>
@@ -20,8 +20,9 @@ function App() {
             </ul>
           </nav>
 
-          <Route exact path="/" render={() => (<h2>Home</h2>)} />
-          <Route exact path="/tabs" component={Tabs} />
+          <Route path="/" render={() => (<h2>Home</h2>)} />
+          <Route path="/tabs" component={Tabs} />
+
         </div>
       </Router>
     </div>
