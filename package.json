@@ -1,12 +1,13 @@
 {
-  "homepage": "https://irakalmykova.github.io/react_tabs-with-router",
-  "name": "react_tabs-with-router",
+  "homepage": "https://irakalmykova.github.io/tabs-with-router",
+  "name": "tabs-with-router",
   "version": "0.1.0",
   "private": true,
   "keywords": [],
   "author": "Mate Academy",
   "license": "GPL-3.0",
   "dependencies": {
+    "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

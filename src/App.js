@@ -3,8 +3,8 @@ import './App.css';
 import {
   Route,
   NavLink,
+  HashRouter,
   Switch,
-  BrowserRouter,
 } from 'react-router-dom';
 import Home from './Home';
 import Tabs from './Tabs';
@@ -23,7 +23,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <BrowserRouter>
+        <HashRouter>
           <nav className="nav">
             <ul className="nav__list">
               <li className="nav__item">
@@ -47,7 +47,7 @@ class App extends React.Component {
               )}
             />
           </Switch>
-        </BrowserRouter>
+        </HashRouter>
       </div>
     );
   }
