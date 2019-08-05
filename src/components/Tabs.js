@@ -21,13 +21,15 @@ const Tabs = ({ tabs, activeTabId }) => {
             className="tabs__list"
           >
             {tabs.map((tab, i) => (
-              <NavLink
-                key={tab.id}
-                to={`/tabs/${tab.id}`}
-                activeClassName="tab__title--active"
-              >
-                <li className="tab__title">{tab.title}</li>
-              </NavLink>
+              <li key={tab.id}>
+                <NavLink
+                  to={`/tabs/${tab.id}`}
+                  activeClassName="tab__title--active"
+                  className="tab__link"
+                >
+                  <div className="tab__title">{tab.title}</div>
+                </NavLink>
+              </li>
             ))}
           </ul>
         </nav>
