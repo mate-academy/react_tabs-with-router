@@ -7,7 +7,7 @@ const Tabs = ({ tabId, tabs }) => (
     <ul>
       {tabs.map(tab => (
         <li key={tab.id}>
-          <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+          <Link to={`/tabs-with-router/tabs/${tab.id}`}>{tab.title}</Link>
         </li>
       ))}
       <p>
