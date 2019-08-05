@@ -1,13 +1,8 @@
 import React from 'react';
 import './App.css';
-import {
-  Route,
-  NavLink,
-  HashRouter,
-  Switch,
-} from 'react-router-dom';
-import Home from './Home';
-import Tabs from './Tabs';
+import { HashRouter } from 'react-router-dom';
+import Nav from './components/Nav';
+import Main from './components/Main';
 
 class App extends React.Component {
   state = {
@@ -24,29 +19,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <HashRouter>
-          <nav className="nav">
-            <ul className="nav__list">
-              <li className="nav__item">
-                <NavLink to="/" exact>Home</NavLink>
-              </li>
-              <li className="nav__item">
-                <NavLink to="/tabs">Tabs</NavLink>
-              </li>
-            </ul>
-          </nav>
-
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route
-              path="/tabs/:tabId?"
-              render={({ match }) => (
-                <Tabs
-                  tabs={tabs}
-                  activeTabId={match.params.tabId}
-                />
-              )}
-            />
-          </Switch>
+          <Nav />
+          <Main tabs={tabs} />
         </HashRouter>
       </div>
     );
