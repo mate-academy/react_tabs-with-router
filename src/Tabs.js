@@ -3,9 +3,9 @@ import propTypes from 'prop-types';
 import './tabs.css';
 import { Link } from 'react-router-dom';
 
-const Tabs = ({
-  tabs, onTabSelected, indexItem, match,
-}) => {
+const Tabs = ({ tabs, match }) => {
+  const indexItem = match.params.id;
+
   const addClasess = indexTab => (
     (indexTab === indexItem)
       ? 'tabs__item tabs__item--active'
@@ -17,14 +17,11 @@ const Tabs = ({
       <h2>{`${tabs.length} tabs`}</h2>
       <ul className="tabs">
         {
-          tabs.map((tab, index) => (
-            <li
-              key={tab.id}
-            >
+          tabs.map(tab => (
+            <li key={tab.id}>
               <Link
-                to={`${match.path}/${tab.id}`}
-                className={addClasess(index)}
-                onClick={() => onTabSelected(index)}
+                to={`/tabs/${tab.id}`}
+                className={addClasess(tab.id)}
               >
                 {tab.title}
               </Link>
@@ -33,7 +30,10 @@ const Tabs = ({
         }
       </ul>
       <div className="tabs__content">
-        {tabs[indexItem].content}
+        {indexItem
+          ? tabs.find(tab => tab.id === indexItem).content
+          : <span>Need to choose the tab</span>
+        }
       </div>
     </>
   );
@@ -41,8 +41,6 @@ const Tabs = ({
 
 Tabs.propTypes = {
   tabs: propTypes.arrayOf.isRequired,
-  onTabSelected: propTypes.func.isRequired,
-  indexItem: propTypes.number.isRequired,
   match: propTypes.objectOf.isRequired,
 };
 

@@ -12,22 +12,17 @@ class App extends React.Component {
       { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
       { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
     ],
-    indexItem: 1,
-  };
-
-  onTabSelected = (id) => {
-    this.setState({ indexItem: id });
   };
 
   render() {
-    const { tabs, indexItem } = this.state;
+    const { tabs } = this.state;
 
     return (
       <div className="App">
         <nav>
           <ul>
             <li className="App__nav-link">
-              <NavLink to="/home">Home</NavLink>
+              <NavLink to="/" exact>Home</NavLink>
             </li>
             <li className="App__nav-link">
               <NavLink to="/tabs">Tabs</NavLink>
@@ -35,13 +30,11 @@ class App extends React.Component {
           </ul>
         </nav>
 
-        <Route path="/home" component={Home} />
+        <Route path="/" component={Home} />
         <Route
-          path="/tabs"
+          path="/tabs/:id?"
           render={({ match }) => (
             <Tabs
-              onTabSelected={this.onTabSelected}
-              indexItem={indexItem}
               tabs={tabs}
               match={match}
             />
