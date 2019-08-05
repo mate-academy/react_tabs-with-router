@@ -9,10 +9,10 @@ const App = () => (
     <div className="App">
       <nav className="main-menu">
         <NavLink to="/tabs-with-router" exact>HomePage</NavLink>
-        <NavLink to="/tabs">TabsPage</NavLink>
+        <NavLink to="/tabs-with-router/tabs">TabsPage</NavLink>
       </nav>
       <Route path="/tabs-with-router/" exact component={HomePage} />
-      <Route path="/tabs-with-router/:tabId?" component={TabsPage} />
+      <Route path="/tabs-with-router/tabs/:tabId?" component={TabsPage} />
     </div>
   </BrowserRouter>
 );
