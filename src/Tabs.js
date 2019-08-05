@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom';
 
 const Tabs = ({ tabs, match }) => {
   const indexItem = match.params.id;
+  const tabChoose = tabs.find(tabItem => tabItem.id === indexItem);
+  const tab = (indexItem && tabChoose)
+    ? tabChoose.content
+    : 'Need to choose the tab';
 
   const addClasess = indexTab => (
     (indexTab === indexItem)
@@ -17,23 +21,20 @@ const Tabs = ({ tabs, match }) => {
       <h2>{`${tabs.length} tabs`}</h2>
       <ul className="tabs">
         {
-          tabs.map(tab => (
-            <li key={tab.id}>
+          tabs.map(tabItem => (
+            <li key={tabItem.id}>
               <Link
-                to={`/tabs/${tab.id}`}
-                className={addClasess(tab.id)}
+                to={`/tabs/${tabItem.id}`}
+                className={addClasess(tabItem.id)}
               >
-                {tab.title}
+                {tabItem.title}
               </Link>
             </li>
           ))
         }
       </ul>
       <div className="tabs__content">
-        {indexItem
-          ? tabs.find(tab => tab.id === indexItem).content
-          : <span>Need to choose the tab</span>
-        }
+        <span>{tab}</span>
       </div>
     </>
   );
