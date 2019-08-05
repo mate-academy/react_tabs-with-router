@@ -1,1 +1,20 @@
+.active {
+  color: red;
+}
 
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+nav.main-menu a {
+  margin: 10px;
+}
+
+nav.main-menu {
+  text-align: center;
+  font-size: 20px;
+}
