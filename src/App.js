@@ -5,6 +5,7 @@ import TabsPage from './components/TabsPage';
 import HomePage from './components/HomePage';
 import Footer from './components/Footer';
 
+
 function App() {
   return (
     <HashRouter>
@@ -20,15 +21,14 @@ function App() {
           </NavLink>
           <NavLink
             className="tlink"
-            to="/TabsData"
+            to="/tabsdata"
             activeClassName="active"
-            exact
           >
             Tabs
           </NavLink>
         </nav>
         <Route exact path="/" component={HomePage} />
-        <Route path="/TabsData/:tabId?" component={TabsPage} />
+        <Route path="/tabsdata/:tabId?" component={TabsPage} />
         <Footer />
       </div>
     </HashRouter>

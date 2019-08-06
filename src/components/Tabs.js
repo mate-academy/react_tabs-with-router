@@ -11,7 +11,7 @@ function Tabs({ TabsData, tabId }) {
         {TabsData.map(tab => (
           <li key={tab.id}>
             <NavLink
-              to={`/TabsData/${tab.id}`}
+              to={`/tabsdata/${tab.id}`}
               activeClassName="active"
               exact
             >
