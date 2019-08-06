@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, BrowserRouter, Route } from 'react-router-dom';
+import { NavLink, HashRouter, Route } from 'react-router-dom';
 import './App.css';
 import TabsPage from './components/TabsPage';
 import HomePage from './components/HomePage';
@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="app">
         <nav className="nav-bar">
           <NavLink
@@ -31,7 +31,7 @@ function App() {
         <Route path="/TabsData/:tabId?" component={TabsPage} />
         <Footer />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
