@@ -24,7 +24,6 @@ const TabsPage = ({ tabs }) => (
     <Switch>
       <Route
         path="/tabs/:id"
-        exact
         render={({ match }) => <Tabs tabs={tabs} match={match} />}
       />
     </Switch>
