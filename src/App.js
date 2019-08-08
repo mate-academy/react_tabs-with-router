@@ -21,10 +21,10 @@ const App = () => (
       <nav>
         <ul>
           <li>
-            <NavLink to="/" exact>Home</NavLink>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/tabs" exact>Tabs</NavLink>
+            <NavLink to="/tabs">Tabs</NavLink>
           </li>
         </ul>
       </nav>
