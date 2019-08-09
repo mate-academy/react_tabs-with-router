@@ -1,1 +1,42 @@
+.nav-link {
+  font-size: 1.2em;
+}
 
+.navbar-light .navbar-nav .nav-link {
+  color: #51b5d0;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+  color: #656380;
+}
+
+h1 {
+  color: #656380;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #656380;
+}
+
+.nav-tabs .nav-link {
+  color: #51b5d0;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: transparent;
+  border-color: #656380 #656380 #e9ecef;
+  color: #656380;
+}
+
+.nav.nav-tabs .nav-item a.nav-link:hover {
+  border-color: grey;
+}
+
+.jumbotron {
+  background-image: url("/react_tabs-with-router/react-js-pict.png");
+  height: 80vh;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-color: #e9ecef;
+  padding-bottom: 30px;
+}
