@@ -33,7 +33,7 @@ h1 {
 }
 
 .jumbotron {
-  background-image: url("/react-js-pict.png");
+  background-image: url("/react_tabs-with-router/react-js-pict.png");
   height: 80vh;
   background-position: bottom center;
   background-repeat: no-repeat;

@@ -16,7 +16,7 @@ const App = () => (
       <Navbar bg="light" variant="light">
         <Navbar.Brand href="/">
           <img
-            src="/logo.png"
+            src="/react_tabs-with-router/logo.png"
             height="60"
             className="d-inline-block align-top"
             alt="React Logo"
