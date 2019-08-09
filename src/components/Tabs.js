@@ -1,9 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import '../App.css';
 
+Tabs.propTypes = {
+  TabsData: PropTypes.arrayOf(PropTypes.object).isRequired,
+  tabId: PropTypes.string.isRequired,
+};
+
 function Tabs({ TabsData, tabId }) {
-  const tabsText = 'Please choose the technology that you arre interested';
+  const tabsText = 'Please choose the technology that you are interested';
 
   return (
     <div>

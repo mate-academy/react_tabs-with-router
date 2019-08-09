@@ -5,7 +5,6 @@ import TabsPage from './components/TabsPage';
 import HomePage from './components/HomePage';
 import Footer from './components/Footer';
 
-
 function App() {
   return (
     <HashRouter>

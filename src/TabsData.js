@@ -1,5 +1,4 @@
 
-
 const TabsData = [
   {
     id: 'tab-1',
@@ -81,6 +80,5 @@ const TabsData = [
     the process easier, particularly as the lines of code add up.`,
   },
 ];
-
 
 export default TabsData;
