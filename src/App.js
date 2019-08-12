@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
 import {
-  Route, NavLink, HashRouter,
+  Route, NavLink, HashRouter, Switch,
 } from 'react-router-dom';
 import Tabs from './Tabs';
 import HomePage from './HomePage';
+import ErrorPage from './ErrorPage';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -30,16 +31,20 @@ const App = () => (
           tabsPage
         </NavLink>
       </nav>
-      <Route path="/" exact component={HomePage} />
-      <Route
-        path="/tabs/:tabId?"
-        render={({ match }) => (
-          <Tabs
-            tabs={tabs}
-            tabId={match.params.tabId}
-          />
-        )}
-      />
+      <Switch>
+        <Route path="*" component={ErrorPage} />
+        <Route path="/" exact component={HomePage} />
+        <Route
+          path="/tabs/:tabId?"
+          exact
+          render={({ match }) => (
+            <Tabs
+              tabs={tabs}
+              tabId={match.params.tabId}
+            />
+          )}
+        />
+      </Switch>
     </div>
   </HashRouter>
 );
