@@ -32,7 +32,6 @@ const App = () => (
         </NavLink>
       </nav>
       <Switch>
-        <Route path="*" component={ErrorPage} />
         <Route path="/" exact component={HomePage} />
         <Route
           path="/tabs/:tabId?"
@@ -44,6 +43,7 @@ const App = () => (
             />
           )}
         />
+        <Route path="*" component={ErrorPage} />
       </Switch>
     </div>
   </HashRouter>
