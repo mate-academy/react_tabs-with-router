@@ -1,1 +1,57 @@
+.active {
+  color: #4e4eeb;
+  display: inline-block;
+  border: 1px solid #000;
+  width: 70px !important;
+  height: 29px;
+  border-bottom: 1px solid white;
 
+}
+
+a {
+  text-decoration: none;
+}
+
+.tabs__home {
+  text-decoration: none;
+  width: 20px;
+  text-align: center;
+}
+
+.container__list {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+
+}
+
+.container__li_active {
+  text-decoration: none;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.tabs__position {
+  margin-right: 60px;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+}
+
+.home_page {
+  position: fixed;
+  top: 60px;
+}
+
+.container {
+  position: fixed;
+  top: 50px;
+}
+
+.App {
+  border-bottom: 1px solid black;
+  height: 30px;
+}
