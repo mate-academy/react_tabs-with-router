@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom'
 const Tabs = (props) => {
   const { tabs, id } = props;
 
-
   return (
     <div>
       <h3>Tabs page</h3>
@@ -13,14 +12,12 @@ const Tabs = (props) => {
           tabs.map(tab => (
             <li className={`tab__title ${tab.id === id
               ? 'tab__title-active'
-              : ''}`
-            }
+              : ''}`}
             >
               <NavLink
                 activeClassName='tab__title-link-active'
                 className='tab__title-link'
                 to={`/tabs/${tab.id}`}
-
               >
                 {tab.title}
               </NavLink>

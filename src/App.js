@@ -1,13 +1,11 @@
 import React from 'react';
-import Home from './components/Home'
-import Tabs from './components/Tabs'
-
 import {
   Route,
   Switch,
-  Link,
-  NavLink
-} from 'react-router-dom'
+  NavLink,
+} from 'react-router-dom';
+import Home from './components/Home';
+import Tabs from './components/Tabs';
 
 class App extends React.Component {
   state = {
@@ -19,43 +17,49 @@ class App extends React.Component {
   };
 
   render() {
-    const { tabs, id } = this.state;
+    const { tabs } = this.state;
 
     return (
       <div>
         <nav>
-          <ul className='menu'>
-            <li className='menu__title'>
+          <ul className="menu">
+            <li className="menu__title">
               <NavLink
-                activeClassName='menu__title-link-active'
-                className='menu__title-link'
-                exact to='/'
-              >Home
+                activeClassName="menu__title-link-active"
+                className="menu__title-link"
+                exact
+                to="/"
+              >
+                Home
               </NavLink>
             </li>
-            <li className='menu__title'>
+            <li className="menu__title">
               <NavLink
-                activeClassName='menu__title-link-active'
-                className='menu__title-link'
+                activeClassName="menu__title-link-active"
+                className="menu__title-link"
                 to="/tabs"
-              >Tabs
+              >
+                Tabs
               </NavLink>
             </li>
           </ul>
         </nav>
 
         <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/tabs/:id?' render={({ match }) =>
-            <Tabs
-              tabs={tabs}
-              id={match.params.id}
-            />
-          } />
+          <Route path="/" exact component={Home} />
+          <Route
+            path="/tabs/:id?"
+            render={({ match }) => (
+              <Tabs
+                tabs={tabs}
+                id={match.params.id}
+              />
+            )}
+          />
         </Switch>
       </div>
-    )
+    );
   }
-};
+}
 
-export default App
+export default App;
