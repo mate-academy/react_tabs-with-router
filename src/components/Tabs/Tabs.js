@@ -2,9 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Tabs = ({ tabs, currentId }) => {
-  const indexElement
-    = parseInt(currentId !== undefined ? currentId.replace(/tab-/, '') : 0, 10)
-    - 1;
+  const indexElement = parseInt(currentId !== undefined
+    ? currentId.replace(/tab-/, '')
+    : 0, 10) - 1;
 
   return (
     <>
