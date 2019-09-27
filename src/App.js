@@ -36,10 +36,6 @@ const TabsPage = ({ match }) => (
   <Tab tabs={tabs} currentTabId={match.params.id} />
 );
 
-const HomePage = () => (
-  <>
-    <p className="tab-content">Home page</p>
-  </>
-);
+const HomePage = () => <p className="tab-content">Home page</p>;
 
 export default App;
