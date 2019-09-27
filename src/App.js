@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, NavLink } from 'react-router-dom';
+import { HashRouter, Route, NavLink } from 'react-router-dom';
 import HomePage from './components/HomePage/HomePage';
 import TabsPage from './components/TabsPage/TabsPage';
 import './App.css';
@@ -12,7 +12,7 @@ const tabs = [
 
 const App = () => (
   <div className="App">
-    <BrowserRouter>
+    <HashRouter>
       <nav className="border-bottom">
         <NavLink className="link" to="/" exact>Home</NavLink>
         <NavLink className="link" to="/tabs">Tabs</NavLink>
@@ -24,7 +24,7 @@ const App = () => (
           <TabsPage match={match} tabs={tabs} />
         )}
       />
-    </BrowserRouter>
+    </HashRouter>
   </div>
 );
 
