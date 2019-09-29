@@ -62,3 +62,4 @@ Implement `Tabs` component. `current` prop sets the active tab by its `id`.
 You should be writing your code in `src/` directory.
 
 -[Demo Link](https://igaryok.github.io/react_tabs-with-router/)
+-[PR](https://github.com/mate-academy/react_tabs-with-router/pull/34)
