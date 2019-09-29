@@ -1,14 +1,32 @@
 import React from 'react';
+import {
+  BrowserRouter,
+  Route,
+  NavLink,
+} from 'react-router-dom';
 import './App.css';
 
 const App = () => (
   <div className="App">
-    <HomePage />
-    <TabsPage />
+    <h1>Browser Router</h1>
+    <BrowserRouter>
+      <nav className="nav">
+        <NavLink to="/" exact className="nav__link" activeClassName="is-active">
+          Home
+        </NavLink>
+        <NavLink to="/tabs" className="nav__link" activeClassName="is-active">
+          Tabs
+        </NavLink>
+      </nav>
+
+      <Route path="/" exact component={HomePage} />
+      <Route path="/tabs" component={TabsPage} />
+    </BrowserRouter>
+
   </div>
 );
 
-const HomePage = () => <h1>Home page</h1>;
+const HomePage = () => <h2>Home page</h2>;
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
