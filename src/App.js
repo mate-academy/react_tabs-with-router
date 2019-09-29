@@ -22,7 +22,7 @@ const App = () => (
   <div className="app">
     <HashRouter>
       <nav className="nav-underline">
-        <NavLink className="home-title link" to="/">
+        <NavLink exact className="home-title link" to="/">
           <h1>Home page</h1>
         </NavLink>
         <NavLink className="link" to="/tabs">
