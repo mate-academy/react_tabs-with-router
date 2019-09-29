@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter,
+  HashRouter,
   Route,
   Switch,
   NavLink,
@@ -10,7 +10,7 @@ import TabsPage from './components/TabsPage/TabsPage';
 import './App.css';
 
 const App = () => (
-  <BrowserRouter>
+  <HashRouter>
     <div className="App">
       <nav className="nav nav-pills justify-content-center">
         <NavLink className="nav-link" exact to="/">Home</NavLink>
@@ -21,7 +21,7 @@ const App = () => (
         <Route path="/tabs/:tabId?" component={TabsPage} />
       </Switch>
     </div>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default App;
