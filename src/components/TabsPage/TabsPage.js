@@ -20,7 +20,7 @@ const Tabs = ({ match, tabs }) => {
         ))}
       </ul>
       <p className="tab__text">
-        {activeContent ? activeContent.content : null}
+        {activeContent && activeContent.content}
       </p>
     </>
   );
