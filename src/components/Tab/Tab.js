@@ -1,28 +1,18 @@
 import React from 'react';
-import className from 'classnames';
+import { NavLink } from 'react-router-dom';
 
 import { TabTypes } from '../../constants/proptypes';
 import './Tab.scss';
 
-const Tab = ({
-  title, content, index, isActive, handleTabClick,
-}) => (
-  <div className="tab">
-    <button
-      className={className('tab__button', {
-        'tab__button--active': isActive,
-      })}
-      onClick={() => handleTabClick(index)}
-      type="button"
+const Tab = ({ title, index }) => (
+  <li className="nav-item">
+    <NavLink
+      to={`/tabs/${index}`}
+      className="nav-link"
     >
       {title}
-    </button>
-    {isActive && (
-      <p className="tab__text">
-        {content}
-      </p>
-    )}
-  </div>
+    </NavLink>
+  </li>
 );
 
 Tab.propTypes = TabTypes;

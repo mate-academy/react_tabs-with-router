@@ -1,8 +1,8 @@
 import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, NavLink } from 'react-router-dom';
 
 import './App.scss';
-import TabsList from './components/TabsList/TabsList';
+import TabsPage from './components/TabsPage/TabsPage';
 
 const App = () => (
   <div className="App">
@@ -22,22 +22,36 @@ const App = () => (
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <Link to="/">Home</Link>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/"
+                className="nav-link"
+              >
+                Home
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link to="/tabs">Tabs</Link>
+              <NavLink
+                to="/tabs"
+                className="nav-link"
+              >
+                Tabs
+              </NavLink>
             </li>
           </ul>
         </div>
       </nav>
       <Switch>
-        <Route path="/tabs">
-          <TabsPage />
-        </Route>
-        <Route path="/">
+        <Route path="/" exact>
           <HomePage />
         </Route>
+        <Route
+          path="/tabs/:id?"
+          render={routeProps => (
+            <TabsPage match={routeProps.match} tabs={tabs} />
+          )}
+        />
       </Switch>
     </div>
   </div>
@@ -50,6 +64,5 @@ const tabs = [
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
-const TabsPage = () => <TabsList tabs={tabs} />;
 
 export default App;
