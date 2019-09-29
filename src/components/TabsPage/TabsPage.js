@@ -5,9 +5,12 @@ import PropTypes from 'prop-types';
 import {
   Route,
   NavLink,
+  withRouter,
 } from 'react-router-dom';
 
 import Tabs from '../Tabs/Tabs';
+
+const TabsWithRouter = withRouter(Tabs);
 
 const TabsPage = ({ match, tabs }) => (
   <div className="tabs-page">
@@ -28,9 +31,9 @@ const TabsPage = ({ match, tabs }) => (
     </div>
 
     <Route
-      path={`${match.path}/:id`}
-      render={({ match }) => (
-        <Tabs match={match} tabs={tabs} />
+      path={`${match.path}/:id?`}
+      render={() => (
+        <TabsWithRouter tabs={tabs} />
       )}
     />
 
