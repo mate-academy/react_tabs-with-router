@@ -18,7 +18,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <NavLink
             exact
             to="/"
