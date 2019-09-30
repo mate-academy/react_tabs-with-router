@@ -12,7 +12,7 @@ import HomePage from './components/HomePage/HomePage';
 import TabsPage from './components/TabsPage/TabsPage';
 
 const App = () => (
-  <BrowserRouter basename="/tabs">
+  <BrowserRouter basename="/react_tabs-with-router">
     <div className="App">
       <nav>
         <ul className="main-nav">
