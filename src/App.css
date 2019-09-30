@@ -3,23 +3,23 @@ body {
   justify-content: center;
 }
 
-ul {
+.app__list {
   list-style: none;
   display: flex;
 }
 
-.App__item {
+.app__item {
   height: 50px;
   width: 120px;
   margin: 0 15px;
   border-radius: 10px;
 }
 
-.App__item:hover {
+.app__item:hover {
   box-shadow: 0 0 5px black;
 }
 
-.App__link {
+.app__link {
   display: block;
   line-height: 50px;
   text-decoration: none;
@@ -31,6 +31,6 @@ ul {
   color: white;
 }
 
-.App__link--active {
+.app__link--active {
   background-color: black;
 }

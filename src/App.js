@@ -10,26 +10,25 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App = () => {
-  return (
-    <div className="App">
+const App = () => (
+  <div className="app">
     <BrowserRouter>
       <nav>
-        <ul>
-          <li className="App__item">
+        <ul className="app__list">
+          <li className="app__item">
             <NavLink
               to="/home"
-              className="App__link"
-              activeClassName="App__link App__link--active"
+              className="app__link"
+              activeClassName="app__link app__link--active"
             >
               Home Page
             </NavLink>
           </li>
-          <li className="App__item">
+          <li className="app__item">
             <NavLink
               to="/tabs"
-              className="App__link"
-              activeClassName="App__link App__link--active"
+              className="app__link"
+              activeClassName="app__link app__link--active"
             >
               Tabs Page
             </NavLink>
@@ -37,10 +36,11 @@ const App = () => {
         </ul>
       </nav>
       <Route path="/home" exact component={HomePage} />
-      <Route path="/tabs/:id?" render={({ match }) => <TabsPage tabs={tabs} match={match.params.id} />}/>
+      <Route path="/tabs/:id?" render={({ match }) => (
+        <TabsPage tabs={tabs} match={match.params.id} />
+      )} />
     </BrowserRouter>
   </div>
-  )
-};
+);
 
 export default App;
