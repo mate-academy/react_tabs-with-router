@@ -1,1 +1,38 @@
 
+* {
+  box-sizing: border-box;
+}
+
+.button {
+  color: #000;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: rgb(246, 246, 246);
+  display: inline-block;
+}
+
+.main-menu {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.main-menu__li {
+  margin-right: 10px;
+}
+
+.main-menu__link {
+  background-color: #ddd;
+}
+
+.active {
+  background-color: #aaa;
+}
+
+.tabs {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  height: 100%;
+}
