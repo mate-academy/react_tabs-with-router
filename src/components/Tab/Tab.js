@@ -6,7 +6,7 @@ import { TabProps } from '../../constants/proptypes';
 import './Tab.css';
 
 const Tab = ({
-  id, title, isActive, onClick, match,
+  id, title, isActive, onClick,
 }) => {
   const tabClasses = classNames({
     'tabs-list__item': true,
