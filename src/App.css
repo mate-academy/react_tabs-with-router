@@ -1,1 +1,16 @@
+.active {
+  background: #fff;
+  border: 1px solid green;
+  border-bottom: none;
+}
 
+.link {
+  text-decoration: none;
+  color: #000;
+  margin-bottom: -1px;
+}
+
+.border-bottom {
+  display: flex;
+  border-bottom: 1px solid green;
+}
