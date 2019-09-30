@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TabsContent from '../TabsContent/TabsContent';
 
-const TabsPage = ({ match, tabs }) => (
+const TabsPage = ({ userId, tabs }) => (
   <>
     <h2>Tabs</h2>
     <div className="border-bottom">
@@ -11,8 +11,12 @@ const TabsPage = ({ match, tabs }) => (
         <NavLink className="link" to={`/tabs/${tab.id}`}>{tab.title}</NavLink>
       ))}
     </div>
-    {match.params.userId
-      ? (<TabsContent tabs={tabs} currentTabId={match.params.userId} />)
+    {userId
+      ? (
+        <TabsContent
+          currentTabContent={tabs.find(tab => tab.id === userId).content}
+        />
+      )
       : null}
   </>
 );
@@ -23,11 +27,7 @@ TabsPage.propTypes = {
       id: PropTypes.string,
     }).isRequired,
   ).isRequired,
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      userId: PropTypes.string,
-    }).isRequired,
-  }).isRequired,
+  userId: PropTypes.string.isRequired,
 };
 
 export default TabsPage;

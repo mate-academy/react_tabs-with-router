@@ -1,19 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TabsContent = ({ tabs, currentTabId }) => (
-  <>
-    <p>{tabs.find(tab => tab.id === currentTabId).content}</p>
-  </>
+const TabsContent = ({ currentTabContent }) => (
+  <p>{currentTabContent}</p>
 );
 
 TabsContent.propTypes = {
-  tabs: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-    }).isRequired,
-  ).isRequired,
-  currentTabId: PropTypes.string.isRequired,
+  currentTabContent: PropTypes.string.isRequired,
 };
 
 export default TabsContent;

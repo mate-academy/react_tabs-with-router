@@ -20,8 +20,8 @@ const App = () => (
       <Route path="/" exact component={HomePage} />
       <Route
         path="/tabs/:userId?"
-        render={({ match }) => (
-          <TabsPage match={match} tabs={tabs} />
+        render={({ match: { params: { userId } } }) => (
+          <TabsPage userId={userId} tabs={tabs} />
         )}
       />
     </HashRouter>
