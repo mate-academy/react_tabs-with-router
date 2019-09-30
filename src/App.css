@@ -1,1 +1,10 @@
+.tab-list {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  width: 250px;
+}
 
+.nav-link {
+margin-left: 20px;
+}
