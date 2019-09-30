@@ -1,8 +1,26 @@
+.app {
+  background-color: #eee;
+  width: 80%;
+  margin: 0 auto;
+  padding: 1em;
+  border-radius: 1em;
+  min-height: 40vh;
+  box-shadow: 5px 5px 5px #555;
+}
+
 .nav__link {
   display: inline-block;
   padding: 0.5em 1em;
+  border-radius: 0.5em;
 }
 
 .is-active {
   background-color: #aaa;
+}
+
+.page-content {
+  background-color: #ccc;
+  height: 100%;
+  padding: 1em;
+  border-radius: 1em;
 }
