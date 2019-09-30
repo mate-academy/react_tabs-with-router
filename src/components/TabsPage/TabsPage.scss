@@ -1,0 +1,17 @@
+.active {
+  color: pink;
+}
+
+.tabs-list {
+  display: grid;
+  grid-row: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 300px;
+  list-style: none;
+  font-size: 26px;
+}
+
+.tabs-container {
+  border: 1px solid black;
+  width: 350px;
+}
