@@ -14,7 +14,7 @@ const Tab = ({
   });
 
   return (
-    <Link to={`/tabs/${id}`}>
+    <Link to={`/tabs/${id}`} className="tabs-list__link">
       <li
         className={tabClasses}
         key={id}

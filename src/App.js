@@ -17,32 +17,29 @@ class App extends Component {
     const { tabs } = this.state;
 
     return (
-      <div className="App">
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
-          <NavLink
-            exact
-            to="/"
-            className="link"
-            activeClassName="link--active"
-          >
-            Home
-          </NavLink>
-          <NavLink
-            exact
-            to="/tabs"
-            className="link"
-            activeClassName="link--active"
-          >
-            Tabs
-          </NavLink>
-          <Route exact path="/" component={HomePage} />
-          <Route
-            exact
-            path="/tabs/:id?"
-            render={({ match }) => <TabsPage match={match} tabs={tabs} />}
-          />
-        </BrowserRouter>
-      </div>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <NavLink
+          exact
+          to="/"
+          className="link"
+          activeClassName="link--active"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/tabs"
+          className="link"
+          activeClassName="link--active"
+        >
+          Tabs
+        </NavLink>
+        <Route exact path="/" component={HomePage} />
+        <Route
+          exact
+          path="/tabs/:id?"
+          render={({ match }) => <TabsPage match={match} tabs={tabs} />}
+        />
+      </BrowserRouter>
     );
   }
 }

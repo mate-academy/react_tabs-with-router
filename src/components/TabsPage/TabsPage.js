@@ -5,20 +5,14 @@ import Tab from '../Tab/Tab';
 import './TabsPage.css';
 
 class TabsPage extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      currentTabId: '',
-    };
-  }
+  state = {
+    currentTabId: '',
+  };
 
   onClickTabItem = id => this.setState({ currentTabId: id });
 
   render() {
-    const { onClickTabItem } = this;
     const { currentTabId } = this.state;
-
     const { tabs, match } = this.props;
 
     return (
@@ -33,7 +27,7 @@ class TabsPage extends Component {
               title={title}
               content={content}
               isActive={id === currentTabId}
-              onClick={onClickTabItem}
+              onClick={this.onClickTabItem}
             />
           ))}
         </ul>
