@@ -1,0 +1,27 @@
+.tabs {
+  max-width: 480px;
+  margin: 0;
+  height: 200px;
+  box-sizing: border-box;
+}
+
+.tabs-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 480px;
+  list-style: none;
+  position: relative;
+  margin: -1px 0 0 -1px;
+  padding: 0;
+}
+
+.tab-content {
+  width: 480px;
+  box-sizing: border-box;
+  background: #fff;
+  border: 2px solid lightgray;
+  border-radius: 0 5px 5px;
+  padding: 7px 15px;
+  position: absolute;
+  left: 8px;
+}
