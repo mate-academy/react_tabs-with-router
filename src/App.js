@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import { HashRouter, NavLink, Route } from 'react-router-dom';
+import { BrowserRouter, NavLink, Route } from 'react-router-dom';
 import Tabs from './components/Tabs/Tabs';
 
 const App = () => (
   <div className="app">
-    <HashRouter basename="https://ibezkorovayniy.github.io/react_tabs-with-router/">
+    <BrowserRouter>
       <div>
         <ul className="nav-bar">
           <li className="nav-bar--item">
@@ -19,7 +19,7 @@ const App = () => (
         <Route exact path="/" component={HomePage} />
         <Route path="/tabs" component={TabsPage} />
       </div>
-    </HashRouter>
+    </BrowserRouter>
   </div>
 );
 
