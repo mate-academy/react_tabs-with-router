@@ -1,1 +1,26 @@
+.app {
+  font-family: Arial, sans-serif;
+}
+
+.nav-bar {
+  list-style: none;
+  display: flex;
+}
+
+.nav-bar--item {
+  padding: 10px;
+}
+
+.nav-bar--item_link {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-bar--item_link:hover {
+  color: #4fb0be;
+}
+
+.active {
+  color: #4fb0be;
+}
 
