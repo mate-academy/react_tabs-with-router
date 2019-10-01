@@ -1,31 +1,21 @@
 import React from 'react';
-import shortid from 'shortid';
 import { TabsPageTypes } from '../../constants/proptypes';
 import './TabsPage.scss';
-import Tab from '../Tab/Tab';
+import Tabs from '../Tabs/Tabs';
 
-const Tabs = ({ match, tabs }) => {
-  const activeContent = tabs.find(tab => tab.id === match.params.id);
+const TabsPage = ({ match, tabs }) => {
+  const { content } = tabs.find(tab => tab.id === match.params.id) || {};
 
   return (
     <>
-      <ul className="nav nav-tabs">
-        {tabs.map((tab, i) => (
-          <Tab
-            key={shortid.generate()}
-            title={tab.title}
-            index={`tab-${i + 1}`}
-            isActive={`tab-${i + 1}` === match.params.id}
-          />
-        ))}
-      </ul>
+      <Tabs tabs={tabs} matchId={match.params.id} />
       <p className="tab__text">
-        {activeContent && activeContent.content}
+        {content}
       </p>
     </>
   );
 };
 
-Tabs.propTypes = TabsPageTypes;
+TabsPage.propTypes = TabsPageTypes;
 
-export default Tabs;
+export default TabsPage;
