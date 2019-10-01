@@ -18,7 +18,7 @@ const tabs = [
 
 const App = () => (
   <HashRouter>
-    <div className="App">
+    <div className="app">
       <nav className="ui attached tabular menu">
         <NavLink to="/" exact className="item">
           HomePage
