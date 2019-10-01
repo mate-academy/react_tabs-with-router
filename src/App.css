@@ -1,1 +1,22 @@
+.app,
+.home {
+  text-align: center;
+}
 
+.active {
+  background-color: aqua;
+  border-radius: 5px;
+}
+
+.tabs {
+    text-align: center;
+}
+
+.tab {
+  text-decoration: none;
+}
+
+.start-page-link {
+  text-decoration: none;
+  height: 25px;
+}
