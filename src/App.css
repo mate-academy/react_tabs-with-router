@@ -1,1 +1,28 @@
+.body {
+  display: flex;
+  justify-content: center;
+}
 
+.app__list {
+  list-style: none;
+  display: flex;
+}
+
+.app__item {
+  height: 50px;
+  width: 110px;
+  margin: 0 20px;
+  border-radius: 10px;
+}
+
+.app__link {
+  display: block;
+  line-height: 50px;
+  text-decoration: none;
+  background-color: rgb(72, 187, 133);
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+  color: white;
+}
