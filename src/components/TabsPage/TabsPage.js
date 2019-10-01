@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 import { TabsPageProps } from '../PropTypes/PropTypes';
 import Tabs from '../Tabs/Tabs';
@@ -12,17 +11,7 @@ const tabs = [
 const TabsPage = ({ match }) => (
   <div>
     <h2>Page of tabs</h2>
-    <ul>
-      {tabs.map(tab => (
-        <li>
-          <NavLink to={`/tabs/${tab.id}`}>
-            {tab.title}
-          </NavLink>
-        </li>
-      ))}
-    </ul>
-
-    <Tabs match={match} tabs={tabs} key={tabs.id} />
+    <Tabs match={match} tabs={tabs} />
   </div>
 );
 
