@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import Tabs from '../Tabs/Tabs';
 import { TabsPageProps } from '../PropTypes/PropTypes';
 
@@ -11,13 +10,6 @@ const tabs = [
 
 const TabsPage = ({ match }) => (
   <>
-    <ul className="nav nav-tabs">
-      {tabs.map(({ title, id }) => (
-        <li className="nav-item" key={id}>
-          <NavLink className="nav-link" to={`/tabs/${id}`}>{title}</NavLink>
-        </li>
-      ))}
-    </ul>
     <Tabs match={match} tabs={tabs} />
   </>
 );
