@@ -9,26 +9,33 @@ const Tabs = ({ tabs, match }) => (
         <NavLink
           className="tab-item"
           activeClassName="tab-item--active"
-          to={`${match.url}/${tab.id}`}
+          to={`/tabs/${tab.id}`}
           key={tab.id}
         >
           {tab.title}
         </NavLink>
       ))}
     </div>
-    <Switch>
-      <Route
-        path={`${match.path}/:tabId`}
-        render={({ match }) => (
-          <div className="tab-body">
-            {tabs.find(tab => tab.id === match.params.tabId) === undefined
-              ? ''
-              : tabs.find(tab => tab.id === match.params.tabId).content
-            }
-          </div>
-        )}
-      />
-    </Switch>
+    <div className="tab-body">
+      {tabs.find(tab => tab.id === match.params.id) === undefined
+        ? ''
+        : tabs.find(tab => tab.id === match.params.id).content
+      }
+    </div>
+
+    {/* <Switch> */}
+    {/*  <Route */}
+    {/*    path={`${match.path}/:tabId`} */}
+    {/*    render={({ match }) => ( */}
+    {/*      <div className="tab-body"> */}
+    {/*        {tabs.find(tab => tab.id === match.params.tabId) === undefined */}
+    {/*          ? '' */}
+    {/*          : tabs.find(tab => tab.id === match.params.tabId).content */}
+    {/*        } */}
+    {/*      </div> */}
+    {/*    )} */}
+    {/*  /> */}
+    {/* </Switch> */}
   </div>
 );
 

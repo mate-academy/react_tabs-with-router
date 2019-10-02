@@ -21,7 +21,7 @@ const App = () => (
         <hr />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/tabs" render={({ match }) => (
+          <Route path="/tabs/:id?" render={({ match }) => (
             <Tabs match={match} tabs={tabs} />
           )}
           />
