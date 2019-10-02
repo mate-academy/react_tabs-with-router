@@ -3,12 +3,12 @@ import React from 'react';
 import {
   HashRouter,
   Route,
-  NavLink,
   Switch,
 } from 'react-router-dom';
 
 import HomePage from './components/HomePage/HomePage';
 import TabsPage from './components/TabsPage/TabsPage';
+import NavBar from './components/NavBar/NavBar';
 
 import './App.css';
 
@@ -21,29 +21,25 @@ const tabs = [
 const App = () => (
   <div className="app">
     <HashRouter>
-      <nav className="nav-underline">
-        <NavLink exact className="home-title link" to="/">
-          <h1>Home page</h1>
-        </NavLink>
-        <NavLink className="link" to="/tabs">
-          <h1>Tabs page</h1>
-        </NavLink>
-      </nav>
+      <NavBar />
 
       <Switch>
+        <Route
+          exact
+          path="/"
+          component={HomePage}
+        />
+
         <Route
           path="/tabs/:id?"
           render={({ match }) => (
             <TabsPage
               tabs={tabs}
-              match={match}
+              id={match.params.id}
             />
           )}
         />
-        <Route
-          path="/"
-          component={HomePage}
-        />
+
       </Switch>
     </HashRouter>
   </div>
