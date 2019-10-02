@@ -26,7 +26,13 @@ const Tabs = ({ tabs, tabId }) => (
 );
 
 Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
   tabId: PropTypes.string.isRequired,
 };
 

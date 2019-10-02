@@ -20,7 +20,7 @@ const App = () => (
   <div className="app">
     <Router>
       <nav className="nav">
-        <NavLink className="nav-link" exact to="/">Home</NavLink>
+        <NavLink className="nav-link" to="/">Home</NavLink>
         <NavLink className="nav-link" to="/tabs">Tabs</NavLink>
       </nav>
       <Switch>
