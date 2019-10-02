@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 const Tabs = ({ tabs }) => (
-  <nav className="nav">
+  <div className="nav nav--secondary">
     {tabs.map(tab => (
       <NavLink
         key={tab.id}
@@ -14,7 +14,7 @@ const Tabs = ({ tabs }) => (
         {tab.title}
       </NavLink>
     ))}
-  </nav>
+  </div>
 );
 
 Tabs.propTypes = {

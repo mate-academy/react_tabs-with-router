@@ -2,10 +2,10 @@ import React from 'react';
 import {
   HashRouter,
   Route,
-  NavLink,
 } from 'react-router-dom';
 import HomePage from './HomePage/HomePage';
 import TabsPage from './TabsPage/TabsPage';
+import NavBar from './NavBar/NavBar';
 import './App.css';
 
 const tabs = [
@@ -18,27 +18,9 @@ const App = () => (
   <HashRouter>
     <h1>Router</h1>
     <div className="app">
-      <nav className="nav">
-        <NavLink
-          to="/"
-          exact
-          className="nav__link"
-          activeClassName="is-active"
-        >
-          Home
-        </NavLink>
-        <NavLink
-          to="/tabs"
-          exact
-          className="nav__link"
-          activeClassName="is-active"
-        >
-          Tabs
-        </NavLink>
-      </nav>
+      <NavBar />
       <Route path="/" exact component={HomePage} />
       <Route
-        exact
         path="/tabs/:tabId?"
         render={({ match }) => (
           <TabsPage tabs={tabs} activeTabId={match.params.tabId} />
