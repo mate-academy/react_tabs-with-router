@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { TabsProps } from '../PropTypes/PropTypes';
 import Tab from '../Tab/Tab';
 
-const Tabs = ({ tabs, match }) => (
+const Tabs = ({ tabs, tabId }) => (
   <>
     <ul>
       {tabs.map(tab => (
@@ -14,7 +14,7 @@ const Tabs = ({ tabs, match }) => (
         </li>
       ))}
     </ul>
-    <Tab match={match} tabs={tabs} key={tabs.id} />
+    <Tab tabs={tabs} tabId={tabId} key={tabId} />
   </>
 );
 

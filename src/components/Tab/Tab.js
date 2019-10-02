@@ -1,9 +1,9 @@
 import React from 'react';
 import { TabsProps } from '../PropTypes/PropTypes';
 
-const Tab = ({ match, tabs }) => (
+const Tab = ({ tabId, tabs }) => (
   <p>
-    {tabs.map(tab => (tab.id === match.params.tabId ? tab.content : ''))}
+    {tabs.map(tab => (tab.id === tabId ? tab.content : ''))}
   </p>
 );
 
