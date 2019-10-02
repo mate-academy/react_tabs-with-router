@@ -1,1 +1,13 @@
+.link {
+  display: inline-block;
+  margin-right: 1em;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 2px solid lightgray;
+  border-radius: 3px;
+  text-decoration: none;
+}
 
+.link--active {
+  border-bottom-color: dodgerblue;
+}
