@@ -29,10 +29,7 @@ const App = () => (
         path="/tabs/:tabId?"
         render={
           ({ match }) => (
-            <TabsPage
-              match={match}
-              tabs={tabs}
-            />
+            <TabsPage match={match} tabs={tabs} />
           )
         }
       />
