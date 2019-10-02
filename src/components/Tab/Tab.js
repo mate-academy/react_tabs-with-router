@@ -6,7 +6,8 @@ import { TabProps } from '../../constants/proptypes';
 import './Tab.css';
 
 const Tab = ({
-  id, title, isActive, onClick,
+  id, title, isActive,
+
 }) => {
   const tabClasses = classNames({
     'tabs-list__item': true,
@@ -18,7 +19,6 @@ const Tab = ({
       <li
         className={tabClasses}
         key={id}
-        onClick={() => onClick(id)}
       >
         {title}
       </li>

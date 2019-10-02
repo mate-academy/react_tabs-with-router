@@ -37,7 +37,13 @@ class App extends Component {
         <Route
           exact
           path="/tabs/:id?"
-          render={({ match }) => <TabsPage match={match} tabs={tabs} />}
+          render={
+            ({ match }) => (
+              <TabsPage
+                currentTabId={match.params.id}
+                tabs={tabs}
+              />
+            )}
         />
       </BrowserRouter>
     );
