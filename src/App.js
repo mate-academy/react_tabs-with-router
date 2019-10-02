@@ -32,7 +32,7 @@ const App = () => (
 
       <Switch>
         <Route
-          path="/tabs"
+          path="/tabs/:id?"
           render={({ match }) => (
             <TabsPage
               tabs={tabs}
@@ -42,9 +42,7 @@ const App = () => (
         />
         <Route
           path="/"
-          render={() => (
-            <HomePage />
-          )}
+          component={HomePage}
         />
       </Switch>
     </HashRouter>

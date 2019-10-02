@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Tabs = ({ match, tabs }) => (
   <div>
-    { tabs.map((tab) => {
+    {tabs.map((tab) => {
       if (match !== undefined && tab.id === match.params.id) {
         return tab.title;
       }

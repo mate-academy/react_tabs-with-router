@@ -1,13 +1,7 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
-
-const HomePage = ({ children }) => (
-  <>{children}</>
+const HomePage = () => (
+  <><h1>Home</h1></>
 );
-
-HomePage.propTypes = {
-  children: PropTypes.string.isRequired,
-};
 
 export default HomePage;
