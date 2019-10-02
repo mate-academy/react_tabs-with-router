@@ -10,13 +10,17 @@ const App = () => (
     <div className="container">
       <NavBar />
       <Switch>
-        <Route path="/" exact>
-          <HomePage />
-        </Route>
+        <Route
+          path="/"
+          exact
+          component={() => (
+            <HomePage />
+          )}
+        />
         <Route
           path="/tabs/:id?"
-          component={routeProps => (
-            <TabsPage match={routeProps.match} tabs={tabs} />
+          component={({ match }) => (
+            <TabsPage match={match} tabs={tabs} />
           )}
         />
       </Switch>
