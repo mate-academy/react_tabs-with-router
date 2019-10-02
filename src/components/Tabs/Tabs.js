@@ -15,9 +15,6 @@ const Tabs = ({ tabs, tabId }) => (
         </div>
       ))}
     </div>
-    <div className="tabs__content">
-      {tabId && tabs[tabs.findIndex(tab => tab.id === tabId)].content}
-    </div>
   </div>
 );
 
