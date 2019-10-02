@@ -1,25 +1,25 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, NavLink, Route } from 'react-router-dom';
+import { NavLink, Route, Switch } from 'react-router-dom';
 import Tabs from './components/Tabs/Tabs';
 
 const App = () => (
   <div className="app">
-    <BrowserRouter>
-      <div>
-        <ul className="nav-bar">
-          <li className="nav-bar--item">
-            <NavLink className="nav-bar--item_link" to="/" exact>Home</NavLink>
-          </li>
-          <li className="nav-bar--item">
-            <NavLink className="nav-bar--item_link" to="/tabs">Tabs</NavLink>
-          </li>
-        </ul>
-        <hr />
+    <div>
+      <ul className="nav-bar">
+        <li className="nav-bar--item">
+          <NavLink className="nav-bar--item_link" to="/" exact>Home</NavLink>
+        </li>
+        <li className="nav-bar--item">
+          <NavLink className="nav-bar--item_link" to="/tabs">Tabs</NavLink>
+        </li>
+      </ul>
+      <hr />
+      <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/tabs" component={TabsPage} />
-      </div>
-    </BrowserRouter>
+      </Switch>
+    </div>
   </div>
 );
 
