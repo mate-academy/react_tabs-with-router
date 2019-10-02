@@ -1,1 +1,18 @@
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.menu-item {
+  margin: 0 20px;
+  border: 1px solid black;
+  padding: 10px;
+  color: #fff;
+  background: goldenrod;
+  transition: background, 0.3s;
+}
+
+.menu-item:hover {
+  background: orange;
+}
