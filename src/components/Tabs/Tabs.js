@@ -10,6 +10,7 @@ const Tabs = ({ tabs, match }) => (
           className="tab-item"
           activeClassName="tab-item--active"
           to={`${match.url}/${tab.id}`}
+          key={tab.id}
         >
           {tab.title}
         </NavLink>

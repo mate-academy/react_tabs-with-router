@@ -4,6 +4,7 @@ import {
   HashRouter, NavLink, Route, Switch,
 } from 'react-router-dom';
 import Tabs from './components/Tabs/Tabs';
+import Home from './components/Home/Home';
 
 const App = () => (
   <div className="app">
@@ -19,21 +20,21 @@ const App = () => (
         </ul>
         <hr />
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/tabs" component={TabsPage} />
+          <Route exact path="/" component={Home} />
+          <Route path="/tabs" render={({ match }) => (
+            <Tabs match={match} tabs={tabs} />
+          )}
+          />
         </Switch>
       </HashRouter>
     </div>
   </div>
 );
 
-const HomePage = () => <h1>Home</h1>;
-
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
-const TabsPage = ({ match }) => <Tabs tabs={tabs} match={match} />;
 
 export default App;
