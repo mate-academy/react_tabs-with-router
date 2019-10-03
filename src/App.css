@@ -1,1 +1,20 @@
+.app {
+  font-family: sans-serif;
+  text-align: center;
+}
 
+.nav-link {
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  font-size: 26px;
+}
+
+.nav-link:not(:last-child) {
+  margin-right: 20px;
+}
+
+.active-link {
+  font-weight: 600;
+  color: #134b8b;
+}

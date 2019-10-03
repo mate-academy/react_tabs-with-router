@@ -1,0 +1,25 @@
+.tabs__wrapper {
+  max-width: 300px;
+  margin: 30px auto;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tabs__content {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.tab {
+  flex: 1;
+  color: rgb(0, 127, 201);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.active {
+  font-weight: 600;
+}
