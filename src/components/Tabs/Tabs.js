@@ -18,10 +18,15 @@ const Tabs = ({ tabs, tabId }) => (
         </div>
       ))}
     </div>
-    <div className="tabs__content">
-      {tabId
-        && tabs[tabs.findIndex(tab => tab.id === tabId)].content}
-    </div>
+    {tabId
+      && (
+        <div className="tabs__content">
+          {tabs.findIndex(tab => tab.id === tabId) === -1
+            ? 'not found'
+            : tabs[tabs.findIndex(tab => tab.id === tabId)].content}
+        </div>
+      )
+    }
   </div>
 );
 

@@ -20,8 +20,21 @@ const App = () => (
   <div className="app">
     <Router>
       <nav className="nav">
-        <NavLink className="nav-link" to="/">Home</NavLink>
-        <NavLink className="nav-link" to="/tabs">Tabs</NavLink>
+        <NavLink
+          className="nav-link"
+          activeClassName="active-link"
+          to="/"
+          exact
+        >
+          Home
+        </NavLink>
+        <NavLink
+          className="nav-link"
+          activeClassName="active-link"
+          to="/tabs"
+        >
+          Tabs
+        </NavLink>
       </nav>
       <Switch>
         <Route exact path="/" component={HomePage} />

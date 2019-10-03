@@ -13,3 +13,8 @@
 .nav-link:not(:last-child) {
   margin-right: 20px;
 }
+
+.active-link {
+  font-weight: 600;
+  color: #134b8b;
+}
