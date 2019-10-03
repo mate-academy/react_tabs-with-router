@@ -4,7 +4,7 @@ import Tabs from '../Tabs/Tabs';
 
 const TabsPage = ({ tabs, match }) => (
   <>
-    <ul className="tabs-list">
+    <div className="tabs-list">
       {tabs.map(item => (
         <li
           key={item.id}
@@ -18,8 +18,8 @@ const TabsPage = ({ tabs, match }) => (
           </NavLink>
         </li>
       ))}
-    </ul>
-    <tabs tabs={tabs} match={match} />
+    </div>
+    <Tabs tabs={tabs} match={match} />
   </>
 );
 

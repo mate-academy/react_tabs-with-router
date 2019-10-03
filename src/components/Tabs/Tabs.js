@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Tabs = ({ tabs, match }) => (
   <p className="tabs tabs__name">
     {match
-    && tabs[tabs.findIndex(item => item.id === match)].content}
+      && tabs[tabs.findIndex(item => item.id === match)].content}
   </p>
 );
 
@@ -16,3 +16,5 @@ Tabs.propTypes = {
   }).isRequired,
   match: PropTypes.string.isRequired,
 };
+
+export default Tabs;

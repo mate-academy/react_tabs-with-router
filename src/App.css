@@ -3,6 +3,14 @@
   justify-content: center;
 }
 
+.app {
+  height: 200px;
+  width: 35%;
+  border: solid black 1px;
+  border-radius: 20px;
+  background-color: rgb(253, 253, 253);
+}
+
 .app__list {
   list-style: none;
   display: flex;
@@ -25,4 +33,4 @@
   text-align: center;
   border-radius: 10px;
   color: white;
-}
+} 
