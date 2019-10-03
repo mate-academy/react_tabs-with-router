@@ -15,8 +15,8 @@ const App = () => (
         <NavLink className="nav-link" exact to="/">Home</NavLink>
       </nav>
       <Switch>
-        <Route path="/tabs/:tabId?" component={TabsPage} />
         <Route exact path="/" component={HomePage} />
+        <Route path="/tabs/:tabId?" component={TabsPage} />
       </Switch>
     </div>
   </HashRouter>

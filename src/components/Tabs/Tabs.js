@@ -1,10 +1,12 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const Tabs = ({ tabs, match }) => (
-  <p>
-    {tabs.find(item => item.id === match.params.tabId)
-      && tabs.find(item => item.id === match.params.tabId).content}
-  </p>
+const Tabs = ({ tabs }) => (
+  tabs.map(tab => (
+    <li className="tab" key={tab.id}>
+      <NavLink to={`/tabs/${tab.id}`}>{tab.title}</NavLink>
+    </li>
+  ))
 );
 
 export default Tabs;

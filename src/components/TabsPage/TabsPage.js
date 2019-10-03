@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import { NavLink } from 'react-router-dom';
 import Tabs from '../Tabs/Tabs';
 
 const tabs = [
@@ -12,18 +12,17 @@ const tabs = [
 const TabsPage = ({ match }) => (
   <>
     <ul className="tab-list">
-      {tabs.map(tab => (
-        <li className="tab" key={tab.id}>
-          <NavLink to={`/tabs/${tab.id}`}>{tab.title}</NavLink>
-        </li>
-      ))}
+      <Tabs tabs={tabs} />
     </ul>
-    <Tabs match={match} tabs={tabs} />
+    <p>
+      {tabs.find(item => item.id === match.params.tabId)
+      && tabs.find(item => item.id === match.params.tabId).content}
+    </p>
   </>
 );
 
 TabsPage.propTypes = {
-
+  match: PropTypes.string.isRequired,
 };
 
 export default TabsPage;
