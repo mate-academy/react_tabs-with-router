@@ -1,34 +1,30 @@
 import React from 'react';
 import './App.css';
-import {
-  BrowserRouter, Route, Switch, NavLink,
-} from 'react-router-dom';
+import { Route, Switch, NavLink } from 'react-router-dom';
 import TabsPage from './TabsPage/TabsPage';
 import HomePage from './HomePage/HomePage';
 
 const App = () => (
   <div className="App">
-    <BrowserRouter>
-      <nav className="main-nav">
-        <ul>
-          <li>
-            <NavLink exact to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/tabs">Tabs</NavLink>
-          </li>
-        </ul>
-      </nav>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route
-          path="/tabs"
-          render={({ match }) => (
-            <TabsPage match={match} tabs={tabs} />
-          )}
-        />
-      </Switch>
-    </BrowserRouter>
+    <nav className="main-nav">
+      <ul>
+        <li>
+          <NavLink exact to="/">Home</NavLink>
+        </li>
+        <li>
+          <NavLink to="/tabs">Tabs</NavLink>
+        </li>
+      </ul>
+    </nav>
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route
+        path="/tabs"
+        render={({ match }) => (
+          <TabsPage match={match} tabs={tabs} />
+        )}
+      />
+    </Switch>
   </div>
 );
 
