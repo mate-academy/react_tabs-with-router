@@ -4,31 +4,35 @@ import PropTypes from 'prop-types';
 
 import './Tabs.css';
 
-const Tabs = ({ tabs, tabId }) => (
-  <div className="tabs__wrapper">
-    <div className="tabs">
-      {tabs.map(tab => (
-        <div key={tab.id}>
-          <NavLink
-            to={`/tabs/${tab.id}`}
-            className="tab"
-          >
-            {tab.title}
-          </NavLink>
-        </div>
-      ))}
+const Tabs = ({ tabs, tabId }) => {
+  const tabIndex = tabs.findIndex(tab => tab.id === tabId);
+
+  return (
+    <div className="tabs__wrapper">
+      <div className="tabs">
+        {tabs.map(tab => (
+          <div key={tab.id}>
+            <NavLink
+              to={`/tabs/${tab.id}`}
+              className="tab"
+            >
+              {tab.title}
+            </NavLink>
+          </div>
+        ))}
+      </div>
+      {tabId
+        && (
+          <div className="tabs__content">
+            {tabIndex === -1
+              ? 'not found'
+              : tabs[tabIndex].content}
+          </div>
+        )
+      }
     </div>
-    {tabId
-      && (
-        <div className="tabs__content">
-          {tabs.findIndex(tab => tab.id === tabId) === -1
-            ? 'not found'
-            : tabs[tabs.findIndex(tab => tab.id === tabId)].content}
-        </div>
-      )
-    }
-  </div>
-);
+  );
+};
 
 Tabs.propTypes = {
   tabs: PropTypes.arrayOf(
