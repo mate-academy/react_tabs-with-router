@@ -8,11 +8,11 @@ const App = () => (
   <div className="App">
     <nav className="nav-list">
       <NavLink exact to="/"><h1>Home page</h1></NavLink>
-      <NavLink exact to="/tabs/"><h2>Tabs</h2></NavLink>
+      <NavLink to="/tabs/"><h2>Tabs</h2></NavLink>
     </nav>
     <Switch>
       <Route exact path="/" component={HomePage} />
-      <Route exact path="/tabs/:tabsId?" component={TabsPage} />
+      <Route path="/tabs/:tabsId?" component={TabsPage} />
     </Switch>
   </div>
 );

@@ -1,6 +1,5 @@
 import React from 'react';
 import './TabsPage.scss';
-import { NavLink } from 'react-router-dom';
 import Tabs from '../Tabs/Tabs';
 
 const tabs = [
@@ -15,15 +14,6 @@ const TabsPage = ({ match }) => (
       Tabs
     </h1>
     <div className="tabs-container">
-      <ul className="tabs-list">
-        {tabs.map(tab => (
-          <li key={tab.id}>
-            <NavLink active to={`/tabs/${tab.id}`}>
-              {tab.title}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
       <Tabs match={match} tabs={tabs} />
     </div>
   </>
