@@ -34,8 +34,8 @@ const App = () => (
         </li>
       </nav>
       <Switch>
-        <Route path="/" exact component={HomePage} />
         <Route path="/tabs/:tabId?/" component={TabsPage} />
+        <Route path="/" component={HomePage} />
       </Switch>
 
     </BrowserRouter>
