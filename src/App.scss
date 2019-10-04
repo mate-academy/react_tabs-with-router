@@ -1,1 +1,58 @@
 
+.wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.main-nav {
+  display: flex;
+  border-bottom: 1px solid gray;
+
+  li {
+    list-style-type: none;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    text-decoration: none;
+    color: gray;
+    padding: 10px;
+    font-size: 20px;
+    box-sizing: border-box;
+    width: 80px;
+    margin-bottom: -1px;
+  }
+
+  &__active {
+    border: 1px solid gray;
+    border-radius: 2px;
+    border-bottom-color: white;
+  }
+}
+
+h1 {
+  color: gray;
+  margin-left: 15px;
+}
+
+.tabs {
+  display: flex;
+
+  &__list {
+    border-right: 1px solid gray;
+    padding-right: 5px;
+    padding-left: 33px;
+  }
+
+  .tab-title {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.tab-content {
+  padding: 5px 0 0 15px;
+}

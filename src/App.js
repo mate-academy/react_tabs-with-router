@@ -10,14 +10,14 @@ import PropTypes from 'prop-types';
 
 const App = () => (
   <div className="wrapper">
-    <BrowserRouter className="App">
-      <nav className="nav-menu">
+    <BrowserRouter>
+      <nav className="main-nav">
         <li>
           <NavLink
             to="/"
             exact
-            className="nav-menu__link"
-            activeClassName="nav-menu__active"
+            className="main-nav__link"
+            activeClassName="main-nav__active"
           >
             Home
           </NavLink>
@@ -25,8 +25,8 @@ const App = () => (
         <li>
           <NavLink
             to="/tabs"
-            className="nav-menu__link"
-            activeClassName="nav-menu__active"
+            className="main-nav__link"
+            activeClassName="main-nav__active"
           >
             Tabs
           </NavLink>
