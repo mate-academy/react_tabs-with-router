@@ -5,6 +5,7 @@ import {
   Route,
   NavLink,
   Link,
+  Switch,
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -32,8 +33,11 @@ const App = () => (
           </NavLink>
         </li>
       </nav>
-      <Route path="/" exact component={HomePage} />
-      <Route path="/tabs/:tabId?/" component={TabsPage} />
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/tabs/:tabId?/" component={TabsPage} />
+      </Switch>
+
     </BrowserRouter>
   </div>
 );
