@@ -1,25 +1,15 @@
 import React from 'react';
-import { Tab } from '../Tab/Tab';
+import { Tabs } from '../Tabs/Tabs';
 
 export const TabsPage = ({ match, tabs }) => {
   const currentTabId = match.params.id;
+  const currentTab = tabs.some(tab => tab.id === currentTabId);
+  const tab = tabs.find(elem => elem.id === currentTabId);
 
   return (
     <>
-      <ul
-        className="nav nav-pills mb-3 justify-content-center"
-        id="pills-tab"
-        role="tablist"
-      >
-        {tabs.map((tab, i) => (
-          <Tab tab={tab} index={i} />
-        ))}
-      </ul>
-      {tabs.some(elem => elem.id === currentTabId) && (
-        <p className="tab-content">
-          {tabs.find(elem => elem.id === currentTabId).content}
-        </p>
-      )}
+      <Tabs tabs={tabs} />
+      {currentTab && <p className="tab-content">{tab.content}</p>}
     </>
   );
 };
