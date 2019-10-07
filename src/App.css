@@ -1,1 +1,40 @@
+.body {
+  display: flex;
+  justify-content: center;
+}
 
+.nav-underline {
+  display: flex;
+  border-bottom: 1px solid gainsboro;
+}
+
+.home-title {
+  padding-right: 50px;
+}
+
+.tabs-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+}
+
+.link {
+  text-decoration: none;
+  color: rgb(13, 153, 153);
+  margin-bottom: -1px;
+}
+
+.tab {
+  padding: 30px;
+}
+
+.active {
+  background: rgb(114, 94, 94);
+  border: 1px solid rgb(224, 202, 202);
+  border-bottom: none;
+  border-radius: 10px;
+}
