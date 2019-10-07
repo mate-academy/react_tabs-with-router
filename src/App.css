@@ -3,34 +3,38 @@
   justify-content: center;
 }
 
-.app {
-  height: 200px;
-  width: 35%;
-  border: solid black 1px;
-  border-radius: 20px;
-  background-color: rgb(253, 253, 253);
-}
-
-.app__list {
-  list-style: none;
+.nav-underline {
   display: flex;
+  border-bottom: 1px solid gainsboro;
 }
 
-.app__item {
-  height: 50px;
-  width: 110px;
-  margin: 0 20px;
-  border-radius: 10px;
+.home-title {
+  padding-right: 50px;
 }
 
-.app__link {
-  display: block;
-  line-height: 50px;
+.tabs-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+}
+
+.link {
   text-decoration: none;
-  background-color: rgb(72, 187, 133);
-  height: 100%;
-  width: 100%;
-  text-align: center;
+  color: rgb(13, 153, 153);
+  margin-bottom: -1px;
+}
+
+.tab {
+  padding: 30px;
+}
+
+.active {
+  background: rgb(114, 94, 94);
+  border: 1px solid rgb(224, 202, 202);
+  border-bottom: none;
   border-radius: 10px;
-  color: white;
 }
