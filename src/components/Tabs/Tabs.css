@@ -1,4 +1,37 @@
-.tabs__content {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 20px 0;
+.tabs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.tabs__button {
+  height: 50px;
+  line-height: 50px;
+  background: #fff;
+  padding: 0 20px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  position: relative;
+  color: #5e82b6;
+}
+
+.tabs__button--active {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #fff;
+  color: initial;
+}
+
+.tabs__button--active:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: #fff;
 }
