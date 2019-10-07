@@ -1,1 +1,19 @@
+.main-nav {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
 
+.main-nav__item:not(:first-child) {
+  margin-left: 20px;
+}
+
+.main-nav__link {
+  color: #5e82b6;
+  text-decoration: none;
+}
+
+.main-nav__link--active {
+  color: #000;
+}
