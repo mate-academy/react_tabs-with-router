@@ -1,1 +1,21 @@
 
+.wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(201, 201, 201);
+  color: rgb(80, 80, 80);
+  width: 100%;
+  margin: 0 auto;
+  height: max-content;
+  padding: 10px 30%;
+}
+
+.link {
+  font-size: 35px;
+  line-height: 1;
+}
+
+.position {
+  display: flex !important;
+  justify-content: center;
+}
