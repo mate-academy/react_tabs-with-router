@@ -55,7 +55,7 @@ class App extends React.Component {
 
         <Switch>
           <Route path="/" exact component={HomePage} />
-          <Route path="/tabs" exact component={TabsPage} />
+          <Route path="/tabs" component={TabsPage} />
         </Switch>
       </div>
     );

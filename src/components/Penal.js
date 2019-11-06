@@ -14,7 +14,7 @@ class Penal extends React.Component {
     const active = JSON.parse(sessionStorage.getItem('activeTab'));
 
     this.setState({
-      activeTab: active,
+      activeTab: active || '',
     });
   }
 
