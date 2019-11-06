@@ -1,5 +1,4 @@
 # React Tabs with Router
- - [DEMO LINK](https://vitya63.github.io/react_tabs-with-router/)
 ## Task
 
 ![tabs](./description/tabs.gif)
