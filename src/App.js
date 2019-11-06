@@ -14,7 +14,7 @@ const App = () => (
     <nav>
       <ul>
         <li><NavLink to="/" exact>Home</NavLink></li>
-        <li><NavLink to="react_tabs-with-router/tabs">Tabs</NavLink></li>
+        <li><NavLink to="/tabs">Tabs</NavLink></li>
       </ul>
     </nav>
 
