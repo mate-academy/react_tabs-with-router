@@ -1,1 +1,24 @@
+body {
+  margin: 0;
+  padding: 0 50px;
+}
 
+.linksContainer {
+  width: 500px;
+  background-color: #eee;
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  line-height: 40px;
+  font-size: 24px;
+  margin: 0 auto 50px;
+}
+
+.active {
+  background-color: lightgray;
+}
+
+.tabContent {
+  width: 500px;
+  margin: 20px auto;
+}
