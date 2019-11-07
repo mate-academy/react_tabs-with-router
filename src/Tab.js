@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 
 const Tab = ({ tab, match, history }) => (
   <>
-    <button
+    <Button
       type="button"
       onClick={() => (
         history.push(`${match.path}/${tab.id}`)
       )}
     >
       {tab.title}
-    </button>
+    </Button>
   </>
 );
 
