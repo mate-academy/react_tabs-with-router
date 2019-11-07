@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Tab from './Tab';
 
 class TabsPage extends Component {
@@ -27,9 +26,7 @@ class TabsPage extends Component {
           {tabs.map(tab => (
             <Tab
               key={tab.id}
-              currentTabId={currentTabId}
               tab={tab}
-              prevPath={this.props.match.path}
               changeCurrentTabId={this.changeCurrentTabId}
             />
           ))}
@@ -45,11 +42,5 @@ class TabsPage extends Component {
     );
   }
 }
-
-TabsPage.propTypes = {
-  match: PropTypes.shape({
-    path: PropTypes.string,
-  }).isRequired,
-};
 
 export default TabsPage;
