@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {
-  BrowserRouter,
+  HashRouter,
   Route,
   Switch,
   NavLink,
@@ -10,7 +10,7 @@ import {
 import TabsPage from './TabsPage';
 
 const App = () => (
-  <BrowserRouter basename="/react_tabs-with-router">
+  <HashRouter>
     <nav>
       <ul>
         <li><NavLink to="/" exact>Home</NavLink></li>
@@ -22,7 +22,7 @@ const App = () => (
       <Route path="/" exact component={() => <h1>Home page</h1>} />
       <Route path="/tabs" component={TabsPage} />
     </Switch>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default App;
