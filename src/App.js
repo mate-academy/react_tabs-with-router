@@ -10,7 +10,7 @@ import {
 import TabsPage from './TabsPage';
 
 const App = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/react_tabs-with-router">
     <nav>
       <ul>
         <li><NavLink to="/" exact>Home</NavLink></li>
@@ -19,12 +19,10 @@ const App = () => (
     </nav>
 
     <Switch>
-      <Route path="/" exact component={HomePage} />
+      <Route path="/" exact component={() => <h1>Home page</h1>} />
       <Route path="/tabs" component={TabsPage} />
     </Switch>
   </BrowserRouter>
 );
-
-const HomePage = () => <h1>Home page</h1>;
 
 export default App;
