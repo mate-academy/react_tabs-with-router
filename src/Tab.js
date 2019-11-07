@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-const Tab = ({ tab, match, changeCurrentTabId }) => (
-  <button
-    type="button"
-    onClick={() => changeCurrentTabId(tab.id)}
-  >
-    <NavLink to={`${match.path}/${tab.id}`}>
+const Tab = ({ tab, match, history }) => (
+  <>
+    <button
+      type="button"
+      onClick={() => (
+        history.push(`${match.path}/${tab.id}`)
+      )}
+    >
       {tab.title}
-    </NavLink>
-  </button>
+    </button>
+  </>
 );
 
 Tab.propTypes = {
@@ -21,7 +23,9 @@ Tab.propTypes = {
   match: PropTypes.shape({
     path: PropTypes.string,
   }).isRequired,
-  changeCurrentTabId: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
 export default withRouter(Tab);
