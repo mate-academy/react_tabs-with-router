@@ -1,1 +1,18 @@
+.tab {
+  height: 100vh;
+  display: flex ;
+  text-align: center ;
+}
 
+p {
+  line-height: 100vh;
+  font-size: 50px;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

@@ -1,4 +1,5 @@
 # React Tabs with Router
+[SOLUTION](https://Dmitriymush.github.io/react_tabs-with-router/)
 
 ## Task 
 
