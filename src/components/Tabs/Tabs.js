@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import TabContent from '../TabContent/TabContent';
 
 const Tabs = (props) => {
-  const { tabs, currentTabId, tabsMatch } = props;
+  const { tabs, tabsMatch } = props;
 
   return (
     <BrowserRouter>
@@ -28,7 +28,7 @@ const Tabs = (props) => {
             text={
               match.params.currentTabId
                 ? tabs.find(tab => tab.id === match.params.currentTabId).content
-                : tabs.find(tab => tab.id === currentTabId).content
+                : ''
             }
           />
         )}
@@ -39,13 +39,11 @@ const Tabs = (props) => {
 
 Tabs.defaultProps = {
   tabs: [],
-  currentTabId: '',
   tabsMatch: {},
 };
 
 Tabs.propTypes = {
   tabs: PropTypes.arrayOf,
-  currentTabId: PropTypes.string,
   tabsMatch: PropTypes.objectOf,
 };
 

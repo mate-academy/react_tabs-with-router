@@ -42,7 +42,7 @@ const tabs = [
 ];
 
 const TabsPage = ({ match }) => (
-  <Tabs tabs={tabs} currentTabId="tab-1" tabsMatch={match} />
+  <Tabs tabs={tabs} tabsMatch={match} />
 );
 
 TabsPage.defaultProps = {
