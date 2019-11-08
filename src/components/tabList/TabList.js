@@ -6,9 +6,7 @@ const TabList = (props) => {
   const { match, tabs } = props;
 
   return (
-    <>
-      <Tabs match={match} tabs={tabs} />
-    </>
+    <Tabs match={match} tabs={tabs} />
   );
 };
 
