@@ -3,7 +3,7 @@
 ## Task 
 
 ![tabs](./description/tabs.gif)
-    
+    https://dsrtf0x-git.github.io/react_tabs-with-router/
 Implement `Tabs` component. `current` prop sets the active tab by its `id`.
   ```javascript
   let tabs = [
