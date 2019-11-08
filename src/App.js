@@ -20,16 +20,18 @@ class App extends React.Component {
   }
 
   render() {
+    const { tabs } = this.state;
+
     const HomePage = () => <h1>Home page</h1>;
 
     const TabsPage = () => (
       <>
-        <Tabs tabs={this.state.tabs} currentTabId="tab-1" />
-        <Penal tabs={this.state.tabs} />
+        <TabsHeader />
+        <Penal tabs={tabs} />
       </>
     );
 
-    const Tabs = () => <h2>Tabs</h2>;
+    const TabsHeader = () => <h2>Tabs</h2>;
 
     return (
       <div className="App">
@@ -41,8 +43,11 @@ class App extends React.Component {
             color: 'red',
           }}
         >
-        Home
+          <button type="button" className="mainButton">
+          Home
+          </button>
         </NavLink>
+
         <NavLink
           to="/tabs"
           activeStyle={{
@@ -50,7 +55,9 @@ class App extends React.Component {
             color: 'red',
           }}
         >
-        Tabs
+          <button type="button" className="mainButton">
+          Tabs
+          </button>
         </NavLink>
 
         <Switch>

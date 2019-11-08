@@ -11,10 +11,10 @@ class Penal extends React.Component {
   }
 
   componentDidMount() {
-    const active = JSON.parse(sessionStorage.getItem('activeTab'));
+    const active = JSON.parse(sessionStorage.getItem('activeTab')) || '';
 
     this.setState({
-      activeTab: active || '',
+      activeTab: active,
     });
   }
 
@@ -38,7 +38,7 @@ class Penal extends React.Component {
           tabs={this.props.tabs}
           onTabSelected={this.selectTab}
         />
-        <div>
+        <div className="text">
           <Route path={`/tabs/${activeTab.id}`} exact component={this.actTab} />
         </div>
       </>
