@@ -7,13 +7,13 @@ function NavLinks() {
   return (
     <div className="links">
       <NavLink
-        to="/"
+        to="#/"
         className="ui primary button"
       >
         Home
       </NavLink>
       <NavLink
-        to="/tabs"
+        to="#/tabs"
         className="ui secondary button"
       >
         Tabs

@@ -6,8 +6,8 @@ import NavLinks from './components/navLink/NavLinks';
 
 const App = () => (
   <div className="App">
-    <Route path="/" exact component={HomePage} />
-    <Route path="/tabs" exact component={TabsPage} />
+    <Route path="#/" exact component={HomePage} />
+    <Route path="#/tabs" exact component={TabsPage} />
   </div>
 );
 
