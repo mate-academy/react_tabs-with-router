@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export default function Tab({ match, tabs }) {
-  const tab = tabs.find(tab => tab.id === match.params.currentTabId)
+export default function Tab({ match: { params: { currentTabId } }, tabs }) {
+  const tab = tabs.find(tab => tab.id === currentTabId)
   return (
     <>
     <nav className="nav nav-tabs">
