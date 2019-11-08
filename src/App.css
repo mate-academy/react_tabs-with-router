@@ -1,1 +1,17 @@
+.item {
+  outline: none;
+}
 
+.ui.tabular.menu {
+  margin-top: 50px;
+}
+
+.links {
+  margin-top: 45px;
+  display: flex;
+  justify-content: center;
+}
+
+.heading {
+  text-align: center;
+}
