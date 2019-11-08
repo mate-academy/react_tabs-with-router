@@ -1,0 +1,15 @@
+.tab-link {
+  display: inline-block;
+  background: none;
+  border: 1px solid #ccc;
+  outline: none;
+  padding: 1%;
+  width: 10%;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #000;
+}
+
+.tab-link-active {
+  background-color: #ccc;
+}
