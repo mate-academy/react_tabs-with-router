@@ -1,8 +1,6 @@
 import React from 'react';
 import TabLink from '../link/TabLink';
-import TabHome from '../tabscontent/TabHome';
-import TabProfile from '../tabscontent/TabProfile';
-import TabContact from '../tabscontent/TabProfile';
+import CurrentTab from '../currenttab/CurrentTab'
 import { Switch, Route } from 'react-router-dom';
 
 class Tabs extends React.Component {
@@ -37,9 +35,7 @@ class Tabs extends React.Component {
             }
         </div>
         <Switch>
-          <Route path={`${path}/${tabs[0].id}`} render={() => <TabHome content={tabs[0].content}/>} />
-          <Route path={`${path}/${tabs[1].id}`} render={() => <TabProfile content={tabs[1].content} />} />
-          <Route path={`${path}/${tabs[2].id}`} render={() => <TabContact content={tabs[2].content} />} />
+            {tabs.map(tab => <Route path={`${path}/${tab.id}`} render={() => <CurrentTab content={tab.content}/>} />)}
         </Switch>
       </>
     )
@@ -47,5 +43,3 @@ class Tabs extends React.Component {
 }
 
 export default Tabs;
-
-// <TabContent content={tabs[activeContent].content} />

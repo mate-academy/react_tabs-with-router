@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TabHome = ({ content }) => {
+const CurrentTab = ({ content }) => {
 
   return (
     <div>
@@ -9,4 +9,4 @@ const TabHome = ({ content }) => {
   )
 }
 
-export default TabHome;
+export default CurrentTab;

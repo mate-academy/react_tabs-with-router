@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 import Tabs from './components/tabs/Tabs';
 
 let tabs = [
