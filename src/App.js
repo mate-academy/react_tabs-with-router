@@ -34,9 +34,11 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const TabsPage = ({ match }) => <Tabs
-                                  tabs={tabs}
-                                  match={match}
-                                />;
+const TabsPage = ({ match }) => (
+  <Tabs
+    tabs={tabs}
+    match={match}
+  />
+);
 
 export default App;
