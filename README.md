@@ -1,5 +1,7 @@
 # React Tabs with Router
 
+[LINK](https://nikakarelets.github.io/react_tabs-with-router/)
+
 ## Task 
 
 ![tabs](./description/tabs.gif)
