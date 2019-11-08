@@ -12,7 +12,15 @@ const TabsPage = ({ match }) => (
   <>
     <Link to="../" className="negative ui button">GO BACK HOME</Link>
     <div className="ui attached tabular menu">
-      {tabs.map(tab => <NavLink key={tab.id} className={`${match.params.id === tab.id ? 'active' : ''} item`} to={`/tabs/${tab.id}`}>{tab.title}</NavLink>)}
+      {tabs.map(tab => (
+        <NavLink
+          key={tab.id}
+          className={`${match.params.id === tab.id ? 'active' : ''} item`}
+          to={`/tabs/${tab.id}`}
+        >
+          {tab.title}
+        </NavLink>
+      ))}
     </div>
     <Tabs tabs={tabs} match={match} />
   </>

@@ -1,15 +1,11 @@
 import React from 'react';
 
-const Tabs = ({ tabs, match }) => {
-  if (match.params.id !== undefined) {
+const Tabs = ({ tabs, match: { params: { id } } }) => {
+  if (id !== undefined) {
     return (
       <div className="ui bottom attached segment active tab">
         <p>
-          {tabs.find((tab) => {
-            if (tab.id === match.params.id) {
-              return tab;
-            }
-          }).content}
+          {tabs.find(tab => (tab.id === id).content)}
         </p>
       </div>
     );
