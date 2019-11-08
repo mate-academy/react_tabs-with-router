@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Tabs = ({ tabs, tabId }) => {
-  const tabIndex = tabs.findIndex(tab => tab.id === tabId);
+  const tabCheck = tabs.find(tab => tab.id === tabId);
 
   return (
     <div className="tabs__wrapper">
@@ -21,9 +21,9 @@ const Tabs = ({ tabs, tabId }) => {
       {tabId
         && (
           <div className="tabs__content">
-            {tabIndex === -1
-              ? <h2>Error</h2>
-              : tabs[tabIndex].content}
+            {tabCheck
+              ? tabCheck.content
+              : <h2>Error</h2>}
           </div>
         )
       }
