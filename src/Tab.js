@@ -4,16 +4,14 @@ import { Button } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 
 const Tab = ({ tab, match, history }) => (
-  <>
-    <Button
-      type="button"
-      onClick={() => (
-        history.push(`${match.path}/${tab.id}`)
-      )}
-    >
-      {tab.title}
-    </Button>
-  </>
+  <Button
+    type="button"
+    onClick={() => (
+      history.push(`${match.path}/${tab.id}`)
+    )}
+  >
+    {tab.title}
+  </Button>
 );
 
 Tab.propTypes = {

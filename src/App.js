@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import {
-  HashRouter,
   Route,
   Switch,
   NavLink,
@@ -10,7 +9,7 @@ import {
 import TabsPage from './TabsPage';
 
 const App = () => (
-  <HashRouter>
+  <>
     <nav>
       <ul>
         <li><NavLink to="/" exact>Home</NavLink></li>
@@ -22,7 +21,7 @@ const App = () => (
       <Route path="/" exact component={() => <h1>Home page</h1>} />
       <Route path="/tabs" component={TabsPage} />
     </Switch>
-  </HashRouter>
+  </>
 );
 
 export default App;

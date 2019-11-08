@@ -1,9 +1,9 @@
 import React from 'react';
-import { HashRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Tab from './Tab';
 
-function TabsPage({ match }) {
+function TabsPage({ match: { path } }) {
   const tabs = [
     { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
     { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
@@ -20,20 +20,17 @@ function TabsPage({ match }) {
           />
         ))}
       </div>
-
-      <HashRouter>
-        <Route
-          path={`${match.path}/:tabId`}
-          render={props => (
-            <p>
-              {
-                tabs.find(tab => tab.id === props.match.params.tabId)
-                  .content
-              }
-            </p>
-          )}
-        />
-      </HashRouter>
+      <Route
+        path={`${path}/:tabId`}
+        render={({ match: { params: { tabId } } }) => (
+          <p>
+            {
+              tabs.find(tab => tab.id === tabId)
+                .content
+            }
+          </p>
+        )}
+      />
     </>
   );
 }
