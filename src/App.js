@@ -38,10 +38,6 @@ class App extends React.Component {
         <NavLink
           to="/"
           exact
-          activeStyle={{
-            fontWeight: 'bold',
-            color: 'red',
-          }}
         >
           <button type="button" className="mainButton">
           Home
@@ -50,10 +46,6 @@ class App extends React.Component {
 
         <NavLink
           to="/tabs"
-          activeStyle={{
-            fontWeight: 'bold',
-            color: 'red',
-          }}
         >
           <button type="button" className="mainButton">
           Tabs
