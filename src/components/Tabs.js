@@ -38,15 +38,11 @@ class Tabs extends Component {
           }
         </div>
         {tabs.map(tab => (
-          <NavLink
-            to={`${match.path}/${tab.id}`}
-          >
-            <SingleContent
-              content={tab.content}
-              active={this.state.activeTab === tab.id}
-              key={tab.id}
-            />
-          </NavLink>
+          <SingleContent
+            content={tab.content}
+            active={this.state.activeTab === tab.id}
+            key={tab.id}
+          />
         ))
         }
       </>
