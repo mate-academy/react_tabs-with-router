@@ -1,1 +1,47 @@
+body,
+button,
+a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  border: none;
+  text-align: center;
+  outline: none !important;
+}
 
+.mainButton {
+  background-color: rgb(41, 204, 204);
+  margin: 50px;
+  width: 150px;
+  height: 50px;
+  border-radius: 20px;
+  color: white;
+  transition: 0.5s;
+  cursor: pointer;
+  outline: none;
+}
+
+.mainButton:hover {
+  transform: scale(1.2);
+}
+
+.text {
+  margin: 50px;
+}
+
+.tabsButton {
+  margin: 20px;
+  width: 100px;
+  height: 35px;
+  background-color: maroon;
+  color: white;
+  border-radius: 10px;
+  transition: 0.5s;
+  cursor: pointer;
+  outline: none;
+}
+
+.tabsButton:hover {
+  transform: scale(1.2);
+}
