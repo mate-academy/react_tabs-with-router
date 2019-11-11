@@ -12,10 +12,9 @@ class Tabs extends Component {
   }
 
   onTabSelected = (tabNum) => {
-    this.setState(prev => ({
-      ...prev,
+    this.setState({
       activeTab: tabNum,
-    }));
+    });
   };
 
   render() {
@@ -43,7 +42,6 @@ class Tabs extends Component {
             to={`${match.path}/${tab.id}`}
           >
             <SingleContent
-              onTabSelected={() => this.onTabSelected(tab.id)}
               content={tab.content}
               active={this.state.activeTab === tab.id}
               key={tab.id}
