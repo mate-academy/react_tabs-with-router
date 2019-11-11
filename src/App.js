@@ -1,21 +1,22 @@
 import React from 'react';
 import './App.css';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Tabs from './components/Tabs/Tabs';
 import NavLinks from './components/navLink/NavLinks';
 
 const App = () => (
   <div className="App">
-    <Route path="#/" exact component={HomePage} />
-    <Route path="#/tabs" exact component={TabsPage} />
+    <NavLinks />
+    <Switch>
+      <Route path="/tabs" component={TabsPage} />
+      <Route path="/" component={HomePage} />
+    </Switch>
   </div>
 );
-
 
 const HomePage = () => (
   <>
     <h1 className="heading">Home page</h1>
-    <NavLinks />
   </>
 );
 
@@ -27,7 +28,6 @@ const tabs = [
 const TabsPage = () => (
   <>
     <TabsHeading />
-    <NavLinks />
     <Tabs tabs={tabs} currentTabId="tab-1" />
   </>
 );
