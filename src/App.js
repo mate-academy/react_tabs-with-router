@@ -8,7 +8,7 @@ import HomePage from './components/HomePage/HomePage';
 
 const App = () => (
   <div className="app">
-    <BrowserRouter>
+    <BrowserRouter basename="/">
       <nav className="nav">
         <NavLink to="/" exact>
           Домашня сторінка
