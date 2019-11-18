@@ -3,20 +3,22 @@ import { Link } from 'react-router-dom';
 
 function NavLinks() {
   return (
-    <div className="links">
+    <nav className="links">
       <Link
         to="/"
+        activeClassName="active"
         className="ui primary button"
       >
         Home
       </Link>
       <Link
         to="/tabs"
+        activeClassName="active"
         className="ui secondary button"
       >
         Tabs
       </Link>
-    </div>
+    </nav>
   );
 }
 
