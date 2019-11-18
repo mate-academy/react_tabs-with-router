@@ -17,7 +17,7 @@ const Tabs = ({ tabs, match }) => (
         ))}
       </ul>
     </nav>
-    <div>
+    <div className="tab-content">
       <Switch>
         {tabs.map(tab => (
           <Route
