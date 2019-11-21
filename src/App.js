@@ -23,7 +23,7 @@ class App extends React.Component {
       <>
         <button onClick={() => this.setActive("home")} >Home</button>
         <button onClick={() => this.setActive("profile")} >Profile</button>
-        <div>{this.state.active === <p>home</p> ? "Home" : <ListSomeText />}</div>
+        <div>{this.state.active === "home" ? <p>Home</p> : <ListSomeText />}</div>
       </>
     );
   }
