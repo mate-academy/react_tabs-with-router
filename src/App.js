@@ -1,22 +1,32 @@
 import React from 'react';
 import './App.css';
+import ListSomeText from './ListSomeText';
 
-const App = () => (
-  <div className="App">
-    <HomePage />
-    <TabsPage />
-  </div>
-);
+class App extends React.Component {
+  constructor (props) {
+    super(props);
 
-const HomePage = () => <h1>Home page</h1>;
+    this.state = {
+      active: "home",
+    };
 
-const tabs = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-];
-const TabsPage = () => <Tabs tabs={tabs} currentTabId="tab-1" />;
+    this.setActive = this.setActive.bind(this);
+  }
 
-const Tabs = () => <h2>Tabs</h2>;
+  setActive (active) {
+    this.setState({active})
+  }
+
+  render() {
+    console.log(this.state.active)
+    return (
+      <>
+        <button onClick={() => this.setActive("home")} >Home</button>
+        <button onClick={() => this.setActive("profile")} >Profile</button>
+        <div>{this.state.active === <p>home</p> ? "Home" : <ListSomeText />}</div>
+      </p>
+    );
+  }
+}
 
 export default App;
