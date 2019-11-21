@@ -14,8 +14,8 @@ const ListSomeText = () => {
       <A href="/">Home</A>
       <A href="/Tab_2">Profile</A>
       <A href="/Tab_3">Contact</A>
-      <div>{routeResult}</div>
-    </>
+      <div>{routeResult || <p>Some text 1</p></div>
+    </p>
   );
 }
 
