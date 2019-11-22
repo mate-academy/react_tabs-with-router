@@ -1,22 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import ListSomeText from './ListSomeText';
 
-const App = () => (
-  <div className="App">
-    <HomePage />
-    <TabsPage />
-  </div>
-);
+const App = () => {
+  const [active, setActive] = useState("home");
 
-const HomePage = () => <h1>Home page</h1>;
-
-const tabs = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-];
-const TabsPage = () => <Tabs tabs={tabs} currentTabId="tab-1" />;
-
-const Tabs = () => <h2>Tabs</h2>;
+  return (
+    <>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button class="btn btn-secondary ml-3 mt-3" type="button" onClick={() => setActive("home")} >Home</button>
+        <button class="btn btn-secondary mr-3 mt-3" type="button" onClick={() => setActive("profile")} >Profile</button>
+      </div>
+      <div className={"m-3"} >{active === "home" ? <div className={"badge badge-primary text-wrap"}><p>Home</p></div> : <ListSomeText />}</div>
+    </>
+  );
+}
 
 export default App;
