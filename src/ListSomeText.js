@@ -11,10 +11,12 @@ const ListSomeText = () => {
   const routeResult = useRoutes(routers);
   return (
     <>
-      <A href="/">Home</A>
-      <A href="/Tab_2">Profile</A>
-      <A href="/Tab_3">Contact</A>
-      <div>{routeResult || <p>Some text 1</p>}</div>
+      <div className={"nav align-content-start flex-column"}>
+        <A class="btn btn-dark m-3" href="/">no home</A>
+        <A class="btn btn-dark m-3" href="/Tab_2">Profile</A>
+        <A class="btn btn-dark m-3" href="/Tab_3">Contact</A>
+      </div>
+      <div className={"badge badge-primary text-wrap mr-5"}>{routeResult || <p>Some text 1</p>}</div>
     </>
   );
 }
