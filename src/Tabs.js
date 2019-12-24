@@ -15,7 +15,7 @@ const tabs = [
 ];
 
 const TabsPage = props => (
-  <Tab tabs={tabs} match={props.match} />
+  <Tab tabs={tabs} match={props.match} currentTabId="tab-1" />
 );
 
 TabsPage.propTypes = {
