@@ -1,1 +1,33 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Droid Sans Mono Slashed", sans-serif;
+  background-color: seashell;
+}
 
+.App {
+  display: flex;
+  flex-direction: row;
+}
+
+.home-page {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.item {
+  font-family: "Exotc350 Bd BT", sans-serif;
+}
+
+.ui.vertical.menu {
+  width: 85px;
+  font-size: 17px;
+  letter-spacing: 2px;
+}
+
+.tabs {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
