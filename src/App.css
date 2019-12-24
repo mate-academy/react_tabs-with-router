@@ -1,1 +1,66 @@
+body {
+  margin: 0;
+}
 
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.navbar {
+  background-color: rgba(0, 204, 255, 0.5);
+  padding: 5px;
+  margin: 0;
+}
+
+.navbar__list {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  font-size: 18px;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar__link {
+  margin-right: 20px;
+}
+
+.navbar__link a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: bold;
+}
+
+.navbar__link .active,
+.tabs__link .active {
+  color: rgb(253, 74, 74);
+  border-bottom: 2px solid rgb(253, 74, 74);
+}
+
+.tabs {
+  margin: auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.tabs__link {
+  list-style: none;
+  margin-right: 20px;
+}
+
+.tabs__link a {
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.tab__text {
+  display: block;
+  text-align: center;
+  font-size: 18px;
+}
