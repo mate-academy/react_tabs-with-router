@@ -8,7 +8,7 @@ const App = () => (
   <div className="App">
     <BrowserRouter>
       <div className="ui secondary vertical pointing menu">
-        <NavLink to="/home" activeClassName="active" className="item">
+        <NavLink to="/" exact activeClassName="active" className="item">
           HOME
         </NavLink>
         <NavLink to="/tabs" activeClassName="active" className="item">
@@ -16,7 +16,7 @@ const App = () => (
         </NavLink>
       </div>
       <Switch>
-        <Route path="/home" exact component={HomePage} />
+        <Route path="/" exact component={HomePage} />
         <Route path="/tabs/:currentTabId?" component={Tabs} />
       </Switch>
     </BrowserRouter>
