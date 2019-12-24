@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Tab = ({ tab }) => (
-  <p>{tab.content}</p>
+const Tab = ({ currentTab }) => (
+  <p>{currentTab.content}</p>
 );
 
 Tab.propTypes = {
-  tab: PropTypes.shape({
+  currentTab: PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,

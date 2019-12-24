@@ -44,12 +44,12 @@ const Tabs = ({ match }) => (
     ))}
     <div className="tabs__content">
       <Switch>
-        {tabs.map(tab => (
+        {tabs.map(oneTab => (
           <Route
-            path={`${match.path}/${tab.id}`}
-            key={tab.id}
+            path={`${match.path}/${oneTab.id}`}
+            key={oneTab.id}
             render={() => (
-              <Tab tab={tab} />
+              <Tab currentTab={oneTab} />
             )}
           />
         ))}
