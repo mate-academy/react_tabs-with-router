@@ -14,14 +14,14 @@ const tabs = [
   },
 ];
 
-const TabsPage = props => (
-  <Tab tabs={tabs} match={props.match} currentTabId="tab-1" />
+const Tabs = props => (
+  <Tab tabs={tabs} match={props.match} />
 );
 
-TabsPage.propTypes = {
+Tabs.propTypes = {
   match: PropTypes.shape(
     { path: PropTypes.string.isRequired }
   ).isRequired,
 };
 
-export default TabsPage;
+export default Tabs;
