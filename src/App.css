@@ -1,1 +1,38 @@
+.nav-item {
+  text-decoration: none;
+  color: darkblue;
+  font-size: 18px;
+  margin-right: 10px;
+  padding: 3px;
+}
 
+.nav-item--active {
+  border: 1px dashed royalblue;
+}
+
+.tabs-list {
+  list-style-type: none;
+  display: flex;
+  margin-top: 15px;
+  padding: 0;
+}
+
+.tabs-item {
+  font-size: 24px;
+  background-color: darkcyan;
+  margin-right: 13px;
+  padding: 5px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.2s, background-color 1s;
+}
+
+.tabs-item:hover {
+  background-color: white;
+  color: darkcyan;
+}
+
+.tabs-item--active {
+  background-color: white;
+  color: darkcyan;
+}
