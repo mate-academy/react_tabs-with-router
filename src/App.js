@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, NavLink, Switch } from 'react-router-dom';
 import TabsPage from './TabsPage';
-import './App.css';
 
 const tabs = [
   {
