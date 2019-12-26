@@ -1,0 +1,59 @@
+.tabs {
+  width: max-content;
+  margin: auto;
+}
+
+.tab {
+  display: inline-block;
+  width: 150px;
+  line-height: 75px;
+  text-align: center;
+  font-size: 24px;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-decoration: none;
+  background: linear-gradient(90deg,#b993d6, #8ca6db);
+
+  &:hover {
+    background: linear-gradient(90deg, #f2709c, #ff9472);
+  }
+
+  &--active {
+    background: buttonface;
+    &:hover {
+      background: buttonface;
+    }
+  }
+}
+
+.content {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  background-color: buttonface;
+  min-height: 500px;
+  margin: auto;
+  width: 80%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.link {
+  display: inline-block;
+  width: 100px;
+  line-height: 40px;
+  color: white;
+  text-decoration: none;
+  background-color: #ffb100;
+  text-align: center;
+  font-size: 20px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &--active {
+    background-color: #33f011;
+  }
+}
