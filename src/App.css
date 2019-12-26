@@ -1,1 +1,62 @@
 
+.tab {
+  border: 0;
+  height: 2em;
+  background-color: white;
+  color: blue;
+  outline: 0;
+  text-decoration: none;
+  padding: 0 5px;
+}
+
+.tab:hover {
+  border: 1px solid gray;
+}
+
+.tab-selected {
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  color: black;
+  position: relative;
+}
+
+.tab-selected::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  bottom: -3px;
+  right: 0;
+  left: 0;
+}
+
+.hr {
+  margin-top: 0;
+  background-color: gray;
+}
+
+.tabs__container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.middle {
+  text-align: center;
+}
+
+.pages {
+  text-decoration: none;
+  margin-left: 10px;
+  color: black;
+}
+
+.section_pages-select {
+  text-align: center;
+}
+
+.selected_page {
+  padding: 5px;
+  background-color: lightblue;
+}
