@@ -1,1 +1,57 @@
+.active {
+  background: rgb(20, 206, 196);
+}
 
+.home {
+  margin-left: 30px;
+}
+
+.linkGo {
+  margin: 40px 20px;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+.tabs {
+  display: inline-block;
+  margin-top: 50px;
+}
+
+.tabs__text {
+  background: whitesmoke;
+  width: 500px;
+  height: 150px;
+  padding: 15px;
+  font-size: 18px;
+  margin: 0;
+  position: relative;
+  bottom: 1px;
+}
+
+.tabs__button {
+  font-size: 20px;
+  color: rgb(76, 147, 240);
+  border-radius: 3px 3px 0 0;
+  outline: none;
+  border: 1px solid whitesmoke;
+  background: whitesmoke;
+  position: relative;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.tabs__button--is-active {
+  padding-bottom: 0;
+  color: black;
+  border: 1px solid rgb(126, 126, 126);
+  border-bottom: 1px solid whitesmoke;
+  z-index: 1;
+}
+
+.tabs__decor {
+  margin: 0;
+  position: relative;
+  bottom: 1px;
+  z-index: 0;
+}
