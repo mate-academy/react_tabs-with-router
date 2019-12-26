@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './App.css';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   Link,
@@ -25,7 +24,7 @@ const tabs = [
 
 function App() {
   return (
-    <Router>
+    <section>
       <div>
         <nav>
           <ul>
@@ -58,7 +57,7 @@ function App() {
           </Route>
         </Switch>
       </div>
-    </Router>
+    </section>
   );
 }
 
