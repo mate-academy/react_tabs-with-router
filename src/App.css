@@ -1,1 +1,41 @@
+* {
+  text-decoration: none;
+  box-sizing: border-box;
+  outline: none;
+}
 
+.nav-item {
+  margin: 20px;
+  padding: 7px 35px;
+  display: inline-block;
+  border: 1px solid black;
+}
+
+.nav-item_active {
+  background: lightblue;
+}
+
+.App {
+  /* background: #000; */
+  text-align: center;
+}
+
+.tabs-item {
+  margin: 20px;
+  padding: 7px 35px;
+  display: inline-block;
+  border: 1px solid black;
+}
+
+.tabs-item_active {
+  background: lightblue;
+}
+
+.content {
+  border: 2px solid black;
+  width: 500px;
+  margin: 50px auto;
+  height: 200px;
+  font-size: 50px;
+  padding-top: 50px;
+}
