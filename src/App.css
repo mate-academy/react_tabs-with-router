@@ -75,3 +75,12 @@ hr {
   z-index: -1;
   position: relative;
 }
+
+.error-path {
+  color: red;
+  padding: 20px;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

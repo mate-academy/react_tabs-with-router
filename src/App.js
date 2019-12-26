@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import TabsPage from './TabsPage';
 import './App.css';
+import ErrorPath from './ErrorPath';
 
 const App = () => (
   <div className="App">
@@ -36,7 +37,8 @@ const App = () => (
 
     <Switch>
       <Route path="/" exact component={HomePage} />
-      <Route path="/tabs/:tabTitle?" component={TabsPage} />
+      <Route path="/tabs/:tabTitle?" exact component={TabsPage} />
+      <Route component={ErrorPath} />
     </Switch>
   </div>
 
