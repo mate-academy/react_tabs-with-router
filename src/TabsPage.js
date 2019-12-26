@@ -19,7 +19,10 @@ const TabsPage = ({ tabs, match }) => (
       path={`${match.path}/:tabId`}
       render={
         ({ match: renderMatch }) => (
-          <Tab tab={tabs.find(tab => tab.id === renderMatch.params.tabId)} />
+          <Tab tab={tabs.find(
+            tab => tab.id === renderMatch.params.tabId
+          ) || {}}
+          />
         )
       }
     />
