@@ -1,1 +1,33 @@
+body {
+  display: flex;
+  background-color: lightgray;
+}
 
+.App {
+  display: flex;
+}
+
+ul {
+  margin: 20px;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: row;
+}
+
+.links {
+  border: solid 1px black;
+  border-radius: 15px;
+  width: 70px;
+  height: 30px;
+  text-align: center;
+  padding: 10px;
+}
+
+.active {
+  background-color: lightpink;
+}
