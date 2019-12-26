@@ -1,22 +1,58 @@
 import React from 'react';
 import './App.css';
+import {
+  HashRouter,
+  Switch,
+  Route,
+  NavLink,
+} from 'react-router-dom';
+import Tabs from './Tabs';
 
 const App = () => (
-  <div className="App">
-    <HomePage />
-    <TabsPage />
+  <HashRouter>
+    <div className="App">
+      <ul className="nav">
+        <li>
+          <NavLink
+            to="/"
+            exact
+            className="nav__link"
+            activeClassName="nav__link-active"
+          >
+            Home Page
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/tabs"
+            className="nav__link"
+            activeClassName="nav__link-active"
+          >
+            Tabs Page
+          </NavLink>
+        </li>
+      </ul>
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/tabs" component={TabsPage} />
+      </Switch>
+    </div>
+  </HashRouter>
+);
+
+const HomePage = () => (
+  <div className="home">
+    <h1>Home</h1>
+    {/* eslint-disable-next-line max-len */}
+    <img alt="home" src="https://s3.amazonaws.com/tinycards/image/fa524f51a84e81e2ae63e0dbeba83f57" />
   </div>
 );
 
-const HomePage = () => <h1>Home page</h1>;
-
-const tabs = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-];
-const TabsPage = () => <Tabs tabs={tabs} currentTabId="tab-1" />;
-
-const Tabs = () => <h2>Tabs</h2>;
+const TabsPage = () => (
+  <div className="tabs">
+    <h1>Tabs</h1>
+    <Tabs />
+  </div>
+);
 
 export default App;

@@ -1,1 +1,65 @@
+.nav {
+  display: flex;
+  list-style: none;
+}
 
+.nav__link {
+  text-decoration: none;
+  background-color: orange;
+  color: black;
+  width: 100px;
+  height: 25px;
+  border-radius: 5px;
+  display: block;
+  text-align: center;
+  margin-right: 10px;
+  line-height: 25px;
+}
+
+.nav__link:hover {
+  background-color: orangered;
+}
+
+.nav__link-active {
+  background-color: orangered;
+}
+
+.tab {
+  display: inline-block;
+  text-align: center;
+  line-height: 25px;
+  width: 75px;
+  height: 25px;
+  background-color: orange;
+  border-radius: 5px;
+  margin-right: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.tab:hover {
+  background-color: orangered;
+}
+
+.tab__active {
+  background-color: orangered;
+}
+
+.tab__text {
+  margin-top: 20px;
+  width: 700px;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
