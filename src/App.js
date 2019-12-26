@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
+import { HashRouter, Route, Switch, NavLink } from 'react-router-dom';
 import HomePage from './HomePage';
 import TabsPage from './TabsPage';
 import './App.scss';
 
 const App = () => (
   <div className="App">
-    <BrowserRouter>
+    <HashRouter>
       <NavLink
         to="/"
         exact
@@ -28,7 +28,7 @@ const App = () => (
         <Route path="/" exact component={HomePage} />
         <Route path="/tabs" component={TabsPage} />
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   </div>
 );
 
