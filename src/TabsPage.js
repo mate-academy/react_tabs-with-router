@@ -1,9 +1,8 @@
+/* eslint-disable no-shadow */
 /* eslint-disable object-curly-newline */
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React from 'react';
+import { NavLink, Route } from 'react-router-dom';
 import PropsTypes from 'prop-types';
-import cn from 'classnames';
-import Tabs from './Tabs';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -11,30 +10,33 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const TabsPage = ({ match }) => {
-  const [currnetTab, changeCurrentTab] = useState(tabs[0].id);
-
-  return (
-    <>
-      <ul className="tabs">
-        {tabs.map(({ id, title }) => (
-          <li className="tabs__link">
-            <NavLink
-              to={`${match.path}/${id}`}
-              onClick={() => (
-                changeCurrentTab(id)
-              )}
-              className={cn({ active: id === currnetTab })}
-            >
-              {title}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
-      <Tabs tabsData={tabs} currentTabId={currnetTab} />
-    </>
-  );
-};
+const TabsPage = ({ match }) => (
+  <>
+    <ul className="tabs">
+      {tabs.map(({ id, title }) => (
+        <li className="tabs__link">
+          <NavLink
+            to={`${match.path}/${id}`}
+            exact
+            activeClassName="active__tab"
+          >
+            {title}
+          </NavLink>
+        </li>
+      ))}
+    </ul>
+    <Route
+      path={`${match.path}/:currentTabId`}
+      render={({ match }) => (
+        <p className="tab__text">
+          {(tabs.find(tab => tab.id === match.params.currentTabId) || {})
+            .content
+          }
+        </p>
+      )}
+    />
+  </>
+);
 
 TabsPage.propTypes = { match: PropsTypes.objectOf.isRequired };
 

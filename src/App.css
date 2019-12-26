@@ -34,7 +34,7 @@ body {
 }
 
 .navbar__link .active,
-.tabs__link .active {
+.active__tab {
   color: rgb(253, 74, 74);
   border-bottom: 2px solid rgb(253, 74, 74);
 }
