@@ -9,7 +9,7 @@ import ErrorPath from './ErrorPath';
 const Tabs = withRouter(({ tabs, match, currentTabId }) => {
   const tabId = match.params.tabTitle || currentTabId;
 
-  if (['tab-1', 'tab-2', 'tab-3'].includes(tabId)) {
+  if (tabs.find(tab => tab.id === tabId) !== undefined) {
     return (
       <section className="tabs">
         <h2>Tabs</h2>
@@ -26,9 +26,7 @@ const Tabs = withRouter(({ tabs, match, currentTabId }) => {
         )) }
         <hr />
         <div className="tab">
-(
           { tabs.find(tab => tab.id === tabId).content }
-        )
         </div>
       </section>
     );
