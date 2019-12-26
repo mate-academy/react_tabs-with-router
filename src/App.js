@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {
-  BrowserRouter,
+  HashRouter,
   Route,
   Switch,
 } from 'react-router-dom';
@@ -10,7 +10,7 @@ import SelectPage from './SelectPage';
 
 const App = () => (
   <div className="App">
-    <BrowserRouter>
+    <HashRouter>
       <SelectPage />
       <section className="tabs__container">
         <Switch>
@@ -20,7 +20,7 @@ const App = () => (
           </Route>
         </Switch>
       </section>
-    </BrowserRouter>
+    </HashRouter>
   </div>
 );
 
