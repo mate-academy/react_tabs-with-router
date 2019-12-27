@@ -19,7 +19,7 @@ const tabs = [
 
 const Tabs = ({ match }) => {
   const variant = match.params.tabsId === undefined
-    ? 0
+    ? -1
     : match.params.tabsId.match(/\d/g) - 1;
   let showContentOfTabs = false;
 
