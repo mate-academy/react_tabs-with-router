@@ -21,14 +21,10 @@ const Tabs = ({ match }) => {
   const variant = match.params.tabsId === undefined
     ? 0
     : match.params.tabsId.match(/\d/g) - 1;
-  let showContentOfTabs = true;
+  let showContentOfTabs = false;
 
-  if (variant < 0
-  || variant >= tabs.length
-  || match === undefined
-  || match.params.tabsId !== `tab-${variant + 1}`
-  ) {
-    showContentOfTabs = false;
+  if (variant > 0 && variant < tabs.length) {
+    showContentOfTabs = true;
   }
 
   return (
