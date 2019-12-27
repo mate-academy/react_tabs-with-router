@@ -1,7 +1,13 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Tabs from './Tabs';
 
-const TabsPage = () => <Route path="/tabs/:id?" component={Tabs} />;
+const TabsPage = ({ match }) => <Tabs match={match} />;
+
+TabsPage.propTypes = {
+  match: PropTypes.shape({
+    path: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default TabsPage;

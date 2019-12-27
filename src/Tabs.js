@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Route,
   Switch,
@@ -35,12 +36,12 @@ const tabs = [
     id: 'tab-3', title: 'Tab 3', content: someText3,
   },
 ];
-const Tabs = () => (
+const Tabs = ({ match }) => (
   <div className="menu">
     <ul className="tabs">
       {tabs.map(item => (
         <li className="tabs_link">
-          <NavLink to={`/tabs/${item.id}`} exact>
+          <NavLink to={`${match.path}/${item.id}`} exact>
             {item.title}
           </NavLink>
         </li>
@@ -49,7 +50,7 @@ const Tabs = () => (
     <Switch>
       {tabs.map(item => (
         <Route
-          path={`/tabs/${item.id}`}
+          path={`${match.path}/${item.id}`}
           render={() => (
             <TabsContent currentTab={item} />
           )}
@@ -58,5 +59,11 @@ const Tabs = () => (
     </Switch>
   </div>
 );
+
+Tabs.propTypes = {
+  match: PropTypes.shape({
+    path: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default Tabs;

@@ -1,32 +1,37 @@
 import React from 'react';
 import './App.css';
 import {
-  BrowserRouter,
+  HashRouter,
   Route,
   Switch,
   NavLink,
 } from 'react-router-dom';
+import HomePage from './HomePage';
 import TabsPage from './TabsPage';
 
 const App = () => (
   <div className="App">
-    <BrowserRouter>
+    <HashRouter>
       <nav>
         <ul className="main_ul">
           <li className="home">
-            <NavLink className="mainButton" to="/" exact>HomePage</NavLink>
+            <NavLink className="mainButton" to="/" exact>
+              HomePage
+            </NavLink>
           </li>
-          <li><NavLink className="mainButton" to="/tabs">TabsPage</NavLink></li>
+          <li>
+            <NavLink className="mainButton" to="/tabs">
+              TabsPage
+            </NavLink>
+          </li>
         </ul>
       </nav>
       <Switch>
         <Route path="/" exact component={HomePage} />
         <Route path="/tabs" component={TabsPage} />
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   </div>
 );
-
-const HomePage = () => <h1 className="h1">Home</h1>;
 
 export default App;
