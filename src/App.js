@@ -10,8 +10,23 @@ const App = () => (
 
       <nav>
         <ul>
-          <li><NavLink to="/" exact>Home</NavLink></li>
-          <li><NavLink to="/tabs">Tabs</NavLink></li>
+          <li>
+            <NavLink
+              className="button"
+              to="/"
+              exact
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className="button"
+              to="/tabs"
+            >
+              Tabs
+            </NavLink>
+          </li>
         </ul>
       </nav>
 

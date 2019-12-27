@@ -12,6 +12,7 @@
   cursor: pointer;
   border: 1px solid rgb(114, 51, 6);
   text-decoration: none;
+  list-style: none;
 }
 
 .button:hover {
