@@ -1,1 +1,37 @@
+.App {
+  width: 80%;
+  margin: 0 auto;
+}
 
+ul {
+  list-style: none;
+}
+
+.button {
+  display: inline-block;
+  text-align: center;
+  width: 100px;
+  background-color: rgb(252, 245, 237);
+  color: rgb(114, 51, 6);
+  cursor: pointer;
+  border: 1px solid rgb(114, 51, 6);
+  text-decoration: none;
+  list-style: none;
+}
+
+.button:hover {
+  background-color: rgb(233, 188, 156);
+}
+
+.active {
+  color: rgb(252, 245, 237);
+  background-color: rgb(114, 51, 6);
+}
+
+.text {
+  background-color: rgb(252, 245, 237);
+  border: 1px solid rgb(114, 51, 6);
+  padding: 20px;
+  margin: -1px 0 0;
+  font-size: 18px;
+}
