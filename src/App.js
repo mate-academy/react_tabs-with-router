@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import './App.css';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import {
@@ -7,6 +6,7 @@ import {
   Route,
   Link,
   NavLink,
+  useParams,
   useRouteMatch,
 } from 'react-router-dom';
 
@@ -71,7 +71,6 @@ function Home() {
 
 function Tabs() {
   const { path, url } = useRouteMatch();
-  const [text, setText] = useState('');
 
   return (
     <div>
@@ -83,7 +82,6 @@ function Tabs() {
           >
             <Link
               to={`${url}/${tab.id}`}
-              onClick={() => setText(tab.content)}
               className="tab"
             >
               {tab.title}
@@ -97,21 +95,22 @@ function Tabs() {
           <h3>Please make you choice.</h3>
         </Route>
         <Route path={`${path}/:tabId`}>
-          <Topic text={text} />
+          <Text />
         </Route>
       </Switch>
     </div>
   );
 }
 
-function Topic({ text }) {
+function Text() {
+  const { tabId } = useParams();
+
   return (
     <div>
-      <h3>{text}</h3>
+
+      <h3>{tabs.find(item => item.id === tabId).content}</h3>
     </div>
   );
 }
-
-Topic.propTypes = { text: PropTypes.string.isRequired };
 
 export default App;
