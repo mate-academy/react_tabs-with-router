@@ -1,1 +1,58 @@
+body {
+  background-image: linear-gradient(to top right, rgb(101, 115, 255),
+  rgb(122, 113, 238), rgb(143, 112, 220), rgb(164, 110, 203),
+  rgb(185, 109, 185), rgb(206, 107, 168), rgb(178, 125, 175),
+  rgb(149, 143, 181), rgb(121, 162, 188), rgb(92, 180, 194),
+  rgb(64, 198, 201), rgb(35, 216, 207));
+  padding: 20px;
+}
 
+a {
+  color: white;
+  font-size: 20px;
+}
+
+a:hover {
+  color: rgb(121, 162, 188);
+}
+
+.tabs {
+  display: flex;
+}
+
+li {
+  list-style-type: none;
+}
+
+.mainButton {
+  margin-left: 50px;
+  color: white;
+  font-size: 30px;
+}
+
+.mainButton:hover {
+  color: thistle;
+}
+
+.main_ul {
+  display: flex;
+  justify-content: center;
+}
+
+.menu {
+  background-color: thistle;
+  border-radius: 30px;
+  width: 600px;
+  color: white;
+  padding: 20px;
+  margin-left: 30%;
+  margin-top: 40px;
+}
+
+.tabs_link {
+  margin-left: 20px;
+}
+
+.h1 {
+  opacity: 0;
+}
