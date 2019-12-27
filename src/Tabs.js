@@ -23,7 +23,7 @@ const Tabs = ({ match }) => {
     : match.params.tabsId.match(/\d/g) - 1;
   let showContentOfTabs = false;
 
-  if (variant > 0 && variant < tabs.length) {
+  if (variant >= 0 && variant < tabs.length) {
     showContentOfTabs = true;
   }
 
