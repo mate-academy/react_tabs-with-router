@@ -1,21 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, useRouteMatch } from 'react-router-dom';
 
-const Tabs = ({ tabs, match }) => (
-  <h2>
-    {tabs.map(tab => <NavLink to={`/Tabs/${tab.id}`}>{tab.title}</NavLink>)}
-    <Route
-      path={`${match.url}`}
-      render={props => (
-        <h2>
-          {(tabs.find(tab => (
-            tab.id === match.params.currentTabId)) || {}).content}
-        </h2>
-      )}
-    />
-  </h2>
-);
+const Tabs = ({ tabs }) => {
+  const match = useRouteMatch();
+
+  return (
+    <h2>
+      {tabs.map(tab => (
+        <NavLink
+          to={`/Tabs/${tab.id}`}
+          activeClassName="activeTab"
+        >
+          {tab.title}
+        </NavLink>
+      ))}
+      <Route
+        path={`${match.url}`}
+        render={() => (
+          <h2>
+            {(tabs.find(tab => (
+              tab.id === match.params.currentTabId)) || {}).content}
+          </h2>
+        )}
+      />
+    </h2>
+  );
+};
 
 Tabs.propTypes = {
   tabs: PropTypes.shape({

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Tabs from './Tabs';
 
 const tabs = [
@@ -15,13 +15,13 @@ const tabs = [
 ];
 
 const TabsPage = () => (
-  <h2>
-    <Link to="/Tabs">Tabs</Link>
+  <>
+    <h1>Tabs page</h1>
     <Route
       path="/Tabs/:currentTabId?"
       render={props => <Tabs tabs={tabs} {...props} />}
     />
-  </h2>
+  </>
 );
 
 export default TabsPage;
