@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  BrowserRouter,
-  Route,
-} from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import { Home } from './components/Home';
 import { Tabs } from './components/TabsLink';
@@ -18,14 +15,12 @@ export const tabs = [
 ];
 
 const App = () => (
-  <BrowserRouter>
     <div className="App">
       <Route path="/" exact component={Home} />
       <Route path="/tabs" exact component={Tabs} />
       <Route path="/tabs/:tabsId" component={creatorTabs} />
 
     </div>
-  </BrowserRouter>
 );
 
 export default App;
