@@ -37,7 +37,7 @@ export const Tabs: FC = () => {
     } else {
       history.push('/tabs/tab-1');
     }
-  }, []);
+  }, [tabId]);
 
   const handleTabClick = (id: string) => {
     dispatch(setActiveTabId(id));
