@@ -1,0 +1,23 @@
+.tabs-list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.tabs-item {
+  min-width: 80px;
+  min-height: 40px;
+  border-right: 1px solid black;
+}
+
+.tabs-item:last-child {
+  border-right: none;
+}
+
+.tabs-content {
+  max-width: 400px;
+  padding: 40px 20px;
+  border-radius: 10px;
+  background-color: lightgoldenrodyellow;
+}

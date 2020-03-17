@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 30px;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+}
+
+.nav-link {
+  padding: 5px 15px;
+  color: #000;
+  text-decoration: none;
+}
+
+.nav-link--active,
+.nav-link:hover {
+  background-color: lightskyblue;
+}
+
+.content {
+  padding: 30px;
+}
