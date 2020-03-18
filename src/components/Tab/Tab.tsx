@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { Tab as ITab } from '../../constants/types';
+import { Tab as TabInterface } from '../../constants/types';
 import './Tab.css';
 
 
-interface Props extends Pick<ITab, 'id' | 'title'> {
+interface Props extends Pick<TabInterface, 'id' | 'title'> {
   onClick(): void;
 }
 

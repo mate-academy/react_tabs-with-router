@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
-import { Route, Switch, NavLink } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
+import { Header } from '../components/Header';
 import { Home } from '../components/Home';
 import { Tabs } from '../components/Tabs';
 
@@ -9,34 +10,7 @@ import './App.css';
 
 export const App: FC = () => (
   <>
-    <header className="header">
-      <h1>Tabs with router</h1>
-
-      <nav>
-        <ul className="nav-list">
-          <li className="nav-item">
-            <NavLink
-              to="/"
-              exact
-              className="nav-link"
-              activeClassName="nav-link--active"
-            >
-              Home
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink
-              to="/tabs"
-              className="nav-link"
-              activeClassName="nav-link--active"
-            >
-              Tabs
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
+    <Header />
     <hr />
 
     <div className="content">
