@@ -1,0 +1,25 @@
+.button__heading {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 70px;
+  height: 35px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 35px;
+  color: #385898;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-bottom-color: #cac9c9;
+  border-radius: 5px 5px 0 0;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.button__heading--active {
+  color: black;
+  border: 1px solid #cac9c9;
+  border-bottom-color: white;
+}

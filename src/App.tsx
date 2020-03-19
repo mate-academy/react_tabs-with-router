@@ -1,17 +1,43 @@
-import React from 'react';
+import React, { FC } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  NavLink,
+} from 'react-router-dom';
+import Tabs from './components/Tabs';
 
 import './App.css';
 
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
-
-const App = () => (
-  <div className="App">
-    <h1>Tabs with router</h1>
-  </div>
+const App: FC = () => (
+  <Router>
+    <nav className="nav">
+      <NavLink
+        to="/"
+        className="nav__item"
+        activeClassName="nav__item--active"
+        exact
+      >
+        Home
+      </NavLink>
+      <NavLink
+        to="/tabs"
+        className="nav__item"
+        activeClassName="nav__item--active"
+        exact
+      >
+        Tabs
+      </NavLink>
+    </nav>
+    <Switch>
+      <Route
+        path="/"
+        render={() => <h1>Homepage</h1>}
+        exact
+      />
+      <Route path="/tabs/:tabsId?" component={Tabs} exact />
+    </Switch>
+  </Router>
 );
 
 export default App;
