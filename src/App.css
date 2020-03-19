@@ -1,1 +1,30 @@
+.active {
+  background-color: cornflowerblue;
+}
 
+.lists {
+  display: flex;
+}
+
+.lists__item {
+  list-style: none;
+}
+
+.lists__link {
+  display: block;
+  width: 50px;
+  height: 20px;
+  border-radius: 3px;
+  margin-right: 10px;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+}
+
+.lists__link:hover {
+  background-color: lightblue;
+}
+
+.tab-text {
+  margin-left: 40px;
+}
