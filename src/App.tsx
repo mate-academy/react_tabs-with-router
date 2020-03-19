@@ -29,7 +29,7 @@ const App = () => (
     <hr />
     <Route path="/" exact component={Home} />
     <Route
-      path="/tabs/"
+      path="/tabs/:tabId?"
       render={(props) => (
         <Tabs tabs={tabs} props={props} />
       )}
