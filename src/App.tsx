@@ -3,32 +3,13 @@ import {
   HashRouter as Router,
   Route,
   Switch,
-  NavLink,
 } from 'react-router-dom';
 import Tabs from './components/Tabs';
-
-import './App.css';
+import { Nav } from './components/Nav';
 
 const App: FC = () => (
   <Router>
-    <nav className="nav">
-      <NavLink
-        to="/"
-        className="nav__item"
-        activeClassName="nav__item--active"
-        exact
-      >
-        Home
-      </NavLink>
-      <NavLink
-        to="/tabs"
-        className="nav__item"
-        activeClassName="nav__item--active"
-        exact
-      >
-        Tabs
-      </NavLink>
-    </nav>
+    <Nav />
     <Switch>
       <Route
         path="/"
