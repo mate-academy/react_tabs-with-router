@@ -5,7 +5,7 @@ export const Nav: FC = () => (
   <nav>
     <ul className="nav nav-pills nav-fill">
       <li className="nav-item">
-        <NavLink to="/" className="nav-link">
+        <NavLink to="/" exact className="nav-link">
             Home
         </NavLink>
       </li>
