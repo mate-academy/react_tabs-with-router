@@ -1,1 +1,40 @@
+a {
+  text-decoration: none;
+  color: #000;
+}
 
+.app {
+  margin: 0 20px;
+}
+
+.nav {
+  margin-top: 20px;
+  border-bottom: 1px solid #000;
+  padding-bottom: 10px;
+}
+
+.link {
+  padding-right: 20px;
+  text-transform: uppercase;
+}
+
+.link-active {
+  color: blue;
+}
+
+.tabs {
+  padding: 10px;
+  margin-right: 10px;
+  background-color: #ccc;
+}
+
+.tabs-active {
+  border-top: 3px solid #000;
+}
+
+.text {
+  width: 30%;
+  background-color: #ccc;
+  margin: 0;
+  padding: 50px;
+}
