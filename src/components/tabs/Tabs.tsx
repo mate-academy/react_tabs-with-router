@@ -10,12 +10,7 @@ interface Props {
 }
 
 export const Tabs: FC<Props> = ({ tabs, props: { match } }) => {
-  console.log(match);
-
   const tabContent = tabs.find(tab => tab.id === match.params.tabId);
-
-  console.log(tabContent);
-
 
   return (
     <>
