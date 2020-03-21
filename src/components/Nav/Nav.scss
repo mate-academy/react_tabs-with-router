@@ -1,0 +1,16 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  align-items: flex-start;
+
+  &__link {
+    text-decoration: none;
+    color: #000;
+
+    &:hover,
+    &_active {
+      color: #418fde;
+    }
+  }
+}
