@@ -1,1 +1,9 @@
+.wrapper {
+  max-width: 1170px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
 
+.nav-link {
+  border: 1px solid #ccc;
+}

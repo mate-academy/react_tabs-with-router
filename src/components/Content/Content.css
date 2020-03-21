@@ -1,0 +1,9 @@
+.tabs__content {
+  border-top: 1px solid #cecece;
+  margin-top: -1px;
+  padding: 10px 15px;
+  color: #3e3f40;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+}
