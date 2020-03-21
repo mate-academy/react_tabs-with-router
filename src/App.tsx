@@ -7,7 +7,6 @@ import './App.css';
 
 const App: FC = () => (
   <div className="App">
-    <h1>Tabs with router</h1>
     <NavLink
       to="/"
       exact

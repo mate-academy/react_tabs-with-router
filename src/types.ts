@@ -3,5 +3,3 @@ export interface Tab {
   title: string;
   content: string;
 }
-
-// export interface Tabs = Tab[];
