@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import {
-  BrowserRouter,
+  HashRouter,
   Route,
+  Switch,
 } from 'react-router-dom';
 import { Nav } from './components/Nav/Nav';
 import { Home } from './components/Home/Home';
@@ -11,14 +12,16 @@ import './App.css';
 
 const App: FC = () => (
   <div className="wrapper">
-    <BrowserRouter>
+    <HashRouter>
       <Nav />
-      <Route path="/" exact component={Home} />
-      <Route
-        path="/tabs/:tabsId?"
-        component={Tabs}
-      />
-    </BrowserRouter>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route
+          path="/tabs/:tabsId?"
+          component={Tabs}
+        />
+      </Switch>
+    </HashRouter>
   </div>
 );
 
