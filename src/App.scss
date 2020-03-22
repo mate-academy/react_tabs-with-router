@@ -1,0 +1,96 @@
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Ubuntu, serif;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  margin: 10vh auto;
+  width: 50vw;
+  height: 500px;
+  background: grey;
+}
+
+.homePage {
+  &__title {
+    text-align: center;
+  }
+}
+
+.nav {
+  width: 10vw;
+
+  &__list {
+    display: flex;
+    list-style-type: none;
+    text-transform: uppercase;
+  }
+
+  &__item {
+    padding: 1em;
+  }
+
+  &__link {
+    background-color: red;
+    box-shadow: 0 5px 0 darkred;
+    color: white;
+    padding: 1em 1.5em;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: #b0e7a7;
+    }
+
+    &:active {
+      box-shadow: none;
+      top: 5px;
+    }
+
+    &--active {
+      background: green;
+    }
+  }
+}
+
+.tabsPage {
+  margin: 0 auto;
+  height: 400px;
+  width: 100%;
+  font-size: 36px;
+  white-space: nowrap;
+}
+
+.listTabs {
+  display: flex;
+  list-style-type: none;
+
+  &__item {
+    padding: 0.5em;
+  }
+
+  &__link {
+    text-decoration: none;
+    padding: 0.5em;
+    background: yellow;
+
+    &--active {
+      background: wheat;
+    }
+
+    &:hover {
+      background: lightpink;
+    }
+  }
+}
+
+.content {
+  text-align: center;
+}
