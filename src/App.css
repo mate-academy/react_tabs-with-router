@@ -1,1 +1,10 @@
+.app__navlink,
+.tab__link {
+  text-decoration: none;
+  color: black;
+  margin-left: 20px;
+}
 
+.active {
+  color: blue;
+}
