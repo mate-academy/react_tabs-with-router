@@ -15,7 +15,12 @@ export const TabsList: FC<Props> = ({ tabs, activeTab }) => {
       <ul className="tabs-nav">
         {tabs.map(tab => (
           <li className="tabs-nav__item">
-            <NavLink to={`/tabs/${tab.id}`} key={tab.id} className="tabs-nav__link" activeClassName="active">
+            <NavLink
+              to={`/tabs/${tab.id}`}
+              key={tab.id}
+              className="tabs-nav__link"
+              activeClassName="active"
+            >
               {tab.title}
             </NavLink>
           </li>
