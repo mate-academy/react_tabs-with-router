@@ -1,0 +1,25 @@
+.tabs-nav {
+  width: 50%;
+  list-style: none;
+  border-bottom: 2px solid #0072ce;
+
+  &__item {
+    display : inline-block;
+  }
+
+  &__link {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #000;
+  }
+}
+
+.text {
+  padding-top: 20px;
+}
+
+.active {
+  display: block;
+  background-color: #418fde;
+}
