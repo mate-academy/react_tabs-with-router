@@ -6,7 +6,7 @@ interface Props {
 }
 
 export const Content: FC<Props> = ({ tab }) => (
-  <div className="tab__content">
+  <div className="content">
     {tab.content}
   </div>
 );

@@ -9,8 +9,8 @@ interface MatchParams {
 }
 
 const Tabs: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
-  const id = match.params.tabsId;
-  const contentTab = tabs.find(tab => tab.id === id);
+  const { tabsId } = match.params;
+  const contentTab = tabs.find(tab => tab.id === tabsId);
 
   return (
     <>
