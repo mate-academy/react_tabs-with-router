@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Tab } from '../types';
 
 interface Props {
@@ -11,13 +11,14 @@ export const Tabs: FC<Props> = ({ tabs, activeTab }) => (
   <>
     <div>
       {tabs.map(tab => (
-        <Link
+        <NavLink
           to={`/tabs/${tab.id}`}
           key={tab.id}
           className="link"
+          activeClassName="link--active"
         >
           {tab.title}
-        </Link>
+        </NavLink>
       ))}
     </div>
     <p>{tabs.find(tab => tab.id === activeTab)?.content}</p>
