@@ -1,1 +1,17 @@
+.App {
+  margin: 10px;
+}
 
+.link {
+  color: #000;
+  text-decoration: none;
+  background-color: #ccc;
+  display: inline-block;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.link--active {
+  background-color: rgb(63, 172, 206);
+}
