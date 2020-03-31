@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
-import {
-  NavLink,
-} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Tab } from '../Tab/Tab';
 import { TabInterface } from '../../constants/types';
 
@@ -11,18 +9,18 @@ interface Props {
 }
 
 export const Tabs: FC<Props> = ({ tabs, tabId }) => {
-  const visibleContent = tabs.find(tab => tab.id === tabId);
+  const tabData = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
-      <ul className="listTabs">
+      <ul className="tabs list">
         {
           tabs.map((tab) => (
-            <li key={tab.id} className="listTabs__item">
+            <li key={tab.id} className="tabs__item">
               <NavLink
                 to={`/tabs/${tab.id}`}
-                className="listTabs__link"
-                activeClassName="listTabs__link--active"
+                className="tabs__link"
+                activeClassName="tabs__link--active"
               >
                 {tab.id}
               </NavLink>
@@ -30,8 +28,8 @@ export const Tabs: FC<Props> = ({ tabs, tabId }) => {
           ))
         }
       </ul>
-      {visibleContent && (
-        <Tab content={visibleContent.content} />
+      {tabData && (
+        <Tab content={tabData.content} />
       )}
     </>
   );

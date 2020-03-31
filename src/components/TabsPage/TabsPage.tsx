@@ -8,10 +8,8 @@ interface MatchParams {
   tabId: string;
 }
 
-export const TabsPage: FC<RouteComponentProps<MatchParams>> = ({ match }) => {
-  return (
-    <div className="tabsPage">
-      <Tabs tabs={tabs} tabId={match.params.tabId} />
-    </div>
-  );
-};
+export const TabsPage: FC<RouteComponentProps<MatchParams>> = ({ match }) => (
+  <div className="tabs_page">
+    <Tabs tabs={tabs} tabId={match.params.tabId} />
+  </div>
+);
