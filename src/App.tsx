@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { FC } from 'react';
+import 'bulma/css/bulma.css';
+import { Route, Switch } from 'react-router-dom';
+import './App.scss';
+import { HomePage } from './components/HomePage/HomePage';
+import { TabsPage } from './components/TabsPage/TabsPage';
+import { Nav } from './components/Nav/Nav';
 
-import './App.css';
+const App: FC = () => (
+  <div className="app">
+    <Nav />
 
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
+    <hr />
 
-const App = () => (
-  <div className="App">
-    <h1>Tabs with router</h1>
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route path="/tabs/:tabId?" component={TabsPage} />
+    </Switch>
   </div>
 );
 
