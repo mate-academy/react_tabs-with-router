@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { NavLink, RouteComponentProps } from 'react-router-dom';
-import { WithRouterAbout } from './About';
 
 interface Props extends RouteComponentProps<{ path: string; x: string }> {
   x: string;
@@ -31,9 +30,6 @@ export const Home: FC<Props> = ({ match }) => (
           Tabs
         </NavLink>
       </li>
-
-      <WithRouterAbout text={match.params.x} />
-
     </ul>
   </header>
 );

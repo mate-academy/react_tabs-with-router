@@ -5,8 +5,7 @@ interface Props extends RouteComponentProps<{ url: string }> {
   text: string;
 }
 const About: FC<Props> = ({ text, match }) => (
-  <article className="container">
-    <hr />
+  <article>
     <h2>
       {`You are reading information from page: ${match.url}`}
     </h2>
