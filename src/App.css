@@ -5,6 +5,7 @@
   margin-left: 20px;
 }
 
-.active {
-  color: blue;
+.app__navlink--active,
+.tab__link--active {
+  color: orange;
 }

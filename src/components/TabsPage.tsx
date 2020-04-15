@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 import { Tabs } from './Tabs';
 
+interface TabsPage{
+  tabId: string;
+}
 
-export const TabsPage = () => (
+type Props = RouteComponentProps<TabsPage>;
+
+export const TabsPage: FC<Props> = ({ match }) => (
   <>
     <h2>Tabs</h2>
-    <Tabs />
+    <Tabs activeTab={match.params.tabId} />
   </>
 );
