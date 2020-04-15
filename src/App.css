@@ -1,1 +1,11 @@
+.app__navlink,
+.tab__link {
+  text-decoration: none;
+  color: black;
+  margin-left: 20px;
+}
 
+.app__navlink--active,
+.tab__link--active {
+  color: orange;
+}
