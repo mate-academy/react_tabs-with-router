@@ -1,16 +1,18 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import './App.css';
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
+import './App.scss';
+import { HomePage } from './components/HomePage';
+import { TabsPage } from './components/TabsPage';
+import { NavLinks } from './components/NavLinks';
 
 const App = () => (
-  <div className="App">
-    <h1>Tabs with router</h1>
+  <div className="app">
+    <NavLinks />
+    <Switch>
+      <Route path="/" exact component={HomePage} />
+      <Route path="/tabs" component={TabsPage} />
+    </Switch>
   </div>
 );
 
