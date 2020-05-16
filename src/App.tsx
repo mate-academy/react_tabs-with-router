@@ -11,7 +11,7 @@ const App = () => (
     <NavLinks />
     <Switch>
       <Route path="/" exact component={HomePage} />
-      <Route path="/tabs" component={TabsPage} />
+      <Route path="/tabs/:tabId?" component={TabsPage} />
     </Switch>
   </div>
 );

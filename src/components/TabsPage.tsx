@@ -1,4 +1,5 @@
 import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 import { Tabs } from './Tabs';
 
 const tabs: Tab[] = [
@@ -24,13 +25,13 @@ const tabs: Tab[] = [
   },
 ];
 
-export const TabsPage = () => {
+export const TabsPage = ({ match }: RouteComponentProps<MatchParams>) => {
   return (
     <>
       <h1>Tabs</h1>
       <Tabs
         tabs={tabs}
-        currentTabId="tab-2"
+        currentTabId={match.params.tabId || 'tab-2'}
       />
     </>
   );

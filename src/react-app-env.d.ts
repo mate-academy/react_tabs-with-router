@@ -11,3 +11,7 @@ interface TabsProps {
   tabs: Tab[];
   currentTabId: string;
 }
+
+interface MatchParams {
+  tabId: string;
+}

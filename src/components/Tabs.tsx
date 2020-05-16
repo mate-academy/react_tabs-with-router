@@ -5,7 +5,6 @@ import { useTabContent } from './hooks/useTabContent';
 
 export const Tabs = ({ tabs, currentTabId }: TabsProps) => {
   const {
-    match,
     tabContent,
     handleSettingTab,
   } = useTabContent(tabs, currentTabId);
@@ -16,7 +15,7 @@ export const Tabs = ({ tabs, currentTabId }: TabsProps) => {
         {tabs.map(({ id, title, content }) => (
           <li key={id}>
             <NavLink
-              to={`${match.path}/${id}`}
+              to={`/tabs/${id}`}
               className={cN({
                 tab__link: true,
                 'tab__link--active': tabContent === content,
@@ -30,7 +29,7 @@ export const Tabs = ({ tabs, currentTabId }: TabsProps) => {
         ))}
       </ul>
       <Route
-        path={`${match.path}`}
+        path="/tabs"
         render={() => (
           <div className="tab__content">
             {tabContent}
