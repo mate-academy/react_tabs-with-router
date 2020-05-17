@@ -1,1 +1,45 @@
+.list {
+  display: flex;
+  justify-content: space-around;
+  height: 45px;
+}
 
+.item {
+  list-style-type: none;
+  color: aqua;
+}
+
+.linka {
+  color: rgb(78, 69, 69);
+  line-height: 45px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.title {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.activeLink {
+  color: rgb(95, 169, 172);
+}
+
+.wrap {
+  width: 600px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  text-align: center;
+  font-size: 19px;
+  color: rgb(124, 124, 117);
+}
+
+.error {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 30px;
+}
