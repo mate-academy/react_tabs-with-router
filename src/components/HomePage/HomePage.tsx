@@ -1,7 +1,11 @@
 import React from 'react';
 
 export const HomePage = () => (
-  <h1>
-    Home Page
-  </h1>
+  <section className="section">
+    <div className="container">
+      <h1 className="header">
+        Home Page
+      </h1>
+    </div>
+  </section>
 );

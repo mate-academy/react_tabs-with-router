@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter,
+  HashRouter,
   Route,
   NavLink,
 } from 'react-router-dom';
@@ -15,7 +15,7 @@ const tabs: Tab[] = [
 ];
 
 const App = () => (
-  <BrowserRouter>
+  <HashRouter>
     <nav className="nav orange">
       <div className="nav-wrapper container">
         <ul className="nav__list">
@@ -46,7 +46,7 @@ const App = () => (
       path="/tabs/:id?"
       render={({ match }) => <Tabs tabs={tabs} id={match.params.id} />}
     />
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default App;
