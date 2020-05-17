@@ -7,9 +7,13 @@ interface Tab {
   content: string;
 }
 
-interface Match {
+type Match = {
   isExact: boolean;
-  params: { id: string };
+  params: TParams;
   path: string;
   url: string;
-}
+};
+
+type TParams = {
+  id: string;
+};

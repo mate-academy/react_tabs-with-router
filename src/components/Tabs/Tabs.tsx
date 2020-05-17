@@ -3,17 +3,12 @@ import { NavLink } from 'react-router-dom';
 
 import './Tabs.scss';
 
-const tabs: Tab[] = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-];
-
 type Props = {
+  tabs: Tab[];
   match: Match;
 };
 
-export const Tabs: React.FC<Props> = ({ match }) => {
+export const Tabs: React.FC<Props> = ({ tabs, match }) => {
   const activeTab = tabs.find(tab => (tab.id === match.params.id));
 
   return (
