@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Route,
+  // Route,
   NavLink,
   useRouteMatch,
 } from 'react-router-dom';
@@ -44,19 +44,14 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
           </ul>
         </div>
       )}
-      <Route
-        path="/tabs"
-        render={() => (
-          <div className="content-container">
-            {!notMatch
-              ? (
-                <p className="content">{visibleContent && visibleContent.content}</p>
-              ) : (
-                <p className="error">Hmm.. Your URL address is wrong :(</p>
-              )}
-          </div>
-        )}
-      />
+      <div className="content-container">
+        {!notMatch
+          ? (
+            <p className="content">{visibleContent && visibleContent.content}</p>
+          ) : (
+            <p className="error">Hmm.. Your URL address is wrong :(</p>
+          )}
+      </div>
     </>
   );
 };
