@@ -1,42 +1,39 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import './Tabs.scss';
-
 type Props = {
   tabs: Tab[];
-  match: Match;
+  id: string;
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, match }) => {
-  const activeTab = tabs.find(tab => (tab.id === match.params.id));
+export const Tabs: React.FC<Props> = ({ tabs, id }) => {
+  const activeTab = tabs.find(tab => (tab.id === id));
 
   return (
-    <>
-      <h1>
-        React Tabs
-      </h1>
-      <section className="tabs">
-        <ul className="tabs__list">
+    <section className="section">
+      <div className="container">
+        <h1 className="header">
+          React Tabs
+        </h1>
+        <ul className="tabs">
           {tabs.map(tab => (
-            <li className="tabs__item" key={tab.id}>
+            <li className="tab col s3" key={tab.id}>
               <NavLink
                 to={`/tabs/${tab.id}`}
-                className="tabs__link"
-                activeClassName="tabs__link--active"
+                className="orange-text"
               >
                 {tab.title}
               </NavLink>
             </li>
           ))}
         </ul>
-      </section>
-      <article>
-        <h1>
-          {activeTab && activeTab.title}
-        </h1>
-        {activeTab && activeTab.content}
-      </article>
-    </>
+        <article>
+          <h2 className="header">
+            {activeTab && activeTab.title}
+          </h2>
+          {activeTab && activeTab.content}
+        </article>
+      </div>
+    </section>
   );
 };

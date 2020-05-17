@@ -5,7 +5,6 @@ import {
   NavLink,
 } from 'react-router-dom';
 
-import './App.scss';
 import { HomePage } from './components/HomePage';
 import { Tabs } from './components/Tabs';
 
@@ -17,33 +16,35 @@ const tabs: Tab[] = [
 
 const App = () => (
   <BrowserRouter>
-    <nav className="nav">
-      <ul className="nav__list">
-        <li className="nav__item">
-          <NavLink
-            to="/"
-            className="nav__link"
-            activeClassName="nav__link--active"
-          >
-            Home Page
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/tabs"
-            className="nav__link"
-            activeClassName="nav__link--active"
-          >
-            Tabs
-          </NavLink>
-        </li>
-      </ul>
+    <nav className="nav orange">
+      <div className="nav-wrapper container">
+        <ul className="nav__list">
+          <li className="nav__item">
+            <NavLink
+              to="/"
+              className="nav__link"
+              activeClassName="nav__link--active"
+            >
+              Home Page
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/tabs"
+              className="nav__link"
+              activeClassName="nav__link--active"
+            >
+              Tabs
+            </NavLink>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <Route path="/" exact component={HomePage} />
     <Route
       path="/tabs/:id?"
-      render={({ match }) => <Tabs tabs={tabs} match={match} />}
+      render={({ match }) => <Tabs tabs={tabs} id={match.params.id} />}
     />
   </BrowserRouter>
 );
