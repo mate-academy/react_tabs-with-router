@@ -44,7 +44,7 @@ const App = () => (
     <Route path="/" exact component={HomePage} />
     <Route
       path="/tabs/:id?"
-      render={({ match }) => <Tabs tabs={tabs} id={match.params.id} />}
+      render={({ match }) => <Tabs tabs={tabs} currentTabId={match.params.id} />}
     />
   </HashRouter>
 );

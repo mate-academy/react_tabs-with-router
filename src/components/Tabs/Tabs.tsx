@@ -1,19 +1,25 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 
 type Props = {
   tabs: Tab[];
-  id: string;
+  currentTabId: string;
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, id }) => {
-  const activeTab = tabs.find(tab => (tab.id === id));
+export const Tabs: React.FC<Props> = ({ tabs, currentTabId }) => {
+  const activeTab = tabs.find(tab => (tab.id === currentTabId));
+  const defaultTabId = tabs[0].id;
+
+  if (!currentTabId) {
+    return <Redirect to={`/tabs/${defaultTabId}`} />;
+  }
 
   return (
     <section className="section">
       <div className="container">
         <h1 className="header">
           React Tabs
+          {currentTabId}
         </h1>
         <ul className="tabs">
           {tabs.map(tab => (
