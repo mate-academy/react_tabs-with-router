@@ -31,7 +31,7 @@ export const TabsPage = ({ match }: RouteComponentProps<MatchParams>) => {
       <h1>Tabs</h1>
       <Tabs
         tabs={tabs}
-        currentTabId={match.params.tabId || 'tab-2'}
+        currentTabId={match.params.tabId || 'tab-1'}
       />
     </>
   );
