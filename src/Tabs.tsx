@@ -1,15 +1,18 @@
-import React from 'react';
-import { NavLink, useRouteMatch, Route } from 'react-router-dom';
+import React, { useState, useCallback } from 'react';
+import { NavLink, Route } from 'react-router-dom';
 
 type Props = {
   tabs: Tab[];
   currentTabId: string;
-  onHandleClick: Function;
 };
 
-const Tabs: React.FC<Props> = ({ tabs, currentTabId, onHandleClick }) => {
-  const match = useRouteMatch();
-  const currentTab = tabs.find((tab: Tab) => tab.id === currentTabId);
+const Tabs: React.FC<Props> = ({ tabs, currentTabId }) => {
+
+  const [currentTab, setCurrentTab] = useState((tabs.find((tab: Tab) => tab.id === currentTabId) || {}).content);
+
+  const onHandleClick = useCallback(content => {
+    setCurrentTab(content);
+  }, []);
 
   return (
     <>
@@ -18,9 +21,9 @@ const Tabs: React.FC<Props> = ({ tabs, currentTabId, onHandleClick }) => {
           <li className="nav-item" key={tab.id}>
             <NavLink
               className="nav-link"
-              to={`${match.path}/${tab.id}`}
+              to={`/tabs/${tab.id}`}
               id={tab.id}
-              onClick={(event) => onHandleClick(event)}
+              onClick={() => onHandleClick(tab.content)}
             >
               {tab.title}
             </NavLink>
@@ -31,7 +34,7 @@ const Tabs: React.FC<Props> = ({ tabs, currentTabId, onHandleClick }) => {
         path="/tabs"
         render={() => (
           <div className="tabcontent">
-            <p>{currentTab && currentTab.content}</p>
+            <p>{currentTab}</p>
           </div>
         )}
       />

@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, NavLink } from 'react-router-dom';
 import Tabs from './Tabs';
 
@@ -11,13 +11,6 @@ const tabs = [
 ];
 
 const App = () => {
-  const [currentTab, setCurrentTab] = useState('');
-
-  const onHandleClick = useCallback(event => {
-    const { id } = event.target as HTMLButtonElement;
-
-    setCurrentTab(id);
-  }, []);
 
   return (
     <BrowserRouter>
@@ -34,9 +27,9 @@ const App = () => {
           </ul>
         </nav>
         <Route
-          path="/tabs"
-          render={() => (
-            <Tabs tabs={tabs} currentTabId={currentTab || 'tab-1'} onHandleClick={onHandleClick} />
+          path="/tabs/:tabId?"
+          render={({match}) => (
+            <Tabs tabs={tabs} currentTabId={match.params.tabId}/>
           )}
         />
         <Route
