@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, NavLink } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import Tabs from './Tabs';
 
 import './App.css';
@@ -13,7 +13,7 @@ const tabs = [
 const App = () => {
 
   return (
-    <BrowserRouter>
+    <>
       <div className="App">
         <h1 className="display-3">Tabs with router</h1>
         <nav>
@@ -40,7 +40,7 @@ const App = () => {
           )}
         />
       </div>
-    </BrowserRouter>
+    </>
   );
 };
 
