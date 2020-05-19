@@ -27,16 +27,16 @@ const App = () => {
           </ul>
         </nav>
         <Route
-          path="/tabs/:tabId?"
-          render={({match}) => (
-            <Tabs tabs={tabs} currentTabId={match.params.tabId}/>
+          exact
+          path="/"
+          render={() => (
+            <h2 className="display-4">Home Page</h2>
           )}
         />
         <Route
-          path="/"
-          exact
-          render={() => (
-            <h2 className="display-4">Home Page</h2>
+          path="/tabs/:tabId?"
+          render={({match}) => (
+            <Tabs tabs={tabs} currentTabId={match.params.tabId}/>
           )}
         />
       </div>
