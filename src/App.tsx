@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
+import { HashRouter, Route, Switch, NavLink } from 'react-router-dom';
 
 import { Tabs } from './components/Tabs';
 import { Home } from './components/Home';
@@ -13,7 +13,7 @@ const tabs: Tab[] = [
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="app">
         <nav>
           <ul>
@@ -28,12 +28,12 @@ const App = () => {
 
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/tabs/:id?" render={({match}) => (
+          <Route path="/tabs/:id?" render={({ match }) => (
             <Tabs tabs={tabs} currentTabId={match.params.id} />
           )} />
         </Switch>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   )
 };
 
