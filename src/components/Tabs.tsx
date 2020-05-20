@@ -25,7 +25,9 @@ export const Tabs: React.FC<Props> = ({ tabs, currentTabId }) => {
       <ul className="tab__list">
         {tabs.map(tab => (
           <li
-            className={cn('tab__item', { 'tab__item--active': currentTabId === tab.id })}
+            className={cn('tab__item', {
+              'tab__item--active': currentTabId === tab.id
+            })}
             key={tab.id}
           >
             <NavLink
