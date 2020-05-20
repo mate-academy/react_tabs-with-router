@@ -1,1 +1,23 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul li:not(:last-child) {
+  margin-right: 25px;
+}
+
+ul a {
+  color: black;
+  text-decoration: none;
+}
+
+.active {
+  color: blue;
+}
