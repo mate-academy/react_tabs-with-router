@@ -14,7 +14,13 @@ const App = () => {
     <div className="App">
       <nav className="nav">
         <ul className="nav__list">
-          <li className="nav__item"><NavLink to="/" exact className="nav__link">Home</NavLink></li>
+          <li className="nav__item">
+            <NavLink
+              to="/" exact
+              className="nav__link">
+              Home
+            </NavLink>
+          </li>
           <li className="nav__item"><NavLink to="/tabs" className="nav__link">Tabs</NavLink></li>
         </ul>
       </nav>

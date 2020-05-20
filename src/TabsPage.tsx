@@ -32,7 +32,16 @@ const TabsPage = ({ tabsId }: MatchProps) => {
       <h2 className="tabs__head">Tabs</h2>
       <ul className="tabs__list">
         {tabs.map(tab => (
-          <li className="tabs__item" key={tab.id}><NavLink to={`/tabs/${tab.id}`} className="tabs__link">{tab.title}</NavLink></li>
+          <li
+            className="tabs__item"
+            key={tab.id}>
+            <NavLink
+              to={`/tabs/${tab.id}`}
+              className="tabs__link"
+            >
+              {tab.title}
+            </NavLink>
+          </li>
         ))}
       </ul>
       <h3 className="tabs__text">
