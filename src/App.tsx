@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
 import { Navbar } from './components/Navbar';
@@ -9,7 +9,7 @@ import { HomePage } from './components/pages/HomePage';
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter>
+    <>
       <Navbar />
       <div className="container">
         <Switch>
@@ -17,7 +17,7 @@ const App: React.FC = () => {
           <Route component={TabsPage} path="/tabs/:tabId?" />
         </Switch>
       </div>
-    </BrowserRouter>
+    </>
   );
 };
 
