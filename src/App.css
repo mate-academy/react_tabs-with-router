@@ -1,1 +1,66 @@
+body {
+  margin: 0;
+}
 
+.nav {
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.nav__list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.nav__item {
+  list-style: none;
+  padding: 10px 0;
+  margin: 10px;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: gray;
+  opacity: 1;
+  padding: 20px 0;
+}
+
+.tabs__head {
+  text-align: center;
+  color: black;
+  opacity: 0.5;
+}
+
+.tabs__list {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.tabs__item {
+  list-style: none;
+  padding: 10px 0;
+  margin: 10px;
+}
+
+.tabs__link {
+  text-decoration: none;
+  color: gray;
+  opacity: 1;
+}
+
+.tabs__text {
+  color: gray;
+  padding: 10px;
+}
+
+.active {
+  color: lightskyblue;
+  height: 100px;
+  padding: 20px 0;
+}
