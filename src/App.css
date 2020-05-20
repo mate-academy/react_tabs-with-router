@@ -1,1 +1,73 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+}
 
+h2 {
+  text-align: center;
+}
+
+nav {
+  background-color: cadetblue;
+  height: 50px;
+}
+
+.nav_link {
+  text-decoration: none;
+  color: rgb(72, 82, 104);
+  font-size: 24px;
+  padding: 15px;
+}
+
+.active {
+  color: white;
+  text-decoration: underline;
+}
+
+.tabs,
+.nav_list {
+  display: flex;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.nav_list {
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.tab_link {
+  color: rgb(73, 73, 73);
+  font-size: 24px;
+  padding: 20px 40px;
+  text-decoration: none;
+}
+
+.tab__active--link {
+  color: rgb(41, 41, 41);
+}
+
+.tab,
+.tab_active {
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid grey;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: white;
+}
+
+.tab_active {
+  border: 1px solid grey;
+  border-bottom: 2px solid white;
+}
+
+.tab_content {
+  border-top: 1px solid grey;
+  margin: -1px;
+  padding: 20px;
+
+}
