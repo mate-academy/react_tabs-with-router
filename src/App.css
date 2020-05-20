@@ -1,1 +1,42 @@
+.page {
+  margin: 10px;
+  padding: 10px;
+  text-decoration-line: none;
+}
 
+.page-active {
+  background-color: coral;
+}
+
+.nav {
+  display: flex;
+  margin-top: 10px;
+}
+
+.nav > * {
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+  z-index: 1;
+  padding: 0 5px;
+  top: 1px;
+  border: 1px solid rgba(138, 138, 150, 0);
+  background-color: white;
+  color: rgb(0, 100, 180);
+  outline: none;
+  text-decoration-line: none;
+}
+
+.head-active {
+  border: 1px solid rgba(138, 138, 150, 0.5);
+  border-bottom: 1px solid rgba(138, 138, 150, 0);
+  z-index: 3;
+  color: black;
+}
+
+p {
+  position: relative;
+  z-index: 2;
+  border: 1px solid rgba(138, 138, 150, 0.5);
+  margin: 0;
+}
