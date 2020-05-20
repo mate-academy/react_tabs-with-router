@@ -11,7 +11,7 @@ const Tab: React.FC<Props> = ({ tab }) => {
       <NavLink
         className="tab_link"
         activeClassName="tab__active--link"
-        to={tab.id}
+        to={`/tabs/${tab.id}`}
       >
         {tab.title}
       </NavLink>

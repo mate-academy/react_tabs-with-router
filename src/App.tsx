@@ -21,7 +21,7 @@ const App = () => (
           </NavLink>
         </li>
         <li>
-          <NavLink to="/tabs/" className="nav_link">
+          <NavLink to="/tabs" className="nav_link">
             Tabs
           </NavLink>
         </li>
