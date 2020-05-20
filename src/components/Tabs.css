@@ -1,0 +1,19 @@
+.tab__item {
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 5px 5px 0 0;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.tab__item--active {
+  border-color: rgb(207, 195, 195);
+  border-bottom: 1px solid #fff;
+}
+
+.tab__content {
+  margin: -1px;
+  padding: 10px;
+  border-top: 1px solid rgb(207, 195, 195);
+}
