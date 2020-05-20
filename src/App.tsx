@@ -1,17 +1,25 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import './App.css';
+import { Navbar } from './components/Navbar';
 
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
+import { TabsPage } from './components/pages/TabsPage';
+import { HomePage } from './components/pages/HomePage';
 
-const App = () => (
-  <div className="App">
-    <h1>Tabs with router</h1>
-  </div>
-);
+const App: React.FC = () => {
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <div className="container">
+        <Switch>
+          <Route component={HomePage} path="/" exact />
+          <Route component={TabsPage} path="/tabs/:tabId?" />
+        </Switch>
+      </div>
+    </BrowserRouter>
+  );
+};
+
 
 export default App;
