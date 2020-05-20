@@ -1,0 +1,30 @@
+.tab {
+  display: flex;
+  margin-left: 10px;
+}
+
+.tab__link {
+  display: block;
+  padding: 5px;
+  border: none;
+  outline: none;
+  background-color: white;
+  text-decoration: none;
+  color: black;
+}
+
+.tab__link-active {
+  background-color: aquamarine;
+  color: blue;
+  border: solid 1px grey;
+  border-bottom: none;
+  position: relative;
+  top: 1px;
+  border-radius: 5px 5px 0 0;
+}
+
+.tab__text {
+  padding: 10px;
+  border: solid 1px grey;
+  margin-left: 10px;
+}
