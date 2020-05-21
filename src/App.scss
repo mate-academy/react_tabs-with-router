@@ -1,19 +1,44 @@
+body {
+  margin: 0;
+}
+
 .nav {
   background-color: royalblue;
 
   &__list {
     display: flex;
     list-style: none;
+    text-align: center;
   }
+
+  &__link {
+    text-decoration: none;
+    display: block;
+    padding-right: 20px;
+    font-size: 24px;
+    line-height: 40px;
+    font-weight: 900;
+    color: white;
+  }
+
+  &__link--active {
+    color: brown;
+  }
+}
+
+.tabs {
+  display: flex;
+  list-style: none;
 
   &__link {
     text-decoration: none;
     display: flex;
     padding-right: 20px;
     line-height: 40px;
+    font-weight: 900;
   }
 
   &__link--active {
-    background-color: red;
+    background-color: royalblue;
   }
 }

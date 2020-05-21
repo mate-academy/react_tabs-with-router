@@ -20,10 +20,7 @@ const App = () => {
         <Route
           path="/tabs/:id?"
           render={({ match }) => (
-            <>
-              <h1>Tabs</h1>
-              <Tabs tabs={tabs} tabId={match.params.tabId} />
-            </>
+            <Tabs tabs={tabs} tabId={match.params.tabId} />
           )}
         />
       </Switch>

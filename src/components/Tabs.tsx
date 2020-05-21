@@ -19,7 +19,7 @@ export const Tabs: React.FC<Props> = ({ tabs, tabId }) => {
   return (
     <>
       <h1>Tabs Page</h1>
-      <ul className="tabs__list">
+      <ul className="tabs__list tabs">
         {tabs.map(({ id, title, content }) => (
           <li
             key={id}
@@ -28,7 +28,7 @@ export const Tabs: React.FC<Props> = ({ tabs, tabId }) => {
             <NavLink
               to={`/tabs/${id}`}
               className="tabs__link"
-              activeClassName="tab__link-active"
+              activeClassName="tabs__link--active"
               onClick={() => handleTabClick(content)}
             >
               {title}
@@ -39,8 +39,8 @@ export const Tabs: React.FC<Props> = ({ tabs, tabId }) => {
       <Route
         path="/tabs"
         render={() => (
-          <div className="description">
-            <p className="description__text">{currentTab}</p>
+          <div className="tab__description">
+            <p className="tab__text">{currentTab}</p>
           </div>
         )}
       />
