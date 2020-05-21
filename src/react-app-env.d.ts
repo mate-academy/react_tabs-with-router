@@ -6,7 +6,7 @@ interface TabFromServer{
 }
 
 interface TabIF extends TabFromServer{
-  post: PostIF | undefined;
+  post?: PostIF;
 }
 
 interface PostIF {

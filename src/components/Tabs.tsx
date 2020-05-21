@@ -9,29 +9,24 @@ import Post from './Post';
 
 import tabs from '../api/tabs';
 import posts from '../api/posts';
+// import { getTabs } from '../api/getTabs';
 
 const preparedTabs = tabs.map((tab: TabFromServer): TabIF => ({
   ...tab,
   post: posts.find((post: PostIF) => post.id === tab.content),
 }));
 
-const defaultTab: TabIF = {
-  content: 0,
-  title: '',
-  post: {
-    id: 0,
-    title: '',
-    body: '',
-  },
-};
-
 interface Props extends RouteComponentProps<TParams> {
   match: Match;
 }
 
 const Tabs: React.FC<Props> = ({ match }) => {
+  // const [tabs, setTabs] = useState<TabIF[]>([]);
+  // useEffect(() => {
+  //   getTabs().then(setTabs);
+  // }, []);
   const findPost = (id: string) => preparedTabs
-    .reduce((obj, tab) => (tab.content === +id ? tab : obj), defaultTab);
+    .find(tab => tab.content === +id)?.post || null;
 
   return (
     <>
@@ -76,7 +71,11 @@ const Tabs: React.FC<Props> = ({ match }) => {
         path={`${match.path}/:currentTabId`}
         render={({ match: { params } }) => (
           <div className="ui bottom attached segment active tab inverted">
-            <Post {...findPost(params.currentTabId)} />
+            {
+              findPost(params.currentTabId) && (
+                <Post post={findPost(params.currentTabId)} />
+              )
+            }
           </div>
         )}
       />

@@ -1,15 +1,23 @@
-/* eslint-disable react/no-array-index-key */
 import React from 'react';
 
-const Post: React.FC<TabIF> = ({ post }) => {
-  if (!post) {
+interface Props {
+  post: PostIF | null;
+}
+
+const Post: React.FC<Props> = (props) => {
+  if (!props?.post) {
     return null;
   }
+
+  const { post } = props;
 
   return (
     <>
       <h3>{post.title}</h3>
-      {post.body.split('\n').map((pars, idx) => (<p key={idx}>{pars}</p>))}
+      {post.body.split('\n').map((pars: string, idx: number) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <p key={idx}>{pars}</p>
+      ))}
     </>
   );
 };
