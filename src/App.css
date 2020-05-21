@@ -1,1 +1,38 @@
+body {
+  margin: 0;
+  padding: 0;
+}
 
+.header__nav {
+  height: 50px;
+  background-color: #008aff;
+}
+
+.nav__list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__item {
+  display: block;
+  list-style: none;
+  margin: 15px;
+}
+
+.nav__link {
+  padding: 7px 0;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav__link.is-active {
+  color: #ff9c8e;
+}
+
+.app__title {
+  text-align: center;
+  color: #008aff;
+}

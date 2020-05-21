@@ -1,0 +1,27 @@
+.wrap {
+  text-align: center;
+}
+
+.tab {
+  width: 70px;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid #ff9c8e;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  outline: none;
+  background-color: #fff;
+}
+
+.title {
+  color: #ff9c8e;
+}
+
+.tab__link {
+  text-decoration: none;
+  color: #008aff;
+}
+
+.tab.is-active {
+  border: 1px solid #ff9c8e;
+}
