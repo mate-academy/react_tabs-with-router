@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+}
+
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  &__item {
+    float: left;
+    &_link {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 16px;
+      text-decoration: none;
+      &:hover {
+        background-color: #111;
+      }
+      &-active {
+        padding: 12px;
+        border-width: 4px;
+        border-style: solid;
+        border-image: linear-gradient(
+          to bottom,
+          red,
+          rgba(0, 0, 0, 0)
+        ) 1 100%;
+        color: red;
+      }
+    }
+  }
+}
+
+.description {
+  padding: 20px;
+  &__text {
+    text-align: center;
+    font-style: italic;
+  }
+}
+
+// ------ HOME PAGE -----
+.ocean {
+  height: 5%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #015871;
+}
+
+.wave {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
+  position: absolute;
+  top: -198px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 7s cubic-bezier( 0.96, 0.9, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.wave:nth-of-type(2) {
+  top: -175px;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) - 0.13s infinite,
+    swell 7s ease -1.25s infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0% {
+    transform: translate3d(0,-25px,0);
+  }
+  50% {
+    transform: translate3d(0,5px,0);
+  }
+  100% {
+    transform: translate3d(0,-25px,0);
+  }
+}
