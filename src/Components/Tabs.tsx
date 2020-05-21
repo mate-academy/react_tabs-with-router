@@ -8,13 +8,21 @@ type Props = {
 
 export const Tabs: React.FC<Props> = ({ tabs, currentTabId }) => (
   <>
-    {tabs.map(tab => (
-      <NavLink to={`/tabs/${tab.id}`} key={tab.id} id={tab.id}>{tab.title}</NavLink>
-    ))}
-
-    <section>
-      {tabs.find(tab => tab.id === currentTabId)?.content}
-
+    <ul className="tabs__list">
+      {tabs.map((tab) => (
+        <NavLink
+          to={`/tabs/${tab.id}`}
+          className="tabs__link"
+          key={tab.id}
+          id={tab.id}
+          activeClassName="tabs__link--active"
+        >
+          {tab.title}
+        </NavLink>
+      ))}
+    </ul>
+    <section className="tabs__content">
+      {tabs.find((tab) => tab.id === currentTabId)?.content}
     </section>
   </>
 );

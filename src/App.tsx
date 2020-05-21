@@ -12,24 +12,19 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-
 const App: React.FC = () => (
   <>
     <Header />
-    <main>
+    <main className="tabs">
       <Switch>
         <Route path="/" exact component={Home} />
         <Route
           path="/tabs/:tabId?"
           render={({ match }) => (
-            <Tabs
-              tabs={tabs}
-              currentTabId={match.params.tabId}
-            />
+            <Tabs tabs={tabs} currentTabId={match.params.tabId} />
           )}
         />
       </Switch>
-
     </main>
   </>
 );

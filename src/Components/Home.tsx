@@ -1,5 +1,3 @@
 import React from 'react';
 
-export const Home: React.FC = () => (
-  <h1>Home Page</h1>
-);
+export const Home: React.FC = () => <p className="tabs__home">Home Page</p>;
