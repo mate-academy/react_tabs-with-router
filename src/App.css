@@ -1,1 +1,28 @@
+.nav__list {
+  display: flex;
+  list-style: none;
 
+}
+
+.nav__link {
+  text-decoration: none;
+  display: flex;
+  padding-right: 20px;
+
+}
+
+.tab__list {
+  display: flex;
+  list-style: none;
+}
+
+.tab__link {
+  text-decoration: none;
+  padding: 10px 20px;
+
+}
+
+.tab__link-active {
+  background-color: aqua;
+  text-decoration: underline;
+}
