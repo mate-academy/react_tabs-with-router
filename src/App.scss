@@ -1,0 +1,19 @@
+.nav {
+  background-color: royalblue;
+
+  &__list {
+    display: flex;
+    list-style: none;
+  }
+
+  &__link {
+    text-decoration: none;
+    display: flex;
+    padding-right: 20px;
+    line-height: 40px;
+  }
+
+  &__link--active {
+    background-color: red;
+  }
+}
