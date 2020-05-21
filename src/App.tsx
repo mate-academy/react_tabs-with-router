@@ -1,6 +1,8 @@
 import React from 'react';
 import {
-  BrowserRouter, NavLink, Switch, Route,
+  NavLink,
+  Switch,
+  Route,
 } from 'react-router-dom';
 
 import './App.scss';
@@ -16,24 +18,21 @@ const tabs = [
 const App: React.FC = () => (
   <div className="App">
     <h1>Tabs with router</h1>
-    <BrowserRouter>
-      {/* activeClassName='is-active' */}
-      <nav>
-        <ul className="navlist">
-          <li className="navlist__item"><NavLink to="/" exact className="navlist__link">HomePage</NavLink></li>
-          <li className="navlist__item"><NavLink to="/tabs" className="navlist__link">TabsPage </NavLink></li>
-        </ul>
-      </nav>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route
-          path="/tabs/:id?"
-          render={() => (
-            <Tabs tabs={tabs} />
-          )}
-        />
-      </Switch>
-    </BrowserRouter>
+    <nav>
+      <ul className="navlist">
+        <li className="navlist__item"><NavLink to="/" exact className="navlist__link">HomePage</NavLink></li>
+        <li className="navlist__item"><NavLink to="/tabs" className="navlist__link">TabsPage </NavLink></li>
+      </ul>
+    </nav>
+    <Switch>
+      <Route path="/" exact component={Home} />
+      <Route
+        path="/tabs/:id?"
+        render={() => (
+          <Tabs tabs={tabs} />
+        )}
+      />
+    </Switch>
   </div>
 );
 
