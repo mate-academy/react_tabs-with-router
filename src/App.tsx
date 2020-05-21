@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, NavLink } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import './App.css';
 import TabsPage from './TabsPage';
 
@@ -12,7 +12,7 @@ const tabs = [
 const HomePage = () => <h2>Home</h2>;
 
 const App = () => (
-  <BrowserRouter>
+  <>
     <nav>
       <ul className="nav_list">
         <li>
@@ -32,7 +32,7 @@ const App = () => (
       path="/tabs/:tabId?"
       render={({ match }) => <TabsPage tabs={tabs} tabId={match.params.tabId} />}
     />
-  </BrowserRouter>
+  </>
 );
 
 export default App;
