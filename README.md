@@ -1,8 +1,8 @@
 # React Tabs with Router
 - Replace `<your_account>` with your Github username in the links
 
-    - [DEMO LINK](https://andreas-just.github.io/react_movies-list-fetch-movies/)
-    - [PULL REQUEST](https://github.com/mate-academy/react_movies-list-fetch-movies/pull/33)
+    - [DEMO LINK](https://andreas-just.github.io/react_tabs-with-router/)
+    - [PULL REQUEST](https://github.com/mate-academy/react_tabs-with-router/pull/126)
 
 - Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
 

@@ -31,7 +31,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint-js": "eslint --ext .ts,.tsx ./src/ --fix",
+    "lint-js": "eslint --ext .ts,.tsx ./src/",
     "lint-css": "stylelint src/**/*.css src/**/*.scss --fix",
     "lint": "npm run lint-js && npm run lint-css",
     "predeploy": "npm run build",
