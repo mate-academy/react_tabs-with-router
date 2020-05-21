@@ -9,7 +9,6 @@ import Post from './Post';
 
 import tabs from '../api/tabs';
 import posts from '../api/posts';
-// import { getTabs } from '../api/getTabs';
 
 const preparedTabs = tabs.map((tab: TabFromServer): TabIF => ({
   ...tab,
@@ -21,10 +20,6 @@ interface Props extends RouteComponentProps<TParams> {
 }
 
 const Tabs: React.FC<Props> = ({ match }) => {
-  // const [tabs, setTabs] = useState<TabIF[]>([]);
-  // useEffect(() => {
-  //   getTabs().then(setTabs);
-  // }, []);
   const findPost = (id: string) => preparedTabs
     .find(tab => tab.content === +id)?.post || null;
 

@@ -8,3 +8,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 build
+src/api/getTabs.ts
+src/api/posts.json
+src/api/tabs.json
