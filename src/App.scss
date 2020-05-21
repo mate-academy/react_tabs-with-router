@@ -1,0 +1,24 @@
+.navbar__container {
+  display: flex;
+  margin-left: -2rem;
+  margin-right: -2rem;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.navbar {
+  .nav-link {
+    color: #fff;
+    &.active {
+      color: #18bc9c;
+    }
+  }
+}
+
+.content-container {
+  padding-top: 50px;
+}
+
+.tab-pane {
+  padding-top: 50px;
+}
