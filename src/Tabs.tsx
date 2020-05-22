@@ -13,13 +13,12 @@ export const Tabs: React.FC<Props> = ({ currentTabId, tabs }) => {
 
   return (
     <>
-      <ul className="nav nav-tabs">
+      <ul className="nav">
         {tabs.map(tab => (
           <li key={tab.id}>
             <NavLink
               to={`/tabs/${tab.id}`}
               className="nav-link"
-              activeClassName="nav-link"
             >
               {tab.id}
             </NavLink>

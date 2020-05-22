@@ -8,7 +8,6 @@ export const Nav = () => (
         <NavLink
           to="/"
           exact
-          activeClassName="active"
         >
           Home
         </NavLink>
@@ -16,7 +15,6 @@ export const Nav = () => (
       <li>
         <NavLink
           to="/tabs"
-          activeClassName="active"
         >
           Tabs
         </NavLink>
