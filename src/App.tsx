@@ -29,12 +29,15 @@ const App = () => (
       </ul>
     </nav>
 
-      <Route path="/" exact component={
-        () => <h2>Home page</h2>
-      } />
-      <Route path="/tabs" render={
-        () => <Tabs tabs={tabs} />
-      } />
+      <Route
+        path="/"
+        exact
+        component={() => <h2>Home page</h2>}
+      />
+      <Route
+        path="/tabs"
+        render={() => <Tabs tabs={tabs} />}
+      />
   </div>
 );
 
