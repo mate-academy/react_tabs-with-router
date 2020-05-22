@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter, Switch, Route, NavLink,
+  HashRouter, Switch, Route, NavLink,
 } from 'react-router-dom';
 import TabsPage from './TabsPage';
 import HomePage from './HomePage';
@@ -8,7 +8,7 @@ import './App.css';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <nav>
         <ul>
           <NavLink to="/" exact>
@@ -29,7 +29,7 @@ const App = () => {
           )}
         />
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
