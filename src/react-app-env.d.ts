@@ -6,8 +6,3 @@ interface Tab {
   content: string;
 }
 
-interface Props {
-  tabs: Tab[];
-  activeTabId: string;
-
-}

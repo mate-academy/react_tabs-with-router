@@ -18,8 +18,12 @@ const App: React.FC = () => {
     <>
       <nav>
         <ul className="navlist">
-          <li className="navlist__item"><NavLink to="/" exact className="navlist__link">Home</NavLink></li>
-          <li className="navlist__item"><NavLink to="/tabs" exact className="navlist__link">Tabs </NavLink></li>
+          <li className="navlist__item">
+            <NavLink to="/" exact className="navlist__link">Home</NavLink>
+          </li>
+          <li className="navlist__item">
+            <NavLink to="/tabs" exact className="navlist__link">Tabs </NavLink>
+          </li>
         </ul>
       </nav>
       <Switch>
