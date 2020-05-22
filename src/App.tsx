@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {
-  BrowserRouter,
   Route,
   Switch,
   NavLink,
@@ -17,29 +16,27 @@ const tabs = [
 ];
 
 const App = () => (
-  <BrowserRouter>
-    <div className="App">
-      <h1>Tabs with router</h1>
+  <div className="App">
+    <h1>Tabs with router</h1>
 
-      <nav>
-        <ul>
-          <li><NavLink to="/" exact>Home</NavLink></li>
-          <li><NavLink to="/tabs">Tabs</NavLink></li>
-        </ul>
-      </nav>
-      <Switch>
-        <Route path="/" exact>
-          <h2>Home</h2>
-        </Route>
-        <Route
-          path="/tabs/:id?"
-          render={({ match }) => (
-            <Tabs tabs={tabs} currentTabId={match.params.id} />
-          )}
-        />
-      </Switch>
-    </div>
-  </BrowserRouter>
+    <nav>
+      <ul>
+        <li><NavLink to="/" exact>Home</NavLink></li>
+        <li><NavLink to="/tabs">Tabs</NavLink></li>
+      </ul>
+    </nav>
+    <Switch>
+      <Route path="/" exact>
+        <h2>Home</h2>
+      </Route>
+      <Route
+        path="/tabs/:id?"
+        render={({ match }) => (
+          <Tabs tabs={tabs} currentTabId={match.params.id} />
+        )}
+      />
+    </Switch>
+  </div>
 );
 
 export default App;
