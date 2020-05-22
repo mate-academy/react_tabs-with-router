@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import {
   Route,
   Switch,
   NavLink,
-  Redirect,
 } from 'react-router-dom';
+import { Tabs } from './Tabs/Tabs';
 
 import './App.css';
 
@@ -41,40 +41,5 @@ const App = () => (
     </header>
   </div>
 );
-
-type Props = {
-  tabs: Tab[];
-  currentTab: string;
-};
-
-const Tabs: React.FC<Props> = ({ tabs, currentTab }) => {
-  const index = useMemo(() => {
-    return tabs.findIndex(tab => tab.id === currentTab);
-  }, [tabs, currentTab]);
-
-  const defaultTabId = tabs[0].id;
-
-  if (!currentTab) {
-    return <Redirect to={`/tabs/${defaultTabId}`} />;
-  }
-
-  return (
-    <>
-      <h2>Tabs</h2>
-      <ul>
-        {tabs.map(tab => (
-          <li key={tab.id}>
-            <NavLink
-              to={`/tabs/${tab.id}`}
-            >
-              {tab.title}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
-      <section>{tabs[index].content}</section>
-    </>
-  );
-};
 
 export default App;
