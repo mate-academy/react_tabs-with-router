@@ -1,9 +1,11 @@
-body {
+body, ul {
   margin: 0;
+  padding: 0;
 }
 
 .nav {
   background-color: royalblue;
+  padding-left: 50px;
 
   &__list {
     display: flex;
@@ -18,27 +20,42 @@ body {
     font-size: 24px;
     line-height: 40px;
     font-weight: 900;
-    color: white;
+    color: black;
   }
 
   &__link--active {
-    color: brown;
+    color: white;
   }
+}
+
+.content {
+  text-align: center;
 }
 
 .tabs {
   display: flex;
   list-style: none;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  width: 400px;
 
   &__link {
     text-decoration: none;
-    display: flex;
-    padding-right: 20px;
+    display: block;
+    width: 80px;
+    text-align: center;
     line-height: 40px;
-    font-weight: 900;
+    font-weight: bold;
+    color: black;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__link--active {
+    border-radius: 10px;
     background-color: royalblue;
+    color: white;
   }
 }

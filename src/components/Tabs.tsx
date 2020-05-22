@@ -1,4 +1,4 @@
-import React, {useMemo, useState, useCallback} from 'react';
+import React, { useMemo, useState, useCallback } from 'react';
 import { NavLink, Route } from 'react-router-dom';
 
 type Props = {
@@ -10,7 +10,7 @@ export const Tabs: React.FC<Props> = ({ tabs, tabId }) => {
   const selectedTab = useMemo(() => (
     tabs.find(tab => tab.id === tabId)
   ), [tabId, tabs]);
-  const [currentTab, setCurrentTab] = useState((selectedTab || {}).content);
+  const [currentTab, setCurrentTab] = useState(selectedTab?.content);
   const handleTabClick = useCallback(content => {
     setCurrentTab(content);
   }, []);
