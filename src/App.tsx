@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Switch, Route } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 
 import './App.css';
 import Tabs from './components/Tabs';
@@ -29,14 +29,12 @@ const App = () => (
       </ul>
     </nav>
 
-    <Switch>
       <Route path="/" exact component={
         () => <h2>Home page</h2>
       } />
       <Route path="/tabs" render={
         () => <Tabs tabs={tabs} />
       } />
-    </Switch>
   </div>
 );
 
