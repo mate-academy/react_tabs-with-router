@@ -19,7 +19,7 @@ export const Tabs: React.FC<Props> = ({ currentTabId, tabs }) => {
             <NavLink
               to={`/tabs/${tab.id}`}
               className="nav-link"
-              activeClassName="nav-link active"
+              activeClassName="nav-link"
             >
               {tab.id}
             </NavLink>
