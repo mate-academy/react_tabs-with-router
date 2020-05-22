@@ -8,7 +8,7 @@ type Props = {
 
 const Tabs: React.FC<Props> = ({ tabs, currentTabId }) => {
   const [currentTab, setCurrentTab] = useState(
-    (tabs.find((tab: Tab) => tab.id === currentTabId) || {}).content,
+    (tabs.find((tab: Tab) => tab.id === currentTabId) || {})?.content,
   );
 
   const onHandleClick = useCallback(content => {
