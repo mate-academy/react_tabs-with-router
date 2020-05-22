@@ -39,6 +39,7 @@ nav {
 .nav__link--active {
   border-left: 1px solid rgb(224, 222, 222);
   padding: 10px;
+  color: rgb(10, 3, 78);
 }
 .tabs__title {
   padding: 20px;
@@ -48,4 +49,9 @@ nav {
 }
 .tabs__link {
   color: rgb(84, 85, 85);
+}
+
+.tabs__link--active {
+  color: rgb(10, 3, 78);
+  font-weight: 500;
 }
