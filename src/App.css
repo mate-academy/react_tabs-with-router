@@ -1,1 +1,18 @@
+.nav {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
 
+.nav__item {
+  padding-right: 10px;
+}
+
+.nav__link {
+  background-color: lightgray;
+  padding: 5px 10px;
+}
+
+.active {
+  background-color: gray;
+}
