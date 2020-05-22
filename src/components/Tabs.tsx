@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { Redirect, NavLink, Route } from 'react-router-dom';
 
 type Props = {
   tabs: Tab[];
@@ -14,6 +14,12 @@ const Tabs: React.FC<Props> = ({ tabs, currentTabId }) => {
   const onHandleClick = useCallback(content => {
     setCurrentTab(content);
   }, []);
+
+  const defaultTabId = tabs[0].id;
+
+  if (!currentTabId) {
+    return <Redirect to={`/tabs/${defaultTabId}`} />;
+  }
 
   return (
     <>
