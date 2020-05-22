@@ -30,14 +30,14 @@ const App = () => (
     </nav>
 
     <Switch>
-      <Route path="/" exact component={Home} />
+      <Route path="/" exact render={
+        () => <h2>Home page</h2>
+      } />
       <Route path="/tabs" render={
         () => <Tabs tabs={tabs} />
       } />
     </Switch>
   </div>
 );
-
-const Home = () => <h2>Home page</h2>
 
 export default App;
