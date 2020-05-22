@@ -1,1 +1,16 @@
+body {
+  background-color: rgb(239, 255, 250);
+}
 
+h2 {
+  text-align: center;
+  color: rgb(2, 128, 128);
+}
+
+.content {
+  position: absolute;
+  width: 70%;
+  height: 100%;
+  transform: translateY(50px);
+  margin: 0 50px;
+}
