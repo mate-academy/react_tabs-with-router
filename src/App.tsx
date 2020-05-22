@@ -30,7 +30,7 @@ const App = () => (
     </nav>
 
     <Switch>
-      <Route path="/" exact render={
+      <Route path="/" exact component={
         () => <h2>Home page</h2>
       } />
       <Route path="/tabs" render={
