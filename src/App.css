@@ -1,1 +1,55 @@
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  background-color: lavender;
+  height: 50px;
+  align-items: center;
+}
 
+.nav_link {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+
+}
+
+.tabs {
+  display: flex;
+  width: 200px;
+  list-style: none;
+}
+
+.tab {
+  padding-left: 20px;
+  padding-right: 20px;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.tab_link {
+  text-decoration: none;
+}
+
+.active_link {
+  color: lavender;
+}
+
+.tab_active {
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid black;
+  border-radius: 15% 15% 0 0;
+  outline: none;
+  border-bottom: none;
+
+}
+
+.tab_content {
+  margin-left: 45px;
+}
