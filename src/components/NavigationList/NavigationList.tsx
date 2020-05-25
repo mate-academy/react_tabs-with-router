@@ -1,11 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const NavigationLinks = () => {
+import './NavigationList.css';
+
+const NavigationList = () => {
   return (
     <div className="nav">
-      <ul>
-        <li>
+      <ul className="nav__list">
+        <li className="nav__link">
           <NavLink
             to="/"
             exact
@@ -13,7 +15,7 @@ const NavigationLinks = () => {
             Home
           </NavLink>
         </li>
-        <li>
+        <li className="nav__link">
           <NavLink
             to="/tabs"
             exact
@@ -26,4 +28,4 @@ const NavigationLinks = () => {
   );
 };
 
-export default NavigationLinks;
+export default NavigationList;

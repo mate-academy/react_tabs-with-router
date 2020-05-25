@@ -16,7 +16,7 @@ interface MatchParams {
 const TabContent: React.FC<RouteComponentProps<MatchParams>> = ({ match }) => {
   const { tabId } = match.params;
 
-  return <p>{tabs.find((tab: Tab) => tab.id === tabId)?.content}</p>;
+  return <p className="content">{tabs.find((tab: Tab) => tab.id === tabId)?.content}</p>;
 };
 
 export default withRouter(TabContent);

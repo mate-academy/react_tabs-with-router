@@ -1,0 +1,12 @@
+.tabs__nav {
+  height: 80px;
+  background-color: salmon;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.tabs__item {
+  width: 70px;
+  margin: 5px;
+}

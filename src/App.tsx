@@ -5,11 +5,11 @@ import './App.css';
 
 import HomePage from './components/HomePage/HomePage';
 import TabsPage from './components/TabsPage/TabsPage';
-import NavigationLinks from './components/NavigationLinks/NavigationLinks';
+import NavigationList from './components/NavigationList/NavigationList';
 
 const App = () => (
   <div className="App">
-    <NavigationLinks />
+    <NavigationList />
     <Switch>
       <Route path="/" exact component={HomePage} />
       <Route path="/tabs/:tabId?" exact component={TabsPage} />
