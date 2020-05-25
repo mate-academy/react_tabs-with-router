@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { Tab } from '../helpers';
 import { TabCard } from './TabCard';
@@ -24,7 +24,7 @@ export const TabsPage: React.FC<Props> = ({ tabId, tabs }) => {
       <div className="tabs__container">
         <div className="tabs__nav">
           {tabs.map((tab, index) => (
-            <Link to={`/tabs/${tab.id}`}>
+            <NavLink to={`/tabs/${tab.id}`} activeClassName="tabs__item active">
               <TabCard
                 title={tab.title}
                 key={tab.id}
@@ -32,7 +32,7 @@ export const TabsPage: React.FC<Props> = ({ tabId, tabs }) => {
                 isActive={tab.id === tabId}
                 selectTab={() => handleTabSelection(index)}
               />
-            </Link>
+            </NavLink>
           ))}
         </div>
         <div className="tabs__content">
