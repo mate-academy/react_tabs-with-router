@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
+import { HashRouter, Route, Switch, NavLink } from 'react-router-dom';
 import { Home } from './components/Home/Home';
 import { Tabs } from './components/Tabs/Tabs';
 
@@ -12,7 +12,7 @@ const tabs = [
  ];
 
 export const App = () => (
-  <BrowserRouter>
+  <HashRouter>
     <h1>Tabs with Router</h1>
 
     <nav>
@@ -36,5 +36,5 @@ export const App = () => (
         render={({ match }) => (<Tabs tabs={tabs} tabId={match.params.tabId} />)} />
     </Switch>
 
-  </BrowserRouter>
+  </HashRouter>
 );
