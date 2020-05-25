@@ -18,7 +18,6 @@ const NavigationList = () => {
         <li className="nav__link">
           <NavLink
             to="/tabs"
-            exact
           >
             Tabs
           </NavLink>
