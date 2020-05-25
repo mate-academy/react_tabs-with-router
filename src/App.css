@@ -1,1 +1,40 @@
+ul {
+  display: flex;
+  padding: 0;
+  list-style: none;
+}
 
+li {
+  margin-right: 10px;
+}
+
+a {
+  padding: 10px 20px;
+  border: 2px solid green;
+  border-radius: 4px;
+  background-color: rgb(37,174,96);
+  text-decoration: none;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+a.visited {
+  color: #fff;
+}
+
+a:hover {
+  background-color: rgb(29,136,75);
+}
+
+h1,
+h2 {
+  font-family: sans-serif;
+}
+
+.tab__content {
+  font-family: sans-serif;
+}
+
+.active {
+  background-color: rgb(29,136,75);
+}
