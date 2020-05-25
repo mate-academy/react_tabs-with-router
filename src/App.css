@@ -1,1 +1,7 @@
+.tabs__link {
+  color: blue;
+}
 
+.tabs__link--active {
+  color: red;
+}
