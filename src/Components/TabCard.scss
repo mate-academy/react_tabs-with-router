@@ -1,0 +1,20 @@
+button {
+  border: none;
+  background-color: none;
+  cursor: pointer;
+}
+
+.tabs__item {
+  padding-left: 40px;
+  padding-right: 40px;
+  border-bottom: 2px solid pink;
+  cursor: pointer;
+}
+
+.tabs__item.active {
+  color: rgb(184, 68, 88);
+  border-bottom: 3px solid rgb(184, 68, 88);
+  font-weight: 600;
+  transition: border-bottom 0.5s;
+  transition: color 0.5s;
+}

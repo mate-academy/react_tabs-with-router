@@ -1,0 +1,18 @@
+.tabs__container {
+  width: 30%;
+  border: 1px solid rgb(167, 165, 165);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.tabs__content {
+  padding: 40px;
+  text-align: center;
+}
