@@ -1,1 +1,28 @@
+.head {
+  text-align: center;
+  color: deepskyblue;
+  font-size: 250%;
+  font-style: italic;
+}
 
+.list {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.list__link {
+  color: deepskyblue;
+  text-decoration: none;
+  font-size: 180%;
+  font-weight: 400;
+}
+
+.list__link:hover {
+  color: mediumspringgreen;
+}
+
+.list__link:focus {
+  border: 2px solid gold;
+  border-radius: 5px;
+}
