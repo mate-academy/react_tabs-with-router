@@ -13,9 +13,7 @@ const Tabs: React.FC<Props> = ({ tabs, currentId }) => {
   return (
     <div>
       <h1 className="head-tab">
-        Tab
-        {' '}
-        {currentId}
+        {`Tab ${currentId}`}
       </h1>
 
       <ul className="tab-list">
