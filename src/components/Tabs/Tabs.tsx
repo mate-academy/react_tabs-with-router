@@ -9,7 +9,7 @@ type TabsProps = {
 
 export const Tabs: FC<TabsProps> = ({ tabs }) => {
   const { pathname } = useLocation();
-  const { push, replace } = useHistory();
+  const { push } = useHistory();
 
   const matches = pathname.match(/^\/tabs\/(.+)$/);
 
@@ -19,16 +19,16 @@ export const Tabs: FC<TabsProps> = ({ tabs }) => {
     if (!matches) {
       push(`tabs/${tabs[0].id}`);
     }
-
-    if (!tabs.some(tab => tab.id === activeId)) {
-      replace(tabs[0].id);
-    }
   });
 
   const activeTab = tabs.find(tab => activeId === tab.id);
 
   if (!tabs.length) {
     return <h5>No tabs</h5>;
+  }
+
+  if (!tabs.some(tab => tab.id === activeId)) {
+    return <h3>Tab not found.</h3>;
   }
 
   return (
