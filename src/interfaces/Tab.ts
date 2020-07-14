@@ -1,4 +1,4 @@
-export interface TabInterface {
+export interface Tab {
   id: string;
   title: string;
   content: string;

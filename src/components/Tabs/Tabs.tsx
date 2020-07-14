@@ -1,13 +1,13 @@
 import React, { FC, useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
-import { TabInterface } from '../../interfaces/TabInterface';
+import { Tab } from '../../interfaces/Tab';
 import { TabsList } from '../TabsList';
 
-type TabsProps = {
-  tabs: TabInterface[];
+type Props = {
+  tabs: Tab[];
 };
 
-export const Tabs: FC<TabsProps> = ({ tabs }) => {
+export const Tabs: FC<Props> = ({ tabs }) => {
   const { pathname } = useLocation();
   const { push } = useHistory();
 

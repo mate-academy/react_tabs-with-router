@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
-import { TabInterface } from '../../interfaces/TabInterface';
+import { Tab } from '../../interfaces/Tab';
 
-type TabsList = {
-  tabs: TabInterface[];
+type Props = {
+  tabs: Tab[];
   active: string;
 };
 
-export const TabsList: FC<TabsList> = ({ tabs, active }) => (
+export const TabsList: FC<Props> = ({ tabs, active }) => (
   <ul className="tabs" data-tabs id="example-tabs">
     {
       tabs.map((tab) => (
