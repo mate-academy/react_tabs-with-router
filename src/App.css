@@ -1,1 +1,25 @@
+.nav__list {
+  list-style: none;
+  display: flex;
+  color: blue;
+  margin-left: 10;
+}
 
+.tab__link,
+.nav__link {
+  background-color: #cff;
+  padding: 10px 40px;
+  margin: 5px;
+  text-decoration: none;
+  color: black;
+  transition: background-color 1.5s;
+}
+
+.tab__link:hover,
+.nav__link:hover {
+  background-color: #ccc;
+}
+
+.active {
+  background-color: #ccc;
+}
