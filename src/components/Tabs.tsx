@@ -1,5 +1,4 @@
 import React from 'react';
-import './Tabs.css';
 import { Tab } from './Tab';
 
 type Props = {
