@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 type Props = {
-  tab: Tab;
+  tab: TabInterface;
 };
 
 export const Tab: React.FC<Props> = ({ tab }) => (

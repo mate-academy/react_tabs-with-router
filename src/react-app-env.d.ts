@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 /// <reference types="react-scripts" />
 
-type Tab = {
+type TabInterface = {
   id: number;
   title: string;
   content: string;

@@ -1,5 +1,4 @@
-.nav__list {
-  list-style: none;
+.nav {
   display: flex;
   color: blue;
   margin-left: 10;
