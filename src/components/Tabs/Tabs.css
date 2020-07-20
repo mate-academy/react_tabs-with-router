@@ -1,0 +1,16 @@
+.center {
+  font-size: 50px;
+  padding: 50px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.hading {
+  text-align: center;
+  font-size: 80px;
+  margin-bottom: 50px;
+}
