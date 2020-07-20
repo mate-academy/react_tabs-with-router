@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter,
+  HashRouter,
   Route,
   Switch,
 } from 'react-router-dom';
@@ -19,7 +19,7 @@ const tabs = [
 const App: React.FC = () => (
   <div className="task-wrap">
     <h1>Tabs with router</h1>
-    <BrowserRouter>
+    <HashRouter>
       <div className="page">
         <Navigation />
         <div className="page__content">
@@ -32,7 +32,7 @@ const App: React.FC = () => (
           </Switch>
         </div>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   </div>
 );
 
