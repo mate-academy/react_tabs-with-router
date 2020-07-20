@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-// import { TabsInterface } from '../../interfaces';
 
 interface TabProps {
   content: string;
