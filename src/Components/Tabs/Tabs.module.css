@@ -1,0 +1,21 @@
+.tabsList {
+  background-color: cornflowerblue;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0;
+  list-style: none;
+}
+
+.active {
+  display: block;
+}
+
+.nonactive {
+  display: none;
+}
