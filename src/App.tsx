@@ -18,7 +18,6 @@ export const App = () => (
         path="/tabs/:id?"
         render={({ match }) => (
           <Tabs
-            path={match.path}
             tabs={tabs}
             tabId={match.params.id}
           />

@@ -5,7 +5,6 @@ import { TabType } from '../interfaces/TabInterface';
 interface Props {
   tabs: TabType[];
   tabId: string;
-  path: string;
 }
 
 export const Tabs: FC<Props> = (props) => {
