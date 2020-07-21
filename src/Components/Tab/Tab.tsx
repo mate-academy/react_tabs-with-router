@@ -11,9 +11,8 @@ export const Tab: FC<Props> = (props) => {
 
   return (
     <NavLink
-      to={toUrl}
-      type="button"
-      activeClassName="active"
+      to={`/tabs/${toUrl}`}
+      exact
       className="btn btn-outline-primary m-2"
     >
       {props.title}
