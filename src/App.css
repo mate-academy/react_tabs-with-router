@@ -1,1 +1,31 @@
+.pages-list,
+.tabs-list {
+  list-style: none;
+  padding: 0;
+}
 
+.tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  width: 20%;
+}
+
+.tab {
+  font-size: 25px;
+  color: #000080;
+
+  border-bottom: 1px solid grey;
+  border-radius: 5%;
+}
+
+a:visited {
+  color: inherit;
+}
+
+.selected {
+  border: 1px solid grey;
+  border-bottom: none;
+  color: black;
+}
