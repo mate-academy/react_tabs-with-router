@@ -6,7 +6,7 @@
 ## Description
 ![tabs](./description/tabs.gif)
 
-Implement `Tabs` component. `current` prop sets the active tab by its `id`.
+Implement `Tabs` com ponent. `current` prop sets the active tab by its `id`.
 ```javascript
 let tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
