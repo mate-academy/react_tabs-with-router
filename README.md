@@ -1,12 +1,12 @@
 # React Tabs with Router
 - Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/react_tabs-with-router/)
+  [DEMO LINK](https://germandolia.github.io/react_tabs-with-router/)
 - Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
 
 ## Description
 ![tabs](./description/tabs.gif)
 
-Implement `Tabs` component. `current` prop sets the active tab by its `id`.
+Implement `Tabs` com ponent. `current` prop sets the active tab by its `id`.
 ```javascript
 let tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
