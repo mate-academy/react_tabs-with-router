@@ -32,8 +32,8 @@ const App: FC = () => (
     <Switch>
       <Route path="/" exact component={Home} />
       <Route
-        path="/tabs/"
-        render={({ match }) => <Tabs tabs={tabs} path={match.path} />}
+        path="/tabs/:id?"
+        render={({ match }) => <Tabs tabs={tabs} tabId={match.params.id} />}
       />
     </Switch>
 
