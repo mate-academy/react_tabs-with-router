@@ -1,0 +1,17 @@
+.tabs {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.tabs__menu {
+  display: flex;
+  border-bottom: 1px solid rgb(198, 220, 248);
+  cursor: pointer;
+}
+
+.tabs__content {
+  padding: 20px;
+  border-top: none;
+  font-size: 16px;
+}
