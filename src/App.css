@@ -1,1 +1,28 @@
+body {
+  padding: 50px calc(50% - 300px);
+}
 
+.link {
+  margin-right: 20px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: 0.8em 1em calc(0.8em + 3px);
+  border-radius: 3px;
+  background: rgb(64,199,129);
+  box-shadow: 0 -3px rgb(53,167,110) inset;
+  transition: 0.2s;
+}
+
+.link:hover {
+  background: rgb(53, 167, 110);
+}
+
+.link:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+
+.active {
+  background-color: aquamarine;
+}
