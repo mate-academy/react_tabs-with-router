@@ -6,6 +6,7 @@ import {
   Link,
   useRouteMatch,
 } from 'react-router-dom';
+import classNames from 'classnames';
 import { Tab } from './Tab';
 
 interface Props {
@@ -25,10 +26,10 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
       <ul className="tabs-list">
         {
           tabs.map((tab: Tab) => (
-            <li key={tab.id} className="tab">
+            <li key={tab.id}>
               <Link
                 to={`${match.url}/${tab.id}`}
-                className={selectedTab === tab.id ? 'selected' : ''}
+                className={classNames('tab', { selected: selectedTab === tab.id })}
                 onClick={() => handleClick(tab.id)}
               >
                 {tab.title}

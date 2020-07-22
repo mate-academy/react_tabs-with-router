@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
 } from 'react-router-dom';
+import classNames from 'classnames';
 import { Tabs } from './components/Tabs';
 import './App.css';
 
@@ -15,15 +16,33 @@ const tabs = [
 ];
 
 const App = () => {
+  const [selectedPage, setSelectedPage] = useState('');
+
+  const handleClick = (id: string) => {
+    setSelectedPage(id);
+  };
+
   return (
     <div className="App">
       <Router>
         <ul className="pages-list">
           <li>
-            <Link to="/">Home</Link>
+            <Link
+              to="/"
+              className={classNames('page', { selected: selectedPage === 'home' })}
+              onClick={() => handleClick('home')}
+            >
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/tabs">Tabs</Link>
+            <Link
+              to="/tabs"
+              className={classNames('page', { selected: selectedPage === 'tabs' })}
+              onClick={() => handleClick('tabs')}
+            >
+              Tabs
+            </Link>
           </li>
         </ul>
 

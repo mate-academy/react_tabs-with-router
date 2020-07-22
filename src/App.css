@@ -12,20 +12,29 @@
   width: 20%;
 }
 
+.page {
+  color: black;
+  text-decoration: none;
+}
+
 .tab {
+  display: block;
+
   font-size: 25px;
   color: #000080;
+  text-decoration: none;
 
   border-bottom: 1px solid grey;
   border-radius: 5%;
 }
 
-a:visited {
+.page:visited,
+.tab:visited {
   color: inherit;
 }
 
 .selected {
-  border: 1px solid grey;
-  border-bottom: none;
+  border: 1px solid black;
   color: black;
+  font-weight: bold;
 }
