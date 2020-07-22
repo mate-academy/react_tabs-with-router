@@ -11,6 +11,7 @@ interface Props {
 
 export const TabsList: React.FC<Props> = ({ list, id }) => {
   const defaultId = id === ':id' ? 'tab-1' : id;
+  const currentTab = list.find(tab => tab.id === defaultId) || list[0];
 
   return (
     <ul>
@@ -22,7 +23,7 @@ export const TabsList: React.FC<Props> = ({ list, id }) => {
         ))
       }
       <p className="tab-text">
-        {list.find(tab => tab.id === defaultId)!.content}
+        {currentTab.content}
       </p>
     </ul>
   );
