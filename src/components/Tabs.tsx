@@ -1,53 +1,38 @@
-import React, { useState } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-} from 'react-router-dom';
-import classNames from 'classnames';
+import React from 'react';
 import { Tab } from './Tab';
+import { TabItem } from './TabItem';
 
 interface Props {
   tabs: Tab[];
+  id: string;
 }
 
-export const Tabs: React.FC<Props> = ({ tabs }) => {
-  const match = useRouteMatch();
-  const [selectedTab, setSelectedTab] = useState('');
-
-  const handleClick = (id: string) => {
-    setSelectedTab(id);
-  };
+export const Tabs: React.FC<Props> = ({ tabs, id }) => {
+  const selectedTab = tabs.find(tab => tab.id === id);
 
   return (
-    <Router>
+    <>
       <ul className="tabs-list">
         {
           tabs.map((tab: Tab) => (
             <li key={tab.id}>
-              <Link
-                to={`${match.url}/${tab.id}`}
-                className={classNames('tab', { selected: selectedTab === tab.id })}
-                onClick={() => handleClick(tab.id)}
-              >
-                {tab.title}
-              </Link>
+              <TabItem tab={tab} selected={selectedTab} />
             </li>
           ))
         }
       </ul>
+      {
+        selectedTab
+          ? (
+            <p>
+              {selectedTab.content}
+            </p>
+          )
+          : (
+            <span />
+          )
+      }
 
-      <Switch>
-        {
-          tabs.map((tab: Tab) => (
-            <Route path={`${match.path}/${tab.id}`}>
-              {tab.content}
-            </Route>
-          ))
-        }
-      </Switch>
-    </Router>
+    </>
   );
 };

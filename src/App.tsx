@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter,
   Switch,
   Route,
-  Link,
+  NavLink,
 } from 'react-router-dom';
-import classNames from 'classnames';
 import { Tabs } from './components/Tabs';
 import './App.css';
 
@@ -15,48 +14,40 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App = () => {
-  const [selectedPage, setSelectedPage] = useState('');
+const App: React.FC = () => (
+  <div className="App">
+    <HashRouter>
+      <ul className="pages-list">
+        <li>
+          <NavLink
+            to="/"
+            className="page"
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/tabs/"
+            className="page"
+            activeClassName="selected"
+          >
+            Tabs
+          </NavLink>
+        </li>
+      </ul>
 
-  const handleClick = (id: string) => {
-    setSelectedPage(id);
-  };
-
-  return (
-    <div className="App">
-      <Router>
-        <ul className="pages-list">
-          <li>
-            <Link
-              to="/"
-              className={classNames('page', { selected: selectedPage === 'home' })}
-              onClick={() => handleClick('home')}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/tabs"
-              className={classNames('page', { selected: selectedPage === 'tabs' })}
-              onClick={() => handleClick('tabs')}
-            >
-              Tabs
-            </Link>
-          </li>
-        </ul>
-
-        <Switch>
-          <Route path="/tabs">
-            <Tabs tabs={tabs} />
-          </Route>
-          <Route path="/">
-            <h1>Home</h1>
-          </Route>
-        </Switch>
-      </Router>
-    </div>
-  );
-};
+      <Switch>
+        <Route
+          path="/tabs/:id?"
+          render={({ match }) => <Tabs tabs={tabs} id={match.params.id} />}
+        />
+        <Route path="/" exact>
+          <h1>Home</h1>
+        </Route>
+      </Switch>
+    </HashRouter>
+  </div>
+);
 
 export default App;
