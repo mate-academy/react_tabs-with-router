@@ -9,16 +9,16 @@ interface Props {
 export const Tabs: FC<Props> = ({ tabs }) => {
   return (
     <div>
-      <ul>
+      <ul className="tabs">
         {tabs.map(tab => (
-          <li key={tab.id}>
-            <NavLink to={`/tabs/${tab.id}`} activeClassName="selected">{tab.title}</NavLink>
+          <li className="tab col s3" key={tab.id}>
+            <NavLink to={`/tabs/${tab.id}`} activeClassName="active">{tab.title}</NavLink>
           </li>
         ))}
       </ul>
 
       {tabs.map(tab => (
-        <Route path={`/tabs/${tab.id}`} render={() => <div>{tab.content}</div>} />
+        <Route path={`/tabs/${tab.id}`} render={() => <h2>{tab.content}</h2>} />
       ))}
     </div>
   );
