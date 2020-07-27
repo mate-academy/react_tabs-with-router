@@ -1,0 +1,10 @@
+.tabs__nav {
+  list-style: none;
+  display: flex;
+  border-bottom: 2px solid rgb(71, 71, 247);
+}
+
+.tabs__content {
+  font-size: 50px;
+  color: rgb(71, 71, 247);
+}

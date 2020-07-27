@@ -1,0 +1,11 @@
+.nav-link {
+  text-decoration: none;
+  display: block;
+  margin-right: 3px;
+  padding: 10px;
+  border: 1px solid black;
+  border-bottom: none;
+  color: #fff;
+  background-color: rgb(71, 71, 247);
+  border-radius: 5px 5px 0 0;
+}
