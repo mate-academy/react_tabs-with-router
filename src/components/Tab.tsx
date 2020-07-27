@@ -2,9 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../App.css';
 
-type Props = {
+interface Props {
   tab: Tab;
-};
+}
 
 const Tab: React.FC<Props> = ({ tab }) => {
   return (
