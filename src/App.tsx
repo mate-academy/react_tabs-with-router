@@ -1,16 +1,40 @@
 import React from 'react';
+import {
+  Route,
+  NavLink,
+} from 'react-router-dom';
 
 import './App.css';
 
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
+import { Tabs } from './modules/Tabs';
+
+export const Home = () => (<h2>Home Page</h2>);
 
 const App = () => (
   <div className="App">
     <h1>Tabs with router</h1>
+    <div className="general">
+      <NavLink
+        to="/"
+        exact
+        className="general-item"
+        activeClassName="general__active"
+      >
+        Home
+      </NavLink>
+
+      <NavLink
+        to="/tabs/"
+        exact
+        className="general-item"
+        activeClassName="general__active"
+      >
+        Tabs
+      </NavLink>
+    </div>
+
+    <Route exact path="/" component={Home} />
+    <Route exact path="/tabs/:id?" component={Tabs} />
   </div>
 );
 
