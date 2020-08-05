@@ -1,12 +1,15 @@
 import React, { FC } from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Tab } from '../interfaces/TabInterface';
 
 interface Props {
   tabs: Tab[];
+  tabId: string;
 }
 
-export const Tabs: FC<Props> = ({ tabs }) => {
+export const Tabs: FC<Props> = ({ tabs, tabId }) => {
+  const currentTab = tabs.find(tab => tab.id === tabId);
+
   return (
     <div>
       <ul className="tabs">
@@ -16,10 +19,9 @@ export const Tabs: FC<Props> = ({ tabs }) => {
           </li>
         ))}
       </ul>
-
-      {tabs.map(tab => (
-        <Route path={`/tabs/${tab.id}`} render={() => <h2>{tab.content}</h2>} />
-      ))}
+      <h2>
+        {currentTab && currentTab.content}
+      </h2>
     </div>
   );
 };

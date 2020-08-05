@@ -30,7 +30,7 @@ const App: FC = () => (
       </nav>
 
       <Route path="/" exact component={Home} />
-      <Route path="/tabs" render={() => <Tabs tabs={tabs} />} />
+      <Route path="/tabs/:id?" render={({ match }) => <Tabs tabs={tabs} tabId={match.params.id} />} />
     </HashRouter>
   </div>
 );
