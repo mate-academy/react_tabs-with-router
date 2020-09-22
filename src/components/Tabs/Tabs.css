@@ -1,0 +1,19 @@
+.app__tablink {
+  display: inline-block;
+  width: 70px;
+  height: 20px;
+  border: 2px solid rgb(168, 105, 63);
+  text-align: center;
+
+  background: linear-gradient(to bottom,
+  rgba(255,183,107,1) 0%, rgba(255,183,107,1) 31%,
+  rgba(255,167,61,1) 50%,rgba(255,124,0,1) 72%,
+  rgba(255,124,0,1) 86%,rgba(255,127,4,1) 100%);
+}
+
+.app__tablink--active {
+  background: linear-gradient(to bottom,
+  rgba(201,222,150,1) 0%,rgba(138,182,107,1) 44%, rgba(102,201,82,1) 100%);
+  border-color: rgb(54, 107, 43);
+  font-weight: bold;
+}
