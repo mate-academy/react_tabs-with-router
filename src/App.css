@@ -1,1 +1,47 @@
+.isActiveNav {
+  background-color: blue;
+}
 
+.nav {
+  list-style: none;
+  display: flex;
+  height: 50px;
+  background-color: burlywood;
+}
+
+.nav__item {
+  display: block;
+  padding: 10px;
+  height: 30px;
+  width: 40px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.tabs {
+  list-style: none;
+  display: flex;
+}
+
+.tabs__item {
+  background-color: #fff8f8;
+  padding: 10px;
+  width: 80px;
+  height: 80px;
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.activeTab {
+  background-color: rgb(220,220,220);
+}
+
+.text {
+  padding: 25px;
+  margin: 0;
+  width: 300px;
+  border-radius: 10px;
+  background-color: rgb(220,220,220);
+  height: 200px;
+}
