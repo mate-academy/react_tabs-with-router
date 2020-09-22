@@ -13,10 +13,23 @@ const tabs = [
 const Home = () => <h1>Home</h1>;
 
 export const App = () => (
-  <>
-    <nav>
-      <NavLink to="/" exact>Home</NavLink>
-      <NavLink to="/tabs">Tabs</NavLink>
+  <div className="App">
+    <nav className="nav">
+      <NavLink
+        to="/"
+        exact
+        activeClassName="active"
+        className="nav__link"
+      >
+        Home
+      </NavLink>
+      <NavLink
+        to="/tabs"
+        activeClassName="active"
+        className="nav__link"
+      >
+        Tabs
+      </NavLink>
     </nav>
 
     <Route path="/" exact component={Home} />
@@ -33,5 +46,5 @@ export const App = () => (
         </>
       )}
     />
-  </>
+  </div>
 );
