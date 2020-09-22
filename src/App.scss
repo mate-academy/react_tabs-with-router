@@ -1,0 +1,60 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  border-bottom: 1px solid grey;
+  background-color: rgb(45, 87, 73);
+
+  &__item {
+    padding: 32px 15px;
+    padding-top: 100%;
+    text-transform: uppercase;
+    list-style: none;
+    text-decoration: none;
+    display: inline;
+    color: #fff;
+
+    &_active {
+      background-color: rgba(47, 160, 122, 0.603);
+    }
+  }
+}
+
+.tabs {
+  &__list {
+    padding-left: 10px;
+    margin-top: 30px;
+  }
+
+  &__item {
+    text-transform: uppercase;
+    list-style: none;
+    display: inline;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #000;
+    border: 1px solid grey;
+    padding: 10px;
+
+    &_active {
+      font-weight: 600;
+      border-bottom: none;
+      background-color: rgba(47, 160, 122, 0.603);
+    }
+  }
+
+  &__info {
+    margin-left: 10px;
+    height: 150px;
+    width: 300px;
+    background-color: rgb(154, 189, 171);
+    padding: 5px 10px;
+  }
+}
