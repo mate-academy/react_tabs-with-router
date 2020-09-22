@@ -1,0 +1,9 @@
+.app__content {
+  width: 185px;
+  height: 150px;
+  padding: 20px;
+  background: linear-gradient(to bottom,
+  rgba(247,150,33,0.6) 0%,rgba(249,198,103,0.5) 100%);
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgb(238, 209, 170);
+}
