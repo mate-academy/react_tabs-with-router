@@ -1,0 +1,21 @@
+.App {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+  grid-auto-columns: 300px;
+}
+
+.nav {
+  &__list {
+    display: flex;
+    list-style: none;
+  }
+
+  &__item {
+    margin: 15px;
+
+    color: #000;
+    text-decoration: none;
+  }
+}

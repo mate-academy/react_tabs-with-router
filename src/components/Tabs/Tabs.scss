@@ -1,0 +1,27 @@
+.tabs {
+  &__header {
+    display: flex;
+  }
+
+  &__link {
+    margin-bottom: -1px;
+
+    background-color: #fff;
+    border: 1px solid #000;
+    outline: 0;
+
+    color: #000;
+    text-decoration: none;
+
+    &_active {
+      background-color: #333;
+      color: #fff;
+    }
+  }
+
+  &__content {
+    margin: 0;
+
+    border: 1px solid #000;
+  }
+}
