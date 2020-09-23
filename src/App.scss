@@ -1,0 +1,27 @@
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.nav {
+  font-weight: bold;
+  font-family: sans-serif;
+  display: flex;
+
+  &__button {
+    padding: 5px 10px;
+    background: none;
+    border: none;
+    box-sizing: content-box;
+    font-weight: bold;
+    font-family: sans-serif;
+
+    &-selected {
+      border: 1px solid darkgray;
+      position: relative;
+    }
+  }
+}
