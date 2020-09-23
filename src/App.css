@@ -1,1 +1,36 @@
+ul,
+li,
+p,
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+}
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.tabs {
+  text-align: center;
+}
+
+.App {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav {
+  margin: 40px 0;
+  width: 500px;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.is-active {
+  color: red;
+}
