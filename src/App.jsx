@@ -34,12 +34,12 @@ const tabs = [
 const App = () => (
   <HashRouter>
     <div className="App">
-      <a href="#/home">Home</a>
+      <a href="#/">Home</a>
       {' '}
       <a href="#/tabs">Tabs</a>
       <br />
       <Switch>
-        <Route path="/home" component={() => <h1>Tabs with router</h1>} />
+        <Route path="/" exact component={() => <h1>Tabs with router</h1>} />
         <Route path="/tabs/:tabId?" component={Tabs} />
       </Switch>
     </div>
