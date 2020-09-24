@@ -1,1 +1,19 @@
+.nav,
+.tabs {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  height: 50px;
+  text-transform: uppercase;
+}
 
+.nav__link,
+.tabs__link {
+  text-decoration: none;
+  padding: 10px;
+  margin: 10px;
+}
+
+.active {
+  background-color: aqua;
+}
