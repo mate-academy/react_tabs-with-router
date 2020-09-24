@@ -1,6 +1,22 @@
 import React from 'react';
 
-import './App.css';
+import './App.scss';
+
+/*
+import { RouteComponentProps } from 'react-router-dom';
+
+type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
+const TabsPage: TabsPageProps = ({ match }) => {...};
+
+or
+
+import { useParams } from 'react-router-dom';
+
+const TabsPage = () => {
+  const { tabId } = useParams<{ tabId: string }>();
+  ...
+};
+*/
 
 // const tabs = [
 //   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
