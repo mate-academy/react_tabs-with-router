@@ -1,0 +1,24 @@
+.buttons {
+  border-bottom: 1px solid grey;
+  padding-left: 10px;
+}
+
+.cell {
+  background-color: #fff;
+  margin-bottom: -1px;
+  outline: none;
+  border: none;
+  color: rgb(151, 23, 23);
+}
+
+.activeTab {
+  background-color: #fff;
+  color: rgb(46, 124, 177);
+  z-index: 5;
+  border: 1px solid grey;
+  border-bottom: 1px solid #fff;
+}
+
+.text {
+  padding-left: 10px;
+}
