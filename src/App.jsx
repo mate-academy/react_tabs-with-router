@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { HashRouter, Route, Link, Switch } from 'react-router-dom';
 import './App.scss';
 
 /*
@@ -32,16 +32,18 @@ const tabs = [
 ];
 
 const App = () => (
-  <BrowserRouter hashType="noslash">
+  <HashRouter>
     <div className="App">
-      <a href="/">Home</a>
+      <a href="#/home">Home</a>
       {' '}
-      <a href="/tabs">Tabs</a>
+      <a href="#/tabs">Tabs</a>
       <br />
-      <Route path="/" exact component={() => <h1>Tabs with router</h1>} />
-      <Route path="/tabs/:tabId?" component={Tabs} />
+      <Switch>
+        <Route path="/home" component={() => <h1>Tabs with router</h1>} />
+        <Route path="/tabs/:tabId?" component={Tabs} />
+      </Switch>
     </div>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 const Tabs = ({ match }) => (
