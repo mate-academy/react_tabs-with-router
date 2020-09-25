@@ -24,7 +24,6 @@ const App = () => (
           className="nav__link"
           to="/"
           exact
-          // activeClassName="navActiveLink"
         >
           Home page
         </NavLink>
@@ -33,7 +32,6 @@ const App = () => (
         <NavLink
           className="nav__link"
           to="/tabs"
-          // activeClassName="navActiveLink"
         >
           Tabs page
         </NavLink>
