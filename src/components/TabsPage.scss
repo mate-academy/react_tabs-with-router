@@ -1,0 +1,25 @@
+
+.tabNav {
+  height: 40px;
+  width: 80px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: rgb(12, 214, 73);
+  text-decoration: none;
+
+}
+
+.active-tab {
+  border-bottom: none;
+  background-color: yellow;
+  margin: 0;
+
+}
+
+.content {
+  background-color: yellow;
+  width: 60%;
+  min-height: 100px;
+  margin: 0;
+}
