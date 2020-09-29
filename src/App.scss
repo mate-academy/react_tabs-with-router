@@ -1,1 +1,37 @@
+body,
+ul {
+  margin: 0;
+}
 
+.header {
+  display: flex;
+  background-color: #9A2339;
+}
+
+.nav {
+  &__list {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__item {
+    padding-right: 30px;
+    color: #fa6400;
+    font-size: 20px;
+  }
+  
+  &__link {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    color: inherit;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &--selected {
+      color: #fff;
+    }
+  }
+}
