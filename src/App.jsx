@@ -46,27 +46,31 @@ const App = () => (
   </HashRouter>
 );
 
-const Tabs = ({ match }) => (
-  <div>
-    {tabs.map(tab => (
-      <button
-        key={tab.id}
-        type="button"
-        className={`${tab.id === match.params.tabId && 'button_active'} button`}
-      >
-        <Link to={`../tabs/${tab.id}`}>
-          {tab.title}
-        </Link>
-      </button>
-    ))
-    }
-    <div className="content">
-      {match.params.tabId
-        ? tabs.find(tab => tab.id === match.params.tabId).content
-        : 'Please select a tab'}
+const Tabs = ({ match }) => {
+  const currentTab = tabs.find(tab => tab.id === match.params.tabId);
+
+  return (
+    <div>
+      {tabs.map(tab => (
+        <button
+          key={tab.id}
+          type="button"
+          className={
+            `${tab.id === match.params.tabId && 'button_active'} button`
+          }
+        >
+          <Link to={`../tabs/${tab.id}`}>
+            {tab.title}
+          </Link>
+        </button>
+      ))
+      }
+      <div className="content">
+        {currentTab ? currentTab.content : 'Please select a tab'}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default App;
 
