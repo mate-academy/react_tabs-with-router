@@ -24,7 +24,7 @@ const App = () => (
             <NavLink className="nav-link" to="/" exact>Home</NavLink>
           </li>
           <li className="header__list--item">
-            <NavLink className="nav-link" to="/tabs" exact>Tabs</NavLink>
+            <NavLink className="nav-link" to="/tabs">Tabs</NavLink>
           </li>
         </ul>
       </nav>
@@ -37,6 +37,7 @@ const App = () => (
           render={({ match }) => (
             <TabsPage tabs={tabs} match={match} />
           )}
+          exact
         />
       </Switch>
     </main>
