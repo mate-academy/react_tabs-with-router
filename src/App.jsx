@@ -37,7 +37,6 @@ const App = () => (
           render={({ match }) => (
             <TabsPage tabs={tabs} match={match} />
           )}
-          exact
         />
       </Switch>
     </main>
