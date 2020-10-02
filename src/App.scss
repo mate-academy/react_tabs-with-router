@@ -1,1 +1,35 @@
+* {
+  box-sizing: border-box;
+}
 
+.header {
+  &__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    background-color: rgb(164, 198, 221);
+    height: 40px;
+
+    &--item {
+      justify-content: center;
+      width: 100px;
+      font-weight: bold;
+    }
+  }
+}
+
+.nav-link {
+  list-style: none;
+  text-decoration: none;
+  font-size: 20px;
+  width: 65px;
+  height: 30px;
+
+}
+
+.active {
+  border: 0.5px solid rgb(36, 36, 109);
+  background-color: rgb(164, 198, 221);
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
