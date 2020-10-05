@@ -8,7 +8,7 @@
   cursor: pointer;
 }
 
-.button_active {
+.button_active > button {
   background-color: #eff7f6;
   border-bottom: 3px solid #eff7f6;
   outline: none;

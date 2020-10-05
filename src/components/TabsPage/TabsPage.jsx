@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Switch, Route } from 'react-router-dom';
+import { Link, Switch, Route, NavLink, useParams, } from 'react-router-dom';
 import classNames from 'classnames';
 import './TabsPage.scss';
+import { Content } from '../Content/Content';
 
 export const TabsPage = ({ tabs, match, location }) => {
   const [noTabSelected, setNoTabSelected] = useState(false);
@@ -21,29 +22,19 @@ export const TabsPage = ({ tabs, match, location }) => {
     <>
       <h1>This is a tabs page</h1>
       {tabs.map(tab => (
-        <Link key={tab.id} to={`${match.path}/${tab.id}`}>
+        <NavLink activeClassName="button_active" key={tab.id} to={`${match.path}/${tab.id}`}>
           <button
-            className={classNames({
-              button: true,
-              button_active: location.pathname === `${match.path}/${tab.id}`,
-            })}
+            className="button"
             type="button"
           >
             {tab.title}
           </button>
-        </Link>
+        </NavLink>
       ))}
-
-      <Switch>
-        {' '}
-        {
-          tabs.map(tab => (
-            <Route key={tab.title} path={`${match.path}/${tab.id}`} exact>
-              <div className="content">{tab.content}</div>
-            </Route>
-          ))
-        }
-      </Switch>
+      <Route path={`${match.path}/:id`} render={({ match }) => (
+        <Content tabs={tabs} match={match}></Content>
+      )}>
+      </Route>
       {noTabSelected && <div className="content">Please choose a tab</div>}
     </>
   );
