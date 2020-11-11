@@ -36,7 +36,10 @@ export const TabsPage = () => {
         }
       </ul>
       <p>
-        {currentTab && currentTab.content}
+        {currentTab
+          ? currentTab.content
+          : 'Please select a tab'
+        }
       </p>
     </div>
   );
