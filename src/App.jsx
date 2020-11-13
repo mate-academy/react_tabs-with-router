@@ -1,55 +1,12 @@
 import React from 'react';
-import { NavLink, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import { Navigation } from './components/Navigation';
 
-import './App.scss';
 import { TabsPage } from './components/TabsPage';
-
-/*
-import { RouteComponentProps } from 'react-router-dom';
-
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
-
-or
-
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
-};
-*/
 
 const App = () => (
   <div className="App">
-    <nav className="navbar">
-      <div className="navbar-brand">
-        <NavLink
-          to="/"
-          className="navbar-item is-tab"
-          activeClassName="is-active"
-          exact
-        >
-          Home
-        </NavLink>
-
-        <NavLink
-          to="/tabs"
-          className="navbar-item is-tab"
-          activeClassName="is-active"
-        >
-          Tabs
-        </NavLink>
-
-        <NavLink
-          to="/about"
-          className="navbar-item is-tab"
-          activeClassName="is-active"
-        >
-          About us
-        </NavLink>
-      </div>
-    </nav>
+    <Navigation />
 
     <Switch>
       <Route path="/" exact>

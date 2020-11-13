@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useParams, NavLink } from 'react-router-dom';
-import './Tabs.scss';
 
 const tabs = [
   {
@@ -15,8 +14,11 @@ const tabs = [
 ];
 
 export const TabsPage = () => {
-  const { tabId } = useParams() || 0;
-  const currentTab = tabs.find(tab => tab.id === tabId);
+  const { tabId } = useParams();
+  const currentTab = useMemo(
+    () => tabs.find(tab => tab.id === tabId),
+    [tabId],
+  );
 
   return (
     <div className="content">
