@@ -1,1 +1,24 @@
+header {
+  margin-bottom: 20px;
+}
 
+.nav-item {
+  text-decoration: none;
+  margin-right: 10px;
+  color: black;
+}
+
+.tab-links {
+  text-decoration: none;
+  margin-right: 10px;
+  color: black;
+}
+
+.active {
+  color: blue;
+  text-decoration: underline;
+}
+
+.content {
+  margin-top: 20px;
+}
