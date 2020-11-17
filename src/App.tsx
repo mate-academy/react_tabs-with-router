@@ -31,8 +31,3 @@ const App = () => (
 
 export default App;
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
-*/
