@@ -1,12 +1,21 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import { tabs } from '../App';
 
-type TabsPageProps = React.FC<RouteComponentProps<{ id: string }>>;
+type ContentProps = React.FC<RouteComponentProps<{ id: string }>>;
 
-const Content: TabsPageProps = ({ match }) => {
-  // const idValidation = () => {};
+const Content: ContentProps = ({ match }) => {
+  const idValidation = () => {
+    return tabs.some((tab) => tab.id === match.params.id);
+  };
 
-  return <div className="content">{match.params.id}</div>;
+  const isTabExist = idValidation();
+
+  return (
+    <div className="content">
+      {isTabExist ? match.params.id : 'Please select a tab'}
+    </div>
+  );
 };
 
 export default Content;

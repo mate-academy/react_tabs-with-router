@@ -5,18 +5,11 @@ import Header from './components/Header';
 import TabsPage from './components/TabsPage';
 import Content from './components/Content';
 
-const tabs = [
+export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
-
-/*
-import { RouteComponentProps } from 'react-router-dom';
-
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
-*/
 
 const App = () => (
   <div className="App">
@@ -30,7 +23,7 @@ const App = () => (
 
       <Route path="/tabs">
         <TabsPage tabs={tabs} />
-        <Route path="/tabs/:id" component={Content} />
+        <Route path="/tabs/:id?" component={Content} />
       </Route>
 
       <Redirect from="/react_tabs-with-router" to="/" />
@@ -39,3 +32,9 @@ const App = () => (
 );
 
 export default App;
+
+/*
+import { RouteComponentProps } from 'react-router-dom';
+type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
+const TabsPage: TabsPageProps = ({ match }) => {...};
+*/
