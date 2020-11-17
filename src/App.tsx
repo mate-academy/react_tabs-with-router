@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import './App.scss';
 import Header from './components/Header';
 import TabsPage from './components/TabsPage';
@@ -25,8 +25,6 @@ const App = () => (
         <TabsPage tabs={tabs} />
         <Route path="/tabs/:id?" component={Content} />
       </Route>
-
-      <Redirect from="/react_tabs-with-router" to="/" />
     </Switch>
   </div>
 );

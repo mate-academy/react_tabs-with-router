@@ -4,7 +4,7 @@ import App from './App';
 import { BrowserRouter, HashRouter } from 'react-router-dom';
 
 ReactDOM.render(
-  <HashRouter>
+  <HashRouter basename={'/react_tabs-with-router'}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
