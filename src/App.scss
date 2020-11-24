@@ -1,1 +1,36 @@
+.navbar-item {
+  padding: 10px;
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
 
+h2, h1 {
+  text-align: center;
+}
+
+.is-active {
+  color: rgb(12, 40, 247);
+}
+
+.tab__list {
+  display: flex;
+  list-style: none;
+  justify-content:center
+}
+
+.tab__content {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(16, 223, 51);
+}
+
+.tab__link {
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+.tab__link-active {
+  background-color: rgb(16, 223, 51);
+  text-decoration: underline;
+}
