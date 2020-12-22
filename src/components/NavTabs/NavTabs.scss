@@ -1,0 +1,24 @@
+.nav-tabs {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  top: 146px;
+}
+
+.tab-item {
+  min-height: 200px;
+  clear: both;
+}
+
+.tab {
+  position: relative;
+  padding: 15px;
+}
+
+.active-tab {
+  color: #78dff1;
+  border: 1px solid #487eb0;
+  border-bottom: 1px solid rgb(245, 250, 249);
+  z-index: 2;
+}

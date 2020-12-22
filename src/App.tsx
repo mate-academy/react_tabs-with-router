@@ -1,6 +1,10 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 import './App.scss';
+import { Header } from './components/Header';
+import { Home } from './components/Home';
+import { Tabs } from './components/Tabs';
 
 /*
 import { RouteComponentProps } from 'react-router-dom';
@@ -18,15 +22,18 @@ const TabsPage = () => {
 };
 */
 
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
-
 const App = () => (
   <div className="App">
-    <h1>Tabs with router</h1>
+    <Header />
+
+    <Switch>
+      <Route path="/tabs">
+        <Tabs />
+      </Route>
+      <Route path="/" exact>
+        <Home />
+      </Route>
+    </Switch>
   </div>
 );
 
