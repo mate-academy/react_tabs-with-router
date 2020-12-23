@@ -1,1 +1,31 @@
+body {
+  margin: 0;
+  background-color: rgb(160, 159, 160);
+}
 
+.App {
+  text-align: center;
+}
+
+.navbar {
+  font-size: 25px;
+  color: white;
+  padding: 20px;
+  background-color: rgb(27, 25, 25);
+}
+
+.navtab {
+  background-color: rgb(58, 56, 56);
+  font-size: 20px;
+  padding: 10px;
+  color: white;
+}
+
+.active {
+  color: rgb(48, 240, 112);
+  padding: 10px;
+}
+
+.tab {
+  color: rgb(46, 243, 112);
+}
