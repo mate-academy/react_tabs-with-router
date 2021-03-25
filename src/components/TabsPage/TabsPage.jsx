@@ -1,6 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { NavLink, useHistory, useRouteMatch } from 'react-router-dom';
 
 const tabs = [
   {
@@ -14,7 +13,9 @@ const tabs = [
   },
 ];
 
-export function TabsPage({ match, history }) {
+export function TabsPage() {
+  const match = useRouteMatch('/tabs/:tabId?');
+  const history = useHistory();
   let { tabId } = match.params;
 
   if (tabId && !tabs.some(({ id }) => id === tabId)) {
@@ -49,14 +50,3 @@ export function TabsPage({ match, history }) {
     </>
   );
 }
-
-TabsPage.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      tabId: PropTypes.string,
-    }),
-  }).isRequired,
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
-};

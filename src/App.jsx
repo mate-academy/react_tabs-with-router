@@ -10,17 +10,12 @@ export const App = () => (
   <div className="App">
     <Header />
     <Switch>
-      <Route
-        path="/tabs/:tabId?"
-        component={TabsPage}
-      />
-
-      <Route
-        path="/"
-        exact
-        component={HomePage}
-      />
-
+      <Route path="/tabs">
+        <TabsPage />
+      </Route>
+      <Route exact path="/">
+        <HomePage />
+      </Route>
       <Redirect to="/" />
     </Switch>
   </div>
