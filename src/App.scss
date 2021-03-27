@@ -1,1 +1,8 @@
+.tabs.is-boxed a {
+  margin-top: 20px;
 
+  &.is-active {
+    background-color: #3273dc;
+    color: #fff;
+  }
+}
