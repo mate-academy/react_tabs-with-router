@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { NavLink, Route, Switch } from 'react-router-dom';
 import { TabPage } from '../TabPage';
 
 
 export const Tabs = ({ tabs }) => {
-  const [people, setPeople] = useState([]);
-
   return(
     <>
     <div className="tabs is-boxed my-tabs">
@@ -34,7 +32,8 @@ export const Tabs = ({ tabs }) => {
     </div>
     <Switch>
           <Route
-            path="/tabs/:tabId"
+            path="/tabs/:tabId?"
+            exact
           >
             <TabPage
               tabs={tabs}
