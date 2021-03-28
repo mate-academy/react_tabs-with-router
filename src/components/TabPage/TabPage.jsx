@@ -4,11 +4,7 @@ import { useParams } from 'react-router-dom';
 
 export const TabPage = ({ tabs }) => {
   const { tabId } = useParams();
-  const [tab, setTab] = useState(null);
-
-  useEffect(() => {
-    setTab(tabs.find(tab => tab.id === tabId));
-  }, [tab]);
+  const tab = tabs.find(tab => tab.id === tabId);
 
   return(
     <div>
