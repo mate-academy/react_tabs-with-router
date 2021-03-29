@@ -1,1 +1,20 @@
+.list {
+  display: flex;
 
+  &__item {
+    list-style-type: none;
+    padding-right: 20px;
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+}
+
+.active {
+  color: red;
+}
+
+.nav {
+  color: aquamarine;
+}
