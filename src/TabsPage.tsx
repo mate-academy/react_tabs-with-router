@@ -1,6 +1,6 @@
 import React from 'react';
 import ClassNames from 'classnames';
-import { Link } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 
 const tabs = [
   {
@@ -14,7 +14,11 @@ const tabs = [
   },
 ];
 
-export const TabsPage: React.FC = ({ match }: any) => {
+interface RouteProps {
+  tabId: string,
+}
+
+export const TabsPage = ({ match }: RouteComponentProps<RouteProps>) => {
   const selectedTabId: string = match.params.tabId || '0';
 
   return (
