@@ -15,7 +15,6 @@ export const Header = () => (
     <Menu.Item>
       <NavLink
         to="/tabs"
-        exact
       >
         Tabs
       </NavLink>

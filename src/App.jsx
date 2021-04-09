@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 import './App.scss';
 import { Header } from './components/Header';
-import { Tabs } from './components/Tabs';
+import { TabsPage } from './components/TabsPage';
 
 /*
 import { RouteComponentProps } from 'react-router-dom';
@@ -37,12 +37,12 @@ const App = () => (
   <div className="App">
     <Header />
     <Switch>
-      <Route path="/tabs" exact>
-        <h1>Tabs with router</h1>
+      <Route path="/tabs/:tabId?">
+        <TabsPage tabs={tabs} />
       </Route>
 
       <Route path="/" exact>
-        <Tabs component={tabs} />
+        <h1>Home</h1>
       </Route>
     </Switch>
   </div>
