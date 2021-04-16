@@ -7,20 +7,20 @@ import {
 } from 'react-router-dom';
 import './App.scss';
 import { Home } from './components/Home';
-import { Tabs } from './components/Tabs';
+import { TabsPage } from './components/TabsPage';
 
 const App = () => (
   <div className="App">
     <h1>Tabs with router</h1>
     <div className="Navigation">
-      <NavLink to="/home" activeClassName="Active">Home</NavLink>
-      <NavLink to="/tabs" activeClassName="Active">Tabs</NavLink>
+      <NavLink exact to="/" activeClassName="Active">Home</NavLink>
+      <NavLink to="/tabs" activeClassName="Active">TabsPage</NavLink>
     </div>
 
     <Switch>
-      <Route path="/home" component={Home} />
-      <Route path="/tabs" component={Tabs} />
-      <Redirect exact from="/" to="/home" />
+      <Route exact path="/" component={Home} />
+      <Route path="/tabs/:tabId?" component={TabsPage} />
+      <Redirect exact from="/home" to="/" />
       <p>Page is not found</p>
     </Switch>
   </div>

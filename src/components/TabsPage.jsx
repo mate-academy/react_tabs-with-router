@@ -1,25 +1,35 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
+import { Tabs } from './Tabs';
 
-export const TabsPage = ({ tabs }) => (
-  <div className="Tabs-Page">
-    <Switch>
-      {tabs.map(tab => (
-        <Route
-          path={`/tabs/${tab.id}`}
-          key={tab.id}
-        >
-          {tab.content}
-        </Route>
-      ))}
-      <Route path="/tabs">
-        <h1>Please select a tab message</h1>
-      </Route>
-    </Switch>
-  </div>
-);
+export const TabsPage = () => {
+  const tabs = [
+    {
+      id: 'tab-1', title: 'Tab 1', content: 'Some text 1',
+    },
+    {
+      id: 'tab-2', title: 'Tab 2', content: 'Some text 2',
+    },
+    {
+      id: 'tab-3', title: 'Tab 3', content: 'Some text 3',
+    },
+  ];
 
-TabsPage.propTypes = {
-  tabs: PropTypes.arrayOf.isRequired,
+  return (
+    <div className="Tabs">
+      <h1>Tabs</h1>
+      <div className="Tabs-List">
+        {tabs.map(tab => (
+          <NavLink
+            to={`/tabs/${tab.id}`}
+            key={tab.id}
+            activeClassName="Active-Tab"
+          >
+            {tab.title}
+          </NavLink>
+        ))}
+      </div>
+      <Tabs tabs={tabs} />
+    </div>
+  );
 };
