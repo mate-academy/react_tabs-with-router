@@ -1,1 +1,39 @@
+.Navigation {
+  margin: auto;
+  text-align: center;
+}
 
+.Navigation a,
+.Tabs-List a {
+  padding: 20px;
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+}
+
+.Navigation a:hover,
+.Navigation .Active {
+  border-bottom: 2px solid orange;
+  color: brown;
+}
+
+.Home,
+.Tabs {
+  text-align: center;
+  padding-top: 100px;
+}
+
+.Tabs-List {
+  padding: 22px;
+  border-bottom: 2px solid black;
+}
+
+.Tabs-List .Active-Tab {
+  border-bottom: 4px solid orange;
+  color: brown;
+}
+
+.Tabs-Page {
+  padding: 50px;
+
+}
