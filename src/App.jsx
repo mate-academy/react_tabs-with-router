@@ -5,8 +5,9 @@ import './App.scss';
 import 'bulma';
 
 import { Header } from './components/Header';
-import { HomePage } from './components/HomePage';
+import { HomePage } from './components/HomePage/HomePage';
 import { Tabs } from './components/Tabs';
+import { NotFoundPage } from './components/NotFoundPage';
 
 const tabs = [
   {
@@ -25,11 +26,11 @@ const App = () => (
     <Header />
     <div className="App">
       <Switch>
-        <Route path="/" exact component={HomePage} />
         <Route path="/tabs/:tabId?">
           <Tabs tabs={tabs} />
         </Route>
-        <h1 className="title">Page Not Found</h1>
+        <Route path="/" exact component={HomePage} />
+        <Route component={NotFoundPage} />
       </Switch>
     </div>
   </>
