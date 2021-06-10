@@ -1,1 +1,39 @@
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
 
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    color: black;
+  }
+}
+
+.Tabs {
+  &__list {
+    margin: 30px 0 15px;
+    padding: 0;
+    list-style: none;
+    &-item {
+      display: inline-block;
+    }
+    &-link {
+      padding: 8px 12px;
+      color: blue;
+      border-bottom: 1px solid grey;
+      &.active {
+        border: 1px solid grey;
+        border-bottom: none;
+      }
+    }
+  }
+}
