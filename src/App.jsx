@@ -1,7 +1,10 @@
 import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import './App.scss';
-
+import { HomePage } from './components/HomePage';
+import { Navigation } from './components/Navigation';
+import { TabsPage } from './components/TabsPage';
 /*
 import { RouteComponentProps } from 'react-router-dom';
 
@@ -27,6 +30,12 @@ const TabsPage = () => {
 const App = () => (
   <div className="App">
     <h1>Tabs with router</h1>
+    <Navigation />
+    <Switch>
+      <Route path="/" exact component={HomePage} />
+      <Route path="/tabs/:tabId?" component={TabsPage} />
+      <Redirect path="/home" to="/" />
+    </Switch>
   </div>
 );
 
