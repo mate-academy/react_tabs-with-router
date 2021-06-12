@@ -22,11 +22,8 @@ const Tabs = () => {
   const [msgClosed, setMsgClosed] = useState(false);
 
   const handleMsgClose = () => {
-    console.log(1);
     setMsgClosed(!msgClosed);
   }
-
-  console.log(2);
 
   return (
     <>
