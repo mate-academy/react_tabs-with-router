@@ -1,6 +1,7 @@
 .Navigation {
+  margin-bottom: 50px;
   padding: 15px 0;
-  background-color: #ababab;
+  background-color: #007dc5;
   text-align: center;
   &__link {
     margin: 0 10px;
@@ -8,7 +9,7 @@
     color: #fff;
     border-bottom: 1px solid transparent;
     transition: border-color 350ms;
-    &.active {
+    &:hover, &.active {
       border-bottom-color: #fff;
     }
   }
