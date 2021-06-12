@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-// import './Navigation.scss';
+import './Tabs.scss';
 
 const tabs = [
   {
@@ -14,16 +14,19 @@ const tabs = [
   },
 ];
 
-// interface RouteProps {
-//   tabId: string,
-// }
-
 const Tabs = () => {
-  // const activeTab = match.params.tabId || 0;
   const activeTab = useParams<{ tabId: string }>();
   const content = activeTab
     ? tabs.find(tab => tab.id === activeTab.tabId)?.content
     : '';
+  const [msgClosed, setMsgClosed] = useState(false);
+
+  const handleMsgClose = () => {
+    console.log(1);
+    setMsgClosed(!msgClosed);
+  }
+
+  console.log(2);
 
   return (
     <>
@@ -42,14 +45,14 @@ const Tabs = () => {
           ))}
         </ul>
 
-        <div className="Tabs__list">
+        <div className="Tabs__content">
           {content}
         </div>
       </div>
 
-      {!activeTab.tabId && 
+      {!activeTab.tabId && !msgClosed && 
         <div className="alert">
-        <span className="closebtn">&times;</span> 
+        <span className="closebtn" onClick={handleMsgClose}>&times;</span> 
           Please select a tab
         </div>
       }

@@ -1,12 +1,31 @@
+// General styles
+
+html, body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 .alert {
-  padding: 20px;
-  background-color: #f44336;
-  color: white;
+  position: absolute;
+  bottom: 30px;
+  padding: 15px 20px;
+  background-color: #e34c26;
+  color: #fff;
 }
 
 .closebtn {
+  margin-top: 1px;
   margin-left: 15px;
-  color: white;
+  color: #fff;
   font-weight: bold;
   float: right;
   font-size: 22px;
@@ -14,26 +33,20 @@
   cursor: pointer;
   transition: 0.3s;
   &:hover {
-    color: black;
+    color: #ababab;
   }
 }
 
-.Tabs {
-  &__list {
-    margin: 30px 0 15px;
-    padding: 0;
-    list-style: none;
-    &-item {
-      display: inline-block;
-    }
-    &-link {
-      padding: 8px 12px;
-      color: blue;
-      border-bottom: 1px solid grey;
-      &.active {
-        border: 1px solid grey;
-        border-bottom: none;
-      }
-    }
+
+// App
+
+.App {
+  margin: 0;
+  padding: 30px;
+  h1 {
+    text-align: center;
+  }
+  h3 {
+    color: #ababab;
   }
 }

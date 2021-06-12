@@ -1,0 +1,32 @@
+.Tabs {
+  margin: 50px 0;
+  &__list {
+    margin: 0 0 15px;
+    padding: 0;
+    list-style: none;
+    &:after {
+      content: '';
+      position: absolute;
+      left: 30px;
+      margin-top: 38px;
+      width: calc(100% - 60px);
+      height: 1px;
+      background-color: #ababab;
+      z-index: -1;
+    }
+    &-item {
+      display: inline-block;
+    }
+    &-link {
+      display: block;
+      padding: 8px 12px;
+      border: 1px solid #fff;
+      border-bottom-color: #ababab;
+      color: #0366d6;
+      &.active {
+        border-color: #ababab;
+        border-bottom-color: #fff;
+      }
+    }
+  }
+}
