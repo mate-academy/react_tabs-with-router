@@ -17,6 +17,7 @@ const tabs = [
 
 export const TabsPage = ({ match }) => {
   const { tabId: selectedTabId } = match.params;
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId)
 
   return (
     <nav>
@@ -33,8 +34,8 @@ export const TabsPage = ({ match }) => {
         ))}
       </div>
       <p className="lead">
-        {tabs.find(tab => tab.id === selectedTabId)
-          ? tabs.find(tab => tab.id === selectedTabId).content
+        {selectedTab
+          ? selectedTab.content
           : 'Please select a tab'
           }
       </p>

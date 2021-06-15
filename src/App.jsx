@@ -6,7 +6,7 @@ import {
   NavLink,
   Switch,
   Route,
-  BrowserRouter as Router,
+  HashRouter as Router,
   Redirect,
 } from 'react-router-dom';
 
