@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect, Route, Switch, withRouter } from 'react-router-dom';
+import { NavLink, Redirect, Route, Switch, withRouter } from 'react-router-dom';
 
 import { TabsPage } from './TabsPage';
 
@@ -29,24 +29,21 @@ export const App = withRouter(
       <>
         <header className="header">
           <nav className="nav">
-            <Link
-              className={
-                `nav-link
-                ${select === '/' && "nav-link-active"}`
-              }
+            <NavLink
+              className="nav-link"
+              activeClassName="nav-link-active"
+              exact
               to="/"
             >
               <h2>Home</h2>
-            </Link>
-            <Link
-              className={
-                `nav-link
-                ${select.includes('/tabs') && "nav-link-active"}`
-              }
+            </NavLink>
+            <NavLink
+              className="nav-link"
+              activeClassName="nav-link-active"
               to="/tabs"
             >
               <h2>Tabs</h2>
-            </Link>
+            </NavLink>
           </nav>
         </header>
   

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -7,8 +7,8 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-export const TabsPage = ({ match }) => {
-  const tabsId = match.params.tabsId;
+export const TabsPage = () => {
+  const { tabsId } = useParams();
   const tabId = tabs.map(tab=> tab.id);
 
   return (
