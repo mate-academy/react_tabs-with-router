@@ -1,1 +1,50 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
 
+.nav-link {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-link:hover,
+.nav-link-active {
+  text-decoration: underline;
+}
+
+.block {
+  display: flex;
+  flex-direction: row;
+}
+
+.block {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.attention,
+.paragraph {
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.title {
+  position: relative;
+  text-decoration: none;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+.title-active,
+.title:hover {
+  color: blue;
+}
+
+.paragraph {
+  position: absolute;
+  left: 10px;
+}
