@@ -1,0 +1,17 @@
+.navbar-start {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-item {
+  padding: 10px;
+
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+
+  &:hover {
+    background: rgba(76, 104, 175, 0.3);
+    border-radius: 5px;
+  }
+}

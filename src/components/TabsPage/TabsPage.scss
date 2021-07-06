@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__list {
+    display: flex;
+    padding: 20px;
+    list-style: none;
+  }
+
+  &__tab {
+    padding: 20px;
+    background-color: transparent;
+    color: black;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 17px;
+    width: 100px;
+    text-decoration: none;
+  }
+
+  &__tab--active {
+    background: rgba(76, 104, 175, 0.3);
+    border-radius: 5px;
+  }
+}
