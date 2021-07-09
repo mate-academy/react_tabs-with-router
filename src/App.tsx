@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Navigation from './components/Navigation' 
 import Tabs from './components/Tabs';
 import './App.scss';
@@ -16,8 +16,9 @@ const App = () => (
       <Route path="/" exact>
         <h1>Home page</h1>
       </Route>
-    </Switch>
 
+      <Redirect path="/home" to="/" />
+    </Switch>
   </div>
 );
 
