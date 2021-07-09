@@ -1,1 +1,52 @@
+// General styles
 
+html, body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.alert {
+  position: fixed;
+  bottom: 30px;
+  padding: 15px 20px;
+  background-color: #e34c26;
+  color: #fff;
+}
+
+.closebtn {
+  margin-top: 1px;
+  margin-left: 15px;
+  color: #fff;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    color: #ababab;
+  }
+}
+
+
+// App
+
+.App {
+  margin: 0;
+  padding: 30px;
+  h1, h3 {
+    text-align: center;
+  }
+  h3 {
+    color: #ababab;
+  }
+}
