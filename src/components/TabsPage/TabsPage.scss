@@ -1,0 +1,37 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.content-container {
+  text-align: center;
+}
+
+.button {
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: #b8b3d2;
+  border: 0;
+  color: white;
+  transition: background-color 0.12s;
+  font-size: inherit;
+  min-width: 75px;
+
+  &:hover {
+    background-color: #4d457b;
+  }
+}
+
+.is-link {
+  background-color: #4d457b;
+}
