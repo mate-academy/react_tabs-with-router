@@ -11,7 +11,12 @@ export interface TypeTabs {
 }
 
 export const TabsPage = ({ tabs }: TypeTabs) => {
-  const math: {params: {tabId: string}} = useRouteMatch();
+  const math: {params: {tabId: string}} | null = useRouteMatch('/tabs/:tabId?');
+  console.log(math);
+
+  if (math === null) {
+    return (<div>Not found</div>);
+  }
 
   const compareTabId = (tabId: string) => {
     return `${tabId}` === math.params.tabId;

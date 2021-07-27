@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './App.scss';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { Header } from './components/Header/Header';
 import { TabsPage } from './components/TabsPage/TabsPage';
 
@@ -21,6 +21,7 @@ const App = () => (
       <Route path="/tabs/:tabId?">
         <TabsPage tabs={tabs} />
       </Route>
+      <Redirect path="/home" to="/" />
 
       <h2>Not found</h2>
     </Switch>
