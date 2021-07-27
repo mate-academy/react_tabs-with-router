@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const Header = () => {
   return (
     <header>
-      <NavLink to="">
+      <NavLink to="/">
         Home page
       </NavLink>
       <NavLink to="/tabs">
