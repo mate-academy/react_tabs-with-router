@@ -6,7 +6,7 @@ import './App.scss';
 
 import { Header } from './components/Header';
 import { HomePage } from './components/HomePage';
-import { TabsPage } from './components/TabsPage';
+import { TabsPage } from './components/TabsPage'; 
 
 const App = () => (
   <div className="App">
