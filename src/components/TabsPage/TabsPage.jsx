@@ -7,7 +7,7 @@ import { TabType } from '../../types';
 import 'bulma';
 import './TabsPage.scss';
 
-export const TabsPage = ({ tabs }) => {
+export const TabsPage = React.memo(({ tabs }) => {
   const match = useRouteMatch();
   const selectedTabId = match.params.tabId;
 
@@ -42,7 +42,7 @@ export const TabsPage = ({ tabs }) => {
         )}
     </>
   );
-};
+});
 
 TabsPage.propTypes = {
   tabs: PropTypes.arrayOf(TabType).isRequired,
