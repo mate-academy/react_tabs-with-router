@@ -1,0 +1,21 @@
+.tabs-titles-row {
+    display: flex;
+
+    .tab-title {
+        padding: 10px;
+        border-radius: 16px;
+        color: #000000;
+        font-weight: 600;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 500ms;
+
+        &:hover {
+          background-color: rgb(245, 235, 235);
+        }
+
+        &.active {
+            background-color: rgb(226, 214, 214);
+        }
+    }
+}
