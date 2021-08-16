@@ -1,1 +1,36 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
+a {
+    text-decoration: none;
+}
+
+.App {
+    .header {
+        display: flex;
+        padding: 10px 20px;
+        background-color: rgb(226, 214, 214);
+
+        a {
+            min-width: 80px;
+            padding: 10px;
+            color: #000000;
+            text-align: center;
+            letter-spacing: 1px;
+            font-weight: 700;
+            font-size: 20px;
+
+            &.selected {
+                border-radius: 16px;
+                background-color: #ffffff;
+            }
+        }
+    }
+
+    .content {
+        padding: 20px;
+    }
+}
