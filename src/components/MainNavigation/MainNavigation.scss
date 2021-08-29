@@ -1,0 +1,39 @@
+@import '../../variables-global.scss';
+
+
+.main-navigation {
+  display: flex;
+  gap: 20px
+}
+
+.main-link {
+  position: relative;
+  text-decoration: none;
+  color: black;
+  
+  &::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: $linkColor;
+    transition: .1s;
+
+  }
+
+  &:hover {
+    color: $linkColor;
+  }
+
+  &--active {
+    pointer-events: none;
+    color: $linkColor;
+    
+    &::after {
+      width: 100%;
+      transition: .3s;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@import '../../variables-global.scss';
+
+.tabs-page {
+
+  &__tabs {
+    display: flex;
+    border-bottom: 1px solid $dorderColor;
+  }
+}
