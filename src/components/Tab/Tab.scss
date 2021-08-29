@@ -1,0 +1,26 @@
+@import '../../variables-global.scss';
+
+.tab {
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  margin-bottom: -1px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border: 1px solid  transparent;
+
+  &:hover {
+    color: $linkColor;
+  }
+
+  &--active {
+    color: $linkColor;
+    border-color: $dorderColor;
+    border-bottom-color: white;
+    pointer-events: none;
+    
+  }
+  
+  
+}
+
