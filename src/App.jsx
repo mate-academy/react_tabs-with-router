@@ -5,22 +5,6 @@ import './App.scss';
 import { TabsPage } from './TabsPage/TabsPage';
 import { Button } from './styled';
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
-
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
-
-or
-
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
-};
-*/
-
 const App = () => (
   <HashRouter>
     <div className="App">
