@@ -2,10 +2,15 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.tabs-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
 .buttons-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 10px;
 }
 
@@ -26,6 +31,7 @@ html {
   transition: background-color 0.12s;
   font-size: inherit;
   min-width: 75px;
+  max-width: max-content;
 
   &:hover {
     background-color: #4d457b;
