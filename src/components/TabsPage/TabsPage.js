@@ -24,54 +24,44 @@ export const TabsPage = ({ tabs }) => {
     return history.push(`/tabs/${tabs[indexTab].id}`);
   }
 
-  const start = () => {
-    if (!tabId) {
-      history.push('/tabs/tab-1');
-      indexTab += 1;
+  const toggleRotation = (onlyStop = false) => {
+    if (!isStart && onlyStop) {
+      if (!tabId) {
+        history.push('/tabs/tab-1');
+        indexTab += 1;
+      }
+
+      setInterv(setInterval(rotation, 1000));
+      setIsStart(true);
+    } else {
+      clearInterval(interv);
+      setIsStart(false);
     }
-
-    setInterv(setInterval(rotation, 1000));
-    setIsStart(true);
-  };
-
-  const stop = () => {
-    clearInterval(interv);
-    setIsStart(false);
   };
 
   useEffect(() => function cleanup() {
     if (!history.location.pathname.includes('/tabs/')) {
-      stop();
+      toggleRotation(true);
     }
   });
 
   return (
     <div className="tabs-page">
       <h1 className="title">Tabs page</h1>
-      {(isStart) ? (
-        <button
-          type="button"
-          onClick={stop}
-          className="button"
-        >
-          Stop tabs rotation
-        </button>
-      ) : (
-        <button
-          type="button"
-          onClick={start}
-          className="button"
-        >
-          Start tabs rotation
-        </button>
-      )}
+      <button
+        type="button"
+        onClick={toggleRotation}
+        className="button"
+      >
+        {`${(isStart) ? 'Stop' : 'Start'} tabs rotation`}
+      </button>
       <div className="buttons-container">
         {tabs.map(tab => (
           ((tabId === tab.id) ? (
             <button
               key={tab.id}
               type="button"
-              onClick={stop}
+              onClick={() => toggleRotation(true)}
               className="button is-link"
             >
               {tab.title}
@@ -80,7 +70,7 @@ export const TabsPage = ({ tabs }) => {
             <Link
               key={tab.id}
               to={`/tabs/${tab.id}`}
-              onClick={stop}
+              onClick={() => toggleRotation(true)}
               className="button"
             >
               {tab.title}
