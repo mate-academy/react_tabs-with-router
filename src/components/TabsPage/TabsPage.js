@@ -25,7 +25,10 @@ export const TabsPage = ({ tabs }) => {
   }
 
   const toggleRotation = (onlyStop = false) => {
-    if (!isStart && onlyStop) {
+    if (onlyStop || isStart) {
+      clearInterval(interv);
+      setIsStart(false);
+    } else {
       if (!tabId) {
         history.push('/tabs/tab-1');
         indexTab += 1;
@@ -33,9 +36,6 @@ export const TabsPage = ({ tabs }) => {
 
       setInterv(setInterval(rotation, 1000));
       setIsStart(true);
-    } else {
-      clearInterval(interv);
-      setIsStart(false);
     }
   };
 
@@ -50,7 +50,7 @@ export const TabsPage = ({ tabs }) => {
       <h1 className="title">Tabs page</h1>
       <button
         type="button"
-        onClick={toggleRotation}
+        onClick={() => toggleRotation()}
         className="button"
       >
         {`${(isStart) ? 'Stop' : 'Start'} tabs rotation`}
