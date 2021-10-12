@@ -1,0 +1,13 @@
+.navbar-link {
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: azure;
+    text-decoration: underline;
+  }
+}
+
+.isActive {
+  color: darkturquoise;
+  text-decoration: underline;
+}

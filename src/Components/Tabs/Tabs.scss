@@ -1,0 +1,30 @@
+.title {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  margin: 0 auto;
+  width: 300px;
+  justify-content: space-between;
+  align-self: center;
+}
+
+.link {
+  display: block;
+  padding: 10px;
+  border: 1px solid black;
+  text-decoration: none;
+}
+
+.active {
+  background-color: aquamarine;
+  color: black;
+}
+
+.content {
+  margin: 10px auto;
+  width: 300px;
+  text-align: center;
+  font-size: 20px;
+}
