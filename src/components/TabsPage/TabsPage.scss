@@ -1,0 +1,19 @@
+.tabs-container {
+  margin-bottom: 10px;
+}
+
+.tab {
+  display: inline-block;
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.is-active {
+  background-color: #00d1b2;
+  color: #fff;
+}
+
+.tab:hover {
+  color: blue;
+}
