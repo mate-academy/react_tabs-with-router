@@ -1,1 +1,26 @@
+.link {
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+  margin: 0 30px;
+  transition-duration: 0.5s;
+}
 
+.navigation {
+  margin: 40px 0 ;
+}
+
+.is-active {
+  font-size: 30px;
+  color: rgb(80, 117, 112);
+}
+
+.tab {
+  text-decoration: none;
+  margin: 0 20px;
+  color: black;
+  
+  &__active {
+    background-color: bisque;
+  }
+}
