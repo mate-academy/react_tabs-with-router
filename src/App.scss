@@ -1,1 +1,27 @@
+body {
+  background-color: grey;
+}
 
+.nav__link, .tab__link {
+  color: whitesmoke;
+  font-size: 24px;
+  padding: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+.tab__link {
+  font-size: medium;
+}
+
+.active {
+  color: aquamarine;
+  display: inline-block;
+  &::after {
+    content: '';
+    border-bottom: 1.5px solid red;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+}
