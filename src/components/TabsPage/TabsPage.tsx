@@ -13,7 +13,7 @@ export const tabs = [
 ];
 
 export const TabsPage = () => {
-  const [currentID, setId] = useState('');
+  const [, setId] = useState('');
 
   return (
     <>
@@ -33,7 +33,6 @@ export const TabsPage = () => {
                     element={
                       (
                         <TabInfo
-                          id={currentID}
                           tabs={tabs}
                         />
                       )
