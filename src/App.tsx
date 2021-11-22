@@ -13,10 +13,10 @@ const App = () => (
   <BrowserRouter>
     <HeadNavigation />
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/tabs/*" element={<TabsPage />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="*" element={<NotFound />} />
+      <Route path="/react-tabs-with-router/" element={<Home />} />
+      <Route path="/react-tabs-with-router/tabs/*" element={<TabsPage />} />
+      <Route path="/react-tabs-with-router/home" element={<Home />} />
+      <Route path="/react-tabs-with-router/*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>
 );
