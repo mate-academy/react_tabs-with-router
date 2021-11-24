@@ -21,7 +21,7 @@ export const TabsPage = () => {
         {tabs.map(el => {
           return (
             <NavLink
-              to={`/react-tabs-with-router/tabs/${el.id}`}
+              to={`/react_tabs-with-router/tabs/${el.id}`}
               className="tab__link"
               key={el.id}
               onClick={() => setId(el.id)}

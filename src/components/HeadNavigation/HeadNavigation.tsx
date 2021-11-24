@@ -7,13 +7,13 @@ export const HeadNavigation: React.FC = () => {
       <h1>Tabs page</h1>
       <nav>
         <NavLink
-          to="/react-tabs-with-router/home"
+          to="/react_tabs-with-router/home"
           className="nav__link"
         >
           Home
         </NavLink>
         <NavLink
-          to="/react-tabs-with-router/tabs"
+          to="/react_tabs-with-router/tabs"
           className="nav__link"
         >
           Tabs

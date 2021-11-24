@@ -1,6 +1,6 @@
 import './App.scss';
 import {
-  BrowserRouter,
+  HashRouter,
   Route,
   Routes,
 } from 'react-router-dom';
@@ -10,15 +10,15 @@ import { Home } from './components/Home';
 import { NotFound } from './components/NotFound';
 
 const App = () => (
-  <BrowserRouter>
+  <HashRouter>
     <HeadNavigation />
     <Routes>
-      <Route path="/react-tabs-with-router/" element={<Home />} />
-      <Route path="/react-tabs-with-router/tabs/*" element={<TabsPage />} />
-      <Route path="/react-tabs-with-router/home" element={<Home />} />
-      <Route path="/react-tabs-with-router/*" element={<NotFound />} />
+      <Route path="/react_tabs-with-router/" element={<Home />} />
+      <Route path="/react_tabs-with-router/tabs/*" element={<TabsPage />} />
+      <Route path="/react_tabs-with-router/home" element={<Home />} />
+      <Route path="/react_tabs-with-router/*" element={<NotFound />} />
     </Routes>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default App;
