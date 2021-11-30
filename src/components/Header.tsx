@@ -1,16 +1,19 @@
 import React, { FC } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export const Header: FC = React.memo(() => (
   <nav className="navbar">
     <div className="navbar-brand">
-      <a href="/" className="navbar-item">
+      <Link
+        to="/"
+        className="navbar-item"
+      >
         <img
           src="./images/logo.png"
           alt="Mate Academy logo"
           className="logo"
         />
-      </a>
+      </Link>
 
       <NavLink
         to="/"
