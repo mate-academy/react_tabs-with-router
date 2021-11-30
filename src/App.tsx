@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import 'bulma';
 import './App.scss';
@@ -27,36 +26,34 @@ const tabsFromServer: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App = () => {
-  return (
-    <div className="App">
-      <Header />
+const App = () => (
+  <div className="App">
+    <Header />
 
-      <section className="section">
-        <div className="container">
-          <h1 className="title">
-            Mate Academy
-          </h1>
+    <section className="section">
+      <div className="container">
+        <h1 className="title">
+          Mate Academy
+        </h1>
 
-          <Switch>
-            <Route path="/" exact>
-              <h2 className="subtitle">Home page</h2>
-            </Route>
+        <Switch>
+          <Route path="/" exact>
+            <h2 className="subtitle">Home page</h2>
+          </Route>
 
-            <Route path="/tabs/:tabId?">
-              <TabsPage
-                tabs={tabsFromServer}
-              />
-            </Route>
+          <Route path="/tabs/:tabId?">
+            <TabsPage
+              tabs={tabsFromServer}
+            />
+          </Route>
 
-            <Redirect to="/" path="/home" />
+          <Redirect to="/" path="/home" />
 
-            <NotFoundPage />
-          </Switch>
-        </div>
-      </section>
-    </div>
-  );
-};
+          <NotFoundPage />
+        </Switch>
+      </div>
+    </section>
+  </div>
+);
 
 export default App;
