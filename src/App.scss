@@ -1,1 +1,69 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
 
+.App {
+  max-width: 640px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+h1 {
+  border-bottom: 1px solid #000;
+  padding-bottom: 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 60px;
+
+  background-color: rgb(45, 23, 168);
+
+  &__link {
+    color: #fff;
+    padding: 8px 12px;
+    text-decoration: none;
+
+    &--active {
+      text-decoration: underline;
+    }
+  }
+}
+
+.tabs {
+  margin: 30px 0;
+  border: 1px solid #000;
+
+  &__header {
+    border-bottom: 1px solid #000;
+  }
+
+  &__content {
+    padding: 10px;
+  }
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  transition: .3s ease all;
+  cursor: pointer;
+  padding: 10px;
+  display: inline-block;
+  text-decoration: none;
+  color: #000;
+
+  &:hover{
+    background-color:rgb(45, 23, 168);
+    color: #fff;
+  }
+
+  &--active {
+    background-color:rgb(45, 23, 168);
+    color: #fff;
+  }
+}
