@@ -1,0 +1,39 @@
+.Tabs {
+  &__list {
+    position: relative;
+
+    display: flex;
+    gap: 10px;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+
+      width: 0;
+      height: 4px;
+      border-radius: 4px;
+
+      background-color: #000;
+
+      transition: 0.5s;
+    }
+  }
+
+  &__tab-item {
+    font-size: 20px;
+  }
+
+  &__link {
+    padding: 4px;
+    border-radius: 5px;
+
+    color: #000;
+
+    &--active, &:hover {
+      background-color: rgb(79, 255, 123);
+    }
+  }
+}
