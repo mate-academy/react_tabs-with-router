@@ -17,6 +17,7 @@ export const TabsPage = () => {
         <Tabs tabs={tabs} />
 
         <Routes>
+          <Route path="" element={<TabContent tabs={tabs} />} />
           <Route path=":tabId" element={<TabContent tabs={tabs} />} />
         </Routes>
       </Wrapper>

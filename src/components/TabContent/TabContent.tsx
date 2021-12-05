@@ -17,5 +17,13 @@ export const TabContent: React.FC<Props> = ({ tabs }) => {
     }
   }, [tabId]);
 
-  return <>{selectedTab && <p>{selectedTab.content}</p>}</>;
+  return (
+    <>
+      {selectedTab ? (
+        <p>{selectedTab.content}</p>
+      ) : (
+        <p>Please, select one of the tab...</p>
+      )}
+    </>
+  );
 };
