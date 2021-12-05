@@ -1,32 +1,18 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 import './App.scss';
+import { Home } from './components/Home';
+import { Navigation } from './components/Navigation';
+import { TabPage } from './components/TabPage';
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
-
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
-
-or
-
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
-};
-*/
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
-
-const App = () => (
+const App: React.FC = () => (
   <div className="App">
-    <h1>Tabs with router</h1>
+    <Navigation />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/tabs/*" element={<TabPage />} />
+    </Routes>
   </div>
 );
 
