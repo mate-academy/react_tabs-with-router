@@ -1,0 +1,25 @@
+.navigation {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+
+  &__link {
+    margin-right: 20px;
+    color: #000;
+    font-size: 28px;
+
+    &:hover {
+      color: rgb(233, 19, 19);
+    }
+
+    &--active {
+      color: rgb(233, 19, 19);
+      border-bottom: 2px solid rgb(233, 19, 19);
+    }
+  }
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}

@@ -1,32 +1,34 @@
-import React from 'react';
-
+import {
+  Routes,
+  Route,
+  NavLink,
+  Navigate,
+} from 'react-router-dom';
 import './App.scss';
-
-/*
-import { RouteComponentProps } from 'react-router-dom';
-
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
-
-or
-
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
-};
-*/
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
+import { TabsPage } from './Components/TabsPage/TabsPage';
 
 const App = () => (
   <div className="App">
-    <h1>Tabs with router</h1>
+    <nav className="menu">
+      <NavLink
+        to="/"
+        className={({ isActive }) => (isActive ? 'menu__link menu__link--active' : 'menu__link')}
+      >
+        Home
+      </NavLink>
+      <NavLink
+        to="/tabs"
+        className={({ isActive }) => (isActive ? 'menu__link menu__link--active' : 'menu__link')}
+      >
+        Tabs
+      </NavLink>
+    </nav>
+    <Routes>
+      <Route path="/" element={<h1 className="title">Home page</h1>} />
+      <Route path="/home" element={<Navigate to="/" />} />
+      <Route path="/tabs/*" element={<TabsPage />} />
+      <Route path="*" element={<h2 className="title">Page not found</h2>} />
+    </Routes>
   </div>
 );
 
