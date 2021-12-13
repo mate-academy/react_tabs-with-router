@@ -1,1 +1,35 @@
+.menu {
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  background-color: rgb(178, 206, 224);
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding-left: 30px;
+  margin-bottom: 30px;
 
+  &:last-child {
+    margin-right: 5px;
+  }
+
+  &__link {
+    color: #fff;
+    margin-right: 15px;
+    font-size: 20px;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(120%, 120%);
+    }
+
+    &--active {
+      transform: scale(120%, 120%);
+      color: rgb(51, 93, 233);
+    }
+  }
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
