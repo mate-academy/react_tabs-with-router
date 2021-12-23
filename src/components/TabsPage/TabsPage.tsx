@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   Route,
   Routes,
@@ -13,20 +12,17 @@ export const tabs = [
 ];
 
 export const TabsPage = () => {
-  const [, setId] = useState('');
-
   return (
     <>
       <ul>
         {tabs.map(el => {
           return (
-            <NavLink
-              to={`/react_tabs-with-router/tabs/${el.id}`}
-              className="tab__link"
-              key={el.id}
-              onClick={() => setId(el.id)}
-            >
-              <li>
+            <li>
+              <NavLink
+                to={`/react_tabs-with-router/tabs/${el.id}`}
+                className="tab__link"
+                key={el.id}
+              >
                 <Routes>
                   <Route
                     path={`${el.id}`}
@@ -40,8 +36,8 @@ export const TabsPage = () => {
                   />
                 </Routes>
                 {el.title}
-              </li>
-            </NavLink>
+              </NavLink>
+            </li>
           );
         })}
       </ul>
