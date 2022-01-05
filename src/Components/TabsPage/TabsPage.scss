@@ -1,0 +1,24 @@
+.tabs {
+  margin: 0 auto;
+  max-width: 1024px;
+  border-bottom: 1px solid #222;
+
+  &__list {
+    display: flex;
+    gap: 20px;
+    margin: 0;
+  }
+
+  &__item {
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 14px;
+    transform: translateY(2px);
+
+    &--active {
+      border: 1px solid #222;
+      border-bottom: 2px solid #eee;
+    }
+  }
+}
