@@ -1,0 +1,32 @@
+.tab__content {
+  display: flex;
+  padding-top: 20px;
+  border-top: 1px dotted black;
+  margin-top: 4px;
+
+  &--text {
+    font-weight: normal;
+  }
+
+  &--warning {
+    justify-self: center;
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+    border-top: 3px double black;
+    border-bottom: 3px double black;
+    animation: pulse 5s infinite;
+
+    @keyframes pulse {
+      0% {
+        background-color: transparent;
+      }
+      50% {
+        background-color: red;
+      }
+      100% {
+        background-color: transparent;
+      }
+    }
+  }
+}
