@@ -13,10 +13,10 @@ ReactDOM.render(
           <Route
             index
             element={(
-              <main style={{ padding: '1rem' }}>
+              <main>
                 <p>Select a Tab!!</p>
               </main>
-        )}
+            )}
           />
           <Route path=":tabId" element={<Tab />} />
         </Route>
@@ -24,10 +24,10 @@ ReactDOM.render(
         <Route
           path="*"
           element={(
-            <main style={{ padding: '1rem' }}>
+            <main>
               <p>There is nothing here!</p>
             </main>
-      )}
+          )}
         />
       </Route>
     </Routes>

@@ -4,40 +4,22 @@ import 'bulma';
 
 import './App.scss';
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
-
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
-
-or
-
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
-};
-*/
-
 const App = () => (
   <div className="App">
     <nav className="navbar">
       <NavLink
-        style={({ isActive }) => ({
-          color: isActive ? 'blue' : '',
-        })}
-        className="navbar-item"
+        className={({ isActive }) => (
+          isActive ? 'navbar-item is-tab' : 'navbar-item'
+        )}
         to="/home"
       >
         Home
 
       </NavLink>
       <NavLink
-        style={({ isActive }) => ({
-          color: isActive ? 'blue' : '',
-        })}
-        className="navbar-item"
+        className={({ isActive }) => (
+          isActive ? 'navbar-item is-tab' : 'navbar-item'
+        )}
         to="/tabs"
       >
         Tabs

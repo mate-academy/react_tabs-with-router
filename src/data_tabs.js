@@ -14,6 +14,6 @@ export function tabes() {
   return tabs;
 }
 
-export function tab(id) {
-  return tabs.find(tabe => tabe.id === id);
+export function getTabById(id) {
+  return tabs.find(tab => tab.id === id);
 }

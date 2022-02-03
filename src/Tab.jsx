@@ -1,21 +1,21 @@
 import { useParams, React, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { tab } from './data_tabs';
+import { getTabById } from './data_tabs';
 
 export default function Tab() {
   const params = useParams();
-  const tabe = tab(params.tabId);
+  const tab = getTabById(params.tabId);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!tabe) {
+    if (!tab) {
       navigate('/tabs');
     }
   }, [params]);
 
   return (
     <div>
-      {tabe && tabe.content}
+      {tab && tab.content}
     </div>
   );
 }
