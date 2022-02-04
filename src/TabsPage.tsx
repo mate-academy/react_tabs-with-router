@@ -20,7 +20,7 @@ export const TabsPage = ({ match }: any) => {
           </NavLink>
         ))}
       </div>
-      {selectedTabId && <div className="content">{tabs.find(tab => tab.id === selectedTabId)?.content}</div>}
+      <div className="content">{tabs.find(tab => tab.id === selectedTabId)?.content || 'Please select a tab'}</div>
     </>
   );
 };
