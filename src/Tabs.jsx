@@ -1,25 +1,27 @@
-import { React } from 'react';
+import { React, useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import classNames from 'classnames';
 import { tabes } from './data_tabs';
+
+import './Tabs.scss';
 
 export default function Tabs() {
   const tabs = tabes();
+  const [active, setActive] = useState();
 
   return (
     <div
       className="tabs"
-      style={{
-        display: 'flex', flexDirection: 'column',
-      }}
     >
       <ul>
         {tabs && tabs.map(tab => (
-          <li key={tab.id}>
+          <li
+            key={tab.id}
+            className={classNames(active === tab.id ? 'is-active' : '')}
+          >
             <NavLink
               to={`/tabs/${tab.id}`}
-              style={({ isActive }) => ({
-                color: isActive ? 'red' : '',
-              })}
+              onClick={() => setActive(tab.id)}
             >
               {tab.title}
             </NavLink>
