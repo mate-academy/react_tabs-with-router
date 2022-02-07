@@ -17,29 +17,17 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
   return (
     <>
       <table>
-        <thead>
-          <tr>
-            <th>id</th>
-            <th>title</th>
-            <th>content</th>
-          </tr>
-        </thead>
         <tbody>
           {tabs.map(tab => (
             <>
-              <tr
-                key={tab.id}
-                style={tabId === tab.id ? { backgroundColor: 'gray' } : {}}
-              >
-                <td>{tab.id}</td>
-                <td>{tab.title}</td>
-                <td>{tab.content}</td>
+              <tr key={tab.id}>
                 <td>
                   <Link
                     to={`/tabs/${tab.id}`}
                     className="button"
+                    style={tabId === tab.id ? { backgroundColor: 'gray' } : {}}
                   >
-                    +
+                    {tab.title}
                   </Link>
                 </td>
               </tr>
