@@ -1,0 +1,15 @@
+.tab__list {
+  display: flex;
+  font-size: 30px;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 30px;
+}

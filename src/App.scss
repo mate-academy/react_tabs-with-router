@@ -1,1 +1,13 @@
+.nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: aqua;
+  height: 200px;
+  align-items: center;
+  font-size: 50px;
+}
 
+.is-active {
+  color: orange;
+  text-decoration: underline;
+}
