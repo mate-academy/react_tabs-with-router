@@ -1,1 +1,32 @@
+.nav {
+  &__container {
+    display: flex;
+  }
 
+  &__link {
+    position: relative;
+    text-decoration: none;
+    padding: 5px 10px;
+    margin: 0 10px 20px;
+    color: black;
+  }
+}
+
+.active {
+  border-bottom: 2px solid blue;
+  color: blue;
+  padding-bottom: 5px;
+}
+
+.button {
+  border: 1px solid black;
+  text-decoration: none;
+  width: 10px;
+  height: 10px;
+  padding: 0 5px;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
