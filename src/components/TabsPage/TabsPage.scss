@@ -1,0 +1,39 @@
+.tabs {
+
+  &__links {
+    margin-bottom: 20px;
+  }
+
+  &__links-list {
+    display: flex;
+  }
+
+  &__item {
+    list-style: none;
+    margin-right: 30px;
+    padding: 4px 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &-link {
+      text-decoration: none;
+      text-transform: uppercase;
+      color: black;
+
+      &--active {
+        color: red;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__content-notification {
+    font-size: 18px;
+    text-align: center;
+    padding: 15px;
+    background-color: rgb(240, 240, 121);
+  }
+
+}
