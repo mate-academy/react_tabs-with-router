@@ -1,0 +1,15 @@
+.TabsPage {
+  &__Link {
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--active {
+      color: red;
+    }
+  }
+}

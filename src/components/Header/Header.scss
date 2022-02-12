@@ -1,0 +1,15 @@
+.Header {
+  &__Link {
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--active {
+      color: red;
+    }
+  }
+}
