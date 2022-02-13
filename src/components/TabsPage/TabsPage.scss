@@ -1,0 +1,11 @@
+.tabs-menu {
+  display: flex;
+}
+
+.button {
+  border-radius: 0;
+
+  &-selected {
+    border-bottom: 0;
+  }
+}

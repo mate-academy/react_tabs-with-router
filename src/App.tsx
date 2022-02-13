@@ -1,32 +1,56 @@
 import React from 'react';
+import {
+  NavLink,
+  Routes,
+  Route,
+} from 'react-router-dom';
+
+import { TabsPage } from './components/TabsPage';
+import { TabInfo } from './components/TabInfo';
 
 import './App.scss';
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
-
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
-
-or
-
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
-};
-*/
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
-
-const App = () => (
+const App: React.FC = () => (
   <div className="App">
-    <h1>Tabs with router</h1>
+    <nav className="navbar">
+      <NavLink
+        to="/"
+        end
+        className={({ isActive }) => `${isActive ? 'is-active ' : ''} navbar-item is-tab`}
+      >
+        Home
+      </NavLink>
+
+      <NavLink
+        to="/tabs"
+        className={({ isActive }) => `${isActive ? 'is-active ' : ''} navbar-item is-tab`}
+      >
+        Tabs
+      </NavLink>
+    </nav>
+
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <h2 className="title is-2">Home page</h2>
+        }
+      />
+
+      <Route
+        path="tabs"
+        element={<TabsPage />}
+      >
+        <Route path=":tabId" element={<TabInfo />} />
+      </Route>
+
+      <Route
+        path="*"
+        element={
+          <h2 className="title is-2">Page not found</h2>
+        }
+      />
+    </Routes>
   </div>
 );
 
