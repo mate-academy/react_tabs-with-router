@@ -1,33 +1,34 @@
 import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
-import './App.scss';
+import 'bulma';
+import '@fortawesome/fontawesome-free/css/all.css';
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
+import { Layout } from './components/Layout/Layout';
+import { HomePage } from './components/HomePage/HomePage';
+import { TabsPage } from './components/TabsPage/TabsPage';
 
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
+const tabs = [
+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
+  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
+  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+];
 
-or
-
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
-};
-*/
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
-
-const App = () => (
-  <div className="App">
-    <h1>Tabs with router</h1>
-  </div>
+const App: React.FC = () => (
+  <Routes>
+    <Route path="/" element={<Layout />}>
+      <Route index element={<HomePage />} />
+      <Route
+        path="home"
+        element={
+          <Navigate to="/" replace />
+        }
+      />
+      <Route path="tabs" element={<TabsPage tabs={tabs} />} />
+      <Route path="tabs/:id" element={<TabsPage tabs={tabs} />} />
+      <Route path="*" element={<p>Page not found</p>} />
+    </Route>
+  </Routes>
 );
 
 export default App;
