@@ -2,17 +2,17 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 export const Header: React.FC = () => (
-  <header className="Header">
+  <header>
     <nav>
       <NavLink
         to="/"
-        className={({ isActive }) => (isActive ? 'Header__Link Header__Link--active' : 'Header__Link')}
+        className={({ isActive }) => (isActive ? 'Link Link--active' : 'Link')}
       >
         Home
       </NavLink>
       <NavLink
         to="/tabs"
-        className={({ isActive }) => (isActive ? 'Header__Link Header__Link--active' : 'Header__Link')}
+        className={({ isActive }) => (isActive ? 'Link Link--active' : 'Link')}
       >
         Tabs
       </NavLink>

@@ -1,2 +1,13 @@
-@import './components/Header/Header.scss';
-@import './components/TabsPage/TabPage.scss';
+.Link {
+  margin-right: 10px;
+  text-decoration: none;
+  color: black;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &--active {
+    color: red;
+  }
+}

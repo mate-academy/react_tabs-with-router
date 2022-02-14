@@ -7,14 +7,14 @@ type Props = {
 };
 
 export const TabsPage: React.FC<Props> = ({ tabs }) => (
-  <main className="TabsPage">
+  <main>
     <h1>Tabs</h1>
 
     {tabs.map(tab => (
       <NavLink
         to={`${tab.id}`}
         key={tab.id}
-        className={({ isActive }) => (isActive ? 'TabsPage__Link TabsPage__Link--active' : 'TabsPage__Link')}
+        className={({ isActive }) => (isActive ? 'Link Link--active' : 'Link')}
       >
         {tab.title}
       </NavLink>
