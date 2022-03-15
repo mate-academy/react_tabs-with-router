@@ -31,7 +31,7 @@ const tabs: Tab[] = [
 
 const App: React.FC = () => (
   <div className="App">
-    <nav>
+    <nav className="nav">
       <NavLink
         to="/"
         style={({ isActive }) => ({ color: isActive ? 'red' : '' })}

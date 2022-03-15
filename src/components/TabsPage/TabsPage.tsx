@@ -19,14 +19,14 @@ const TabsPage: React.FC<Props> = ({ tabs }) => {
           <li key={tab.id}>
             <NavLink
               to={tab.id}
-              style={({ isActive }) => ({ color: isActive ? 'red' : '' })}
+              className={({ isActive }) => (isActive ? 'red' : '')}
             >
               {tab.title}
             </NavLink>
           </li>
         ))}
       </ul>
-      {selectedTab ? `${selectedTab.content}` : 'Please select a tab'}
+      <p>{selectedTab ? `${selectedTab.content}` : 'Please select a tab'}</p>
     </>
   );
 };
