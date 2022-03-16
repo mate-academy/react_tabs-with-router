@@ -1,27 +1,12 @@
 import React from 'react';
+import classNames from 'classnames';
 import { Routes, Route, NavLink } from 'react-router-dom';
 
-import TabsPage from './components/TabsPage/TabsPage';
+import TabsPage from './components/TabsPage';
 
 import { Tab } from './types/Tab';
 
 import './App.scss';
-
-/*
-import { RouteComponentProps } from 'react-router-dom';
-
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
-
-or
-
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
-};
-*/
 
 const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -34,13 +19,13 @@ const App: React.FC = () => (
     <nav className="nav">
       <NavLink
         to="/"
-        style={({ isActive }) => ({ color: isActive ? 'red' : '' })}
+        className={({ isActive }) => classNames({ selected: isActive })}
       >
         Home
       </NavLink>
       <NavLink
         to="/tabs"
-        style={({ isActive }) => ({ color: isActive ? 'red' : '' })}
+        className={({ isActive }) => classNames({ selected: isActive })}
       >
         Tabs
       </NavLink>
