@@ -1,1 +1,44 @@
+.App {
+  margin: 48px;
+  padding: 24px;
+  display: inline-block;
+  min-width: 480px;
+  font-size: 24px;
 
+  background-color: #bbb;
+  border: 2px solid #555;
+  border-radius: 8px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+
+
+  &__link {
+    padding: 8px;
+    background-color: #999;
+    border: 2px solid #555;
+    border-radius: 8px;
+    text-decoration: none;
+
+    font-size: 2em;
+    color: #555;
+
+    &--active {
+      color: #eee;
+      font-weight: bold;
+    }
+  }
+}
+
+.main {
+  margin-top: 8px;
+  padding: 8px;
+  text-align: center;
+
+  background-color: #ccc;
+  border: 2px solid #555;
+  border-radius: 8px;
+}
