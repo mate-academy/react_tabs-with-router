@@ -1,0 +1,33 @@
+.tabs__list {
+  display: flex;
+  padding: 0 64px;
+  justify-content: space-around;
+  min-width: 300px;
+  list-style: none;
+  background-color: wheat;
+  border: 10px solid burlywood;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.tabs__item {
+  background-color: wheat;
+  border: 5px solid burlywood;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  border-bottom: 0;
+  min-height: 50px;
+  padding: 0 15px;
+  transform: translateY(0);
+
+  &--active {
+    transform: translateY(10px);
+  }
+}
+
+.tabs__link {
+  color: black;
+  text-decoration: none;
+}
