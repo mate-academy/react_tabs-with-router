@@ -34,3 +34,6 @@ let tabs = [
   (where `tab-1` is an `id` of a selected tab)
 1. After the page reload you should see a content of the tab matching the `id` from the URL.
     - If an `id` is not valid or is not set (e.g just `/tabs`) don't show any content.
+___
+### What
+using `Promise.all` to get data from two tables
