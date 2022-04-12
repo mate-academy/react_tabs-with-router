@@ -5,12 +5,12 @@
 
 ## If you don't use **Typescript**
 1. Rename `.tsx` files to `.jsx`
-1. use `eslint-config-react` in `.eslintrs.js` 
+1. use `eslint-config-react` in `.eslintrs.js`
 
 ## Description
 Implement an App with a navigation and 2 pages:
 
-1. Show `<h1>Home page</h1>` on `localhost:3000`.
+1. Show `<h1>Home page</h1>` on `:3000localhost`.
 1. Show `TabsPage` component on `localhost:3000/tabs`. Use this tabs:
     ```javascript
     let tabs = [
