@@ -1,1 +1,14 @@
 // not empty
+.title {
+  text-align: center;
+}
+
+.tabs {
+  max-width: max-content;
+}
+
+.tabs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
