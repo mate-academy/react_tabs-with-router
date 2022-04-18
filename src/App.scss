@@ -1,1 +1,48 @@
-// not empty
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.active {
+  color: rgb(10, 195, 186);
+  text-decoration: none;
+}
+
+.notActive {
+  text-decoration: none;
+  color: rgb(3, 3, 3);
+}
+
+.app {
+  text-align: center;
+
+  &_title {
+    text-align: center;
+  }
+}
+
+.home {
+  text-align: center;
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &_list {
+    margin: 20px 0;
+    padding: 0;
+  }
+
+  &_content {
+    font-size: 20px;
+  }
+
+  &_item {
+    list-style: none;
+  }
+}
+
+.button_active {
+  color: #fff;
+  background-color: rgb(224, 152, 8);
+}
