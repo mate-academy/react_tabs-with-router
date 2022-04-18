@@ -14,9 +14,9 @@ const App = () => (
   <div className="App">
     <Navigation />
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/tabs/:id" element={<Tabs tabs={tabs} />} />
-      <Route path="/tabs" element={<Tabs tabs={tabs} />} />
+      <Route path="home" element={<Home />} />
+      <Route path="tabs/:id" element={<Tabs tabs={tabs} />} />
+      <Route path="tabs" element={<Tabs tabs={tabs} />} />
     </Routes>
   </div>
 );
