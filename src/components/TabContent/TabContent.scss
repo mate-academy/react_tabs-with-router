@@ -1,0 +1,11 @@
+.tab {
+  &__content {
+    text-align: justify;
+
+    &--warning {
+      color: #cfcfcf;
+      font-style: italic;
+      letter-spacing: 0.1rem;
+    }
+  }
+}
