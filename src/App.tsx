@@ -1,8 +1,8 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
 import './App.scss';
 import classNames from 'classnames';
-import { Home } from './components/Home/Home';
 import { Tabs } from './components/Tabs/Tabs';
+import { Navigation } from './components/Navigation/Navigation';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -37,11 +37,10 @@ const App = () => (
     </header>
     <main className="main">
       <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/tabs" element={<Tabs tabs={tabs} />}>
-          <Route path=":id" element={<Tabs tabs={tabs} />} />
-        </Route>
-
+        <Route path="/" element={<h1>Home page</h1>} />
+        <Route path="home" element={<Navigation />} />
+        <Route path="tabs/" element={<Tabs tabs={tabs} />} />
+        <Route path="tabs/:tabId" element={<Tabs tabs={tabs} />} />
       </Routes>
     </main>
   </div>

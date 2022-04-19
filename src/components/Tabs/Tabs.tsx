@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import classNames from 'classnames';
+import './Tabs.scss';
 
 interface Tab {
   id: string,
@@ -19,21 +20,22 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
   return (
     <>
       <div className="tabs">
-        <ul>
+        <div>
           {tabs.map(tab => (
-            <li
+            <button
+              type="button"
               key={tab.id}
-              className={classNames({ 'is-active': tab.id === tabId })}
+              className={classNames({ 'button my-active': tab.id === tabId })}
             >
               <a href={`#/tabs/${tab.id}`}>
                 {tab.title}
               </a>
-            </li>
+            </button>
           ))}
-        </ul>
+        </div>
       </div>
       <article>
-        <p>{currentTab ? `${currentTab.content}` : 'Please select a tab'}</p>
+        <p className="is-size-4">{currentTab ? `${currentTab.content}` : 'Please select a tab'}</p>
       </article>
     </>
   );
