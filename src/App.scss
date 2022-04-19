@@ -1,1 +1,24 @@
-// not empty
+body {
+  font-size: 20px;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background-color: #c0c0c0;
+
+  &__link {
+    text-decoration: none;
+    color: white;
+
+    &--active {
+      color: rgb(254, 87, 87);
+      font-weight: bold;
+    }
+  }
+}
+
+.main {
+  padding: 40px;
+}
