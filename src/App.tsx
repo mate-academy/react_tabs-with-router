@@ -15,8 +15,10 @@ const App = () => (
     <Navigation />
     <Routes>
       <Route path="/home" element={<Home />} />
-      <Route path="/tabs/:id" element={<Tabs tabs={tabs} />} />
-      <Route path="/tabs" element={<Tabs tabs={tabs} />} />
+      <Route path="/tabs" element={<Tabs tabs={tabs} />}>
+        <Route path=":id" element={<Tabs tabs={tabs} />} />
+      </Route>
+
     </Routes>
   </div>
 );

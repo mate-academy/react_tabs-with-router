@@ -28,9 +28,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   &_list {
-    margin: 20px 0;
-    padding: 0;
+
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
   }
 
   &_content {
@@ -42,7 +46,15 @@ body {
   }
 }
 
-.button_active {
-  color: #fff;
-  background-color: rgb(224, 152, 8);
+.selected {
+  text-align: center;
+}
+
+.active_tab {
+  text-decoration: none;
+  color: rgb(72, 224, 133);
+}
+
+.notActive_tab {
+  text-decoration: none;
 }
