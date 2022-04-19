@@ -15,6 +15,11 @@ body {
 .app {
   text-align: center;
 
+  &_nav {
+    border-bottom: 1px solid #000;
+    padding-bottom: 1rem;
+  }
+
   &_title {
     text-align: center;
   }
