@@ -1,31 +1,35 @@
+import React, { useMemo } from 'react';
+import { useParams } from 'react-router';
+
 import './App.scss';
+import { Tabs } from './components/Tabs';
+import { Tab } from './types';
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
+const tabs: Tab[] = [
+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
+  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
+  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+];
 
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
-
-or
-
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
-};
-*/
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
-
-const App = () => (
-  <div className="App">
-    <h1>Tabs with router</h1>
-  </div>
+export const getTabId = (tabId: string) => (
+  tabs.find(el => el.id === tabId)
 );
+
+const App: React.FC = React.memo(() => {
+  const { tabId } = useParams();
+  const selectedTab = useMemo(() => getTabId(tabId || ''), [tabId]);
+
+  return (
+    <div className="App">
+      <h1>
+        Selected&nbsp;
+        {selectedTab?.title}
+      </h1>
+      <Tabs
+        tabs={tabs}
+      />
+    </div>
+  );
+});
 
 export default App;
