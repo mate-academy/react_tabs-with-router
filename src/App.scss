@@ -1,1 +1,25 @@
-// not empty
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background-color: rgb(235, 123, 192);
+  padding: 10px 50px;
+
+  &__link {
+    text-decoration: none;
+    color: #fff;
+
+    &--active {
+      color: #000;
+    }
+  }
+}
