@@ -1,31 +1,71 @@
+/* eslint-disable max-len */
+import React, { useEffect, useState } from 'react';
+import {
+  Link,
+  Route,
+  Routes,
+} from 'react-router-dom';
 import './App.scss';
+import { TabsPage } from './TabsPage';
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
+const tabs = [
+  { id: 'tab-1', title: 'Tab 1', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit pariatur, doloribus quis labore corporis facere aut cupiditate quisquam ipsam quae. Eaque perferendis ab mollitia autem optio modi natus voluptatum ad!' },
+  { id: 'tab-2', title: 'Tab 2', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi sequi architecto magni saepe ea consequatur fugit reiciendis temporibus voluptate quia neque quibusdam aperiam molestiae illum cupiditate, accusamus dolores corporis cum hic dolor veritatis accusantium maiores.' },
+  { id: 'tab-3', title: 'Tab 3', content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, ipsum! Animi nesciunt, aut fugiat sed totam culpa a reiciendis libero quibusdam, aliquid incidunt enim officiis natus dolorem praesentium dicta quis commodi? Dolor temporibus maiores at, sunt autem nam, commodi, illo quam numquam quisquam quaerat vero id officiis aut nemo dignissimos?' },
+];
 
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
+const App: React.FC = () => {
+  const [selectedTab, setSelectedTab] = useState<Tab | null>(null);
+  const [tabId, setTabId] = useState('');
 
-or
+  useEffect(() => {
+    const result = localStorage.getItem('selectedTab');
 
-import { useParams } from 'react-router-dom';
+    setSelectedTab(result !== null ? JSON.parse(result) : '');
+  }, []);
 
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
+  useEffect(() => {
+    localStorage.setItem('selectedTab', JSON.stringify(selectedTab));
+  });
+
+  return (
+    <div className="App">
+      <nav>
+        <ul className="nav-bar">
+          <li>
+            <Link
+              to="/"
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/tabs/:tabId"
+            >
+              People
+            </Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<h1>Home page</h1>} />
+        <Route
+          path="/tabs/:tabId"
+          element={(
+            <TabsPage
+              tabs={tabs}
+              onTabSelected={setSelectedTab}
+              onTabIdSelected={setTabId}
+              selectedTabId={tabId}
+              selectedTab={selectedTab}
+            />
+          )}
+        />
+      </Routes>
+    </div>
+  );
 };
-*/
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
-
-const App = () => (
-  <div className="App">
-    <h1>Tabs with router</h1>
-  </div>
-);
 
 export default App;
