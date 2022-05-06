@@ -60,6 +60,7 @@ const App: React.FC = () => {
             />
           )}
         />
+        <Route path="*" element={<p>Page not found</p>} />
       </Routes>
     </div>
   );
