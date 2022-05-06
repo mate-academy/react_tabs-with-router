@@ -4,8 +4,6 @@
 type Props = {
   tabs: Tab[],
   onTabSelected: (tab: Tab) => void,
-  onTabIdSelected: (tabId: string) => void,
-  selectedTabId: string | null,
   selectedTab: Tab | null,
 };
 

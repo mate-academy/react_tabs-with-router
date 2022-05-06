@@ -16,7 +16,6 @@ const tabs = [
 
 const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<Tab | null>(null);
-  const [tabId, setTabId] = useState('');
 
   useEffect(() => {
     const result = localStorage.getItem('selectedTab');
@@ -41,7 +40,7 @@ const App: React.FC = () => {
           </li>
           <li>
             <Link
-              to="/tabs/:tabId"
+              to="/tabs/:tabId?"
             >
               People
             </Link>
@@ -57,8 +56,6 @@ const App: React.FC = () => {
             <TabsPage
               tabs={tabs}
               onTabSelected={setSelectedTab}
-              onTabIdSelected={setTabId}
-              selectedTabId={tabId}
               selectedTab={selectedTab}
             />
           )}
