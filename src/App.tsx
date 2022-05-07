@@ -8,6 +8,7 @@ import './App.scss';
 import { Navigation } from './components/Navigation';
 import { HomePage } from './components/HomePage';
 import { TabsPage } from './components/TabsPage';
+import { PageNotFound } from './components/PageNotFound';
 
 export const App: React.FC = () => (
   <div className="App">
@@ -21,16 +22,7 @@ export const App: React.FC = () => (
             <Route path="/tabs" element={<TabsPage />}>
               <Route path=":tabId" element={<TabsPage />} />
             </Route>
-            <Route
-              path="*"
-              element={(
-                <h3
-                  className="subtitle has-text-danger-dark"
-                >
-                  Page not found
-                </h3>
-              )}
-            />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>
       </div>
