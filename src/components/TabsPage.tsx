@@ -1,6 +1,7 @@
 import React from 'react';
 import './TabsPage.scss';
 import { useParams, NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 
 interface Tab {
   id: string,
@@ -22,9 +23,8 @@ export const TabsPage: React.FC<Props> = React.memo(({ tabs }) => {
       <div className="container">
         {tabs.map(tab => (
           <NavLink
-            className={({ isActive }) => (isActive
-              ? 'container__title-link container__title-link--active'
-              : 'container__title-link')}
+            className={({ isActive }) => classNames('container__title-link',
+              { 'container__title-link--active': isActive })}
             key={tab.id}
             to={`/tabs/${tab.id}`}
           >
