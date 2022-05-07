@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import './App.scss';
 import { TabsPage } from './TabsPage';
+import { NotFoundPage } from './NotFoundPage';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit pariatur, doloribus quis labore corporis facere aut cupiditate quisquam ipsam quae. Eaque perferendis ab mollitia autem optio modi natus voluptatum ad!' },
@@ -60,7 +61,7 @@ const App: React.FC = () => {
             />
           )}
         />
-        <Route path="*" element={<p>Page not found</p>} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );

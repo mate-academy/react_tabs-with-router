@@ -38,3 +38,10 @@
   height: 100%;
   border: unset;
 }
+
+.missing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
