@@ -1,31 +1,48 @@
+import { Routes, Route } from 'react-router-dom';
+import { HomePage } from './pages/HomePage/HomaPage';
+import { TabsPage } from './pages/TabsPage/TabsPage';
+import { Layout } from './components/Layout/Layout';
+
 import './App.scss';
+import 'bulma';
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
+const tabs = [
+  {
+    id: 'tab-1',
+    title: 'Tab 1',
+    // eslint-disable-next-line max-len
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, eos.',
+  },
+  {
+    id: 'tab-2',
+    title: 'Tab 2',
+    // eslint-disable-next-line max-len
+    content: 'Excepturi cum dignissimos voluptas tempore doloremque ut fuga quam inventore in atque esse libero fugit molestiae, eos perspiciatis!',
+  },
+  {
+    id: 'tab-3',
+    title: 'Tab 3',
+    // eslint-disable-next-line max-len
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint maiores consectetur fuga?',
+  },
+];
 
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
-
-or
-
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
+const App: React.FC = () => {
+  return (
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="tabs" element={<TabsPage tabs={tabs} />}>
+            <Route
+              path=":tabId"
+              element={<TabsPage tabs={tabs} />}
+            />
+          </Route>
+        </Route>
+      </Routes>
+    </div>
+  );
 };
-*/
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
-
-const App = () => (
-  <div className="App">
-    <h1>Tabs with router</h1>
-  </div>
-);
 
 export default App;
