@@ -25,7 +25,7 @@ Implement an App with a navigation and 2 pages:
 1. `TabsPage` should show a list of tabs.
     - When you select a tab the URL should be changed to `/tabs/tab-1` (use actual `tab.id`).
     - a tab content should be shown below the list
-    - the selected tab should be highlighted
+    - the selected tab should be highlighted by changing the class of the `<a>` element.
 1. After the page reload you should see a content of the tab matching the `id` from the URL.
     - If the `id` is not valid or is not set (e.g just `/tabs`) show `Please select a tab` message.
 

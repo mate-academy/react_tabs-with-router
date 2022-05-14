@@ -27,13 +27,13 @@ describe('Page', () => {
   it('should have navigation visible on both pages', () => {
     cy.contains('Home')
       .parent()
-      .as('navi')
+      .as('navigation')
       .should('contain', 'Tabs');
 
     cy.get('[href*="/tabs"]')
       .click();
 
-    cy.get('@navi')
+    cy.get('@navigation')
       .should('contain', 'Home')
       .and('contain', 'Tabs');
   });
