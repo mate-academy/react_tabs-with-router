@@ -19,26 +19,25 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="tabs" element={<TabsPage tabs={tabs} />}>
-            <Route
-              path=":tabId"
-              element={(
-                <TabsPage
-                  tabs={tabs}
-                />
-              )}
-            />
-          </Route>
+const App: React.FC = () => (
+
+  <div className="App">
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="tabs" element={<TabsPage tabs={tabs} />}>
+          <Route
+            path=":tabId"
+            element={(
+              <TabsPage
+                tabs={tabs}
+              />
+            )}
+          />
         </Route>
-      </Routes>
-    </div>
-  );
-};
+      </Route>
+    </Routes>
+  </div>
+);
 
 export default App;
