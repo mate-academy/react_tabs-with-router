@@ -1,1 +1,44 @@
 // not empty
+body {
+  text-align: center;
+}
+
+.title {
+  color: teal;
+}
+
+.button {
+  margin: 5px;
+  padding: 10px 20px;
+  background-color: #556b2f;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: white;
+  text-decoration: none;
+}
+
+.tabs {
+  margin: 10px;
+  border-top: 1px solid black;
+  color: white;
+  text-decoration: none;
+}
+
+.tabsButton {
+  padding: 10px 15px;
+  background-color: #556b2f;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: white;
+  text-decoration: none;
+}
+
+.home {
+  margin: 10px;
+  padding: 10px 15px;
+  background-color: #556b2f;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: white;
+  text-decoration: none;
+}
