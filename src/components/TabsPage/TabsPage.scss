@@ -1,0 +1,44 @@
+.ButtonsContainer {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.TabButton {
+  display: block;
+  box-sizing: border-box;
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: grey;
+  line-height: 40px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.Clicked {
+  border: 1px solid #eee;
+  border-bottom: none;
+  border-radius: 3px;
+  color: lightblue;
+}
+
+.AdditionalSpace {
+  box-sizing: border-box;
+  height: 40px;
+  flex-grow: 1;
+  border-bottom: 1px solid #eee;
+}
+
+.Warning {
+  margin-left: 30 px;
+  font-size: 20px;
+  line-height: 40px;
+
+  &-invisible {
+    display: none;
+  }
+}

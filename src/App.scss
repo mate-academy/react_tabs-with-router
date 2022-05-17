@@ -1,1 +1,21 @@
-// not empty
+.Title {
+  text-align: center;
+}
+
+.LinksContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.PageLink {
+  margin-right: 20px;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+
+  &-selected {
+    text-decoration: underline;
+    color: blue;
+  }
+}
