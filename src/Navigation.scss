@@ -1,0 +1,12 @@
+/* eslint-disable */
+
+a:nth-child(-n+2) {
+  text-decoration: none;
+  margin: 10px;
+  font-size: 20px;
+  color: #000;
+}
+
+.nav .active {
+  text-decoration: underline;
+}
