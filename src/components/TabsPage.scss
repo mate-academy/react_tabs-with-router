@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  padding: 0 10px;
+
+  &__title-link {
+    flex-direction: row;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid black;
+
+    &--active {
+      border: 1px solid black;
+      border-bottom: none;
+    }
+  }
+
+}
+
+thead {
+  display: flex;
+  flex-direction: row;
+  padding: 12px 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.active {
+  color: rgb(228, 214, 16);
+}
+
+.link-info {
+  margin-left: 10px;
+  padding: 10px;
+}

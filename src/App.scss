@@ -1,1 +1,22 @@
 // not empty
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.nav {
+  display: flex;
+  background-color: rgb(187, 84, 84);
+
+  &__link {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+  }
+}
+
+.active {
+  color: rgb(228, 214, 16);
+}
