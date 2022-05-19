@@ -1,1 +1,23 @@
-// not empty
+.navbar-item {
+  font-size: 22px;
+  font-weight: 500;
+  padding: 10px 25px;
+}
+
+.navbar-item.is-tab {
+  &:hover {
+    border-bottom: 1px solid #cc0f35;
+  }
+}
+
+.navbar-item.is-tab.is-active {
+  border-bottom: 3px solid #cc0f35;
+}
+
+.tabs {
+  font-weight: 500;
+}
+
+.tabs li.is-active a {
+  color: #cc0f35;
+}
