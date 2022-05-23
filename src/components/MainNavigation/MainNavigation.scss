@@ -1,0 +1,19 @@
+.main {
+  font-size: 1.5em;
+  margin-bottom: 25px;
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+
+    &:hover {
+      text-shadow: 0 6px 15px #ffffff80;
+      cursor: pointer;
+    }
+
+    &--active {
+      color: #ff3232;
+    }
+  }
+}

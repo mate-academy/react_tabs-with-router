@@ -1,1 +1,36 @@
-// not empty
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Open Sans", sans-serif;
+  color: #fff5f5;
+}
+
+body,
+h1,
+ul,
+section,
+menu,
+switch {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 30px 60px;
+  min-height: 100vh;
+  background-color: #181a1e;
+
+  &__title {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #fff;
+  }
+}
