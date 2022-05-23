@@ -1,0 +1,17 @@
+.tab-links {
+  margin: 20px 0 10px;
+}
+
+.tab-link {
+  text-decoration: none;
+  padding: 0 8px;
+  border: none;
+  border-bottom: 1px solid #000;
+  color: rgb(235, 123, 192);
+
+  &--active {
+    color: #000;
+    border: 1px solid black;
+    border-bottom: none;
+  }
+}
