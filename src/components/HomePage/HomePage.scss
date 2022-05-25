@@ -1,0 +1,9 @@
+.home-page {
+  display: flex;
+  justify-content: center;
+
+  &-title {
+    margin: 40px;
+    font-size: 40px;
+  }
+}
