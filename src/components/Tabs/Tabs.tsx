@@ -30,15 +30,9 @@ export const Tabs: React.FC<Props> = memo(({
 
   return (
     <div className="tabs-list">
-      {!isTabSelected ? (
-        <h1 className="tabs-list__message">
-          Please select a tab
-        </h1>
-      ) : (
-        <h1 className="tabs-list__message">
-          Some message
-        </h1>
-      )}
+      <h1 className="tabs-list__message">
+        {isTabSelected ? 'Some message' : 'Please select'}
+      </h1>
 
       <div className="tabs-list__navigation">
         {tabs.map(tab => (
