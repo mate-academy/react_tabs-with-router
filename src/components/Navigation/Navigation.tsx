@@ -14,7 +14,7 @@ export const Navigation = React.memo(() => {
       </NavLink>
 
       <NavLink
-        to="/cards/tab-1"
+        to="/cards/info"
         className="navigation__link"
       >
         Tabs

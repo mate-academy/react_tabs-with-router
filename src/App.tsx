@@ -35,6 +35,15 @@ const App: FC = () => {
               />
             )}
           />
+
+          <Route
+            path="*"
+            element={(
+              <Tabs
+                tabs={tabs}
+              />
+            )}
+          />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />
