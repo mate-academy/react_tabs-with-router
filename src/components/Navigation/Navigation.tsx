@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+/* eslint-disable no-console */
+import { memo, useMemo } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
 import './Navigation.scss';
 
-export const Navigation = React.memo(() => {
-  const [selectedLink, setSelectedLink] = useState('');
+export const Navigation = memo(() => {
+  const { pathname } = useLocation();
+  const folder = useMemo(() => {
+    return pathname.replace('/', ' ').split('/')[0].trim();
+  }, [pathname]);
 
   return (
     <div className="navigation">
       <NavLink
-        to="/"
+        to="/home"
         className={classNames(
           'navigation__link',
-          { active: selectedLink === 'homepage' },
+          { active: folder === 'home' },
         )}
-        onClick={() => setSelectedLink('homepage')}
       >
         Home
       </NavLink>
@@ -24,9 +27,8 @@ export const Navigation = React.memo(() => {
         to="/cards/info"
         className={classNames(
           'navigation__link',
-          { active: selectedLink === 'cards' },
+          { active: folder === 'cards' },
         )}
-        onClick={() => setSelectedLink('cards')}
       >
         Tabs
       </NavLink>

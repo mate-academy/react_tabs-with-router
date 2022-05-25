@@ -17,14 +17,20 @@ type Props = {
 export const Tabs: React.FC<Props> = memo(({
   tabs,
 }) => {
-  const [selectedTab, setSelectedTab] = useState<Tab | null>(null);
-  const [isTabSelected, setIsTabSelected] = useState(false);
   const { tabId } = useParams<{ tabId: string }>();
   const legitId = tabs.map(tab => tab.id);
+  const [selectedTab, setSelectedTab] = useState<Tab | null>(null);
+  const [isTabSelected, setIsTabSelected] = useState(false);
 
   useEffect(() => {
     if (tabId && !legitId.includes(tabId)) {
+      setSelectedTab(null);
       setIsTabSelected(false);
+    }
+
+    if (tabId && legitId.includes(tabId)) {
+      setSelectedTab(tabs[+tabId[tabId.length - 1] - 1]);
+      setIsTabSelected(true);
     }
   }, [tabId]);
 
