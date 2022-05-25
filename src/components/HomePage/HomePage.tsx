@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 import './HomePage.scss';
 
-export const HomePage: FC = () => {
+export const HomePage: FC = memo(() => {
   return (
     <div className="home-page">
       <h1 className="home-page-title">
@@ -10,4 +10,4 @@ export const HomePage: FC = () => {
       </h1>
     </div>
   );
-};
+});

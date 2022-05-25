@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import {
   NavLink,
   useParams,
@@ -14,7 +14,7 @@ type Props = {
   tabs: Tab[];
 };
 
-export const Tabs: React.FC<Props> = ({
+export const Tabs: React.FC<Props> = memo(({
   tabs,
 }) => {
   const [selectedTab, setSelectedTab] = useState<Tab | null>(null);
@@ -70,4 +70,4 @@ export const Tabs: React.FC<Props> = ({
       )}
     </div>
   );
-};
+});
