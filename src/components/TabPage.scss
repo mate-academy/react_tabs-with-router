@@ -1,0 +1,18 @@
+.Tab {
+  &__list {
+    list-style: none;
+    display: flex;
+    gap: 70px;
+    width: max-content;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+
+  &__content {
+    margin-top: 20px;
+  }
+
+  &__message {
+    padding: 20px;
+  }
+}
