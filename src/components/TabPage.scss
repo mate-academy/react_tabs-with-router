@@ -4,7 +4,6 @@
     display: flex;
     gap: 70px;
     width: max-content;
-    margin: 0 auto;
     margin-top: 20px;
   }
 
@@ -14,5 +13,9 @@
 
   &__message {
     padding: 20px;
+  }
+
+  &__section {
+    margin: 20px;
   }
 }
