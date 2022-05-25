@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import './TabPage.scss';
 
@@ -8,12 +7,12 @@ type Props = {
 
 export const TabsPage: React.FC<Props> = ({ tabs }) => {
   const { tabId } = useParams<{ tabId: string }>();
-  const search = tabs.find(tab => tab.id === tabId);
+  const activeTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <div className="Tab__section">
       <h2 className="title is-2">
-        {!tabId || !search ? 'Please select a tab' : ''}
+        {!tabId || !activeTab ? 'Please select a tab' : ''}
       </h2>
       <ul className="Tab__list">
         {tabs.map((tab) => (
@@ -25,12 +24,15 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
             >
               {tab.title}
             </NavLink>
-            <p className="Tab__content">
-              {tabId === tab.id ? tab.content : ''}
-            </p>
           </li>
         ))}
       </ul>
+
+      {activeTab && (
+        <p className="Tab__content">
+          {activeTab.content}
+        </p>
+      )}
     </div>
   );
 };

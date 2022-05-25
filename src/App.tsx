@@ -1,7 +1,7 @@
 import { Switch, Route } from 'react-router-dom';
-import { HomePage } from './components/HomePage';
-import { TabsPage } from './components/TabsPage';
-import { MainNavigation } from './components/MainNavigation';
+import { HomePage } from './components/HomePage/HomePage';
+import { TabsPage } from './components/TabPage/TabsPage';
+import { MainNavigation } from './components/MainNavigation/MainNavigation';
 import './App.scss';
 
 const tabs = [
