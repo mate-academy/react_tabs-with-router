@@ -9,6 +9,7 @@ import classNames from 'classnames';
 import { Tab } from '../../types/Tabs';
 
 import './Tabs.scss';
+import { NotFoundPage } from '../NotFoundPage';
 
 type Props = {
   tabs: Tab[];
@@ -33,6 +34,12 @@ export const Tabs: React.FC<Props> = memo(({
       setIsTabSelected(true);
     }
   }, [tabId]);
+
+  if (tabId && tabId !== 'info' && !legitId.includes(tabId)) {
+    return (
+      <NotFoundPage />
+    );
+  }
 
   return (
     <div className="tabs-list">
