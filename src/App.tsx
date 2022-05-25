@@ -1,31 +1,55 @@
+/* eslint-disable no-console */
+import { FC } from 'react';
+import {
+  Route,
+  Routes,
+} from 'react-router-dom';
+
 import './App.scss';
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
+import { Tabs } from './components/Tabs';
+import { Navigation } from './components/Navigation';
+import { HomePage } from './components/HomePage';
+import { NotFoundPage } from './components/NotFoundPage';
 
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
+const tabs = [
+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
+  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
+  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+];
 
-or
+const App: FC = () => {
+  return (
+    <div className="App">
+      <Navigation />
 
-import { useParams } from 'react-router-dom';
+      <Routes>
+        <Route path="/home" element={<HomePage />} />
 
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
+        <Route path="/cards">
+          <Route
+            path=":tabId"
+            element={(
+              <Tabs
+                tabs={tabs}
+              />
+            )}
+          />
+
+          <Route
+            path="info"
+            element={(
+              <Tabs
+                tabs={tabs}
+              />
+            )}
+          />
+        </Route>
+
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </div>
+  );
 };
-*/
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
-
-const App = () => (
-  <div className="App">
-    <h1>Tabs with router</h1>
-  </div>
-);
 
 export default App;

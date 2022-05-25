@@ -1,0 +1,51 @@
+.tabs-list {
+  box-sizing: border-box;
+  padding: 20px;
+  margin: 10px;
+
+  background-color: rgba(62, 220, 255, 0.5);
+  border-radius: 20px;
+
+  &__navigation {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__content {
+    margin-top: 20px;
+
+    color: rgb(42, 42, 42);
+  }
+
+  &__message {
+    margin: 20px;
+    font-size: 20px;
+  }
+}
+
+.tab {
+  position: relative;
+
+  &__button {
+    display: block;
+    padding: 20px;
+
+    color: rgb(42, 42, 42);
+    border: none;
+    border-bottom: 1px rgba(42, 42, 42, 0.7) solid;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: transparent;
+    transition: background-color 0.5s;
+    text-decoration: none;
+
+    &:hover {
+      background-color: rgba(62, 255, 223, 0.5);
+    }
+  }
+
+  & .selected {
+    border: 1px rgba(42, 42, 42, 0.7) solid;
+    border-bottom: none;
+  }
+}
