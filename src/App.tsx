@@ -24,7 +24,7 @@ const App: FC = () => {
       <Navigation />
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
 
         <Route path="/cards">
           <Route
@@ -37,7 +37,7 @@ const App: FC = () => {
           />
 
           <Route
-            path="*"
+            path="info"
             element={(
               <Tabs
                 tabs={tabs}
