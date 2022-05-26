@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { useParams, NavLink } from 'react-router-dom';
+import { FC, useEffect } from 'react';
+import { useParams, NavLink, useNavigate } from 'react-router-dom';
 import './Tabs.scss';
 
 const tabs = [
@@ -10,7 +10,14 @@ const tabs = [
 
 export const Tabs: FC = () => {
   const { tabId } = useParams<{ tabId: string }>();
+  const navigate = useNavigate();
   const current = tabs.find(tab => tab.id === tabId);
+
+  useEffect(() => {
+    if (!current && tabs.length) {
+      navigate(`/tabs/${tabs[0].id}`);
+    }
+  }, []);
 
   return (
     <div className="Tabs">
