@@ -1,0 +1,23 @@
+.Tabs {
+
+  &__list {
+    padding: 0;
+    list-style: none;
+    display: flex;
+  }
+
+  &__item {
+    padding: 15px;
+  }
+
+  &__content {
+    width: 500px;
+    margin-top: 50px;
+    padding-left: 30px;
+    border-left: 3px solid rgb(87, 154, 255);
+  }
+}
+
+.tab {
+  font-size: 14px;
+}
