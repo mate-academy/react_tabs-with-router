@@ -2,8 +2,9 @@ import './App.scss';
 import {
   Routes, Route, NavLink, Navigate,
 } from 'react-router-dom';
-import HomePage from './components/HomePage';
+import { HomePage } from './components/HomePage';
 import { TabsPage } from './components/Tabs/Tabs';
+import { NotFoundPage } from './components/NotFoundPage';
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
           <Route path=":tabId" element={<TabsPage />} />
         </Route>
         <Route path="/home" element={<Navigate replace to="/" />} />
+        <Route path= "*" element={<NotFoundPage />}/>
       </Routes>
     </div>
   );
