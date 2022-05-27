@@ -1,6 +1,6 @@
-import React from 'react';
+import { FC, memo } from 'react';
 
-export const HomePage: React.FC<{}> = () => {
+export const HomePage: FC<{}> = memo(() => {
   return (
     <div className="HomePage">
       <h1 className="HomePage__title">
@@ -8,4 +8,4 @@ export const HomePage: React.FC<{}> = () => {
       </h1>
     </div>
   );
-};
+});

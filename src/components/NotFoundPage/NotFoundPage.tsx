@@ -1,6 +1,6 @@
-import React from 'react';
+import { FC, memo } from 'react';
 
-export const NotFoundPage: React.FC<{}> = () => {
+export const NotFoundPage: FC<{}> = memo(() => {
   return (
     <div className="HomePage">
       <h1 className="HomePage__title">
@@ -8,4 +8,4 @@ export const NotFoundPage: React.FC<{}> = () => {
       </h1>
     </div>
   );
-};
+});

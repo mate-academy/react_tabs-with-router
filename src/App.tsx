@@ -5,6 +5,8 @@ import { HomePage } from './components/HomePage';
 import { NotFoundPage } from './components/NotFoundPage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navigation } from './components/Navigation';
+import { Tabs } from './components/Tabs';
 
 // import { RouteComponentProps } from 'react-router-dom';
 
@@ -33,12 +35,17 @@ const App: React.FC<{}> = () => {
 
   return (
     <div className="App">
+      <Navigation />
+
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
+
+        <Route path="/tabs/*" element={<Tabs tabs={tabs} />}>
+          <Route path=":tabId" element={<Tabs tabs={tabs} />} />
+        </Route>
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      {tabs.length}
     </div>
   );
 };
