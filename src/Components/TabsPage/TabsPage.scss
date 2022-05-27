@@ -1,0 +1,41 @@
+.TabsPage {
+  padding: 20px 0 20px 20px;
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__tabs {
+    padding-top: 40px;
+    display: flex;
+    gap: 20px;
+  }
+
+  &__tab {
+    list-style: none;
+  }
+
+  &__button {
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    color: black;
+
+    font-size: 25px;
+    text-decoration: none;
+
+    &--active {
+      border-bottom: 2px solid black;
+    }
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+
+  &__content {
+    padding-top: 15px;
+    font-size: 15px;
+  }
+}
