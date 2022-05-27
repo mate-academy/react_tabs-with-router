@@ -1,0 +1,27 @@
+.navbar {
+  background-color: crimson;
+  height: 50px;
+  &-brand {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-item {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-right: 40px;
+    padding-top: 8px;
+    cursor: pointer;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      color: rgb(232, 169, 169);
+    }
+  }
+}
