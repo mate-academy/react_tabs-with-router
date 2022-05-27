@@ -1,1 +1,33 @@
-// not empty
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  font-size: 25px;
+
+  &-item--active {
+    $border-shift: 2px;
+    border-bottom: $border-shift solid #485fc7;
+    margin-bottom: -$border-shift;
+  }
+}
+
+.tabs {
+  &__link {
+    font-size: 20px;
+    &--active {
+      background-color: whitesmoke;
+    }
+  }
+
+  &__content {
+    font-size: 20px;
+  }
+}
+
+.title {
+  text-align: center;
+}
