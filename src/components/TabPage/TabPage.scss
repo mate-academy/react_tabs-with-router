@@ -1,0 +1,30 @@
+.tabs {
+
+  &__list {
+    list-style: none;
+    display: flex;
+    margin-top: 30px;
+  }
+
+  &__item {
+    font-size: 25px;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 20px;
+
+    &:hover {
+      background-color: aquamarine;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: green;
+  }
+
+  &__text {
+    font-size: 25px;
+    margin-left: 40px;
+  }
+}
