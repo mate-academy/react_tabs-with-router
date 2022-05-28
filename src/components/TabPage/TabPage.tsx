@@ -23,7 +23,11 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
         {tabs.map((tab) => {
           return (
             <li key={tab.id} className="tabs__item">
-              <NavLink to={`/tabs/${tab.id}`} className="tabs__link">
+              <NavLink
+                to={`/tabs/${tab.id}`}
+                className="tabs__link"
+                activeClassName="tabs__link-active"
+              >
                 {tab.title}
               </NavLink>
             </li>
