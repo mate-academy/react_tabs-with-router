@@ -4,8 +4,6 @@ interface Props {
   content: string,
 }
 
-export const TabsContent: FC<Props> = ({ content }) => {
-  return (
-    <p className="tabs__content">{content}</p>
-  );
-};
+export const TabsContent: FC<Props> = ({ content }) => (
+  <p className="tabs__content">{content}</p>
+);
