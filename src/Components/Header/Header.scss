@@ -1,0 +1,32 @@
+.Header {
+  padding: 20px 0 20px 20px;
+  background-color: gray;
+
+  &__nav {
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+  }
+
+  &__navlink {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      color: yellow;
+      cursor: pointer;
+    }
+  }
+}
+
+.active {
+  color: darkgray;
+  pointer-events: none;
+
+  &:hover {
+    color: darkgray;
+    cursor: default;
+  }
+}
