@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  align-items: center;
+  background-color: aqua;
+  height: 80px;
+  &__link {
+    display: flex;
+    height: 50px;
+    margin-left: 50px;
+    font-size: 20px;
+    border: 1px solid green;
+    color: green;
+    border-radius: 8px;
+    text-decoration: none;
+    align-items: center;
+
+    &-activ {
+      background-color: green;
+      color: aliceblue;
+    }
+  }
+}
