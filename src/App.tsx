@@ -8,6 +8,7 @@ import {
 import { Header } from './Components/Header/Header';
 import { HomePage } from './Components/HomePage/HomePage';
 import { TabsPage } from './Components/TabsPage/TabsPage';
+import { NotFoundPage } from './Components/NotFoundPage/NotFoundPage';
 
 const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -24,6 +25,7 @@ export const App = () => (
       <Route path="/tabs/:tabId?">
         <TabsPage tabs={tabs} />
       </Route>
+      <NotFoundPage />
     </Switch>
   </div>
 );
