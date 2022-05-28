@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import './App.scss';
 import { HomePage } from './components/HomePage';
 import { NotFoundPage } from './components/NotFoundPage';
@@ -7,22 +7,6 @@ import { NotFoundPage } from './components/NotFoundPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navigation } from './components/Navigation';
 import { Tabs } from './components/Tabs';
-
-// import { RouteComponentProps } from 'react-router-dom';
-
-/*
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
-
-or
-
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
-};
-*/
 
 const initialTabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -38,11 +22,13 @@ const App: React.FC<{}> = () => {
       <Navigation />
 
       <Routes>
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
 
         <Route path="/tabs/*" element={<Tabs tabs={tabs} />}>
           <Route path=":tabId" element={<Tabs tabs={tabs} />} />
         </Route>
+
+        <Route path="/home" element={<Navigate to="/" />} />
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
