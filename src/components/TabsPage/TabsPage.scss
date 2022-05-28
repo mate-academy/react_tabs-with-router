@@ -1,0 +1,36 @@
+.TabsPage {
+  display: grid;
+  place-items: center;
+  margin-top: 30px;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    cursor: pointer;
+  }
+
+  &__item {
+    margin-right: 15px;
+    padding: 10px;
+    transition: box-shadow 0.5s;
+    border-radius: 10px;
+
+    &:hover {
+      transition: box-shadow 0.5s;
+      box-shadow: 0 0 2px 2px rgb(158, 158, 255);
+    }
+  }
+
+  &__content {
+    font-size: 20px;
+    color: rgb(0, 0, 85);
+    display: flex;
+
+    &::before {
+      content: "";
+      border-right: 1px solid rgb(172, 83, 255);
+      margin-right: 4px;
+    }
+  }
+}
