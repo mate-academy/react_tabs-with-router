@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { HomePage } from './components/HomePage/HomePage';
 import { TabPage } from './components/TabPage/TabPage';
 import { Navigation } from './components/Navigation/Navigation';
@@ -12,22 +12,21 @@ const tabs = [
 ];
 
 const App: React.FC = () => (
-  <Router>
-    <div className="App">
-      <Navigation />
-      <Switch>
-        <Route path="/" exact>
-          <HomePage />
-        </Route>
+  <div className="App">
+    <Navigation />
 
-        <Route path="/tabs/:tabId?">
-          <TabPage tabs={tabs} />
-        </Route>
+    <Switch>
+      <Route path="/" exact>
+        <HomePage />
+      </Route>
 
-        <p className="App__error">Page not found</p>
-      </Switch>
-    </div>
-  </Router>
+      <Route path="/tabs/:tabId?">
+        <TabPage tabs={tabs} />
+      </Route>
+
+      <p className="App__error">Page not found</p>
+    </Switch>
+  </div>
 );
 
 export default App;
