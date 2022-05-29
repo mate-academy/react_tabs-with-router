@@ -19,9 +19,9 @@ const App: React.FC = () => {
           <Route index element={<HomePage />} />
           <Route path="/tabs" element={<Tabs tabs={tabs} />} />
           <Route path="tabs/:tabId" element={<Tabs tabs={tabs} />} />
-
-          <Route path="*" element={<NotFoundPage />} />
         </Route>
+        <Route path="*" element={<NotFoundPage />} />
+
       </Routes>
     </div>
   );
