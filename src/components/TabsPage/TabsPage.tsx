@@ -1,6 +1,5 @@
 import React from 'react';
-import { NavLink as Link, useParams } from 'react-router-dom';
-// import { tabs } from '../../api/tabs';
+import { Link, useParams } from 'react-router-dom';
 
 type Props = {
   tabs: Tab[],
@@ -12,10 +11,7 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
 
   return (
     <div className="tabsPage">
-      <h1 className="tabsPage__tabs">
-        A list of tabs
-      </h1>
-      <h2>
+      <h2 className="tabsPage__title is-2">
         {!tabId || !activeTab ? 'Please select a tab' : ''}
       </h2>
       <ul className="tabsPage__list">
@@ -26,9 +22,8 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
               className="tabs__item"
             >
               <Link
-                to={`tabs/${tab.id}`}
+                to={`/tabs/${tab.id}`}
                 className="button"
-                // activeClassName="is-active"
               >
                 {tab.title}
               </Link>
