@@ -1,25 +1,12 @@
 import React from 'react';
-import './App.scss';
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { HomePage } from './components/HomePage/HomePage';
 import { TabsPage } from './components/TabsPage/TabsPage';
 import { Navigation } from './components/Navigation/Navigation';
+import { NotFoundPage } from './components/NotFoundPage/NotFoundPage';
+import { tabs } from './api/tabs';
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
-
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
-
-or
-
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
-};
-*/
+import './App.scss';
 
 // const tabs = [
 //   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -28,15 +15,20 @@ const TabsPage = () => {
 // ];
 
 const App: React.FC = () => (
-  <div className="App">
+  <div className="app">
     <Navigation />
 
-    <Switch>
-      <Route path="/" exact component={HomePage} />
-      <Route path="/tabs" component={TabsPage} />
-    </Switch>
-    <HomePage />
-    <h1>Tabs with router</h1>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route
+        path="/tabs/:tabId?"
+        element={
+          <TabsPage tabs={tabs} />
+        }
+      />
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
+
   </div>
 );
 

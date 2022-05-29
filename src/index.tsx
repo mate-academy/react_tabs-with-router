@@ -1,5 +1,7 @@
 import ReactDOM from 'react-dom';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter as HashRouter } from 'react-router-dom';
+import 'bulma/css/bulma.min.css';
+
 import App from './App';
 
 ReactDOM.render(
