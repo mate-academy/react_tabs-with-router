@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import classnames from 'classnames';
+import './TabsPage.scss';
 
 type Props = {
   tabs: Tab[],
@@ -17,15 +18,18 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
 
       <div className="container">
         <div className="tabs">
-          <ul>
+          <ul className="tabs__list">
             {tabs.map(tab => (
               <li
-                className={classnames({ 'is-active': tabId === tab.id })}
+                className="tabs__item"
                 key={tab.id}
               >
                 <a
                   href={`#/tabs/${tab.id}`}
-                  className="link"
+                  className={classnames(
+                    'tabs__link',
+                    { 'tabs__link--isActive': tabId === tab.id },
+                  )}
                 >
                   {tab.title}
                 </a>

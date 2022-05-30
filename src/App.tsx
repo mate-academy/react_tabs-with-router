@@ -8,7 +8,7 @@ import {
 
 import './App.scss';
 import { HomePage } from './components/HomePage';
-import { TabsPage } from './components/TabsPage';
+import { TabsPage } from './components/TabsPage/TabsPage';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -20,8 +20,18 @@ const App: React.FC = () => (
   <div className="App">
     <div className="container">
       <nav className="navbar is-warning">
-        <NavLink to="/" className="navbar-item">Home page</NavLink>
-        <NavLink to="/tabs" className="navbar-item">Tabs page</NavLink>
+        <NavLink
+          to="/"
+          className="navbar__item"
+        >
+          Home page
+        </NavLink>
+        <NavLink
+          to="/tabs"
+          className="navbar__item"
+        >
+          Tabs page
+        </NavLink>
       </nav>
     </div>
 
