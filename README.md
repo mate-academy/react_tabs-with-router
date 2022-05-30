@@ -3,10 +3,6 @@
   [DEMO LINK](https://<your_account>.github.io/react_tabs-with-router/)
 - Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
 
-## If you don't use **Typescript**
-1. Rename `.tsx` files to `.jsx`
-1. use `eslint-config-react` in `.eslintrs.js` 
-
 ## Description
 Implement an App with a navigation and 2 pages:
 
