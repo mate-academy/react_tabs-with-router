@@ -1,7 +1,16 @@
-.tabsPage__title {
-  margin-left: 20px;
-  font-size: 20px;
-  font-weight: bold;
+.tabsPage {
+  &__title {
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__content {
+    margin: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #d24419;
+  }
 }
 
 .button {

@@ -15,11 +15,14 @@ const App: React.FC = () => (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route
-        path=":tabId"
-        element={
-          <TabsPage tabs={tabs} />
-        }
-      />
+        path="/tabs/"
+        element={<TabsPage tabs={tabs} />}
+      >
+        <Route
+          path=":tabId"
+          element={<TabsPage tabs={tabs} />}
+        />
+      </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </div>

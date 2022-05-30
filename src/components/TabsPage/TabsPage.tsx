@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 
 import './TabsPage.scss';
@@ -17,6 +17,13 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
       <p className="tabsPage__title">
         {!tabId || !activeTab ? 'Please select a tab' : ''}
       </p>
+
+      {activeTab && (
+        <p className="tabsPage__content">
+          {activeTab.content}
+        </p>
+      )}
+
       <ul className="tabsPage__list">
         {
           tabs.map(tab => (
@@ -26,25 +33,16 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
                 'is-active': tabId === tab.id,
               })}
             >
-              <NavLink
-                to={`#/tabs/${tab.id}`}
+              <Link
+                to={`/tabs/${tab.id}`}
                 className="button"
               >
                 {tab.title}
-              </NavLink>
+              </Link>
             </li>
           ))
         }
       </ul>
-
-      <div>
-        {activeTab && (
-          <p>
-            {activeTab.content}
-          </p>
-        )}
-
-      </div>
     </div>
   );
 };
