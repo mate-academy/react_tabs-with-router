@@ -6,22 +6,6 @@ import { HomePage } from './Components/HomePage/HomePage';
 import { NotFoundPage } from './Components/NotFoundPage/NotFoundPage';
 import { TabsPage } from './Components/TabsPage/TabsPage';
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
-
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
-
-or
-
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
-};
-*/
-
 const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
