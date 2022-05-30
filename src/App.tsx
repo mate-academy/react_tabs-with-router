@@ -38,7 +38,7 @@ const App = () => {
           <Route path=":tabId" element={<TabsPage />} />
         </Route>
         <Route path="/home" element={<Navigate replace to="/" />} />
-        <Route path= "*" element={<NotFoundPage />}/>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );
