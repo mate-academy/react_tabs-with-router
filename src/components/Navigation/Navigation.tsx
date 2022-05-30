@@ -1,25 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './Navigation.scss';
 
 export const Navigation: React.FC = () => (
   <nav className="navigation">
     <div>
-      <Link
+      <NavLink
         to="/"
         className="navigation__nav"
       >
         Home
-      </Link>
+      </NavLink>
 
-      <Link
+      <NavLink
         to="/tabs"
         className="navigation__nav"
-      // activeClassName="active"
       >
         Tabs
-      </Link>
+      </NavLink>
     </div>
   </nav>
 );
