@@ -1,1 +1,16 @@
-// not empty
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+h1,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Work Sans", sans-serif;
+}

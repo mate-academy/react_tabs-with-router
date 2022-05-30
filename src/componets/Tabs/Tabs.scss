@@ -1,0 +1,27 @@
+.Tabs {
+  display: flex;
+  flex-direction: column;
+
+  &__list {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__item {
+    list-style: none;
+    font-size: 20px;
+    margin-bottom: 30px;
+
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  &__content {
+    font-style: italic;
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+}
