@@ -23,8 +23,8 @@ export const TabsPage: FC<Props> = ({ tabs }) => {
           ))}
         </ul>
       </div>
-      <span className="is-primary">{currentTab?.content}</span>
-    </>
 
+      <span>{currentTab?.content}</span>
+    </>
   );
 };
