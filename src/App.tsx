@@ -1,30 +1,38 @@
 import './App.scss';
+import { Route, Switch, NavLink } from 'react-router-dom';
+import { HomePage } from './components/HomePage';
+import { TabsPage } from './components/TabsPage';
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
-
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
-
-or
-
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
-};
-*/
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
-
-const App = () => (
+const App: React.FC = () => (
   <div className="App">
-    <h1>Tabs with router</h1>
+    <header className="header">
+      <nav className="nav">
+        <NavLink
+          to="/"
+          exact
+          className="nav__link"
+          activeClassName="nav__link--active"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/tabs"
+          className="nav__link"
+          activeClassName="nav__link--active"
+        >
+          Tabs
+        </NavLink>
+      </nav>
+    </header>
+    <main className="content">
+      <Switch>
+        <Route path="/tabs/:tabId?" component={TabsPage} />
+        <Route path="/" exact component={HomePage} />
+      </Switch>
+    </main>
+    <footer className="footer">
+      <p>Created by @Vakolyyk</p>
+    </footer>
   </div>
 );
 
