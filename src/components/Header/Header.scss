@@ -1,0 +1,10 @@
+.navbar {
+  &-brand {
+    justify-content: center;
+  }
+
+  &-item {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
