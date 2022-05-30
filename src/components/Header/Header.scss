@@ -1,0 +1,27 @@
+.navbar {
+  display: flex;
+
+  gap: 40px;
+  padding: 30px;
+  justify-content: center;
+
+  font-size: 25px;
+  font-weight: bold;
+
+  border-bottom: 2px solid white;
+  border-radius: 10px ;
+
+  margin-bottom: 40px;
+
+  &__link {
+    text-decoration: none;
+
+    transition: transform 0.3s;
+
+    color: white;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
