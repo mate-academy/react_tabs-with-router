@@ -2,7 +2,6 @@ import './App.scss';
 import {
   Link, Redirect, Route, Switch,
 } from 'react-router-dom';
-import { useState } from 'react';
 import { HomePage } from './Components/HomePage/HomePage';
 import { NotFoundPage } from './Components/NotFoundPage/NotFoundPage';
 import { TabsPage } from './Components/TabsPage/TabsPage';
@@ -30,14 +29,6 @@ const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState('');
-
-  const onTabSelectedId = (selectId: string) => {
-    if (selectId !== selectedTabId) {
-      setSelectedTabId(selectId);
-    }
-  };
-
   return (
     <div className="App">
       <Link to="/" className="nav__link">
@@ -49,11 +40,9 @@ const App: React.FC = () => {
 
       <Switch>
         <Route path="/" exact component={HomePage} />
-        <Route path="/tabs">
+        <Route path="/tabs/:tabId?">
           <TabsPage
             tabs={tabs}
-            selectedTabId={selectedTabId}
-            tabChangeMethodId={onTabSelectedId}
           />
         </Route>
         <Redirect path="/home" to="/" />
