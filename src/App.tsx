@@ -1,31 +1,25 @@
 import './App.scss';
+// import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { Header } from './component/Header';
+import { PageNotFound } from './component/PageNotFound';
+import { TabsPage } from './component/TabsPage';
+import { Home } from './component/Home';
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
+const App:React.FC = () => {
+  return (
+    <div>
+      <Header />
 
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
-
-or
-
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/tabs" element={<TabsPage />}>
+          <Route path="/tabs:tabId" element={<TabsPage />} />
+        </Route>
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </div>
+  );
 };
-*/
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
-
-const App = () => (
-  <div className="App">
-    <h1>Tabs with router</h1>
-  </div>
-);
 
 export default App;

@@ -1,1 +1,55 @@
 // not empty
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  font-size: large;
+}
+
+.link {
+  box-sizing: border-box;
+  border: 1px solid black;
+  background-color: aqua;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.TabsPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    display: flex;
+    border-radius: 5px;
+    border: 1px solid red;
+    height: auto;
+    margin: 10px;
+    padding: 10px;
+  }
+
+  &__content {
+    font-size: 24px;
+  }
+}
