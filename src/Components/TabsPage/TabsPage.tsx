@@ -1,4 +1,5 @@
 import React from 'react';
+import './TabsPage.scss';
 import { NavLink, useParams } from 'react-router-dom';
 
 type Props = {

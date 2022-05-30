@@ -1,0 +1,29 @@
+$green-color: #2e8b57;
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+
+  max-width: 500px;
+  margin: 20px auto;
+
+  &__link {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    border: 2px solid black;
+    padding: 10px;
+    font-weight: bold;
+    font-family: Roboto, sans-serif;
+
+    &:hover {
+      color: $green-color;
+      border-color: $green-color;
+    }
+  }
+}
+
+.active {
+  color: $green-color;
+  border-color: $green-color;
+}

@@ -1,5 +1,5 @@
 import './App.scss';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { HomePage } from './Components/HomePage/HomePage';
 import { TabsPage } from './Components/TabsPage/TabsPage';
 import { Nav } from './Components/Nav/Nav';
@@ -17,6 +17,8 @@ const App = () => (
 
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="home" element={<Navigate to="/" />} />
+
       <Route path="tabs" element={<TabsPage tabs={tabs} />}>
         <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
       </Route>

@@ -1,0 +1,12 @@
+.not-found-page {
+  &__title {
+    font-family: Roboto, sans-serif;
+  }
+
+  &__link {
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
