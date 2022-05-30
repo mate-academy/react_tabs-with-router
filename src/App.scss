@@ -1,1 +1,10 @@
-// not empty
+.app {
+  display: grid;
+  place-content: center;
+
+  &__nav {
+    display: flex;
+    gap: 20px;
+    font-size: 30px;
+  }
+}
