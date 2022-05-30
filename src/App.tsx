@@ -40,10 +40,18 @@ const App: React.FC = () => (
         <div className="columns">
           <div className="column">
             <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="home" element={<Navigate to="/" />} />
-              <Route path="tabs" element={<TabsPage tabs={tabs} />} />
-              <Route path="tabs/:tabId" element={<TabsPage tabs={tabs} />} />
+              <Route
+                path="/"
+                element={<HomePage />}
+              />
+              <Route
+                path="home"
+                element={<Navigate to="/" />}
+              />
+              <Route
+                path="/tabs/:tabId?"
+                element={<TabsPage tabs={tabs} />}
+              />
               <Route
                 path="*"
                 element={
