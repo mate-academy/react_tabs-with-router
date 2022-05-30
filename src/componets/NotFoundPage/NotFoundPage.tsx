@@ -8,7 +8,7 @@ export const NotFoundPage: React.FC = memo(() => {
       <h2 className="NotFoundPage">
         Page not found. Go
         {' '}
-        <Link className="NotFoundPage__back-to-home" to="/home">Home</Link>
+        <Link className="NotFoundPage__back-to-home" to="/">Home</Link>
       </h2>
       <img
         className="NotFoundPage__image"
