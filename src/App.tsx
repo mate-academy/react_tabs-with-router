@@ -1,30 +1,27 @@
 import './App.scss';
+import { Routes, Route, Link } from 'react-router-dom';
+import { Tabs } from './components/Tabs';
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
+const tabs = [
+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
+  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
+  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+];
 
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
-
-or
-
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
-};
-*/
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
-
-const App = () => (
+const App: React.FC = () => (
   <div className="App">
-    <h1>Tabs with router</h1>
+    <nav className="nav">
+      <Link className="nav__link" to="/">Home</Link>
+      <Link className="nav__link" to="/tabs">Tabs</Link>
+    </nav>
+
+    <Routes>
+      <Route path="/" element={<h1>Home</h1>} />
+      <Route path="/tabs" element={<Tabs tabs={tabs} />} />
+      <Route path="/tabs/:id" element={<Tabs tabs={tabs} />} />
+
+      <Route path="*" element={<h1>Page not found</h1>} />
+    </Routes>
   </div>
 );
 
