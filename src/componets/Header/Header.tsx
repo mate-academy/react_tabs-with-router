@@ -7,7 +7,7 @@ export const Header: React.FC = React.memo(() => {
     <div className="wrapper">
       <div className="content">
         <header className="Header">
-          <NavLink className="Header__nav" to="/home">Home</NavLink>
+          <NavLink className="Header__nav" to="/">Home</NavLink>
           <NavLink className="Header__nav" to="/tabs">Tabs</NavLink>
         </header>
 
