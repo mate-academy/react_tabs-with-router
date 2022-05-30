@@ -1,0 +1,52 @@
+.TabsPage {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  text-align: center;
+
+  &__title {
+    display: block;
+  }
+
+  &__table {
+    display: flex;
+    justify-content: space-between;
+
+    width: 800px;
+  }
+
+  &__line {
+    width: 250px;
+  }
+
+  &__error {
+    margin: 0;
+    height: 60px;
+
+    color: red;
+  }
+
+  &__empty-error {
+    height: 60px;
+  }
+
+  &__link {
+    display: block;
+
+    margin: 0 auto 20px;
+    width: 150px;
+    height: 40px;
+
+    line-height: 40px;
+    text-decoration: none;
+
+    border-radius: 5px;
+    background-color: aquamarine;
+
+    &--active {
+      background-color: rgb(70, 214, 166);
+      border: 2px solid blue;
+    }
+  }
+}
