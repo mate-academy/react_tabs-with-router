@@ -1,5 +1,5 @@
 import './App.scss';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch, NavLink } from 'react-router-dom';
 import { HomePage } from './components/HomePage';
 import { TabsPage } from './components/TabsPage';
 
@@ -19,20 +19,36 @@ const TabsPage = () => {
 };
 */
 
-const App = () => (
+const App: React.FC = () => (
   <div className="App">
-    <nav className="nav">
-      <Link to="/" className="nav__link">
-        Home
-      </Link>
-      <Link to="/tabs" className="nav__link">
-        Tabs
-      </Link>
-    </nav>
-    <Switch>
-      <Route path="/tabs" component={TabsPage} />
-      <Route path="/" exact component={HomePage} />
-    </Switch>
+    <header className="header">
+      <nav className="nav">
+        <NavLink
+          to="/"
+          exact
+          className="nav__link"
+          activeClassName="nav__link--active"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/tabs"
+          className="nav__link"
+          activeClassName="nav__link--active"
+        >
+          Tabs
+        </NavLink>
+      </nav>
+    </header>
+    <main className="content">
+      <Switch>
+        <Route path="/tabs/:tabId?" component={TabsPage} />
+        <Route path="/" exact component={HomePage} />
+      </Switch>
+    </main>
+    <footer className="footer">
+      <p>Created by @Vakolyyk</p>
+    </footer>
   </div>
 );
 

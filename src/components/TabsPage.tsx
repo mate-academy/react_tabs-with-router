@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -9,17 +9,26 @@ const tabs = [
 
 export const TabsPage: React.FC = () => {
   const { tabId } = useParams<{ tabId: string }>();
+  const selectedTab = tabs.find(currTab => currTab.id === tabId);
 
   return (
     <div className="tabs">
       {tabs.map(tab => (
         <React.Fragment key={tab.id}>
-          <button type="button">
+          <NavLink
+            to={`/tabs/${tab.id}`}
+            className="tabs__link"
+            activeClassName="tabs__link--active"
+          >
             {tab.title}
-          </button>
-          {tab.id === tabId && <p>{tab.content}</p>}
+          </NavLink>
         </React.Fragment>
       ))}
+      {selectedTab ? (
+        <p className="tabs__content">{selectedTab.content}</p>
+      ) : (
+        <p className="tabs__content">Please select a tab</p>
+      )}
     </div>
   );
 };
