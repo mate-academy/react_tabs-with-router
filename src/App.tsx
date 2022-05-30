@@ -1,3 +1,4 @@
+import { Link, Route, Routes } from 'react-router-dom';
 import './App.scss';
 
 /*
@@ -25,6 +26,28 @@ const TabsPage = () => {
 const App = () => (
   <div className="App">
     <h1>Tabs with router</h1>
+
+    <nav className="navbar">
+      <Link
+        className="navbar-item"
+        to="/"
+      >
+        Home page
+      </Link>
+      <Link
+        className="navbar-item"
+        to="/tabs"
+      >
+        Tabs page
+      </Link>
+    </nav>
+
+    <Routes>
+      <Route path="/" element={<h1>Home page</h1>} />
+      <Route path="tabs" element={<h1>Tabs page</h1>} />
+
+      <Route path="*" element={<h1>Home page</h1>} />
+    </Routes>
   </div>
 );
 
