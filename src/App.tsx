@@ -30,11 +30,11 @@ const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0] || {});
+  const [selectedTabId, setSelectedTabId] = useState('');
 
-  const onTabSelected = (newTab: Tab) => {
-    if (newTab.id !== selectedTab.id) {
-      setSelectedTab(newTab);
+  const onTabSelectedId = (selectId: string) => {
+    if (selectId !== selectedTabId) {
+      setSelectedTabId(selectId);
     }
   };
 
@@ -52,8 +52,8 @@ const App: React.FC = () => {
         <Route path="/tabs">
           <TabsPage
             tabs={tabs}
-            selectedTabId={selectedTab.id}
-            tabChangeMethod={onTabSelected}
+            selectedTabId={selectedTabId}
+            tabChangeMethodId={onTabSelectedId}
           />
         </Route>
         <Redirect path="/home" to="/" />
