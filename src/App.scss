@@ -41,11 +41,11 @@ body {
     transition: background-color 0.5s;
 
     &:hover {
-      background-color: blue;
+      background-color: darkblue;
     }
 
     &--selected {
-      background-color: blue;
+      background-color: darkblue;
     }
 
     &__text {
