@@ -1,1 +1,15 @@
-// not empty
+.App {
+  margin: 20px;
+  text-align: center;
+}
+
+.nav {
+  margin-bottom: 30px;
+
+  &__item {
+    padding: 10px 20px;
+    margin: 20px;
+    background-color: #888;
+    border-radius: 30%;
+  }
+}
