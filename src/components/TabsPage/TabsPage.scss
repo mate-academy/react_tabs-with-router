@@ -1,0 +1,15 @@
+.tabs {
+  display: flex;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.tab {
+  &__link {
+    width: 100px;
+  }
+
+  &__content {
+    text-align: center;
+  }
+}
