@@ -1,0 +1,12 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    margin: 0 auto;
+  }
+
+  &__image {
+    margin: 0 auto;
+  }
+}

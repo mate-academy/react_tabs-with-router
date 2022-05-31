@@ -1,0 +1,37 @@
+.tabsPage {
+  &__title {
+    text-align: center;
+  }
+
+  &__block {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__list {
+    display: flex;
+    gap: 30px;
+    width: 300px;
+    height: 100px;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: #e3dfac;
+    margin-bottom: 20px;
+  }
+
+  &__selection {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-family: cursive;
+  }
+
+  &__content {
+    text-align: center;
+    font-size: 25px;
+    font-family: cursive;
+  }
+}
