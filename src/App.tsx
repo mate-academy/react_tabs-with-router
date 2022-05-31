@@ -1,31 +1,48 @@
 import './App.scss';
+import {
+  NavLink, Redirect, Route, Switch,
+} from 'react-router-dom';
+import { HomePage } from './Components/HomePage/HomePage';
+import { NotFoundPage } from './Components/NotFoundPage/NotFoundPage';
+import { TabsPage } from './Components/TabsPage/TabsPage';
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
+const tabs: Tab[] = [
+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
+  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
+  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+];
 
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
+const App: React.FC = () => {
+  return (
+    <div className="App">
+      <NavLink
+        to="/home"
+        className="nav__link"
+        activeClassName="nav__link--active"
+      >
+        Home page
+      </NavLink>
 
-or
+      <NavLink
+        to="/tabs"
+        className="nav__link"
+        activeClassName="nav__link--active"
+      >
+        Tabs
+      </NavLink>
 
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/tabs/:tabId?">
+          <TabsPage
+            tabs={tabs}
+          />
+        </Route>
+        <Redirect path="/home" to="/" />
+        <NotFoundPage />
+      </Switch>
+    </div>
+  );
 };
-*/
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
-
-const App = () => (
-  <div className="App">
-    <h1>Tabs with router</h1>
-  </div>
-);
 
 export default App;

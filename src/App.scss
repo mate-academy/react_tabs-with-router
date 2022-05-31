@@ -1,1 +1,32 @@
-// not empty
+@import "./Variables.scss";
+
+.App {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+}
+
+.nav__link {
+  display: inline-block;
+  margin: 10px;
+  text-decoration: none;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  font-weight: 700;
+  width: 100px;
+  line-height: 30px;
+  text-align: center;
+  background-color: $inactive-color;
+  color: $text-inactive-color;
+  transition: 0.2s;
+
+  &--active {
+    color: $text-active-color;
+    background-color: $active-color;
+    box-shadow: 0 0 8px -4px black;
+  }
+
+  &:hover {
+    box-shadow: 0 0 10px -4px black;
+  }
+
+}

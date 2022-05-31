@@ -1,0 +1,45 @@
+@import "../../Variables.scss";
+
+.tabs {
+  position: relative;
+  border-spacing: 0;
+
+  &__button {
+    display: inline-block;
+    width: 100px;
+    border: 1px solid $border-color;
+    background-color: $inactive-color;
+    color: $text-inactive-color;
+
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 6px 6px 0 0;
+    line-height: 30px;
+    transition: 0.2s;
+
+    &:hover {
+      box-shadow: inset 0 11px 7px -10px rgba(0,0,0,0.25);
+    }
+  }
+
+  &__title {
+    width: 304px;
+    position: absolute;
+    top: 32px;
+    z-index: -1;
+    margin-left: 1px;
+    padding: 0;
+    border: 1px solid $border-color;
+    line-height: 60px;
+    background-color: $active-color;
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0 0 10px -4px black;
+  }
+}
+
+.active {
+  border-bottom: 1px solid $active-color;
+  background-color: $active-color;
+  color: $text-active-color;
+  box-shadow: 0 -6px 9px -12px black;
+}
