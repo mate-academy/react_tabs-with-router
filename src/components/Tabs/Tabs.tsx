@@ -14,7 +14,7 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
   const [isIdValid, setIsIdValid] = useState(false);
 
   useEffect(() => {
-    const tab = tabs.find(t => t.id === tabId) || null;
+    const tab = tabs.find(elem => elem.id === tabId) || null;
 
     setCurrentTab(tab);
 
