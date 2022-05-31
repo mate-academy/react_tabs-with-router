@@ -1,0 +1,41 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  grid-gap: 20px;
+  gap: 20px;
+  width: 348px;
+  height: 80px;
+  margin: 0 auto;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  border-radius: 34px;
+  padding: 10px;
+  background-color: #e3dfac;
+  margin-bottom: 20px;
+
+
+  &__link {
+    display: flex;
+    align-items: center;
+    transition: all 0.3s;
+    padding: 2px;
+
+    &:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+  }
+
+  &__image {
+    width: 64px;
+    height: 64px;
+    outline: none;
+    border: 0;
+    background: transparent;
+  }
+}
+
+.active {
+  border-bottom: 5px solid black;
+  border-radius: 10px;
+}
