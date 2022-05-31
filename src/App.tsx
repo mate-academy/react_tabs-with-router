@@ -18,7 +18,7 @@ const App = () => (
       </Route>
       <Route />
 
-      <Route path="*" element={NotFoundPage} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </div>
 );

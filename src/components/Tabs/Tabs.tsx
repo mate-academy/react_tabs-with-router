@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 
 interface Tab {
@@ -28,25 +28,33 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
   }, [tabId, selectedTab]);
 
   return (
-    <div>
+    <>
       {!isCorrectTab && (
         <p>Please select tab</p>)}
-      <ul>
-        {tabs.map(tab => {
-          return (
-            <li key={tab.id}>
-              <NavLink
-                to={tab.id}
-                onClick={() => {
-                  setSelectedtab(tab);
-                }}
+      <div className="tabs is-left">
+        <ul>
+          {tabs.map(tab => {
+            return (
+              <li
+                key={tab.id}
               >
-                {tab.title}
-              </NavLink>
-            </li>
-          );
-        })}
-      </ul>
+                <NavLink
+                  className={({ isActive }) => (
+                    isActive
+                      ? 'navbar-item is-tab is-active'
+                      : 'navbar-item is-tab')}
+                  to={tab.id}
+                  onClick={() => {
+                    setSelectedtab(tab);
+                  }}
+                >
+                  {tab.title}
+                </NavLink>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
       {
         isCorrectTab && (
           <p className="Tabs__tab-content">
@@ -54,6 +62,6 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
           </p>
         )
       }
-    </div>
+    </>
   );
 };

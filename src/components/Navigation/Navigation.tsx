@@ -6,12 +6,14 @@ export const Navigation: React.FC = () => {
     <nav className="navbar">
       <NavLink
         to="/"
-        className="navbar-item is-tab"
+        className={({ isActive }) => (
+          isActive ? 'navbar-item is-tab is-active' : 'navbar-item is-tab')}
       >
         Home Page
       </NavLink>
       <NavLink
-        className="navbar-item is-tab"
+        className={({ isActive }) => (
+          isActive ? 'navbar-item is-tab is-active' : 'navbar-item is-tab')}
         to="/tabs"
       >
         Tabs
