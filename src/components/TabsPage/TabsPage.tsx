@@ -2,6 +2,8 @@ import React from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { Tabs } from '../../react-app-env';
 
+import './TabsPage.scss';
+
 interface Props {
   tabs: Tabs[],
 }

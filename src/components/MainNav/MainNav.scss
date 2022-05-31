@@ -1,0 +1,35 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+
+  padding: 20px;
+  margin-bottom: 60px;
+
+  border-bottom: 1px solid transparent;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px -10px #333;
+
+  background-color: #6f9;
+
+  &__link {
+    color: #638383;
+    font-size: 24px;
+    text-decoration: none;
+
+    transition: color 0.3s;
+
+    &:hover {
+      color: #fcf;
+      cursor: pointer;
+    }
+  }
+}
+
+.active {
+  text-decoration: underline;
+
+  &:hover {
+    color: #638383;
+  }
+}

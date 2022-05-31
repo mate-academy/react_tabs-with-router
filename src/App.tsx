@@ -6,6 +6,7 @@ import { TabsPage } from './components/TabsPage/TabsPage';
 import { NotFoundPage } from './components/NotFoundPage/NotFoundPage';
 
 import './App.scss';
+import './reset.scss';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
