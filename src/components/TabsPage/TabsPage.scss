@@ -1,0 +1,37 @@
+.tabsPage {
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    margin: 0 auto 20px;
+    padding: 20px;
+
+    background-color: #fcc;
+    border-radius: 20px;
+    text-decoration: none;
+  }
+
+  &__item {
+    font-size: 18px;
+  }
+
+  &__selection {
+    color: #638383;
+    text-decoration: none;
+
+    transition: color 0.3s;
+
+    &:hover {
+      color: #6f9;
+    }
+  }
+
+  &__content {
+    font-size: 22px;
+  }
+}
