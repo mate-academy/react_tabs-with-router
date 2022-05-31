@@ -1,6 +1,6 @@
 import './App.scss';
 import {
-  Link, Redirect, Route, Switch,
+  NavLink, Redirect, Route, Switch,
 } from 'react-router-dom';
 import { HomePage } from './Components/HomePage/HomePage';
 import { NotFoundPage } from './Components/NotFoundPage/NotFoundPage';
@@ -15,12 +15,22 @@ const tabs: Tab[] = [
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Link to="/" className="nav__link">
+      <NavLink
+        to="/"
+        exact
+        className="nav__link"
+        activeClassName="nav__link--active"
+      >
         Home page
-      </Link>
-      <Link to="/tabs" className="nav__link">
+      </NavLink>
+
+      <NavLink
+        to="/tabs"
+        className="nav__link"
+        activeClassName="nav__link--active"
+      >
         Tabs
-      </Link>
+      </NavLink>
 
       <Switch>
         <Route path="/" exact component={HomePage} />

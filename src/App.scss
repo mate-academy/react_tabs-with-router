@@ -19,9 +19,10 @@
   color: $text-inactive-color;
   transition: 0.2s;
 
-  &:focus {
-    color: $active-color;
-    background-color: $text-active-color;
+  &--active {
+    color: $text-active-color;
+    background-color: $active-color;
+    box-shadow: 0 0 8px -4px black;
   }
 
   &:hover {
