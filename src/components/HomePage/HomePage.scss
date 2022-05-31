@@ -1,0 +1,20 @@
+.homePage {
+  height: 600px;
+  background-image: url("../../img/homePage.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid #666;
+  margin-top: 50px;
+
+  &__title {
+    font-family: "Rock Salt", cursive;
+    font-style: italic;
+    text-align: center;
+    font-size: 18px;
+
+    color: #ebc9b1;
+    letter-spacing: 1px;
+    padding: 20px;
+  }
+}
