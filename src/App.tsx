@@ -32,7 +32,7 @@ const App: React.FC = () => {
       </NavLink>
 
       <Switch>
-        <Route path="/" component={HomePage} />
+        <Route path="/" exact component={HomePage} />
         <Route path="/tabs/:tabId?">
           <TabsPage
             tabs={tabs}
