@@ -5,4 +5,4 @@ interface Tab {
 }
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-type sToNFun = (str: string) => number;
+type ConvertFunc = (str: string) => number;
