@@ -10,7 +10,7 @@ type Props = {
 export const TabsPage: React.FC<Props> = ({
   tabs,
 }) => {
-  const { tabId } = useParams<string | any>();
+  const { tabId } = useParams<{ tabId: string }>();
 
   const idFromStr: ConvertFunc = (str) => {
     const ind = str.indexOf('-');

@@ -16,8 +16,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <NavLink
-        to="/"
-        exact
+        to="/home"
         className="nav__link"
         activeClassName="nav__link--active"
       >
@@ -33,7 +32,7 @@ const App: React.FC = () => {
       </NavLink>
 
       <Switch>
-        <Route path="/" exact component={HomePage} />
+        <Route path="/" component={HomePage} />
         <Route path="/tabs/:tabId?">
           <TabsPage
             tabs={tabs}
