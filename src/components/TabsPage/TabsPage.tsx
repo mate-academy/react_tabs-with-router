@@ -1,27 +1,16 @@
 import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
-import {
-  NavLink as Link, useParams,
-} from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import './TabsPage.scss';
 
-// import { RouteComponentProps } from 'react-router-dom';
-
-// type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-// const TabsPage: TabsPageProps = ({ match }) => {...};
-
-// or
-
-// import { useParams } from 'react-router-dom';
-
-interface User {
+interface Tab {
   id: string,
   title: string,
   content: string,
 }
 
 type Props = {
-  tabs: User[],
+  tabs: Tab[],
 };
 
 export const TabsPage: React.FC<Props> = ({ tabs }) => {
@@ -45,9 +34,9 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
         <div className="TabsPage__empty-error" />
       )}
       <div className="TabsPage__table">
-        {tabs.map((tab: User) => (
+        {tabs.map((tab: Tab) => (
           <div className="TabsPage__line" key={tab.id}>
-            <Link
+            <NavLink
               to={`/tabs/${tab.id}`}
               className={classNames(
                 'TabsPage__link',
@@ -57,7 +46,7 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
               )}
             >
               {tab.title}
-            </Link>
+            </NavLink>
             {tabId === tab.id && (
               <div className="TabsPage__cell">
                 {tab.content}

@@ -4,6 +4,8 @@ import {
 } from 'react-router-dom';
 import { TabsPage } from './components/TabsPage';
 import { Navigation } from './components/Navigation';
+import { HomePage } from './components/HomePage';
+import { PageNotFound } from './components/PageNotFound';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -20,45 +22,30 @@ const App = () => (
     <Routes>
       <Route
         path="/"
-        element={(
-          <div className="App__home">
-            <h1>Home page</h1>
-            <p className="App__text">
-              Hello
-            </p>
-          </div>
-        )}
+        element={<HomePage />}
       />
 
       <Route
         path="tabs"
         element={(
-          <div className="App__tabs">
-            <TabsPage
-              tabs={tabs}
-            />
-          </div>
+          <TabsPage
+            tabs={tabs}
+          />
         )}
       />
 
       <Route
         path="tabs/:tabId"
         element={(
-          <div className="App__tabs">
-            <TabsPage
-              tabs={tabs}
-            />
-          </div>
+          <TabsPage
+            tabs={tabs}
+          />
         )}
       />
 
       <Route
         path="*"
-        element={(
-          <p className="App__unknown">
-            Page not found
-          </p>
-        )}
+        element={<PageNotFound />}
       />
     </Routes>
   </div>
