@@ -1,1 +1,35 @@
-// not empty
+.app {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+  max-width: 800px;
+
+  margin: 0 auto;
+
+  &__title {
+    font-family: "Rock Salt", cursive;
+    padding: 20px;
+    font-style: italic;
+
+    color: #3b1700;
+    text-align: right;
+    letter-spacing: 1px;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-family: "Rock Salt", cursive;
+    font-style: italic;
+    text-align: center;
+    font-size: 16px;
+
+    color: #3b1700;
+    letter-spacing: 1px;
+
+    padding: 10px;
+
+    &:hover {
+      border-bottom: 1px solid rgb(117, 115, 115);
+      color: rgb(66, 65, 65);
+    }
+  }
+}

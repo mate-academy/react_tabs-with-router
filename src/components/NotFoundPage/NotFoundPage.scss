@@ -1,0 +1,10 @@
+.not-found-page {
+  &__img {
+    height: 600px;
+    background-image: url("../../img/404-not-found.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-top: 50px;
+  }
+}
