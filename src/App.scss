@@ -1,1 +1,8 @@
-// not empty
+.App {
+  text-align: center;
+
+  &__header {
+    position: sticky;
+    top: 0;
+  }
+}
