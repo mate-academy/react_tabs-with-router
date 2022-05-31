@@ -1,0 +1,31 @@
+.tab {
+  box-sizing: border-box;
+  &__button {
+    padding: 10px;
+    border: none;
+    background-color: rgb(163, 163, 163);
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(252, 252, 252);
+
+    &:hover {
+      background-color: rgb(182, 182, 182);
+    }
+
+    &-active {
+      background-color: rgb(207, 206, 206);
+    }
+  }
+
+  &__content {
+    margin-top: 10px;
+    background-color: rgb(207, 206, 206);
+    padding: 10px;
+    width: 400px;
+    height: 200px;
+  }
+}
+
+.tabs {
+  margin: 30px;
+}
