@@ -1,0 +1,31 @@
+.tabsPage {
+  text-align: center;
+
+  &__item {
+    list-style: none;
+    margin-bottom: 20px;
+    font-size: 20px;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__button {
+    text-decoration: none;
+    color: white;
+  }
+
+  &__content {
+    font-size: 24px;
+    font-weight: bold;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
