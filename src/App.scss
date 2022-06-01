@@ -33,3 +33,12 @@ a {
     }
   }
 }
+
+.active {
+  background-color: #d3eca7;
+  transition: 0.3s all;
+
+  &:hover {
+    background-color: #a1b57d;
+  }
+}
