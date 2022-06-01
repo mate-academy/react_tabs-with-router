@@ -16,7 +16,7 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
   return (
     <div className="tabsPage">
       <h1 className="tabsPage__title">
-        Tabs Page
+        {active ? 'Tabs Page' : 'Please select'}
       </h1>
 
       <ul className="tabsPage__tabs">
