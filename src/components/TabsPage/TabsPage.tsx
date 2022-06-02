@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useParams, Link } from 'react-router-dom';
 import './tabs.scss';
 
 const tabs = [
@@ -10,14 +10,7 @@ const tabs = [
 
 export const TabsPage: React.FC = () => {
   const { tabId } = useParams<{ tabId: string }>();
-  const navigate = useNavigate();
   const activeTab = tabs.find(tab => tab.id === tabId);
-
-  useEffect(() => {
-    if (!activeTab && tabs.length) {
-      navigate(`/tabs/${tabs[0].id}`);
-    }
-  }, []);
 
   return (
     <div className="TabsPage">
@@ -33,11 +26,11 @@ export const TabsPage: React.FC = () => {
         }
       </ul>
 
-      {activeTab && (
+      {activeTab ? (
         <p className="TabsPage__content">
           {activeTab.content}
         </p>
-      )}
+      ) : 'No selected tab'}
 
     </div>
   );

@@ -1,6 +1,6 @@
 import './App.scss';
 import {
-  Routes, Route, NavLink,
+  Routes, Route, NavLink, Navigate,
 } from 'react-router-dom';
 import { TabsPage } from './components/TabsPage';
 import { HomePage } from './components/additional/HomePage';
@@ -11,7 +11,7 @@ const App = () => {
     <div className="App">
       <nav className="App__nav">
         <NavLink
-          to="/home"
+          to="/"
           className="App__link"
         >
           Home
@@ -25,10 +25,11 @@ const App = () => {
       </nav>
 
       <Routes>
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/tabs/" element={<TabsPage />}>
           <Route path=":tabId" element={<TabsPage />} />
         </Route>
+        <Route path="/home" element={<Navigate replace to="/" />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
