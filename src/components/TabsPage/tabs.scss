@@ -1,0 +1,36 @@
+.TabsPage {
+  padding: 20px;
+  background-color: #b33030;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  &__item {
+    border-bottom: 1px solid #a1b57d;
+    font-size: 20px;
+    width: 70px;
+    margin: 0 auto;
+    text-decoration: none;
+
+    transition: 0.3s all;
+
+    &:hover {
+      transform: scale(110%);
+    }
+  }
+
+  &__content {
+    font-size: 25px;
+    transition: 0.3s all;
+
+    &:hover {
+      transform: scale(110%);
+      background-color: #a1b57d;
+    }
+  }
+}
