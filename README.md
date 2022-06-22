@@ -5,7 +5,7 @@
 
 ## If you don't use **Typescript**
 1. Rename `.tsx` files to `.jsx`
-1. use `eslint-config-react` in `.eslintrs.js` 
+1. use `eslint-config-react` in `.eslintrs.js`
 
 ## Description
 Implement an App with a navigation and 2 pages:
