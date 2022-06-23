@@ -4,9 +4,9 @@ import { tabs } from './tabs';
 
 export const Tab = () => {
   const { id } = useParams();
-  const o = tabs.filter(tab => (tab.id === id));
+  const currentTab = tabs.filter(tab => (tab.id === id));
 
   return (
-    <p>{o.length ? o[0].content : 'Please select a tab'}</p>
+    <p>{currentTab.length ? currentTab[0].content : 'Please select a tab'}</p>
   );
 };
