@@ -1,31 +1,51 @@
+import { useState } from 'react';
+import { Link, Route, Routes } from 'react-router-dom';
 import './App.scss';
+import TabsPage from './TabsPage';
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
+const App: React.FC = () => {
+  const [linkIsActive, setLinkIsActive] = useState('home');
 
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
+  return (
+    <div className="App">
+      <nav>
+        <Link
+          onClick={() => {
+            setLinkIsActive('home');
+          }}
+          className={linkIsActive === 'home' ? 'link link--active' : 'link'}
+          to="/"
+        >
+          Home page
+        </Link>
 
-or
+        <Link
+          onClick={() => {
+            setLinkIsActive('tabs');
+          }}
+          className={linkIsActive === 'tabs' ? 'link link--active' : 'link'}
+          to="/tabs"
+        >
+          Tabs page
+        </Link>
+      </nav>
+      <div>
+        <Routes>
+          <>
+            <Route
+              path="/"
+              element={<h1>Home page</h1>}
+            />
 
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
+            <Route
+              path="/tabs/:tabid?"
+              element={<TabsPage />}
+            />
+          </>
+        </Routes>
+      </div>
+    </div>
+  );
 };
-*/
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
-
-const App = () => (
-  <div className="App">
-    <h1>Tabs with router</h1>
-  </div>
-);
 
 export default App;
