@@ -1,1 +1,64 @@
 // not empty
+.button {
+  display: inline-block;
+  font-family: Roboto, sans-serif;
+  padding: 10px 30px;
+  border-radius: 10px;
+  border: 1px solid #2b74b1;
+  background-color: #2b74b1;
+  color: #fff;
+  text-decoration: none;
+  transition: .3s;
+  margin: 10px;
+  &:hover {
+    background-color: #fff;
+    color: #2b74b1;
+  }
+}
+
+.button.active{
+  background-color: #fff;
+  color: green;
+  border: 1px solid green;
+}
+
+.tab_wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.tab_btn {
+  display: inline-block;
+  font-family: Roboto, sans-serif;
+  padding: 10px 30px;
+  border-radius: 10px;
+  border: 1px solid #0000ff;
+  background-color: #0000ff;
+  color: #fff;
+  text-decoration: none;
+  transition: .3s;
+  margin: 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: #fff;
+    color: #0000ff;
+  }
+}
+
+.tab_btn.active {
+  background-color: #fff;
+  color: #0000ff;
+}
+
+.tabs_content {
+  text-align: center;
+  font-family: Roboto, sans-serif;
+  width: 500px;
+  padding: 20px;
+  border: 1px solid red;
+  border-radius: 10px;
+  margin: auto;
+
+}
