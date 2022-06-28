@@ -15,7 +15,7 @@ const Tabs: React.FC<Props> = ({ tabs }) => {
         {tabs.map(tab => (
           <NavLink
             key={tab.id}
-            to={`/tabs/${tab.id}`}
+            to={`/react_tabs-with-router/tabs/${tab.id}`}
             className={({ isActive }) => `tabs__tab ${(isActive && 'tabs__tab--active')}`}
           >
             {tab.title}

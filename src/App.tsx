@@ -21,13 +21,13 @@ const App = () => {
         <header>
           <nav>
             <NavLink
-              to="/"
+              to="/react_tabs-with-router"
               className={({ isActive }) => (isActive ? 'active' : 'link')}
             >
               Home
             </NavLink>
             <NavLink
-              to="/tabs"
+              to="/react_tabs-with-router/tabs"
               className={({ isActive }) => (isActive ? 'active' : 'link')}
             >
               Tabs
@@ -38,7 +38,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
-            path="/tabs"
+            path="/react_tabs-with-router/tabs"
             element={(
               <TabsPage
                 tabs={tabs}
@@ -46,7 +46,7 @@ const App = () => {
             )}
           />
           <Route
-            path="/tabs/:tabId"
+            path="/react_tabs-with-router/tabs/:tabId"
             element={(
               <TabsPage
                 tabs={tabs}
