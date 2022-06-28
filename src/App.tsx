@@ -21,7 +21,7 @@ const App = () => {
         <header>
           <nav>
             <NavLink
-              to="/react_tabs-with-router"
+              to="/react_tabs-with-router/"
               className={({ isActive }) => (isActive ? 'active' : 'link')}
             >
               Home
