@@ -1,6 +1,6 @@
 import './App.scss';
 import {
-  BrowserRouter as Router,
+  HashRouter,
   NavLink,
   Route,
   Routes,
@@ -16,7 +16,7 @@ const tabs = [
 
 const App = () => {
   return (
-    <Router>
+    <HashRouter>
       <div className="App">
         <header>
           <nav>
@@ -55,7 +55,7 @@ const App = () => {
           />
         </Routes>
       </div>
-    </Router>
+    </HashRouter>
   );
 };
 
