@@ -1,0 +1,43 @@
+.tabs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+
+  &__tab {
+    cursor: pointer;
+    max-width: 100px;
+    margin: 0;
+    padding: 15px 25px;
+    border: 1px solid #ddd;
+    border-bottom: 0;
+    background: #eee;
+    color: #444;
+    text-decoration: none;
+
+    &:hover {
+      background: #ddd;
+    }
+
+    &--active {
+      background: #fff;
+    }
+
+    &:not(:last-child) {
+      border-right: 0;
+    }
+  }
+}
+
+.content {
+  padding: 20px;
+  width: 500px;
+  height: 300px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #444;
+
+  &__text {
+    margin: 0;
+  }
+}
