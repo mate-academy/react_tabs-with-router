@@ -38,9 +38,14 @@ const App: React.FC = () => {
             />
 
             <Route
-              path="/tabs/:tabid?"
+              path="/tabs"
               element={<TabsPage />}
-            />
+            >
+              <Route
+                path="/tabs:tabId"
+                element={<TabsPage />}
+              />
+            </Route>
           </>
         </Routes>
       </div>
