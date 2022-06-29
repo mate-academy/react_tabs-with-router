@@ -1,0 +1,37 @@
+.TabsPage {
+
+  &__title {
+    text-align: center;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  &__link {
+    list-style: none;
+  }
+
+  &__btn {
+    display: block;
+    text-align: center;
+    width: 100px;
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 5px;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: 2px 2px 5px #aaa;
+    }
+  }
+
+  &__text {
+    text-align: center;
+  }
+}

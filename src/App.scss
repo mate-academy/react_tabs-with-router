@@ -1,1 +1,25 @@
-// not empty
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ddd;
+}
+
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  &__title {
+    text-align: center;
+    text-shadow: 2px 2px 4px #aaa;
+  }
+}
+
+.active {
+  font-weight: bold;
+}
