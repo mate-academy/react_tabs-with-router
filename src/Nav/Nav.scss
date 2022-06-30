@@ -1,0 +1,15 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  &__link {
+    text-decoration: none;
+    color: #000;
+    transition: text-shadow 0.3s;
+
+    &:hover {
+      text-shadow: 2px 2px 3px #aaa;
+    }
+  }
+}
