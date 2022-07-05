@@ -1,1 +1,33 @@
-// not empty
+.App {
+  width: 80%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 60px auto;
+
+  &__nav {
+    display: flex;
+    margin: 0 auto;
+    gap: 40px;
+  }
+
+  &__item {
+    width: 80px;
+    padding: 10px;
+    text-decoration: none;
+    color: #182628;
+    font-size: 24px;
+    background-color: #def2f1;
+    text-align: center;
+    border-radius: 6px;
+
+    &--active,
+    &:hover {
+      box-shadow: 10px 5px 5px #3aafa9;
+    }
+  }
+
+  &__home-title {
+    text-align: center;
+  }
+}

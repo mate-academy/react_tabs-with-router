@@ -1,0 +1,27 @@
+.TabsPage {
+  &__nav-list {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    margin: 30px 0;
+    border-bottom: 1px solid #2b7a78;
+    border-radius: 6px;
+  }
+
+  &__nav-item {
+    text-decoration: none;
+    padding: 10px;
+    width: 30%;
+    text-align: center;
+    font-size: 20px;
+    color: #000;
+
+    &--active,
+    &:hover {
+      background-color: #def2f1;
+      border: 1px solid #2b7a78;
+      border-bottom: none;
+      border-radius: 6px;
+    }
+  }
+}
