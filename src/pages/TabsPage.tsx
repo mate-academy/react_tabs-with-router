@@ -17,14 +17,12 @@ export const TabsPage: React.FC = () => {
       <div className="tabs">
         <ul className="is-spaced">
           {tabs.map(tab => (
-            <li key={tab.id}>
+            <li key={tab.id} className={`
+                ${pathname === `/tabs/${tab.id}` ? 'is-active' : ''}
+              `}>
               <NavLink
                 to={`${tab.id}`}
-                className={`
-                  nav-item
-                  ${pathname === '/tabs'
-                    ? 'is-active' : ''}
-                `}>
+                className="nav-item">
                 {tab.title}
               </NavLink>
             </li>
