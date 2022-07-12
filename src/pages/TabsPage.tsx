@@ -18,7 +18,13 @@ export const TabsPage: React.FC = () => {
         <ul className="is-spaced">
           {tabs.map(tab => (
             <li key={tab.id}>
-              <NavLink to={`${tab.id}`} className="nav-item">
+              <NavLink
+                to={`${tab.id}`}
+                className={`
+                  nav-item
+                  ${pathname === '/tabs'
+                    ? 'is-active' : ''}
+                `}>
                 {tab.title}
               </NavLink>
             </li>
