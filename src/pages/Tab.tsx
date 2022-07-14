@@ -7,10 +7,10 @@ export const Tab: React.FC = () => {
   const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
-    <>
+    <p>
       {selectedTab
-        ? (<p>{selectedTab?.content}</p>)
+        ? (selectedTab?.content)
         : ('Please select a tab')}
-    </>
+    </p>
   );
 };
