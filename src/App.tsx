@@ -1,4 +1,8 @@
+import { NavLink, Route, Routes } from 'react-router-dom';
 import './App.scss';
+import { HomePage } from './components/HomePage';
+import { TabsPage } from './components/TabsPage';
+import 'bulma';
 
 /*
 import { RouteComponentProps } from 'react-router-dom';
@@ -24,7 +28,28 @@ const TabsPage = () => {
 
 const App = () => (
   <div className="App">
-    <h1>Tabs with router</h1>
+    <nav className="navbar">
+      <div className="navbar-brand">
+        <NavLink
+          to="/"
+          className="navbar-item is-tab"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/tabs"
+          className="navbar-item is-tab"
+        >
+          Tabs
+        </NavLink>
+      </div>
+    </nav>
+
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/tabs" element={<TabsPage />} />
+      <Route path="/tabs/:tabId" element={<TabsPage />} />
+    </Routes>
   </div>
 );
 
