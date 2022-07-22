@@ -1,1 +1,47 @@
 // not empty
+body {
+  height: 100vh;
+  background-color: rgba(17, 226, 121, 0.36);
+}
+
+h1 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+.main-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: rgb(20, 228, 99);
+  padding: 2px;
+}
+
+.TabsPage {
+  background-color: inherit;
+
+  &__title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 0;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 20px;
+    background-color: rgb(20, 228, 99);
+    padding: 2px;
+  }
+
+  &__content,
+  &__info-message {
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+  }
+}
