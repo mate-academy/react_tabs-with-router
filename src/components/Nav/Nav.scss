@@ -1,0 +1,25 @@
+.Nav {
+  &__list {
+    display: flex;
+    justify-content: left;
+    gap: 2em;
+    width: 100%;
+    padding: 1em 0;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: black;
+    padding: 1em 0;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom ease-in-out 0.5s;
+
+    &:hover {
+      border-bottom-color: #98a9ce;
+    }
+  }
+}
+
+.active {
+  border-bottom-color: #98a9ce;
+}
