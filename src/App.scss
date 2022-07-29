@@ -1,1 +1,28 @@
 // not empty
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  margin-bottom: 30px;
+
+  & a {
+    float: left;
+    color: #b53333;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: #ddd;
+      color: #49863b;
+    }
+
+    &.active {
+      background-color: #24598d;
+      color: white;
+    }
+
+  }
+}
