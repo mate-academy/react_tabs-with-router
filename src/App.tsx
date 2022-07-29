@@ -1,31 +1,57 @@
+import { Routes, Route, NavLink } from 'react-router-dom';
 import './App.scss';
+import TabsPage from './Components/TabsPage';
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
+const tabs = [
+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
+  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
+  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+];
 
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
+const App = () => {
+  return (
+    <div className="App">
+      <div className="tabs is-boxed">
+        <nav className="nav">
+          <NavLink
+            className={({ isActive }) => (isActive
+              ? 'is-active' : 'not-active')}
+            to="/"
+          >
+            Home page
+          </NavLink>
 
-or
+          <NavLink
+            className={({ isActive }) => (isActive
+              ? 'is-active' : 'not-active')}
+            to="/tabs"
+          >
+            People page
+          </NavLink>
+        </nav>
+      </div>
+      <Routes>
+        <Route
+          path="/"
+          element={(
+            <h1 className="title is-1 is-spaced">
+              Home page
+            </h1>
+          )}
+        />
+        <Route path="/home" element={<p>Home page</p>} />
+        <Route path="tabs/:tabId" element={<TabsPage tabs={tabs} />} />
+        <Route path="/tabs" element={<TabsPage tabs={tabs} />} />
 
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
+        <Route
+          path="*"
+          element={
+            <p>Home page</p>
+          }
+        />
+      </Routes>
+    </div>
+  );
 };
-*/
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
-
-const App = () => (
-  <div className="App">
-    <h1>Tabs with router</h1>
-  </div>
-);
 
 export default App;
