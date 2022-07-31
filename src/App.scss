@@ -8,7 +8,7 @@
     color: blue;
   }
 
-  &--active {
+  &.active {
     text-decoration: underline;
     color: blue;
   }
@@ -26,15 +26,17 @@
   height: 30px;
   margin-right: 3px;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 
   &:hover {
     opacity: 0.7;
     background-color: grey;
   }
 
-  &--checked {
-    opacity: 0.7;
-    background-color: grey;
+  &.active {
+    text-decoration: underline;
+    color: blue;
   }
 }
 

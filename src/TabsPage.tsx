@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 
 const TabsPage: React.FC = () => {
   const { tabId } = useParams<{ tabId: string }>();
@@ -19,12 +19,12 @@ const TabsPage: React.FC = () => {
             key={tab.id}
             className="list__item"
           >
-            <Link
+            <NavLink
               className="btn"
               to={`/tabs/${tab.id}`}
             >
               {tab.title}
-            </Link>
+            </NavLink>
           </li>
         ))}
       </ul>
