@@ -1,1 +1,42 @@
-// not empty
+.link {
+  display: block;
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    text-decoration: underline;
+    color: blue;
+  }
+
+  &.active {
+    text-decoration: underline;
+    color: blue;
+  }
+}
+
+.list {
+  display: flex;
+  list-style: none;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  width: 100px;
+  height: 30px;
+  margin-right: 3px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    opacity: 0.7;
+    background-color: grey;
+  }
+
+  &.active {
+    text-decoration: underline;
+    color: blue;
+  }
+}
+

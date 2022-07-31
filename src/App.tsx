@@ -1,31 +1,47 @@
+import { NavLink, Route, Routes } from 'react-router-dom';
 import './App.scss';
+import TabsPage from './TabsPage';
 
-/*
-import { RouteComponentProps } from 'react-router-dom';
+const App: React.FC = () => {
+  return (
+    <div className="App">
+      <nav>
+        <NavLink
+          className="link"
+          to="/"
+        >
+          Home page
+        </NavLink>
 
-type TabsPageProps = React.FC<RouteComponentProps<{ tabId: string }>>;
-const TabsPage: TabsPageProps = ({ match }) => {...};
+        <NavLink
+          className="link"
+          to="/tabs"
+        >
+          Tabs page
+        </NavLink>
+      </nav>
+      <div>
+        <Routes>
+          <>
+            <Route
+              path="/"
+              element={<h1>Home page</h1>}
+            />
 
-or
-
-import { useParams } from 'react-router-dom';
-
-const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  ...
+            <Route
+              path="/tabs"
+              element={<TabsPage />}
+            >
+              <Route
+                path="/tabs:tabId"
+                element={<TabsPage />}
+              />
+            </Route>
+          </>
+        </Routes>
+      </div>
+    </div>
+  );
 };
-*/
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
-
-const App = () => (
-  <div className="App">
-    <h1>Tabs with router</h1>
-  </div>
-);
 
 export default App;
