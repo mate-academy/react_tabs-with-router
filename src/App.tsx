@@ -4,6 +4,7 @@ import {
   Routes,
   Route,
   NavLink,
+  Navigate,
 } from 'react-router-dom';
 import { HomePage } from './components/HomePage';
 import { TabsPage } from './components/TabsPage';
@@ -25,11 +26,13 @@ const App = () => (
 
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/home" element={<Navigate to="/" replace />} />
       <Route path="/tabs">
-        <Route path="/tabs" element={<TabsPage tabs={tabs} />} />
+        <Route index element={<TabsPage tabs={tabs} />} />
 
         <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
       </Route>
+      <Route path="*" element={<h1>Page not found</h1>} />
     </Routes>
   </div>
 );
