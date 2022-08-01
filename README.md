@@ -1,32 +1,35 @@
 # React Tabs with Router
-- Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/react_tabs-with-router/)
-- Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
 
-## If you don't use **Typescript**
-1. Rename `.tsx` files to `.jsx`
-1. use `eslint-config-react` in `.eslintrs.js` 
+> Here is [the working version](https://mate-academy.github.io/react_tabs)
 
-## Description
-Implement an App with a navigation and 2 pages:
+Implement the `App` with `Home` page available at `/` and `Tabs` page available
+at `/tabs`. Each page should have the correct title `Home page` or `Tabs page`.
+The `Tabs` page should also show a `Tabs` component implemented in [React Tabs](https://github.com/mate-academy/react_tabs#react-tabs).
 
-1. Show `<h1>Home page</h1>` on `http://localhost:3000`.
-1. Show `TabsPage` component on `http://localhost:3000/#/tabs`. Use these tabs:
-    ```javascript
-    let tabs = [
-      { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-      { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-      { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-    ];
+1. Navigation with `Home` and `Tabs` links
+    - should be visible on every page;
+    - should highlight an active link with `is-active` class;
+1. `TabsPage` page should work for both `/tabs` and `/tabs/:tabId` paths (use nested routes);
+    ```tsx
+    <Route path="tabs">
+      <Route index element={<TabsPage />} />
+      <Route path=":tabId" element={<TabsPage />} />
+    </Route>
     ```
-1. Add a navigation to `Home` or `Tabs` page
-    - The navigation should be visible everywhere.
-    - An active link should be highlighted.
-1. `TabsPage` should show a list of tabs.
-    - When you select a tab the URL should be changed to `/tabs/tab-1` (use actual `tab.id`).
-    - a tab content should be shown below the list
-    - the selected tab should be highlighted by changing the class of the `<a>` element.
-1. After the page reload you should see a content of the tab matching the `id` from the URL.
-    - If the `id` is not valid or is not set (e.g just `/tabs`) show `Please select a tab` message.
+1. Each tab should update the URL on click. 
+    - the URL should follow the next format `/tabs/:tabId` (use actual `tab.id` instead of `:tabId`);
+    - replace `<a href="#...">` with `<Link to="/tabs/...">` and remove `onClick`;
+    - **don't** use `NavLink` as `is-active` class is added to a parent element;
+    - read `tabId` from the URL using [useParams](https://reactrouter.com/docs/en/v6/hooks/use-params) hook;
+    - if the `tabId` does not match any tab show `Please select a tab` message instead of a tab content.
+1. The page should show the same content after a reload.
+1. Redirect from `/home` to `/` using the [Navigate](https://reactrouter.com/docs/en/v6/components/navigate) component;
+1. Show the `Page not found` title for all the other URLs;
 
-![tabs](./description/tabs.gif)
+## Instructions
+
+- Implement a solution following the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline).
+- Use the [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript).
+- Open one more terminal and run tests with `npm test` to ensure your solution is correct.
+- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_tabs-with-router/) and add it to the PR description.
+
