@@ -1,1 +1,27 @@
 // not empty
+html {
+  display: flex;
+  justify-content: center;
+  background-color: #fffbae;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 200px;
+
+  width: 500px;
+
+  &__header {
+    margin-bottom: 50px;
+  }
+}
+
+.TabsPage {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
