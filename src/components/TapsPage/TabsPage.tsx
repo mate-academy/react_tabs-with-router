@@ -14,7 +14,7 @@ export const PageTabs: React.FC<Props> = ({ tabs }) => {
   return (
     <>
       <h1 className="title">
-        {selectedTab ? `Selected tab is ${selectedTab.title}` : 'Choose a tab'}
+        {selectedTab ? `Selected tab is ${selectedTab.title}` : 'Please select a tab'}
       </h1>
       <div className="tabs is-boxed">
         <ul>
