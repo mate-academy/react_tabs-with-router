@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 60px #2e2e2e;
+  background-color: #eee;
+  height: 50px;
+  margin-bottom: 30px;
+  &__nav {
+    &-list {
+      display: flex;
+      gap: 40px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    &-link {
+      text-decoration: none;
+      color: black;
+      transition: 0.3s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+.is-active {
+  color: #946262;
+  transform: scale(1.2);
+}
