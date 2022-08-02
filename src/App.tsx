@@ -7,14 +7,13 @@ import {
 import 'bulma/css/bulma.css';
 import './App.scss';
 import { HomePage } from './components/HomePage/HomePage';
-import { PageInfo } from './components/PageInfo/PageInfo';
+import { TabPageInfo } from './components/TabPageInfo/TabPageInfo';
 import { tabs } from './api/tabs';
 import { TabsPage } from './components/TabsPage/TabsPage';
-import { TabOutlet } from './components/TabsOutlet/TabsOutlet';
 import { Loader } from './components/Loader';
 
 export const App = () => {
-  const activeLink = ({ isActive }: any) => ({
+  const activeLink = ({ isActive }: { isActive: boolean }) => ({
     color: isActive ? '#fff' : '#545e6f',
     background: isActive ? '#7600dc' : '#f0f0f0',
   });
@@ -47,17 +46,14 @@ export const App = () => {
             />
           </Route>
 
-          <Route
-            path="tabs"
-            element={<TabOutlet />}
-          >
+          <Route path="tabs">
             <Route
-              path=""
-              element={<TabsPage tabsFromServer={tabs} />}
+              index
+              element={<TabsPage tabs={tabs} />}
             />
             <Route
               path=":id"
-              element={<PageInfo />}
+              element={<TabPageInfo tabs={tabs} />}
             />
           </Route>
           <Route

@@ -1,20 +1,20 @@
 import { NavLink } from 'react-router-dom';
 
 type Props = {
-  tabsFromServer: Tab[],
+  tabs: Tab[],
 };
 
 export const TabsPage: React.FC<Props> = ({
-  tabsFromServer,
+  tabs,
 }) => {
   return (
     <ul className="tabs is-toggle TabsPage">
-      {tabsFromServer.map(tabFromServer => (
+      {tabs.map(tab => (
         <NavLink
-          key={tabFromServer.id}
-          to={`/tabs/${tabFromServer.id}`}
+          key={tab.id}
+          to={`/tabs/${tab.id}`}
         >
-          <li>{tabFromServer.title}</li>
+          <li>{tab.title}</li>
         </NavLink>
       ))}
     </ul>

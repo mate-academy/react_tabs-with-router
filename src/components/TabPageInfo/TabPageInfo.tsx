@@ -1,7 +1,10 @@
 import { useParams } from 'react-router-dom';
-import { tabs } from '../../api/tabs';
 
-export const PageInfo = () => {
+type Props = {
+  tabs: Tab[]
+};
+
+export const TabPageInfo: React.FC<Props> = ({ tabs }) => {
   const tabId = useParams();
 
   const currentPageInfo = tabs.find(tab => tab.id === tabId.id);
