@@ -1,48 +1,50 @@
+import {
+  Route,
+  Routes,
+  NavLink,
+} from 'react-router-dom';
+
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
+import { TabsPage } from './components/TabsPage';
+import { TabsContent } from './components/TabsContent';
 
-const App = () => (
-  <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
-    <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
-      <div className="navbar-menu">
-        <div className="navbar-start">
-          <a href="/" className="navbar-item isActive">Home</a>
-          <a href="/tabs" className="navbar-item isActive">Tabs</a>
+const tabs: Tab[] = [
+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
+  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
+  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+];
+
+export const App = () => {
+  return (
+    <>
+      {/* Also requires <html class="has-navbar-fixed-top"> */}
+      <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
+        <div className="navbar-menu">
+          <div className="navbar-start">
+            <NavLink to="/" className="navbar-item isActive">
+              Home
+            </NavLink>
+
+            <NavLink to="tabs" className="navbar-item isActive">
+              Tabs
+            </NavLink>
+          </div>
         </div>
+      </nav>
+
+      <div className="section">
+        <Routes>
+          <Route path="/home" element={<h1 className="title">Home page</h1>} />
+          <Route path="tabs" element={<TabsPage tabs={tabs} />}>
+            <Route index element={<TabsContent tabs={tabs} />} />
+            <Route path=":tabId" element={<TabsContent tabs={tabs} />} />
+          </Route>
+
+          <Route path="*" element={<h1 className="title">Page not found</h1>} />
+        </Routes>
       </div>
-    </nav>
-
-    <div className="section">
-      <h1 className="title">Home page</h1>
-      <h1 className="title">Tabs page</h1>
-      <h1 className="title">Page not found</h1>
-
-      <div className="tabs is-boxed">
-        <ul>
-          <li data-cy="tab" className="is-active">
-            <a href="#/">Tab 1</a>
-          </li>
-          <li data-cy="tab">
-            <a href="#/">Tab 2</a>
-          </li>
-          <li data-cy="tab">
-            <a href="#/">Tab 3</a>
-          </li>
-        </ul>
-      </div>
-
-      <div className="block" data-cy="tab-content">
-        Please select a tab
-      </div>
-    </div>
-  </>
-);
-
-export default App;
+    </>
+  );
+};
