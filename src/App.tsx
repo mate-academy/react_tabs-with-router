@@ -21,8 +21,9 @@ const App = () => (
     </header>
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="tabs/:tabId" element={<TabsPage tabs={tabs} />} />
-      <Route path="/tabs" element={<TabsPage tabs={tabs} />} />
+      <Route path="tabs" element={<TabsPage tabs={tabs} />}>
+        <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
+      </Route>
       <Route path="*" element={<HomePage />} />
     </Routes>
   </div>

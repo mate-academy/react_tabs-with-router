@@ -18,15 +18,13 @@ const TabsPage: React.FC<Props> = ({ tabs }) => {
     <section>
       <nav className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => {
-            return (
-              <li key={tab.id} className={tab.id === tabId ? 'is-active' : ''}>
-                <Link to={`/tabs/${tab.id}`}>
-                  {tab.title}
-                </Link>
-              </li>
-            );
-          })}
+          {tabs.map(tab => (
+            <li key={tab.id} className={tab.id === tabId ? 'is-active' : ''}>
+              <Link to={`/tabs/${tab.id}`}>
+                {tab.title}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
       <p>
