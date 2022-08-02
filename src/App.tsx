@@ -1,5 +1,6 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
+import classNames from 'classnames';
 import {
   Routes, Route, NavLink, Navigate,
 } from 'react-router-dom';
@@ -15,20 +16,24 @@ const tabs = [
 ];
 
 const App = () => {
+  const navLinkClassNames = ({ isActive }: { isActive: boolean }) => {
+    return classNames('navbar-item', { 'is-active': isActive });
+  };
+
   return (
     <>
       <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
         <div className="navbar-menu">
           <div className="navbar-start">
             <NavLink
-              className="navbar-item isActive"
+              className={navLinkClassNames}
               to="/"
             >
               Home page
             </NavLink>
 
             <NavLink
-              className="navbar-item isActive"
+              className={navLinkClassNames}
               to="/tabs"
             >
               Tabs Page
