@@ -12,13 +12,14 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
 
   return (
     <>
+      <h1 className="title">Tabs page</h1>
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
             <li
               data-cy="tab"
               key={tab.id}
-              className={classNames('', {
+              className={classNames({
                 'is-active': tabId === tab.id,
               })}
             >

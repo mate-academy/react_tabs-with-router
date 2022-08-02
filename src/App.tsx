@@ -27,7 +27,6 @@ const App = () => (
               : 'navbar-item')}
           >
             Home
-
           </NavLink>
           <NavLink
             to="tabs"
@@ -48,16 +47,13 @@ const App = () => (
         <Route
           path="/tabs"
           element={(
-            <>
-              <h1 className="title">Tabs page</h1>
-              <Tabs tabs={tabs} />
-            </>
+            <Tabs tabs={tabs} />
           )}
         >
           <Route path=":tabId" element={<Tabs tabs={tabs} />} />
         </Route>
 
-        <Route path="/*" element={<h1 className="title">Page not found</h1>} />
+        <Route path="*" element={<h1 className="title">Page not found</h1>} />
       </Routes>
     </div>
   </>
