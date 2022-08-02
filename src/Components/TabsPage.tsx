@@ -1,13 +1,13 @@
 import {
-  Navigate,
-  NavLink,
-  Route,
-  Routes,
+  NavLink, useParams,
 } from 'react-router-dom';
-import { TabInfo } from './TabInfo';
 import { tabs } from '../tabs';
 
 export const TabsPage = () => {
+  const { tabId } = useParams();
+
+  const currentTab = tabs.find(curTab => curTab.id === tabId);
+
   return (
     <div>
       <h1 className="title has-text-centered">Tabs page</h1>
@@ -15,11 +15,9 @@ export const TabsPage = () => {
         {tabs.map(tab => (
           <li key={tab.id}>
             <NavLink
-              to={tab.id}
+              to={`/tabs/${tab.id}`}
               className={({ isActive }) => (
-                isActive
-                  ? 'button is-info'
-                  : ''
+                (isActive && 'button is-info') || 'button is-white'
               )}
             >
               {tab.title}
@@ -27,11 +25,9 @@ export const TabsPage = () => {
           </li>
         ))}
       </ul>
-      <Routes>
-        <Route index element={<h1 className="title">Please select a tab</h1>} />
-        <Route path=":tabId" element={<TabInfo tabs={tabs} />} />
-        <Route path=":tabId/*" element={<Navigate to="/tabs" />} />
-      </Routes>
+      <h1 className="title">
+        {currentTab ? `${currentTab.content}` : 'Please select a tab'}
+      </h1>
     </div>
   );
 };

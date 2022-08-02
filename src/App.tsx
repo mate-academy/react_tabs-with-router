@@ -6,6 +6,8 @@ import {
 import './App.scss';
 import 'bulma';
 import { TabsPage } from './Components/TabsPage';
+import { NotFoundPage } from './Components/NotFounPage';
+import { HomePage } from './Components/HomePage';
 
 const App = () => (
   <div className="App">
@@ -15,19 +17,12 @@ const App = () => (
     </header>
     <main>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <h1 className="title has-text-centered">Home page</h1>
-          }
-        />
-        <Route path="tabs/*" element={<TabsPage />} />
-        <Route
-          path="*"
-          element={
-            <h1 className="title has-text-centered">Page is not found</h1>
-          }
-        />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/tabs">
+          <Route index element={<TabsPage />} />
+          <Route path=":tabId" element={<TabsPage />} />
+        </Route>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </main>
   </div>
