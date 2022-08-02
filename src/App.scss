@@ -1,1 +1,18 @@
-// not empty
+.nav {
+  display: flex;
+  justify-content: center;
+
+  &__page {
+    font-size: 30px;
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 8px;
+  }
+
+  &__text {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+}
