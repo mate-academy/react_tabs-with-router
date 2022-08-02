@@ -13,13 +13,12 @@ const tabs = [
 export const App: React.FC = () => {
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <Header />
 
       <div className="section">
         <Routes>
           <Route path="/" element={<h1 className="title">Home page</h1>} />
-          <Route path="/home" element={<Navigate to="/" />} />
+          <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="/tabs">
             <Route index element={<TabsPage tabs={tabs} />} />
             <Route path=":tabId" element={<TabsPage tabs={tabs} />} />

@@ -1,6 +1,17 @@
+import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
 
+interface Status {
+  isActive: boolean;
+}
+
 export const Header: React.FC = () => {
+  const isMenuActive = (status: Status): string | undefined => {
+    return classNames('navbar-item', {
+      'is-active': status.isActive,
+    });
+  };
+
   return (
     <>
       <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
@@ -8,13 +19,13 @@ export const Header: React.FC = () => {
           <div className="navbar-start">
             <NavLink
               to="/"
-              className={({ isActive }) => `navbar-item${isActive ? ' is-active' : ''}`}
+              className={isMenuActive}
             >
               Home
             </NavLink>
             <NavLink
               to="/tabs"
-              className={({ isActive }) => `navbar-item${isActive ? ' is-active' : ''}`}
+              className={isMenuActive}
             >
               Tabs
             </NavLink>
