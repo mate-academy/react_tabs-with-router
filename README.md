@@ -1,7 +1,7 @@
 # React Tabs with Router
 - Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/react_tabs-with-router/)
-- Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
+  [DEMO LINK](https://Lilia-Mazur.github.io/react_tabs-with-router/)
+- Follow the [React task guideline](https://github.gitcom/mate-academy/react_task-guideline#react-tasks-guideline)
 
 ## If you don't use **Typescript**
 1. Rename `.tsx` files to `.jsx`
