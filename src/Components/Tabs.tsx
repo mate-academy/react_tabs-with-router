@@ -36,21 +36,18 @@ export const Tabs: React.FC<Props> = ({
         ))}
       </ul>
 
-      {selectedTab?.content
-        ? (
-          <h1
-            className="title notification is-large is-success"
-          >
-            {selectedTab.content}
-          </h1>
-        )
-        : (
-          <h1
-            className="title notification is-danger is-light"
-          >
-            Please select a tab
-          </h1>
-        )}
+      <h1
+        className={
+          classNames(
+            'title',
+            'notification',
+            'is-large',
+            { 'is-danger': !selectedTab?.content })}
+      >
+        {selectedTab?.content
+          ? selectedTab.content
+          : 'Please, select a tab'}
+      </h1>
     </>
   );
 };

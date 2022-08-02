@@ -3,6 +3,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import {
   NavLink, Navigate, Route, Routes,
 } from 'react-router-dom';
+import classNames from 'classnames';
 import { Tabs } from './Components/Tabs';
 import { Tab } from './types/Tab';
 
@@ -18,8 +19,22 @@ const App = () => {
       <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
         <div className="navbar-menu">
           <div className="navbar-start has-navbar-fixed-top">
-            <NavLink to="/" className="navbar-item isActive">Home</NavLink>
-            <NavLink to="/tabs" className="navbar-item isActive">Tabs</NavLink>
+            <NavLink
+              to="/"
+              className={
+                (isActive) => classNames(
+                  'navbar-item', { 'is-active': isActive })}
+            >
+              Home
+            </NavLink>
+
+            <NavLink
+              to="/tabs"
+              className={(isActive) => classNames(
+                'navbar-item', { 'is-active': isActive })}
+            >
+              Tabs
+            </NavLink>
           </div>
         </div>
       </nav>
@@ -36,10 +51,11 @@ const App = () => {
         <Route path="/home" element={<Navigate to="/" />} />
         <Route
           path="*"
-          element={
+          element={(
             <h1 className="title notification is-danger is-light">
               Page not found
-            </h1>}
+            </h1>
+          )}
         />
 
         <Route path="/tabs">
