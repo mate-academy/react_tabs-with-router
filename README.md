@@ -1,6 +1,6 @@
 # React Tabs with Router
 
-> Here is [the working version](https://mate-academy.github.io/react_tabs)
+> Here is [the working version](https://mate-academy.github.io/react_tabs-with-router)
 
 Implement the `App` with `Home` page available at `/` and `Tabs` page available
 at `/tabs`. Each page should have the correct title `Home page` or `Tabs page`.
