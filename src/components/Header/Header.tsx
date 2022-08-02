@@ -7,7 +7,6 @@ export const Header: React.FC = () => {
   };
 
   return (
-    // {/* Also requires <html class="has-navbar-fixed-top"> */}
     <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
       <div className="navbar-menu">
         <div className="navbar-start">
