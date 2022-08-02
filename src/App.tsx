@@ -4,14 +4,13 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import {
   Navigate, NavLink, Route, Routes,
 } from 'react-router-dom';
+import classNames from 'classnames';
 import { TabsPage } from './components/TabsPage';
 
 const App: React.FC = () => {
   const activeClass = ({ isActive }: { isActive: boolean }) => {
-    return (
-      isActive
-        ? 'navbar-item isActive'
-        : 'navbar-item'
+    return classNames(
+      'navbar-item', { isActive },
     );
   };
 
