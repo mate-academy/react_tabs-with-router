@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useMatch } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 
 const tabs = [
@@ -9,10 +9,9 @@ const tabs = [
 ];
 
 export const TabsPage: React.FC = React.memo(() => {
-  const match = useMatch('/tabs/:tabId');
-  const selectedTabId = match?.params.tabId;
+  const { tabId: selectedTabId } = useParams();
 
-  const getContent = (tabId: string | undefined) => {
+  const getContent = (tabId: string) => {
     return tabs.find(tab => tab.id === tabId)?.content;
   };
 

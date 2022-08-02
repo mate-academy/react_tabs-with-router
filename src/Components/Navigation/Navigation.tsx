@@ -1,18 +1,20 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import classNames from 'classnames';
 
 export const Navigation: React.FC = React.memo(() => {
+  const createClassNames = ({ isActive }: { isActive: boolean }) => {
+    if (isActive) {
+      return 'nav-link active';
+    }
+
+    return 'nav-link';
+  };
+
   return (
     <ul className="nav nav-pills">
       <li className="nav-item">
         <NavLink
-          className={(navData) => (classNames(
-            'nav-link',
-            {
-              active: navData.isActive,
-            },
-          ))}
+          className={createClassNames}
           to="/"
         >
           Home
@@ -21,12 +23,7 @@ export const Navigation: React.FC = React.memo(() => {
 
       <li className="nav-item">
         <NavLink
-          className={(navData) => (classNames(
-            'nav-link',
-            {
-              active: navData.isActive,
-            },
-          ))}
+          className={createClassNames}
           to="/tabs"
         >
           Tabs
