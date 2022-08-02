@@ -20,6 +20,7 @@ const App: React.FC = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<Navigate to="/" />} />
         <Route path="/tabs" element={<TabsPage tabs={tabs} />}>
+          <Route index element={<TabsPage tabs={tabs} />} />
           <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
         </Route>
       </Routes>

@@ -2,8 +2,10 @@ import React from 'react';
 import './Header.scss';
 import { NavLink } from 'react-router-dom';
 
+type ActiveStatus = (status: { isActive: boolean }) => string;
+
 export const Header: React.FC = () => {
-  const hasActive = ({ isActive }: { isActive: boolean }) => (
+  const hasActive: ActiveStatus = ({ isActive }) => (
     isActive ? 'header__nav-link is-active' : 'header__nav-link'
   );
 
