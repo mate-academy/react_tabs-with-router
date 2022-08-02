@@ -11,6 +11,10 @@ import { TabsPage } from './components/TabsPage';
 import { HomePage } from './components/HomePage';
 import { NotFoundPage } from './components/NotFoundPage';
 
+interface Status {
+  isActive: boolean,
+}
+
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
@@ -18,6 +22,10 @@ const tabs = [
 ];
 
 const App = () => {
+  const getClasses = (status: Status) => {
+    return status.isActive ? 'navbar-item isActive' : 'navbar-item';
+  };
+
   return (
     <>
       <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
@@ -25,18 +33,14 @@ const App = () => {
           <div className="navbar-start">
             <NavLink
               to="/"
-              className={({ isActive }) => (
-                isActive ? 'navbar-item isActive' : 'navbar-item'
-              )}
+              className={getClasses}
             >
               Home
 
             </NavLink>
             <NavLink
               to="tabs"
-              className={({ isActive }) => (
-                isActive ? 'navbar-item isActive' : 'navbar-item'
-              )}
+              className={getClasses}
             >
               Tabs
             </NavLink>
@@ -47,22 +51,9 @@ const App = () => {
       <div className="section">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route
-            path="/tabs"
-            element={(
-              <div className="tabs is-boxed">
-                <TabsPage
-                  tabs={tabs}
-                />
-              </div>
-            )}
-          >
-            <Route
-              path=":tabId"
-              element={<TabsPage tabs={tabs} />}
-            />
+          <Route path="/tabs" element={<TabsPage tabs={tabs} />}>
+            <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
           </Route>
-
           <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -1,4 +1,5 @@
 import { NavLink, useParams } from 'react-router-dom';
+import classNames from 'classnames';
 import { Tab } from '../types/Tab';
 
 type Props = {
@@ -10,7 +11,7 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
   const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
-    <>
+    <div className="tabs is-boxed">
       <div>
         <h1 className="title">Tabs page</h1>
         <ul>
@@ -18,8 +19,8 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
             <li data-cy="tab">
               <NavLink
                 to={tab.id}
-                className={({ isActive }) => (
-                  isActive ? 'isActive is-active' : ''
+                className={classNames(
+                  { 'isActive is-active': tab.id === selectedTab?.id },
                 )}
               >
                 {tab.title}
@@ -32,6 +33,6 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
           {selectedTab ? selectedTab.content : 'Please select a tab'}
         </div>
       </div>
-    </>
+    </div>
   );
 };
