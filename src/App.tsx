@@ -4,7 +4,7 @@ import {
 import './App.scss';
 import { Header } from './components/Header/Header';
 import { HomePage } from './components/HomePage/HomePage';
-import { PageTabs } from './components/TapsPage/TabsPage';
+import { PageTabs as TabsPage } from './components/TapsPage/TabsPage';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -19,27 +19,9 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<Navigate to="/" />} />
-        <Route
-          path="/tabs"
-          element={
-            (
-              <PageTabs
-                tabs={tabs}
-              />
-            )
-          }
-        />
-
-        <Route
-          path="/tabs/:tabId"
-          element={
-            (
-              <PageTabs
-                tabs={tabs}
-              />
-            )
-          }
-        />
+        <Route path="/tabs" element={<TabsPage tabs={tabs} />}>
+          <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
+        </Route>
       </Routes>
     </div>
   );
