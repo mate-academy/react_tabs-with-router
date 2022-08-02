@@ -1,15 +1,15 @@
 import {
   NavLink,
-  Outlet,
   Route,
   Routes,
 } from 'react-router-dom';
 import './App.scss';
 import 'bulma';
 import { useState } from 'react';
-import classNames from 'classnames';
-import { TabsPage } from './TabsPage';
-import { tabs } from './tabs';
+import { tabs } from './api/tabs';
+import { Tab } from './types/Tab';
+import { Tabs } from './components/Tabs';
+import { TabsPage } from './components/TabsPage';
 /*
 import { RouteComponentProps } from 'react-router-dom';
 
@@ -35,7 +35,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <nav className="navbar">
+      <nav className="navbar has-text-centered">
         <NavLink to="/" className="navbar-item">
           Home
         </NavLink>
@@ -43,6 +43,7 @@ const App: React.FC = () => {
           Tabs
         </NavLink>
       </nav>
+
       <Routes>
         <Route
           path="/"
@@ -52,36 +53,21 @@ const App: React.FC = () => {
             </h1>
           )}
         />
+
         <Route
           path="tabs"
-          element={(
-            <>
-              <div className="tabs is-centered">
-                <ul>
-                  {tabs.map(tab => (
-                    <li
-                      className={classNames(
-                        {
-                          'is-active':
-                          tab.id === selectedTab?.id,
-                        },
-                      )}
-                      key={tab.id}
-                    >
-                      <NavLink to={tab.id}>
-                        <span className="icon is-small">
-                          <i className="fas fa-image" aria-hidden="true" />
-                        </span>
-                        <span>{tab.title}</span>
-                      </NavLink>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <Outlet />
-            </>
-          )}
+          element={<Tabs tabs={tabs} selectedTabId={selectedTab?.id} />}
         >
+          <Route
+            index
+            element={(
+              <TabsPage
+                onSelect={onSelect}
+                selected={selectedTab}
+              />
+            )}
+          />
+
           <Route
             path=":tabId"
             element={(

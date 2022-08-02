@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { tabs } from './tabs';
+import { tabs } from '../api/tabs';
+import { Tab } from '../types/Tab';
 
 type Props = {
   onSelect: (tab: Tab | null) => void,
@@ -9,11 +11,13 @@ type Props = {
 export const TabsPage: React.FC<Props> = ({ onSelect, selected }) => {
   const { tabId } = useParams<{ tabId: string; }>();
 
-  onSelect(tabs.find(tab => tab.id === tabId) || null);
+  useEffect(() => {
+    onSelect(tabs.find(tab => tab.id === tabId) || null);
+  }, [tabId]);
 
   return selected ? (
     <h1>{selected.content}</h1>
   ) : (
-    <h1>Not found!</h1>
+    <h1>Please, select a tab</h1>
   );
 };
