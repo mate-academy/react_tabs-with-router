@@ -12,8 +12,12 @@ import { tabs } from './api/tabs';
 import { TabsPage } from './components/TabsPage/TabsPage';
 import { Loader } from './components/Loader';
 
+type Link = {
+  isActive: boolean,
+};
+
 export const App = () => {
-  const activeLink = ({ isActive }: { isActive: boolean }) => ({
+  const activeLink = ({ isActive }: Link) => ({
     color: isActive ? '#fff' : '#545e6f',
     background: isActive ? '#7600dc' : '#f0f0f0',
   });
