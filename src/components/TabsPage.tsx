@@ -25,7 +25,7 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
         </ul>
       </div>
       <div className="box">
-        {tabId === undefined
+        {!tabId
           ? (
             <p>Please, select a tab</p>
           ) : (

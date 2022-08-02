@@ -6,3 +6,7 @@ type Tab = {
   title: string,
   content: string,
 };
+
+type Status = {
+  isActive: boolean
+};
