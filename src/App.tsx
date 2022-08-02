@@ -7,14 +7,17 @@ import {
 } from 'react-router-dom';
 
 import classNames from 'classnames';
+import { TabsPage } from './TabsPage';
 
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
-import { TabsPage } from './TabsPage';
 
 export const App: React.FC = () => {
-  const getLinkClass = ({ isActive }: { isActive: boolean }): string => {
-    return isActive ? 'is-active' : '';
+  const getLinkClass = (isActive: boolean) => {
+    return classNames(
+      'navbar-item',
+      { 'is-active': isActive },
+    );
   };
 
   return (
@@ -31,20 +34,14 @@ export const App: React.FC = () => {
         <article className="navbar-menu">
           <NavLink
             to="/"
-            className={param => classNames(
-              'navbar-item',
-              getLinkClass(param),
-            )}
+            className={({ isActive }) => getLinkClass(isActive)}
           >
             Home
           </NavLink>
 
           <NavLink
             to="/tabs"
-            className={param => classNames(
-              'navbar-item',
-              getLinkClass(param),
-            )}
+            className={({ isActive }) => getLinkClass(isActive)}
           >
             Tabs
           </NavLink>
@@ -59,7 +56,7 @@ export const App: React.FC = () => {
             <Route path=":tabId" element={<TabsPage />} />
           </Route>
           <Route path="*" element={<h1>Page not found</h1>} />
-          <Route path="/home" element={<Navigate to="/" />} />
+          <Route path="/home" element={<Navigate to="/" replace />} />
         </Routes>
       </section>
     </div>
