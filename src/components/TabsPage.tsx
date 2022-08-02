@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, NavLink } from 'react-router-dom';
+import { useParams, NavLink, Outlet } from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import classNames from 'classnames';
 
@@ -28,9 +28,15 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
         ))}
       </nav>
 
-      {selectedTab?.id === undefined
-        ? <p className="has-text-centered">Please select a tab</p>
-        : <p className="has-text-centered">{selectedTab?.content}</p>}
+      <Outlet />
+
+      <p className="has-text-centered">
+        {
+          selectedTab?.id === undefined
+            ? 'Please select a tab'
+            : selectedTab.content
+        }
+      </p>
     </>
   );
 };

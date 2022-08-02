@@ -3,28 +3,29 @@ import { NavLink } from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import classNames from 'classnames';
 
-export const Navigation: React.FC = () => (
-  <header className="navbar">
-    <nav className="navbar-menu columns is-centered mt-4 mb-4">
-      <NavLink
-        className={(navData) => (classNames(
-          'navbar-item',
-          { 'is-active': navData.isActive },
-        ))}
-        to="/"
-      >
-        Home
-      </NavLink>
+export const Navigation: React.FC = () => {
+  const callback = (navData: { isActive: boolean }) => (classNames(
+    'navbar-item',
+    { 'is-active': navData.isActive },
+  ));
 
-      <NavLink
-        className={(navData) => (classNames(
-          'navbar-item',
-          { 'is-active': navData.isActive },
-        ))}
-        to="/tabs"
-      >
-        Tabs
-      </NavLink>
-    </nav>
-  </header>
-);
+  return (
+    <header className="navbar">
+      <nav className="navbar-menu columns is-centered mt-4 mb-4">
+        <NavLink
+          className={callback}
+          to="/"
+        >
+          Home
+        </NavLink>
+
+        <NavLink
+          className={callback}
+          to="/tabs"
+        >
+          Tabs
+        </NavLink>
+      </nav>
+    </header>
+  );
+};
