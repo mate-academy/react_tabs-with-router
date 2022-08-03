@@ -11,7 +11,11 @@ export const TabsContent: React.FC<Props> = ({ tabs }) => {
 
   return (
     <div className="block" data-cy="tab-content">
-      {content !== undefined ? content : 'Please select a tab'}
+      {
+        content !== undefined
+          ? content
+          : 'Please select a tab'
+      }
     </div>
   );
 };

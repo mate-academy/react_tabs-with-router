@@ -2,6 +2,7 @@ import {
   Route,
   Routes,
   NavLink,
+  Navigate,
 } from 'react-router-dom';
 
 import 'bulma/css/bulma.css';
@@ -19,7 +20,6 @@ const tabs: Tab[] = [
 export const App = () => {
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
         <div className="navbar-menu">
           <div className="navbar-start">
@@ -36,7 +36,9 @@ export const App = () => {
 
       <div className="section">
         <Routes>
-          <Route path="/home" element={<h1 className="title">Home page</h1>} />
+          <Route path="/" element={<h1 className="title">Home page</h1>} />
+          <Route path="/home" element={<Navigate to="/" replace />} />
+
           <Route path="tabs" element={<TabsPage tabs={tabs} />}>
             <Route index element={<TabsContent tabs={tabs} />} />
             <Route path=":tabId" element={<TabsContent tabs={tabs} />} />
