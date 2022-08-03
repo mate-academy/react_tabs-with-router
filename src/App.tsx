@@ -2,6 +2,7 @@ import {
   Navigate, NavLink, Route, Routes,
 } from 'react-router-dom';
 import React from 'react';
+import classNames from 'classnames';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import { Home } from './components/HomePage/HomePage';
@@ -13,41 +14,55 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = () => (
-  <>
-    <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
-      <div className="navbar-menu">
-        <div className="navbar-start">
-          <NavLink
-            to="/"
-            className="navbar-item isActive"
-          >
-            Home
-          </NavLink>
+interface Status {
+  isActive: boolean;
+}
 
-          <NavLink
-            to="/tabs"
-            className="navbar-item isActive"
-          >
-            Tabs
-          </NavLink>
+const App: React.FC = () => {
+  const getLinkClass = (status: Status) => {
+    return (
+      classNames('navbar-item', {
+        'is--active': status.isActive,
+      })
+    );
+  };
+
+  return (
+    <>
+      <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
+        <div>
+          <div className="navbar-start">
+            <NavLink
+              to="/"
+              className={getLinkClass}
+            >
+              Home
+            </NavLink>
+
+            <NavLink
+              to="/tabs"
+              className={getLinkClass}
+            >
+              Tabs
+            </NavLink>
+          </div>
         </div>
+      </nav>
+
+      <div className="section">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/tabs">
+            <Route index element={<Tabs tabs={tabs} />} />
+            <Route path=":tabId" element={<Tabs tabs={tabs} />} />
+          </Route>
+          <Route path="/home" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<h1 className="title">Page not found</h1>} />
+        </Routes>
       </div>
-    </nav>
 
-    <div className="section">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/tabs">
-          <Route index element={<Tabs tabs={tabs} />} />
-          <Route path=":tabId" element={<Tabs tabs={tabs} />} />
-        </Route>
-        <Route path="/home" element={<Navigate to="/" replace />} />
-        <Route path="*" element={<h1 className="title">Page not found</h1>} />
-      </Routes>
-    </div>
-
-  </>
-);
+    </>
+  );
+};
 
 export default App;
