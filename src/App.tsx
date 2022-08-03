@@ -4,6 +4,7 @@ import {
   NavLink,
   Navigate,
 } from 'react-router-dom';
+import classNames from 'classnames';
 
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
@@ -20,14 +21,39 @@ const tabs: Tab[] = [
 export const App = () => {
   return (
     <>
-      <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
+      <nav
+        className="
+          navbar
+          is-fixed-top
+          has-background-grey-light
+        "
+        data-cy="nav"
+      >
         <div className="navbar-menu">
           <div className="navbar-start">
-            <NavLink to="/" className="navbar-item isActive">
+            <NavLink
+              to="/"
+              className={link => classNames(
+                'navbar-item',
+                'has-text-primary-dark',
+                {
+                  'is-active': link.isActive,
+                },
+              )}
+            >
               Home
             </NavLink>
 
-            <NavLink to="tabs" className="navbar-item isActive">
+            <NavLink
+              to="tabs"
+              className={link => classNames(
+                'navbar-item',
+                'has-text-primary-dark',
+                {
+                  'is-active': link.isActive,
+                },
+              )}
+            >
               Tabs
             </NavLink>
           </div>

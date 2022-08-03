@@ -5,7 +5,3 @@ interface Tab {
   title: string,
   content: string,
 }
-
-interface Status {
-  isActive: boolean;
-}
