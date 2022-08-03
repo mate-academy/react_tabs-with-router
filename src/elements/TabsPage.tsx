@@ -1,7 +1,5 @@
 import classNames from 'classnames';
-import { useState } from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
-import { NotFoundPage } from './NotFoundPage';
+import { Link, useParams } from 'react-router-dom';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -10,11 +8,9 @@ const tabs = [
 ];
 
 export const TabsPage: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState('');
+  const { tabId } = useParams<{ tabId: string }>();
 
-  const tabId = (stringId: string) => {
-    return +stringId.slice(-1);
-  };
+  const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <div className="section">
@@ -27,12 +23,11 @@ export const TabsPage: React.FC = () => {
               key={tab.id}
               className={classNames(
                 '',
-                { 'is-active': tabId(selectedTabId) === tabId(tab.id) },
+                { 'is-active': selectedTab?.id === tab.id },
               )}
             >
               <Link
-                to={`${tab.id}`}
-                onClick={() => setSelectedTabId(tab.id)}
+                to={`/tabs/${tab.id}`}
               >
                 {tab.title}
               </Link>
@@ -41,28 +36,9 @@ export const TabsPage: React.FC = () => {
         </ul>
       </div>
 
-      <Routes>
-        <Route
-          path="/"
-          element={(
-            <div className="block" data-cy="tab-content">
-              Please select a tab
-            </div>
-          )}
-        />
-        <Route
-          path={`${selectedTabId}`}
-          element={(
-            <p className="title">
-              {selectedTabId}
-            </p>
-          )}
-        />
-        <Route
-          path="/tabs/*"
-          element={<NotFoundPage />}
-        />
-      </Routes>
+      <p className="title">
+        {selectedTab ? `${selectedTab.content}` : 'Please select a tab'}
+      </p>
     </div>
   );
 };

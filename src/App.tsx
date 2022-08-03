@@ -2,42 +2,27 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
 import {
-  Route, Routes, NavLink, Navigate,
+  Route, Routes, Navigate,
 } from 'react-router-dom';
 
 import { TabsPage } from './elements/TabsPage';
+import { NotFoundPage } from './elements/NotFoundPage';
+import { Navigation } from './elements/Navigation';
 
 const App = () => (
   <>
     {/* Also requires <html class="has-navbar-fixed-top"> */}
-    <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
-      <div className="navbar-menu">
-        <div className="navbar-start">
-          <NavLink
-            to="/"
-            className="navbar-item isActive"
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/tabs"
-            className="navbar-item isActive"
-          >
-            Tabs
-          </NavLink>
-        </div>
-      </div>
-    </nav>
-
+    <Navigation />
     <Routes>
       <Route
         path="/"
         element={<p className="title">Home Page</p>}
       />
-      <Route
-        path="/tabs/*"
-        element={<TabsPage />}
-      />
+      <Route path="/tabs">
+        <Route path=":tabId" element={<TabsPage />} />
+        <Route index element={<TabsPage />} />
+        <Route path=":tabId/*" element={<NotFoundPage />} />
+      </Route>
       <Route
         path="/home"
         element={<Navigate to="/" />}
