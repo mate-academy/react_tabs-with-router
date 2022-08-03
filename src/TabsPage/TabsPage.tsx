@@ -25,7 +25,7 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
               key={tab.id}
             >
               <Link
-                to={`${tab.id}`}
+                to={`/tabs/${tab.id}`}
               >
                 {tab.title}
               </Link>

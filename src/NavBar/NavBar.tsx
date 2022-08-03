@@ -1,16 +1,34 @@
-import { Link } from 'react-router-dom';
+import classNames from 'classnames';
+import { NavLink } from 'react-router-dom';
+import './NavBar.css';
 
 export const NavBar: React.FC = () => (
   <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
     <div className="navbar-menu">
       <div className="navbar-start">
-        <Link to="/" className="navbar-item isActive">
+        <NavLink
+          to="/"
+          className={({ isActive }) => classNames(
+            'navbar-item',
+            {
+              'is-active': isActive,
+            },
+          )}
+        >
           Home
-        </Link>
+        </NavLink>
 
-        <Link to="/tabs" className="navbar-item isActive">
+        <NavLink
+          to="/tabs"
+          className={({ isActive }) => classNames(
+            'navbar-item',
+            {
+              'is-active': isActive,
+            },
+          )}
+        >
           Tabs
-        </Link>
+        </NavLink>
       </div>
     </div>
   </nav>
