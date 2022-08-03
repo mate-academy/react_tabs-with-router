@@ -16,9 +16,12 @@ const tabs = [
 ];
 
 const App = () => {
-  const navLinkClassNames = ({ isActive }: { isActive: boolean }) => {
-    return classNames('navbar-item', { 'is-active': isActive });
-  };
+  type Status = { isActive: boolean };
+
+  const getActiveClasses = (status: Status) => classNames(
+    'navbar-item',
+    { 'has-background-grey-lighter': status.isActive },
+  );
 
   return (
     <>
@@ -26,14 +29,14 @@ const App = () => {
         <div className="navbar-menu">
           <div className="navbar-start">
             <NavLink
-              className={navLinkClassNames}
+              className={getActiveClasses}
               to="/"
             >
               Home page
             </NavLink>
 
             <NavLink
-              className={navLinkClassNames}
+              className={getActiveClasses}
               to="/tabs"
             >
               Tabs Page
@@ -45,7 +48,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={(<HomePage />)} />
         <Route path="/home" element={<Navigate to="/" />} />
-        <Route path="tabs/:tabId" element={<TabsPage tabs={tabs} />} />
+        <Route path="/tabs">
+          <Route index element={<TabsPage tabs={tabs} />} />
+          <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
+        </Route>
         <Route path="/tabs" element={<TabsPage tabs={tabs} />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

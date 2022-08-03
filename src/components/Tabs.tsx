@@ -9,7 +9,7 @@ interface Props {
 const TabsPage:React.FC<Props> = ({ tabs }) => {
   const { tabId } = useParams<{ tabId: string }>();
   const selectedTab = tabs.find(tab => tab.id === tabId);
-  const TabChoosen = selectedTab !== undefined;
+  const tabChoosen = selectedTab !== undefined;
 
   return (
     <div className="section">
@@ -33,7 +33,8 @@ const TabsPage:React.FC<Props> = ({ tabs }) => {
       </div>
 
       <div className="block" data-cy="tab-content">
-        {TabChoosen ? selectedTab.content
+        {tabChoosen
+          ? selectedTab.content
           : 'Please, select a tab'}
       </div>
     </div>
