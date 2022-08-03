@@ -18,7 +18,8 @@ export const App: React.FC = () => (
     <Header />
     <div className="section">
       <Routes>
-        <Route path="/tabs-page" element={<TabsPage tabs={tabs} />}>
+        <Route path="/tabs-page">
+          <Route index element={<TabsPage tabs={tabs} />} />
           <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
         </Route>
         <Route path="/" element={<Home />} />
