@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
+import classNames from 'classnames';
 import { Tab } from '../react-app-env';
 
 type Props = {
@@ -19,7 +20,10 @@ const TabsPage: React.FC<Props> = ({ tabs }) => {
       <nav className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
-            <li key={tab.id} className={tab.id === tabId ? 'is-active' : ''}>
+            <li
+              key={tab.id}
+              className={classNames({ 'is-active': tab.id === tabId })}
+            >
               <Link to={`/tabs/${tab.id}`}>
                 {tab.title}
               </Link>
