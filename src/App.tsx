@@ -20,7 +20,7 @@ const App = () => {
 
   const getActiveClasses = (status: Status) => classNames(
     'navbar-item',
-    { 'has-background-grey-lighter': status.isActive },
+    { 'is-active': status.isActive },
   );
 
   return (
