@@ -3,11 +3,13 @@ import { NavLink } from 'react-router-dom';
 
 export const Navigation: React.FC = React.memo(() => {
   const createClassNames = ({ isActive }: { isActive: boolean }) => {
+    const createdClass = 'nav-link';
+
     if (isActive) {
-      return 'nav-link active';
+      return `${createdClass} active`;
     }
 
-    return 'nav-link';
+    return createdClass;
   };
 
   return (

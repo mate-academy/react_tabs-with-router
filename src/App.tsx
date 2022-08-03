@@ -13,7 +13,7 @@ export const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/tabs" element={<TabsPage />}>
-          <Route path="/tabs/:tabId" element={<TabsPage />} />
+          <Route path=":tabId" element={<TabsPage />} />
         </Route>
         <Route path="*" element={<h1>Error 404: page not found</h1>} />
       </Routes>
