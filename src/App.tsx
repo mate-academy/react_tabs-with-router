@@ -1,48 +1,26 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { Home } from './Home';
+import { TabsPage } from './Tabs';
+import { NotFound } from './NotFound';
+import { Nav } from './Nav';
 
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
-
-const App = () => (
+export const App: React.FC = () => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
-    <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
-      <div className="navbar-menu">
-        <div className="navbar-start">
-          <a href="/" className="navbar-item isActive">Home</a>
-          <a href="/tabs" className="navbar-item isActive">Tabs</a>
-        </div>
-      </div>
-    </nav>
+    <Nav />
 
-    <div className="section">
-      <h1 className="title">Home page</h1>
-      <h1 className="title">Tabs page</h1>
-      <h1 className="title">Page not found</h1>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="home" element={<Navigate to="/" replace />} />
 
-      <div className="tabs is-boxed">
-        <ul>
-          <li data-cy="tab" className="is-active">
-            <a href="#/">Tab 1</a>
-          </li>
-          <li data-cy="tab">
-            <a href="#/">Tab 2</a>
-          </li>
-          <li data-cy="tab">
-            <a href="#/">Tab 3</a>
-          </li>
-        </ul>
-      </div>
+      <Route path="tabs">
+        <Route index element={<TabsPage />} />
 
-      <div className="block" data-cy="tab-content">
-        Please select a tab
-      </div>
-    </div>
+        <Route path="*" element={<TabsPage />} />
+      </Route>
+
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   </>
 );
-
-export default App;
