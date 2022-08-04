@@ -1,48 +1,50 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
+import {
+  Navigate,
+  NavLink,
+  Route,
+  Routes,
+} from 'react-router-dom';
+import { Tabs } from './components/Tabs/Tabs';
+import { Home } from './components/Home/Home';
+import { NotFoundPage } from './components/NotFoundPage/NotFoundPage';
 
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
+type ActiveLink = (status: { isActive: boolean }) => string;
 
-const App = () => (
-  <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
-    <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
-      <div className="navbar-menu">
-        <div className="navbar-start">
-          <a href="/" className="navbar-item isActive">Home</a>
-          <a href="/tabs" className="navbar-item isActive">Tabs</a>
+const tabs = [
+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
+  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
+  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+];
+
+const App: React.FC = () => {
+  const linkStatus: ActiveLink = ({ isActive }) => (
+    isActive ? 'navbar-item is-active' : 'navbar-item');
+
+  return (
+    <>
+      {/* Also requires <html class="has-navbar-fixed-top"> */}
+      <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
+        <div className="navbar-menu">
+          <div className="navbar-start">
+            <NavLink to="/" className={linkStatus}>Home page</NavLink>
+            <NavLink to="/tabs" className={linkStatus}>Tabs page</NavLink>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
-    <div className="section">
-      <h1 className="title">Home page</h1>
-      <h1 className="title">Tabs page</h1>
-      <h1 className="title">Page not found</h1>
-
-      <div className="tabs is-boxed">
-        <ul>
-          <li data-cy="tab" className="is-active">
-            <a href="#/">Tab 1</a>
-          </li>
-          <li data-cy="tab">
-            <a href="#/">Tab 2</a>
-          </li>
-          <li data-cy="tab">
-            <a href="#/">Tab 3</a>
-          </li>
-        </ul>
-      </div>
-
-      <div className="block" data-cy="tab-content">
-        Please select a tab
-      </div>
-    </div>
-  </>
-);
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Navigate to="/" replace />} />
+        <Route path="/tabs" element={<Tabs tabs={tabs} />}>
+          <Route index element={<Tabs tabs={tabs} />} />
+          <Route path=":tabId" element={<Tabs tabs={tabs} />} />
+        </Route>
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </>
+  );
+};
 
 export default App;
