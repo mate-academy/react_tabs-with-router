@@ -1,4 +1,4 @@
-import { NavLink, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 import { Tab } from '../types/Tab';
 
@@ -17,14 +17,14 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
         <ul>
           {tabs.map(tab => (
             <li data-cy="tab">
-              <NavLink
-                to={tab.id}
+              <Link
+                to={`/tabs/${tab.id}`}
                 className={classNames(
                   { 'isActive is-active': tab.id === selectedTab?.id },
                 )}
               >
                 {tab.title}
-              </NavLink>
+              </Link>
             </li>
           ))}
         </ul>
