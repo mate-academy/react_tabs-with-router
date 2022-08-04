@@ -21,11 +21,14 @@ const App = () => (
       <Route path="/tabs">
         <Route path=":tabId" element={<TabsPage />} />
         <Route index element={<TabsPage />} />
-        <Route path=":tabId/*" element={<NotFoundPage />} />
       </Route>
       <Route
         path="/home"
         element={<Navigate to="/" />}
+      />
+      <Route
+        path="*"
+        element={<NotFoundPage />}
       />
     </Routes>
   </>
