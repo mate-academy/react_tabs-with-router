@@ -3,27 +3,32 @@ import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
 import './Header.scss';
 
-export const Header:React.FC = () => (
-  <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
-    <div className="navbar-menu">
-      <div className="navbar-start">
-        <NavLink
-          to="/"
-          className={({ isActive }) => classNames('navbar-item', {
-            'is--active': isActive,
-          })}
-        >
-          Home
-        </NavLink>
-        <NavLink
-          to="/tabs"
-          className={({ isActive }) => classNames('navbar-item', {
-            'is--active': isActive,
-          })}
-        >
-          Tabs
-        </NavLink>
-      </div>
-    </div>
-  </nav>
+type Status = { isActive: boolean};
+
+const getActiveClasses = (status: Status) => classNames(
+  'navbar-item',
+  { 'is--active': status.isActive },
 );
+
+export const Header:React.FC = () => {
+  return (
+    <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
+      <div className="navbar-menu">
+        <div className="navbar-start">
+          <NavLink
+            to="/"
+            className={getActiveClasses}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/tabs"
+            className={getActiveClasses}
+          >
+            Tabs
+          </NavLink>
+        </div>
+      </div>
+    </nav>
+  );
+}
