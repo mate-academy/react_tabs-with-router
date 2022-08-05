@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { FC } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
@@ -13,18 +14,20 @@ export const Header:FC = () => (
         <div className="navbar-end">
           <NavLink
             to="/"
-            className={({ isActive }) => {
-              return (isActive ? 'navbar-item is-active' : 'navbar-item');
-            }}
+            className={({ isActive }) => classNames(
+              'navbar-item',
+              { 'is-active': isActive },
+            )}
           >
             Home page
           </NavLink>
 
           <NavLink
             to="/tabs"
-            className={({ isActive }) => {
-              return (isActive ? 'navbar-item is-active' : 'navbar-item');
-            }}
+            className={({ isActive }) => classNames(
+              'navbar-item',
+              { 'is-active': isActive },
+            )}
           >
             Tabs
           </NavLink>

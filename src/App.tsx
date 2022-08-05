@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Routes, Route, Outlet } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.scss';
 import { Header } from './components/Header';
 import { Tabs } from './components/Tabs';
@@ -25,11 +25,9 @@ const App:FC = () => {
             </div>
           )}
         />
-        <Route path="tabs" element={<Tabs tabs={tabs} />}>
-          <Route
-            path=":tabId"
-            element={<Outlet />}
-          />
+        <Route path="tabs">
+          <Route index element={<Tabs tabs={tabs} />} />
+          <Route path=":tabId" element={<Tabs tabs={tabs} />} />
         </Route>
       </Routes>
     </>
