@@ -1,6 +1,6 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { HomePage } from './sections/HomePage';
 import { Header } from './sections/Header';
 import { TabsPage } from './sections/TabsPage';
@@ -12,6 +12,7 @@ const App = () => {
       <div className="section">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="home" element={<Navigate to="/" replace />} />
 
           <Route path="/tabs">
             <Route index element={<TabsPage />} />
