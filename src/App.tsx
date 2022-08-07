@@ -1,70 +1,44 @@
+import 'bulma/css/bulma.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+import React from 'react';
 import {
-  NavLink,
-  Route,
-  Routes,
+  Navigate, Route, Routes,
 } from 'react-router-dom';
-import 'bulma';
-import { useState } from 'react';
-import { tabs } from './api/tabs';
-import { Tab } from './types/Tab';
-import { Tabs } from './conponents/Tabs';
-import { TabsPage } from './conponents/TabsPage';
+import { TabsPage } from './conponents/TabsPage/TabsPage';
+import { Header } from './conponents/Header/Header';
 
-const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState<Tab | null>(null);
-
-  const onSelect = (tab: Tab | null) => {
-    setSelectedTab(tab);
-  };
-
+export const App: React.FC = () => {
   return (
-    <div className="App">
-      <nav className="navbar has-text-centered">
-        <NavLink to="/" className="navbar-item">
-          Home
-        </NavLink>
-        <NavLink to="/tabs" className="navbar-item">
-          Tabs
-        </NavLink>
-      </nav>
+    <>
+      <Header />
 
-      <Routes>
-        <Route
-          path="/"
-          element={(
-            <h1 className="title has-text-centered">
-              Home page
-            </h1>
-          )}
-        />
-
-        <Route
-          path="tabs"
-          element={<Tabs tabs={tabs} selectedTabId={selectedTab?.id} />}
-        >
+      <div className="section">
+        <Routes>
           <Route
-            index
+            path="/"
             element={(
-              <TabsPage
-                onSelect={onSelect}
-                selectedTab={selectedTab}
-              />
+              <h1 className="title">Home page</h1>
+            )}
+          />
+
+          <Route path="/tabs">
+            <Route index element={<TabsPage />} />
+            <Route path="/tabs/:tabId" element={<TabsPage />} />
+          </Route>
+
+          <Route
+            path="*"
+            element={(
+              <h1 className="title">Page not found</h1>
             )}
           />
 
           <Route
-            path=":tabId"
-            element={(
-              <TabsPage
-                onSelect={onSelect}
-                selectedTab={selectedTab}
-              />
-            )}
+            path="/home"
+            element={<Navigate to="/" replace />}
           />
-        </Route>
-      </Routes>
-    </div>
+        </Routes>
+      </div>
+    </>
   );
 };
-
-export default App;
