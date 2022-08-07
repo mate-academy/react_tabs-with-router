@@ -3,6 +3,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import {
   Routes,
   Route,
+  Navigate,
 } from 'react-router-dom';
 import { TabsPage } from './components/TabsPage';
 import { Header } from './components/Header';
@@ -25,6 +26,7 @@ const App = () => (
             <h1 className="title">Home page</h1>
           }
         />
+        <Route path="home" element={<Navigate to="/" replace />} />
 
         <Route path="/tabs">
           <Route index element={<TabsPage tabs={tabs} />} />
