@@ -1,4 +1,5 @@
 import { NavLink, Routes, Route } from 'react-router-dom';
+import classNames from 'classnames';
 import { HomePage } from './components/HomePage/HomePage';
 import { TabsPage } from './components/TabsPage/TabsPage';
 import 'bulma/css/bulma.css';
@@ -13,8 +14,9 @@ const App = () => (
   <div className="App container">
     <nav className="navbar">
       <NavLink
-        className={({ isActive }) => (
-          `navbar-item is-tab ${isActive ? ' is-active' : ''}`
+        className={({ isActive }) => classNames(
+          'navbar-item is-tab',
+          { isActive },
         )}
         to="/"
       >
@@ -22,8 +24,9 @@ const App = () => (
       </NavLink>
 
       <NavLink
-        className={({ isActive }) => (
-          `navbar-item is-tab ${isActive ? ' is-active' : ''}`
+        className={({ isActive }) => classNames(
+          'navbar-item is-tab',
+          { isActive },
         )}
         to="/tabs"
       >
@@ -34,8 +37,11 @@ const App = () => (
     <main>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="tabs/:tabId" element={<TabsPage tabs={tabs} />} />
-        <Route path="/tabs" element={<TabsPage tabs={tabs} />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/tabs">
+          <Route index element={<TabsPage tabs={tabs} />} />
+          <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
+        </Route>
       </Routes>
     </main>
   </div>
