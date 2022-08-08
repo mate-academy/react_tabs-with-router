@@ -1,4 +1,9 @@
-import { NavLink, Routes, Route } from 'react-router-dom';
+import {
+  NavLink,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 import classNames from 'classnames';
 import { HomePage } from './components/HomePage/HomePage';
 import { TabsPage } from './components/TabsPage/TabsPage';
@@ -37,7 +42,7 @@ const App = () => (
     <main>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/home" element={<Navigate to="/" />} />
         <Route path="/tabs">
           <Route index element={<TabsPage tabs={tabs} />} />
           <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
