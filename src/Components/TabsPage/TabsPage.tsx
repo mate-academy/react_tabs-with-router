@@ -12,7 +12,7 @@ export const TabsPage: React.FC = React.memo(() => {
   const match = useMatch('/tabs/:tabId');
   const selectedTabId = match?.params.tabId;
 
-  const getContent = (tabId: string | undefined) => {
+  const getContent = (tabId?: string) => {
     return tabs.find(tab => tab.id === tabId)?.content;
   };
 
@@ -39,11 +39,12 @@ export const TabsPage: React.FC = React.memo(() => {
         </ul>
       </div>
 
-      {selectedTabId ? (
-        <h1 className="title">{getContent(selectedTabId)}</h1>
-      ) : (
-        <h1 className="title" data-cy="tab-content">Please select a tab</h1>
-      )}
+      <h1 className="title" data-cy="tab-content">
+        { selectedTabId
+          ? (getContent(selectedTabId))
+          : ('Please select a tab')}
+
+      </h1>
     </div>
   );
 });
