@@ -1,4 +1,4 @@
-import 'bulma/css/bulma.css';
+import 'bulma/css/bulma.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import {
   Routes, Route, NavLink, Navigate,
@@ -16,7 +16,6 @@ const tabs: Tab[] = [
 const App: React.FC = () => {
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
         <div className="navbar-menu">
           <div className="navbar-start">
@@ -44,6 +43,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<h1 className="title">Home page</h1>} />
           <Route path="/home" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<h1 className="title">Page not found</h1>} />
           <Route
             path="/tabs"
             element={(
@@ -55,7 +55,6 @@ const App: React.FC = () => {
             <Route index />
             <Route path=":tabId" />
           </Route>
-          <Route path="*" element={<h1 className="title">Page not found</h1>} />
         </Routes>
       </div>
     </>
