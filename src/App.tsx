@@ -1,7 +1,7 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import {
-  Link, Navigate, Route, Routes,
+  Navigate, NavLink, Route, Routes,
 } from 'react-router-dom';
 import { TabsPage } from './components/TabsPage';
 
@@ -17,8 +17,8 @@ const App = () => {
       <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
         <div className="navbar-menu">
           <div className="navbar-start">
-            <Link to="/" className="navbar-item isActive">Home</Link>
-            <Link to="tabs" className="navbar-item isActive">Tabs</Link>
+            <NavLink to="/" className="navbar-item isActive">Home</NavLink>
+            <NavLink to="tabs" className="navbar-item isActive">Tabs</NavLink>
           </div>
         </div>
       </nav>
