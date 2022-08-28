@@ -6,19 +6,18 @@ import { HomePage } from './components/HomePage';
 import { TabsPage } from './components/TabsPage';
 import { NotFoundPage } from './components/NotFoundPage';
 
-const App = () => (
+export const App = () => (
   <>
     <Navbar />
 
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="home" element={<Navigate to="/" />} />
-      <Route path="tabs" element={<TabsPage />}>
+      <Route path="tabs">
+        <Route index element={<TabsPage />} />
         <Route path=":tabId" element={<TabsPage />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </>
 );
-
-export default App;
