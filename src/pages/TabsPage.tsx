@@ -20,14 +20,13 @@ export const TabsPage = () => {
         <ul>
           {tabs.map(tab => (
             <li
+              data-cy="tab"
               className={classNames({
                 'is-active': tabId === tab.id,
               })}
+              key={tab.id}
             >
-              <Link
-                to={`/tabs/${tab.id}`}
-                key={tab.id}
-              >
+              <Link to={`/tabs/${tab.id}`}>
                 {tab.title}
               </Link>
             </li>

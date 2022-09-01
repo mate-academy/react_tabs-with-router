@@ -21,7 +21,7 @@ const App = () => {
               className={({ isActive }) => classNames(
                 'navbar-item',
                 {
-                  isActive,
+                  'is-active': isActive,
                 },
               )}
             >
@@ -33,7 +33,7 @@ const App = () => {
               className={({ isActive }) => classNames(
                 'navbar-item',
                 {
-                  isActive,
+                  'is-active': isActive,
                 },
               )}
             >
