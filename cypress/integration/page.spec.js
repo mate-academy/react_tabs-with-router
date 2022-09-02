@@ -1,5 +1,4 @@
 /// <reference types="Cypress" />
-
 const page = {
   getByDataCy: name => cy.get(`[data-cy="${name}"]`),
   title: () => cy.get('.title'),
@@ -97,7 +96,7 @@ describe('', () => {
 
     it('should not have active links on a wrong page', () => {
       cy.visit('/#/some/not/existing/page');
-    
+
       page.nav().contains('a', 'Home').should('not.have.class', 'is-active');
       page.nav().contains('a', 'Tabs').should('not.have.class', 'is-active');
     });
@@ -208,7 +207,7 @@ describe('', () => {
       page.assertTabNotActive(1);
       page.assertTabNotActive(2);
     });
-    
+
     it('should default content for a wrong tabId', () => {
       cy.visit('/#/tabs/tab-4');
       page.assertContent('Please select a tab');
