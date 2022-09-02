@@ -8,12 +8,12 @@ import './App.scss';
 //   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 // ];
 
-const App = () => (
+export const App = () => (
   <>
     {/* Also requires <html class="has-navbar-fixed-top"> */}
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
-      data-cy="nav"
+      data-cy="Nav"
     >
       <div className="container">
         <div className="navbar-brand">
@@ -31,24 +31,22 @@ const App = () => (
 
         <div className="tabs is-boxed">
           <ul>
-            <li data-cy="tab" className="is-active">
+            <li data-cy="Tab" className="is-active">
               <a href="#/">Tab 1</a>
             </li>
-            <li data-cy="tab">
+            <li data-cy="Tab">
               <a href="#/">Tab 2</a>
             </li>
-            <li data-cy="tab">
+            <li data-cy="Tab">
               <a href="#/">Tab 3</a>
             </li>
           </ul>
         </div>
 
-        <div className="block" data-cy="tab-content">
+        <div className="block" data-cy="TabContent">
           Please select a tab
         </div>
       </div>
     </div>
   </>
 );
-
-export default App;
