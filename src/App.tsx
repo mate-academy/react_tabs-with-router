@@ -10,36 +10,38 @@ import '@fortawesome/fontawesome-free/css/all.css';
 const App = () => (
   <>
     {/* Also requires <html class="has-navbar-fixed-top"> */}
-    <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
-      <div className="navbar-menu">
-        <div className="navbar-start">
-          <a href="/" className="navbar-item isActive">Home</a>
-          <a href="/tabs" className="navbar-item isActive">Tabs</a>
+    <nav className="navbar is-fixed-top is-mobile has-shadow" data-cy="nav">
+      <div className="container">
+        <div className="navbar-brand">
+          <a href="/" className="navbar-item is-active">Home</a>
+          <a href="/tabs" className="navbar-item">Tabs</a>
         </div>
       </div>
     </nav>
 
     <div className="section">
-      <h1 className="title">Home page</h1>
-      <h1 className="title">Tabs page</h1>
-      <h1 className="title">Page not found</h1>
+      <div className="container">
+        <h1 className="title">Home page</h1>
+        <h1 className="title">Tabs page</h1>
+        <h1 className="title">Page not found</h1>
 
-      <div className="tabs is-boxed">
-        <ul>
-          <li data-cy="tab" className="is-active">
-            <a href="#/">Tab 1</a>
-          </li>
-          <li data-cy="tab">
-            <a href="#/">Tab 2</a>
-          </li>
-          <li data-cy="tab">
-            <a href="#/">Tab 3</a>
-          </li>
-        </ul>
-      </div>
+        <div className="tabs is-boxed">
+          <ul>
+            <li data-cy="tab" className="is-active">
+              <a href="#/">Tab 1</a>
+            </li>
+            <li data-cy="tab">
+              <a href="#/">Tab 2</a>
+            </li>
+            <li data-cy="tab">
+              <a href="#/">Tab 3</a>
+            </li>
+          </ul>
+        </div>
 
-      <div className="block" data-cy="tab-content">
-        Please select a tab
+        <div className="block" data-cy="tab-content">
+          Please select a tab
+        </div>
       </div>
     </div>
   </>
