@@ -1,5 +1,6 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
+import './App.scss';
 
 // const tabs = [
 //   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -10,7 +11,10 @@ import '@fortawesome/fontawesome-free/css/all.css';
 const App = () => (
   <>
     {/* Also requires <html class="has-navbar-fixed-top"> */}
-    <nav className="navbar is-fixed-top is-mobile has-shadow" data-cy="nav">
+    <nav
+      className="navbar is-light is-fixed-top is-mobile has-shadow"
+      data-cy="nav"
+    >
       <div className="container">
         <div className="navbar-brand">
           <a href="/" className="navbar-item is-active">Home</a>
