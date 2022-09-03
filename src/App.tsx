@@ -1,4 +1,5 @@
 import 'bulma/css/bulma.css';
+import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -7,7 +8,7 @@ import { HomePage } from './components/HomePage';
 import { NotFoundPage } from './components/PageNotFound';
 import { TabsPage } from './components/TabsPage';
 
-export const App = () => (
+export const App: React.FC = () => (
   <>
     <NavBar />
 
