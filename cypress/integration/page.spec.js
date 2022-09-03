@@ -1,10 +1,9 @@
 /// <reference types="Cypress" />
 const page = {
-  getByDataCy: name => cy.get(`[data-cy="${name}"]`),
   title: () => cy.get('.title'),
-  nav: () => page.getByDataCy('nav'),
-  tabs: () => page.getByDataCy('tab'),
-  assertContent: (text) => page.getByDataCy('tab-content').should('have.text', text),
+  nav: () => cy.getByDataCy('Nav'),
+  tabs: () => cy.getByDataCy('Tab'),
+  assertContent: (text) => cy.getByDataCy('TabContent').should('have.text', text),
   assertTabActive: index => page.tabs().eq(index).should('have.class', 'is-active'),
   assertTabNotActive: index => page.tabs().eq(index).should('not.have.class', 'is-active'),
 };
