@@ -57,7 +57,7 @@ describe('', () => {
       page.nav().should('exist');
     });
 
-    it('should exist on Tabs page', () => {
+    it('should exist on TabsPage page', () => {
       cy.visit('/#/tabs');
       page.nav().should('exist');
     });
@@ -85,10 +85,10 @@ describe('', () => {
         .and('have.class', 'is-active');
     });
 
-    it('should have Tabs link without `is-active` class', () => {
+    it('should have TabsPage link without `is-active` class', () => {
       cy.visit('/');
       page.nav()
-        .contains('a', 'Tabs')
+        .contains('a', 'TabsPage')
         .should('have.attr', 'href', '#/tabs')
         .and('not.have.class', 'is-active');
     });
@@ -97,7 +97,7 @@ describe('', () => {
       cy.visit('/#/some/not/existing/page');
 
       page.nav().contains('a', 'Home').should('not.have.class', 'is-active');
-      page.nav().contains('a', 'Tabs').should('not.have.class', 'is-active');
+      page.nav().contains('a', 'TabsPage').should('not.have.class', 'is-active');
     });
   });
 
@@ -106,15 +106,15 @@ describe('', () => {
       cy.visit('/#/tabs')
     });
 
-    it('should show Tabs title', () => {
+    it('should show TabsPage title', () => {
       page.title()
         .should('have.length', 1)
-        .should('have.text', 'Tabs page');
+        .should('have.text', 'TabsPage page');
     });
 
-    it('should have Tabs link active', () => {
+    it('should have TabsPage link active', () => {
       page.nav()
-        .contains('a', 'Tabs')
+        .contains('a', 'TabsPage')
         .and('have.class', 'is-active');
     });
 
@@ -147,7 +147,7 @@ describe('', () => {
     });
   });
 
-  describe('Tabs page', () => {
+  describe('TabsPage page', () => {
     beforeEach(() => {
       cy.visit('/#/tabs')
     });
@@ -174,9 +174,9 @@ describe('', () => {
       cy.reload();
     });
 
-    it('should hightlight Tabs link in the nav when a tab is selected', () => {
+    it('should hightlight TabsPage link in the nav when a tab is selected', () => {
       cy.visit('/#/tabs/tab-1');
-      page.nav().contains('a', 'Tabs')
+      page.nav().contains('a', 'TabsPage')
         .should('have.class', 'is-active');
     });
 
@@ -212,10 +212,10 @@ describe('', () => {
       page.assertContent('Please select a tab');
     });
 
-    it('should hightlight Tabs link in the nav when a tabId is wrong', () => {
+    it('should hightlight TabsPage link in the nav when a tabId is wrong', () => {
       cy.visit('/#/tabs/tab-4');
 
-      page.nav().contains('a', 'Tabs')
+      page.nav().contains('a', 'TabsPage')
         .should('have.class', 'is-active');
     });
   });
