@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 const tabs = [
@@ -10,7 +11,10 @@ const tabs = [
 export const TabsPage = () => {
   const { tabId = '0' } = useParams();
 
-  const selectedTab = tabs.find(tab => tab.id === tabId) || null;
+  const selectedTab = useMemo(
+    () => tabs.find(tab => tab.id === tabId) || null,
+    [tabId],
+  );
 
   return (
     <>
