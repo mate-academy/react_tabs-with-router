@@ -8,7 +8,6 @@ interface Props {
 }
 
 export const TabsPage:React.FC<Props> = ({ tabs }) => {
-  // const [isActive, setIsActive] = useState('');
   const [tabText, setTabText] = useState('Please select a tab');
   const { tabId = '' } = useParams();
 
@@ -21,21 +20,10 @@ export const TabsPage:React.FC<Props> = ({ tabs }) => {
             <TabLink
               tab={tab}
               key={tab.id}
-              // isActive={isActive}
-              // setIsActive={setIsActive}
               setTabText={setTabText}
               tabId={tabId}
             />
           ))}
-          {/* <li data-cy="tab" className="is-active">
-            <a href="#/">Tab 1</a>
-          </li>
-          <li data-cy="tab">
-            <a href="#/">Tab 2</a>
-          </li>
-          <li data-cy="tab">
-            <a href="#/">Tab 3</a>
-          </li> */}
         </ul>
       </div>
 

@@ -1,0 +1,8 @@
+.navbar {
+  background-color: darkgrey;
+}
+
+.navbar-brand a.navbar-item:focus,
+.navbar-brand a.navbar-item:hover {
+  background-color: white;
+}

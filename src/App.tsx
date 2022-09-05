@@ -1,5 +1,6 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
+import './App.css';
 import classNames from 'classnames';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import { HomePage } from './components/HomePage';
@@ -14,7 +15,6 @@ const tabs = [
 
 const App = () => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
     <nav className="navbar is-fixed-top is-mobile has-shadow" data-cy="nav">
       <div className="container">
         <div className="navbar-brand">
@@ -64,27 +64,6 @@ const App = () => (
             />
           </Route>
         </Routes>
-        {/* <h1 className="title">Home page</h1> */}
-        {/* <h1 className="title">Tabs page</h1> */}
-        {/* <h1 className="title">Page not found</h1> */}
-
-        {/* <div className="tabs is-boxed">
-          <ul>
-            <li data-cy="tab" className="is-active">
-              <a href="#/">Tab 1</a>
-            </li>
-            <li data-cy="tab">
-              <a href="#/">Tab 2</a>
-            </li>
-            <li data-cy="tab">
-              <a href="#/">Tab 3</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="block" data-cy="tab-content">
-          Please select a tab
-        </div> */}
       </div>
     </div>
   </>
