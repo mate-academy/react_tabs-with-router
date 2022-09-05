@@ -3,7 +3,10 @@ import cn from 'classnames';
 
 export const Navigation = () => {
   return (
-    <nav className="navbar is-fixed-top has-background-light" data-cy="nav">
+    <nav
+      className="navbar is-light is-fixed-top has-background-light has-shadow"
+      data-cy="nav"
+    >
       <div className="navbar-menu">
         <div className="navbar-start">
           <NavLink
