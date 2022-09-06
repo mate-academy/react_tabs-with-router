@@ -69,7 +69,7 @@ export const App = () => {
             </Route>
             <Route
               path="*"
-              element={<h1 className="title">Page not found </h1>}
+              element={<h1 className="title">Page not found</h1>}
             />
           </Routes>
         </div>
