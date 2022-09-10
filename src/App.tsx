@@ -4,9 +4,9 @@ import './App.scss';
 import {
   Navigate, Route, Routes,
 } from 'react-router-dom';
-import { TabsPage } from './components/TabsPage/TabsPage';
+import { TabsPage } from './pages/TabsPage';
 import { PageNavLink } from './components/PageNavLink/PageNavLink';
-import { HomePage } from './components/HomePage/HomePage';
+import { HomePage } from './pages/HomePage';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
