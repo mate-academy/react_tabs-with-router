@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import { TabsPage } from './components/TabsPage/TabsPage';
 import { PageNavLink } from './components/PageNavLink/PageNavLink';
+import { HomePage } from './components/HomePage/HomePage';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -30,7 +31,7 @@ export const App = () => (
     <div className="section">
       <div className="container">
         <Routes>
-          <Route path="/" element={<h1 className="title">Home page</h1>} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="/tabs">
             <Route index element={<TabsPage tabs={tabs} />} />
