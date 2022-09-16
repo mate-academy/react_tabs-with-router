@@ -1,7 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 import { Tab } from './types/Tab';
-// import { tabs } from './App';
 
 interface Props {
   tabs: Tab[];
