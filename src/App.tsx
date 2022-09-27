@@ -5,7 +5,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { TabsPage } from './pages/TabsPage';
-import { PageNavLink } from './components/PageNavLink';
+import { Navigation } from './components/Navigation';
 
 export const App = () => {
   const tabs = [
@@ -16,18 +16,7 @@ export const App = () => {
 
   return (
     <>
-      <nav
-        className="navbar is-light is-fixed-top
-         is-mobile has-shadow has-navbar-fixed-top"
-        data-cy="Nav"
-      >
-        <div className="container">
-          <div className="navbar-brand">
-            <PageNavLink to="/" text="Home" end />
-            <PageNavLink to="/tabs" text="Tabs" end={false} />
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       <div className="section">
         <div className="container">
