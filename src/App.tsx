@@ -20,12 +20,7 @@ export const App = () => {
   return (
     <>
       {/* Also requires <html class="has-navbar-fixed-top"> */}
-      <nav
-        className="navbar is-light is-fixed-top is-mobile has-shadow"
-        data-cy="Nav"
-      >
-        <Navigation />
-      </nav>
+      <Navigation />
 
       <div className="section">
         <div className="container">
@@ -37,10 +32,6 @@ export const App = () => {
             selectedTabId={selectedTabId}
             onTabSelected={handleSelect}
           />
-
-          <div className="block" data-cy="TabContent">
-            Please select a tab
-          </div>
         </div>
       </div>
     </>
