@@ -2,6 +2,11 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { useState } from 'react';
+import {
+  Navigate,
+  Route,
+  Routes,
+} from 'react-router-dom';
 import { Tab } from './types/Tab';
 import { Tabs } from './components/Tabs';
 import { Navigation } from './components/Navigation';
@@ -19,19 +24,38 @@ export const App = () => {
 
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <Navigation />
 
       <div className="section">
         <div className="container">
-          <h1 className="title">Home page</h1>
-          <h1 className="title">Page not found</h1>
+          <Routes>
+            <Route
+              path="/"
+              element={(
+                <h1 className="title">Home page</h1>
+              )}
+            />
+            <Route path="home" element={<Navigate to="/" replace />} />
+            <Route path="/tabs">
+              <Route
+                index
+                element={(
+                  <Tabs
+                    tabs={tabs}
+                    selectedTabId={selectedTabId}
+                    onTabSelected={handleSelect}
+                  />
+                )}
+              />
+            </Route>
+            <Route
+              path="*"
+              element={
+                <h1 className="title">Page not found</h1>
+              }
+            />
+          </Routes>
 
-          <Tabs
-            tabs={tabs}
-            selectedTabId={selectedTabId}
-            onTabSelected={handleSelect}
-          />
         </div>
       </div>
     </>
