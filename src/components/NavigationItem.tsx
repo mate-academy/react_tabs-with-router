@@ -15,7 +15,7 @@ export const NavigationItem: React.FC<Props> = ({
       to={to}
       className={({ isActive }) => classNames(
         'navbar-item',
-        { 'has-background-grey-lighter': isActive },
+        { 'is-active': isActive },
       )}
     >
       {content}
