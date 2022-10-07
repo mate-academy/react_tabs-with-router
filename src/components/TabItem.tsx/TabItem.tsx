@@ -1,19 +1,24 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
 
 type Props = {
   tab: Tab;
 };
 
-export const TabItem: React.FC<Props> = ({ tab }) => (
-  <li
-    data-cy="Tab"
-    className={classNames({ 'is-active': tab.id === tab.title })}
-  >
-    <Link to={`../${tab.id}`}>
-      {tab.title}
-    </Link>
-  </li>
-);
+export const TabItem: React.FC<Props> = ({ tab }) => {
+  const { tabId = '' } = useParams();
+  const { id, title } = tab;
+
+  return (
+    <li
+      data-cy="Tab"
+      className={classNames({ 'is-active': id === tabId })}
+    >
+      <Link to={`../${id}`}>
+        {title}
+      </Link>
+    </li>
+  );
+};
