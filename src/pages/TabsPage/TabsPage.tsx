@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMatch } from 'react-router-dom';
-import { TabItem } from '../../components/TabItem.tsx';
+import { TabsBody } from '../../components/TabsBody';
 import { tabs } from '../../data';
 
 export const TabsPage: React.FC = () => {
@@ -12,13 +12,7 @@ export const TabsPage: React.FC = () => {
       <div className="container">
         <h1 className="title">Tabs page</h1>
 
-        <div className="tabs is-boxed">
-          <ul>
-            {tabs.map(tab => (
-              <TabItem tab={tab} />
-            ))}
-          </ul>
-        </div>
+        <TabsBody tabs={tabs} />
 
         <div className="block" data-cy="TabContent">
           {
