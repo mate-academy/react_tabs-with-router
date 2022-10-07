@@ -33,7 +33,7 @@ export const Tabs: React.FC<Props> = ({
                   data-cy="Tab"
                 >
                   <Link
-                    to={`../:${id}`}
+                    to={`../${id}`}
                     data-cy="TabLink"
                   >
                     {title}
