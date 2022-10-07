@@ -1,31 +1,18 @@
 import classNames from 'classnames';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[];
-  selectedTabId: string;
-  onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  selectedTabId,
-  onTabSelected,
 }) => {
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || null;
-  const content = selectedTab
-    ? selectedTab.content
-    : 'Please select a tab';
+  const { tabId } = useParams();
 
-  const handleClick = (tab: Tab) => {
-    if (selectedTab?.id === tab.id) {
-      return;
-    }
-
-    onTabSelected(tab);
-  };
+  const selectedTab = tabs.find(tab => `:${tab.id}` === tabId);
 
   return (
     <>
@@ -41,14 +28,13 @@ export const Tabs: React.FC<Props> = ({
                   key={id}
                   className={classNames({
                     'is-active':
-                      selectedTab?.id === tab.id,
+                      selectedTab?.id === id,
                   })}
                   data-cy="Tab"
                 >
                   <Link
-                    to={`#${id}`}
+                    to={`../:${id}`}
                     data-cy="TabLink"
-                    onClick={() => handleClick(tab)}
                   >
                     {title}
                   </Link>
@@ -59,7 +45,9 @@ export const Tabs: React.FC<Props> = ({
         </div>
 
         <div className="block" data-cy="TabContent">
-          {content}
+          {selectedTab
+            ? selectedTab.content
+            : 'Please select a tab'}
         </div>
       </div>
     </>

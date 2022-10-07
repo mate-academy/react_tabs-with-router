@@ -1,7 +1,6 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { useState } from 'react';
 import {
   Navigate,
   Route,
@@ -18,10 +17,6 @@ const tabs: Tab[] = [
 ];
 
 export const App = () => {
-  const [selectedTabId, setSelectedTabId] = useState<string>('');
-
-  const handleSelect = (tab: Tab) => setSelectedTabId(tab.id);
-
   return (
     <>
       <Navigation />
@@ -35,6 +30,7 @@ export const App = () => {
                 <h1 className="title">Home page</h1>
               )}
             />
+
             <Route path="home" element={<Navigate to="/" replace />} />
             <Route path="/tabs">
               <Route
@@ -42,8 +38,14 @@ export const App = () => {
                 element={(
                   <Tabs
                     tabs={tabs}
-                    selectedTabId={selectedTabId}
-                    onTabSelected={handleSelect}
+                  />
+                )}
+              />
+              <Route
+                path=":tabId"
+                element={(
+                  <Tabs
+                    tabs={tabs}
                   />
                 )}
               />
