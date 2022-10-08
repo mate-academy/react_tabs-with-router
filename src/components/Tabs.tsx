@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 
 interface TabsInterface {
@@ -20,19 +21,13 @@ export const Tabs: React.FC<Props> = ({
   );
 
   return (
-
     <div>
       <div className="tabs is-boxed">
         <ul>
-
           {tabs.map(tab => (
             <li
               key={tab.id}
-              className={
-                tab.id === activeTab?.id
-                  ? 'is-active'
-                  : ''
-              }
+              className={classNames({ 'is-active': tab.id === activeTab?.id })}
             >
               <Link
                 to={`/tabs/${tab.id}`}
