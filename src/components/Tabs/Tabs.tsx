@@ -12,7 +12,7 @@ export const Tabs: React.FC<Props> = ({
 }) => {
   const { tabId } = useParams();
 
-  const selectedTab = tabs.find(tab => `:${tab.id}` === tabId);
+  const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
