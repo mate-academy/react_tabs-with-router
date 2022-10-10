@@ -14,38 +14,29 @@ export const TabsPage: React.FC = () => {
   const selectedTab = tabs.find((tab) => tabId === tab.id);
 
   return (
-    <div className="section">
-      <div data-cy="TabsComponent">
-        <h1 className="title">Tabs page</h1>
-        <div className="tabs is-boxed">
-          <ul>
-            {tabs.map((tab) => (
-              <li
-                className={classNames({
-                  'is-active': tab.id === selectedTab?.id,
-                })}
-                data-cy="Tab"
-                key={tab.id}
-              >
-                <Link
-                  to={`../${tab.id}`}
-                  data-cy="TabLink"
-                >
-                  {tab.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="block" data-cy="TabContent">
-          {
-            selectedTab
-              ? selectedTab.content
-              : 'Please select a tab'
-          }
-        </div>
+    <>
+      <h1 className="title">Tabs page</h1>
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map((tab) => (
+            <li
+              className={classNames({
+                'is-active': tab.id === selectedTab?.id,
+              })}
+              data-cy="Tab"
+              key={tab.id}
+            >
+              <Link to={`../${tab.id}`} data-cy="TabLink">
+                {tab.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
+
+      <div className="block" data-cy="TabContent">
+        {selectedTab ? selectedTab.content : 'Please select a tab'}
+      </div>
+    </>
   );
 };
