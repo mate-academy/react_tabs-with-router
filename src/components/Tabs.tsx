@@ -25,7 +25,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId }) => {
               )}
             >
               <Link
-                to={`/tabs/${tab.id}`}
+                to={`../${tab.id}`}
               >
                 {tab.title}
               </Link>
