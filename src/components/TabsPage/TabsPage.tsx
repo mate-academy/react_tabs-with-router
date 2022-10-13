@@ -24,17 +24,12 @@ export const TabsPage: React.FC = () => {
           tabs={tabs}
         />
 
-        {selectedTab
-          ? (
-            <div className="block" data-cy="TabContent">
-              {selectedTab.content}
-            </div>
-          )
-          : (
-            <div className="block" data-cy="TabContent">
-              Please select a tab
-            </div>
-          )}
+        <div className="block" data-cy="TabContent">
+          {selectedTab
+            ? selectedTab.content
+            : 'Please select a tab'}
+        </div>
+
       </div>
     </>
   );
