@@ -11,7 +11,6 @@ import { PageNotFound } from './components/PageNotFound';
 
 export const App = () => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
     <Navigation />
 
     <div className="section">
