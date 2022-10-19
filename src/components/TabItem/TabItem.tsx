@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const TabItem: React.FC<Props> = ({ tab }) => {
-  const { tabId = '' } = useParams();
+  const { tabId } = useParams();
   const { id, title } = tab;
 
   return (
@@ -16,7 +16,7 @@ export const TabItem: React.FC<Props> = ({ tab }) => {
       data-cy="Tab"
       className={classNames({ 'is-active': id === tabId })}
     >
-      <Link to={`../${id}`}>
+      <Link to={`/tabs/${id}`}>
         {title}
       </Link>
     </li>
