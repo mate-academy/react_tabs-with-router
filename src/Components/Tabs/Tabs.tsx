@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
 
 type Props = {
@@ -9,9 +9,10 @@ type Props = {
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  tabId,
 }) => {
-  const selectedTab = tabs.find(tab => tab.id === tabId) || tabs[0];
+  const { tabId } = useParams();
+
+  const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
@@ -27,9 +28,6 @@ export const Tabs: React.FC<Props> = ({
             >
               <Link
                 to={`../${tab.id}`}
-                onClick={() => (
-                  tabId !== tab.id
-                )}
               >
                 {tab.title}
               </Link>
