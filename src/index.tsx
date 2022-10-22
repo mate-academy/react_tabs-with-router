@@ -12,7 +12,7 @@ ReactDOM.render(
   <HashRouter>
     <Routes>
       <Route path="/" element={<App />}>
-        <Route path="/" element={<h1 className="title">Home page</h1>} />
+        <Route index element={<h1 className="title">Home page</h1>} />
         <Route path="/home" element={<Navigate to="/" replace />} />
         <Route path="tabs">
           <Route index element={<TabsPage tabs={tabs} />} />
