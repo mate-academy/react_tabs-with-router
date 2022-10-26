@@ -1,14 +1,14 @@
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Tab } from '../types/Tab';
 
 interface Props {
   tabs: Tab[],
-  selectedTabId: string | undefined
 }
-export const Tabs: React.FC<Props> = ({ tabs, selectedTabId }) => {
-  const isActive = (tab: Tab) => tab.id === selectedTabId;
-  const selectedTabContent = tabs.find(tab => tab.id === selectedTabId);
+export const Tabs: React.FC<Props> = ({ tabs }) => {
+  const { tabId } = useParams();
+  const isActive = (tab: Tab) => tab.id === tabId;
+  const selectedTabContent = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
@@ -25,7 +25,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId }) => {
               )}
             >
               <Link
-                to={`../${tab.id}`}
+                to={`/tabs/${tab.id}`}
               >
                 {tab.title}
               </Link>
@@ -35,7 +35,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId }) => {
       </div>
       <div className="block" data-cy="TabContent">
         {
-          selectedTabId
+          tabId
             ? (selectedTabContent?.content)
             : 'Please select a tab'
         }
