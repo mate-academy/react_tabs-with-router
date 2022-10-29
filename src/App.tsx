@@ -1,7 +1,7 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
 import classNames from 'classnames';
 import { PageTabs } from './PageTabs';
 
@@ -49,6 +49,11 @@ export const App = () => (
           <Route
             path="/"
             element={<h1 className="title">Home page</h1>}
+          />
+
+          <Route
+            path="home"
+            element={<Navigate to="/" replace />}
           />
 
           <Route path="tabs">
