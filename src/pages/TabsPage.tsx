@@ -19,6 +19,7 @@ export const TabsPage: React.FC = () => {
         <ul>
           {tabs.map(tab => (
             <li
+              key={tab.id}
               data-cy="Tab"
               className={classNames(
                 { 'is-active': tab.id === tabId },
