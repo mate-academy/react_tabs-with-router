@@ -8,6 +8,7 @@ type Props = {
 
 export const TabsList: React.FC<Props> = ({ tabs }) => {
   const { tabId = '' } = useParams();
+  const isValidUrlTab = tabs.some(tab => tab.id === tabId);
 
   return (
     <>
@@ -26,7 +27,7 @@ export const TabsList: React.FC<Props> = ({ tabs }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {!tabId
+        {!isValidUrlTab
           ? 'Please select a tab'
           : (tabs.find(tab => tab.id === tabId))?.content}
       </div>
