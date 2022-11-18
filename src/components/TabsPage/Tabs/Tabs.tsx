@@ -17,6 +17,7 @@ export const Tabs: FC<Props> = memo(({ tabId }) => {
           return (
             <li
               data-cy="Tab"
+              key={id}
               className={classNames({
                 'is-active': isActive,
               })}
