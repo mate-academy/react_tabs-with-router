@@ -33,7 +33,7 @@ export const TabsList: React.FC<Props> = ({
                 'is-active': selectedTabId === tab.id,
               })}
             >
-              <Tab tab={tab} />
+              <Tab id={tab.id} title={tab.title} />
             </li>
           ))}
         </ul>
