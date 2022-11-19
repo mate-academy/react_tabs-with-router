@@ -19,7 +19,7 @@ export const TabsList: React.FC<Props> = ({
     tab => selectedTabId === tab.id,
   )?.content;
 
-  const isExistTabId = tabs.find(tab => selectedTabId === tab.id);
+  const isExistTabId = tabs.some(tab => selectedTabId === tab.id);
 
   return (
     <>
@@ -39,13 +39,13 @@ export const TabsList: React.FC<Props> = ({
         </ul>
       </div>
 
-      <div className="block" data-cy="TabContent">
-        { selectedTabContent }
-      </div>
+      {selectedTabContent && (
+        <div className="block" data-cy="TabContent">
+          { selectedTabContent }
+        </div>
+      )}
 
-      {isExistTabId ? (
-        null
-      ) : (
+      {!isExistTabId && (
         <div className="block" data-cy="TabContent">
           Please select a tab
         </div>
