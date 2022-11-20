@@ -65,7 +65,7 @@ export const App = () => {
             <Route
               path="/"
               element={
-                <h1 className="title">Home Page</h1>
+                <h1 className="title">Home page</h1>
               }
             />
 
