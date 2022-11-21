@@ -15,7 +15,7 @@ type Props = {
 };
 
 export const Tabs: FC<Props> = ({ tabs }) => {
-  const { tabId = 0 } = useParams();
+  const { tabId } = useParams();
   const foundTab = tabs.find(x => x.id === tabId);
 
   return (
@@ -38,7 +38,7 @@ export const Tabs: FC<Props> = ({ tabs }) => {
           ))}
         </ul>
       </div>
-      {(tabId === 0 || !foundTab) && (
+      {(!tabId || !foundTab) && (
         <div className="block" data-cy="TabContent">
           Please select a tab
         </div>
