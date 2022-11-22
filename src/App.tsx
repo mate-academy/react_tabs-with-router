@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom';
 import classNames from 'classnames';
 import { Tabs } from './Tabs';
+import { TabsPage } from './TabsPage';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -93,18 +94,10 @@ export const App = () => {
               <Route
                 path=":tabId"
                 element={(
-                  <>
-                    <h1 className="title">Tabs page</h1>
-
-                    <Tabs
-                      tabs={tabs}
-                      selectedTab={selectedTab}
-                    />
-
-                    <div className="block" data-cy="TabContent">
-                      {selectedTab?.content}
-                    </div>
-                  </>
+                  <TabsPage
+                    tabs={tabs}
+                    selectedTab={selectedTab}
+                  />
                 )}
               />
             </Route>
