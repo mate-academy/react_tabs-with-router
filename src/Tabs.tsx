@@ -17,6 +17,7 @@ export const Tabs: React.FC<Props> = ({
         {tabs.map((tab) => {
           return (
             <SelectedTab
+              key={tab.id}
               tabId={tab.id}
               selectedTabId={selectedTab?.id}
               title={tab.title}
