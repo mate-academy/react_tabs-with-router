@@ -1,5 +1,5 @@
+import React, { useMemo } from 'react';
 import classNames from 'classnames';
-import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import { Tab } from '../../types/Tab';
@@ -12,6 +12,10 @@ export const Tabs: React.FC<Props> = ({
   tabs,
 }) => {
   const { tabId } = useParams();
+
+  const selectedTabId = useMemo(() => {
+    return tabs.find(tab => tab.id === tabId);
+  }, [tabId]);
 
   return (
     <div data-cy="TabsComponent">
@@ -36,15 +40,13 @@ export const Tabs: React.FC<Props> = ({
         </ul>
       </div>
 
-      {tabId ? (
-        <div className="block" data-cy="tab-content">
-          {tabs.map(tab => ((tab.id === tabId) ? tab.content : ''))}
-        </div>
-      ) : (
-        <div className="block" data-cy="TabContent">
-          Please select a tab
-        </div>
-      )}
+      <div className="block" data-cy="TabContent">
+        {selectedTabId ? (
+          selectedTabId.content
+        ) : (
+          'Please select a tab'
+        )}
+      </div>
     </div>
   );
 };
