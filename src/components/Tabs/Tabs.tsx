@@ -13,6 +13,8 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId }) => {
     selectedTabId ? tab.id === selectedTabId : tabs[0]
   ));
 
+  const existInTabs = tabs.find(tab => tab.id === selectedTabId);
+
   return (
     <div>
       <div className="tabs is-boxed">
@@ -36,7 +38,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTabId === '' ? 'Please select a tab' : activeTab?.content}
+        {!existInTabs ? 'Please select a tab' : activeTab?.content}
       </div>
     </div>
   );
