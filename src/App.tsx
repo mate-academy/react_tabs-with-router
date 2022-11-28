@@ -5,6 +5,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { HomePage } from './pages/HomePage';
 import { TabsPage } from './pages/TabsPage';
+import { PageNotFound } from './pages/PageNotFound';
 
 export const App = () => {
   const tabs = [
@@ -22,7 +23,11 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="home" element={<Navigate to="/" />} />
-            <Route path="tabs" element={<TabsPage tabs={tabs} />} />
+            <Route path="tabs">
+              <Route index element={<TabsPage tabs={tabs} />} />
+              <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
+            </Route>
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>
       </div>
