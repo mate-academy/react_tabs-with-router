@@ -25,22 +25,8 @@ export const App = () => {
         <div className="container">
           <Routes>
             <Route path="tabs">
-              <Route
-                index
-                element={(
-                  <Tabs
-                    tabs={allTabs}
-                  />
-                )}
-              />
-              <Route
-                path=":tabId"
-                element={(
-                  <Tabs
-                    tabs={allTabs}
-                  />
-                )}
-              />
+              <Route index element={(<Tabs tabs={allTabs} />)} />
+              <Route path=":tabId" element={(<Tabs tabs={allTabs} />)} />
             </Route>
             <Route
               path="*"
