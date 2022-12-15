@@ -20,6 +20,8 @@ ReactDOM.render(
         <Route path="home" element={<Navigate to="/" replace />} />
 
         <Route path="tabs">
+          <Route path="*" element={<TabsPage />} />
+
           <Route index element={<TabsPage />} />
           <Route path=":tabId" element={<TabsPage />} />
         </Route>
