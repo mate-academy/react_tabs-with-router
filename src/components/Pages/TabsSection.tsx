@@ -28,11 +28,9 @@ export const TabsSection: React.FC = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {getTabContent ? (
-          getTabContent.content
-        ) : (
-          'Please select a tab'
-        )}
+        {getTabContent
+          ? getTabContent.content
+          : 'Please select a tab'}
       </div>
     </>
   );

@@ -1,7 +1,6 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Navbar } from './components/Navbar/Navbar';
 import { Tab } from './types/Tab';
@@ -12,17 +11,7 @@ export const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const bodyClass = 'has-navbar-fixed-top';
-
 export const App = () => {
-  useEffect(() => {
-    document.body.classList.add(bodyClass);
-
-    return () => {
-      document.body.classList.remove(bodyClass);
-    };
-  }, [bodyClass]);
-
   return (
     <>
       <Navbar />
