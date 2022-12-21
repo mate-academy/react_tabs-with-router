@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -16,6 +16,10 @@ export const App = () => (
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route
+            path="/home"
+            element={<Navigate to="/" />}
+          />
           <Route path="/tabs">
             <Route index element={<TabsPage />} />
             <Route path=":tabId" element={<TabsPage />} />
