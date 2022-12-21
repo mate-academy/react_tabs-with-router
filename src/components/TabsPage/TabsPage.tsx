@@ -19,6 +19,7 @@ export const TabsPage: FC<Props> = ({ tabs }) => {
         <ul>
           {tabs.map(tab => (
             <li
+              key={tab.id}
               data-cy="Tab"
               className={cn(
                 { 'is-active': tabId === tab.id },
