@@ -17,7 +17,6 @@ export const tabs: Tab[] = [
 export const App = () => {
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <nav
         className="navbar is-light is-fixed-top is-mobile has-shadow"
         data-cy="Nav"
@@ -50,8 +49,7 @@ export const App = () => {
             <Route path="tabs">
               <Route
                 index
-                element={(
-                  <TabsPage
+                element={(                  <TabsPage
                     tabs={tabs}
                   />
                 )}

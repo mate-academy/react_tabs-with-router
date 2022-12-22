@@ -13,8 +13,6 @@ export const Tabs: FC<Props> = ({
 }) => {
   const selectedTab = tabs.find(tab => tab.id === selectTabSlug);
 
-  // const selectedTab = tabs.find(tab => tab.id === selectedTabId);
-  // selectTabSlug === selectedTabId classname
   return (
     <>
       <div className="tabs is-boxed">
