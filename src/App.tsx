@@ -47,21 +47,8 @@ export const App = () => {
             <Route path="/" element={<h1 className="title">Home page</h1>} />
             <Route path="home" element={<Navigate to="/" replace />} />
             <Route path="tabs">
-              <Route
-                index
-                element={(                  <TabsPage
-                    tabs={tabs}
-                  />
-                )}
-              />
-              <Route
-                path=":tabsId"
-                element={(
-                  <TabsPage
-                    tabs={tabs}
-                  />
-                )}
-              />
+              <Route index element={(<TabsPage tabs={tabs} />)} />
+              <Route path=":tabsId" element={(<TabsPage tabs={tabs} />)} />
             </Route>
             <Route
               path="*"

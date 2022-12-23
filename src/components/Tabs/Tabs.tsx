@@ -36,7 +36,9 @@ export const Tabs: FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab ? (selectedTab.content) : ('Please select a tab')}
+        {selectedTab
+          ? selectedTab.content
+          : 'Please select a tab'}
       </div>
     </>
   );
