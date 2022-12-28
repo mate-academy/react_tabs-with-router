@@ -12,7 +12,6 @@ const tabs = [
 
 export const App = () => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
     <Navigation />
 
     <Content tabs={tabs} />
