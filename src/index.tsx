@@ -3,8 +3,8 @@ import {
   HashRouter, Navigate, Route, Routes,
 } from 'react-router-dom';
 import { App } from './App';
-import { HomePage } from './component/HomePage';
 import { NotFoundPage } from './component/NotFoundPage';
+import { HomePage } from './component/HomePage';
 import { TabsPage } from './component/TabsPage';
 
 ReactDOM.render(
