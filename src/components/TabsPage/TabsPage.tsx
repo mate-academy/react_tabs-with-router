@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import { Link, useMatch } from 'react-router-dom';
 
@@ -26,9 +27,7 @@ export const TabsPage: React.FC = () => {
                 key={id}
                 data-cy="Tab"
                 className={
-                  id === targetTab?.id
-                    ? 'is-active'
-                    : ''
+                  classNames({ 'is-active': id === targetTab?.id })
                 }
               >
                 <Link to={`/tabs/${id}`}>
