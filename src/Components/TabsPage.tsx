@@ -33,7 +33,7 @@ export const TabsPage: FC<Props> = ({ tabs, tabId = '' }) => {
         </div>
       ) : (
         <div className="block" data-cy="TabContent">
-          {selectedTab && selectedTab.content}
+          {selectedTab ? selectedTab.content : 'Please select a tab'}
         </div>
       )}
     </>
