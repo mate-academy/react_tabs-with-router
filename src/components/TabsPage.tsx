@@ -21,7 +21,7 @@ export const TabsPage:FC = () => {
     const currentTab = tabs.find(tab => tab.id === tabId);
 
     setSelectedTab(currentTab || null);
-  }, []);
+  }, [tabId]);
 
   const onSelectTab = (tab: Tab) => {
     setSelectedTab(tab);
