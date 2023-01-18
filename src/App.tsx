@@ -32,8 +32,8 @@ export const App = () => (
             }
           >
             Home
-
           </NavLink>
+
           <NavLink
             to="/tabs"
             className={
@@ -43,7 +43,6 @@ export const App = () => (
             }
           >
             Tabs
-
           </NavLink>
         </div>
       </div>
