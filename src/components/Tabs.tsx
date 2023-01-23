@@ -14,9 +14,8 @@ type Props = {
 export const Tabs: React.FC<Props> = ({ tabs }) => {
   const { tabId = '' } = useParams();
 
-  const currentContent = () => {
-    return tabs.find(tab => tab.id === tabId)?.content || 'Please select a tab';
-  };
+  const currentContent = tabs.find(tab => tab.id === tabId)?.content
+    || 'Please select a tab';
 
   return (
     <div data-cy="TabsComponent">
@@ -33,7 +32,7 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {currentContent()}
+        {currentContent}
       </div>
     </div>
   );

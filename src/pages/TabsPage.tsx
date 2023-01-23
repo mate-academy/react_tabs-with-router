@@ -13,10 +13,6 @@ export const TabsPage: FC = () => {
       <h1 className="title">Tabs page</h1>
 
       <Tabs tabs={tabs} />
-
-      {/* <div className="block" data-cy="TabContent">
-        Please select a tab
-      </div> */}
     </div>
   );
 };
