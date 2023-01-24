@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { PageNavLink } from '../PageNavLink/PageNavLink';
 
-export const Navbar: React.FC = () => (
+export const Navbar: React.FC = memo(() => (
   <nav
     className="navbar is-light is-fixed-top is-mobile has-shadow"
     data-cy="Nav"
@@ -13,4 +13,4 @@ export const Navbar: React.FC = () => (
       </div>
     </div>
   </nav>
-);
+));

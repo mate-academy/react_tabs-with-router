@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import cn from 'classnames';
 import { Link, useParams } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
@@ -7,7 +7,7 @@ type Props = {
   tabs: Tab[];
 };
 
-export const TabsPage: React.FC<Props> = ({ tabs }) => {
+export const TabsPage: React.FC<Props> = memo(({ tabs }) => {
   const { tabId } = useParams();
 
   const selectedTab = tabs.find(tab => tab.id === tabId);
@@ -42,4 +42,4 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
       </div>
     </>
   );
-};
+});

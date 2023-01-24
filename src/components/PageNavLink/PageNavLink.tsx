@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ type Props = {
   text: string;
 };
 
-export const PageNavLink: React.FC<Props> = ({ to, text }) => (
+export const PageNavLink: React.FC<Props> = memo(({ to, text }) => (
   <NavLink
     to={to}
     className={({ isActive }) => cn(
@@ -17,4 +17,4 @@ export const PageNavLink: React.FC<Props> = ({ to, text }) => (
   >
     {text}
   </NavLink>
-);
+));
