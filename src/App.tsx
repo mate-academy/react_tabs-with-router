@@ -56,16 +56,16 @@ export const App = () => {
         <div className="container">
           <Routes>
             <Route
-              path="/home"
+              path="/"
               element={
-                <Navigate to="/" />
+                <h1 className="title">Home page</h1>
               }
             />
 
             <Route
-              path="/"
+              path="/home"
               element={
-                <h1 className="title">Home page</h1>
+                <Navigate to="/" />
               }
             />
 
@@ -76,7 +76,7 @@ export const App = () => {
               />
 
               <Route
-                path="/tabs/:tabId"
+                path=":tabId"
                 element={<TabsPage />}
               />
             </Route>

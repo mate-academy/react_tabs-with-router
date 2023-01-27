@@ -1,6 +1,5 @@
-import { FC } from 'react';
 import cn from 'classnames';
-import { Link, useMatch } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Tab } from './types/Tab';
 
 const tabs = [
@@ -9,9 +8,8 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-export const TabsPage: FC = () => {
-  const match = useMatch('/tabs/:tabId');
-  const tabId = String(match?.params.tabId);
+export const TabsPage = () => {
+  const { tabId } = useParams();
   let currentTab = tabs.find(tab => tab.id === tabId) as Tab;
 
   return (
