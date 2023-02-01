@@ -7,7 +7,7 @@ import { PageNavLink } from './pages/PageNavLinks';
 import { HomePage } from './pages/HomePage';
 import { TabsPage } from './pages/TabsPage';
 
-export const App: React.FC = memo(() => {
+export const App: React.FC = () => {
   return (
     <>
       <nav
@@ -42,4 +42,4 @@ export const App: React.FC = memo(() => {
       </div>
     </>
   );
-});
+};
