@@ -2,9 +2,6 @@ import React from 'react';
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 
-// eslint-disable-next-line no-lone-blocks
-{ /* Also requires <html class="has-navbar-fixed-top"> */ }
-
 export const Navigation:React.FC = () => {
   return (
     <nav
