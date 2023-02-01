@@ -9,8 +9,10 @@ export type Props = {
 
 export const PageNavLink: FC<Props> = ({ to, text }) => (
   <NavLink
-    className={({ isActive }) => cn('navbar-item',
-      { 'has-background-grey-lighter': isActive })}
+    className={({ isActive }) => cn(
+      'navbar-item',
+      { 'is-active': isActive },
+    )}
     to={to}
   >
     {text}
