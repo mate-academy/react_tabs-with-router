@@ -37,9 +37,7 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabId && +tabId.slice(4) <= tabs.length
-          ? `${activeTabId?.content}`
-          : 'Please select a tab'}
+        {activeTabId ? `${activeTabId.content}` : 'Please select a tab'}
       </div>
     </>
   );
