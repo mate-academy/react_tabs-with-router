@@ -1,5 +1,4 @@
-import cn from 'classnames';
-import { NavLink } from 'react-router-dom';
+import { PageNavLink } from '../PageNavLink/PageNavLink';
 
 export const Navbar: React.FC = () => {
   return (
@@ -9,25 +8,8 @@ export const Navbar: React.FC = () => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink
-            className={({ isActive }) => cn('navbar-item',
-              {
-                'is-active': isActive,
-              })}
-            to="/"
-          >
-            Home
-          </NavLink>
-
-          <NavLink
-            className={({ isActive }) => cn('navbar-item',
-              {
-                'is-active': isActive,
-              })}
-            to="/tabs"
-          >
-            Tabs
-          </NavLink>
+          <PageNavLink to="/" text="Home" />
+          <PageNavLink to="/tabs" text="Tabs" />
         </div>
       </div>
     </nav>
