@@ -13,7 +13,7 @@ export const NavBar:React.FC = () => {
             to="/"
             className={({ isActive }) => classNames(
               'navbar-item',
-              { 'has-background-grey-lighter': isActive },
+              { 'is-active': isActive },
             )}
           >
             Home
@@ -22,7 +22,7 @@ export const NavBar:React.FC = () => {
             to="/tabs"
             className={({ isActive }) => classNames(
               'navbar-item',
-              { 'has-background-grey-lighter': isActive },
+              { 'is-active': isActive },
             )}
           >
             Tabs
