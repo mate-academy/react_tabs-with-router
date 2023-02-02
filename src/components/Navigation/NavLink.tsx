@@ -1,0 +1,20 @@
+import React, { memo } from 'react';
+import cn from 'classnames';
+import { NavLink } from 'react-router-dom';
+
+type Props = {
+  to: string;
+  text: string;
+};
+
+export const NavLinkPage: React.FC<Props> = memo(({ to, text }) => (
+  <NavLink
+    to={to}
+    className={({ isActive }) => cn(
+      'navbar-item',
+      { 'is-active': isActive },
+    )}
+  >
+    {text}
+  </NavLink>
+));

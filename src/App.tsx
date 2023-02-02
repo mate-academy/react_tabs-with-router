@@ -3,11 +3,11 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 
 import { Outlet } from 'react-router-dom';
-import { Navigation } from './components/Navigation/Navigation';
+import { Navbar } from './components/NavBar/NavBar';
 
 export const App = () => (
   <>
-    <Navigation />
+    <Navbar />
 
     <div className="section">
       <div className="container">
