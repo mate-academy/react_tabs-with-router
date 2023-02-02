@@ -1,21 +1,23 @@
-import React from 'react';
+import { FC, useMemo } from 'react';
 import cn from 'classnames';
 import { Link, useParams } from 'react-router-dom';
-import { Tab } from '../../types/Tab';
 
-type Props = {
-  tabs: Tab[],
-};
+const tabs = [
+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
+  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
+  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+];
 
-export const Tabs: React.FC<Props> = ({
-  tabs,
-}) => {
+export const PageTabs: FC = () => {
   const { tabId } = useParams();
 
-  const selectedTab = tabs.find(tab => tab.id === tabId);
+  const selectedTab = useMemo(() => (
+    tabs.find(tab => tab.id === tabId)
+  ), [tabId]);
 
   return (
     <>
+      <h1 className="title">Tabs page</h1>
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
@@ -27,7 +29,7 @@ export const Tabs: React.FC<Props> = ({
               data-cy="Tab"
             >
               <Link
-                to={`/tabs/${tab.id}`}
+                to={tab.id}
                 data-cy="TabLink"
               >
                 {tab.title}
