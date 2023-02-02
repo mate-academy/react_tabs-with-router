@@ -15,8 +15,8 @@ ReactDOM.render(
           <Route path=":tabId" element={<TabsPage />} />
         </Route>
 
-        <Route index element={<HomePage />} />
-        <Route path="home" element={<Navigate to="/" replace />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<Navigate to="/" replace />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
