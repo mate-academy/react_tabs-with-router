@@ -1,10 +1,10 @@
 import { FC, memo } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, To } from 'react-router-dom';
 import cn from 'classnames';
 
 type Props = {
-  to: string,
-  textToDisplay: string,
+  to: To;
+  textToDisplay: string;
 };
 
 export const TemplateNavLink: FC<Props> = memo(({ to, textToDisplay }) => (
