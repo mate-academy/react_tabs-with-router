@@ -7,7 +7,7 @@ import {
 import cn from 'classnames';
 import { TabsPage } from './pages/TabsPage';
 import { HomePage } from './pages/HomePage';
-import { NotFounPage } from './pages/NotFoundPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -58,7 +58,7 @@ export const App = () => (
             <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
           </Route>
 
-          <Route path="*" element={<NotFounPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
     </div>

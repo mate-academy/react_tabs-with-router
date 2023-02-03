@@ -1,18 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useMemo } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import cn from 'classnames';
 import { Tab } from '../types/Tab';
 
 type Props = {
   tabs: Tab[];
-  tabId: string;
 };
 
-export const Tabs: React.FC<Props> = ({
-  tabs,
-  tabId,
-}) => {
-  const selectedTab = tabs.find(tab => tab.id === tabId);
+export const Tabs: React.FC<Props> = ({ tabs }) => {
+  const { tabId = '' } = useParams();
+  const selectedTab = useMemo(
+    () => tabs.find(tab => tab.id === tabId),
+    [tabId, tabs],
+  );
 
   return (
     <>
@@ -35,17 +35,12 @@ export const Tabs: React.FC<Props> = ({
         </ul>
       </div>
 
-      {selectedTab
-        ? (
-          <div className="block" data-cy="TabContent">
-            {selectedTab.content}
-          </div>
-        )
-        : (
-          <div className="block" data-cy="TabContent">
-            Please select a tab
-          </div>
-        )}
+      <div
+        className="block"
+        data-cy="TabContent"
+      >
+        {selectedTab ? selectedTab.content : 'Please select a tab'}
+      </div>
     </>
   );
 };
