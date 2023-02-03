@@ -10,26 +10,23 @@ export const TabsPage: React.FC = memo(() => {
   ), [tabs, tabId]);
 
   return (
-    <div className="section">
-      <div className="container">
-        <h1 className="title">Tabs page</h1>
-
-        <div className="tabs is-boxed">
-          <ul>
-            {tabs.map(tab => (
-              <TabItem tab={tab} key={tab.id} />
-            ))}
-          </ul>
-        </div>
-
-        <div className="block" data-cy="TabContent">
-          {!selectedTab
-            ? (
-              'Please select a tab'
-            )
-            : selectedTab.content}
-        </div>
+    <>
+      <h1 className="title">Tabs page</h1>
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map(tab => (
+            <TabItem tab={tab} key={tab.id} />
+          ))}
+        </ul>
       </div>
-    </div>
+      <div className="block" data-cy="TabContent">
+        {!selectedTab
+          ? (
+            'Please select a tab'
+          )
+          : selectedTab.content}
+      </div>
+
+    </>
   );
 });

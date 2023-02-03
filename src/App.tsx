@@ -9,6 +9,10 @@ export const App = () => (
     {/* Also requires <html class="has-navbar-fixed-top"> */}
     <NavBar />
 
-    <Outlet />
+    <div className="section">
+      <div className="container">
+        <Outlet />
+      </div>
+    </div>
   </>
 );
