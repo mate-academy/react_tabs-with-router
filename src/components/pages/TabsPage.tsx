@@ -1,10 +1,16 @@
+import { memo } from 'react';
+import { Tab } from '../../types/Tab';
 import { TabsList } from '../TabsList/TabsList';
 
-export const TabsPage: React.FC = () => {
+type Props = {
+  tabs: Tab[]
+};
+
+export const TabsPage: React.FC<Props> = memo(({ tabs }) => {
   return (
     <>
       <h1 className="title">Tabs page</h1>
-      <TabsList />
+      <TabsList tabs={tabs} />
     </>
   );
-};
+});
