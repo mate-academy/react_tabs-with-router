@@ -31,7 +31,7 @@ export const Tabs: React.FC<Props> = memo(({ tabs, tabId = '' }) => {
                 { 'is-active': selectedTab(tab) },
               )}
             >
-              <NavLink to={`/tabs/${tab.id}`}>{tab.title}</NavLink>
+              <NavLink to={`${tab.id}`}>{tab.title}</NavLink>
             </li>
           ))}
         </ul>
