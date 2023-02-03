@@ -9,10 +9,6 @@ export type Props = {
 };
 
 export const Tabs: React.FC<Props> = memo(({ tabs, tabId = '' }) => {
-  const selectedTab = useMemo(() => (oneTab: Tab) => {
-    return oneTab.id === tabId;
-  }, [tabId]);
-
   const selectedTabContent = useMemo(() => (tab: Tab[]) => {
     const properTab = tab.find(el => el.id === tabId);
 
@@ -28,7 +24,7 @@ export const Tabs: React.FC<Props> = memo(({ tabs, tabId = '' }) => {
             <li
               data-cy="Tab"
               className={classNames(
-                { 'is-active': selectedTab(tab) },
+                { 'is-active': tabId === tab.id },
               )}
             >
               <NavLink to={`${tab.id}`}>{tab.title}</NavLink>
