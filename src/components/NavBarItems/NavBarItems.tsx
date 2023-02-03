@@ -13,7 +13,7 @@ export const NavBarItems: React.FC<Props> = memo(
       to={to}
       className={({ isActive }) => className(
         'navbar-item',
-        { 'has-background-grey-lighter': isActive },
+        { 'is-active': isActive },
       )}
     >
       {title}
