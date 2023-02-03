@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Tabs } from '../Tabs/Tabs';
 
 const tabs = [
@@ -7,10 +7,10 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-export const TabsPage: React.FC = () => (
+export const TabsPage: React.FC = memo(() => (
   <>
     <h1 className="title">Tabs page</h1>
 
     <Tabs tabs={tabs} />
   </>
-);
+));
