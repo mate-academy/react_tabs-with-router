@@ -9,7 +9,6 @@ interface Props {
 export const TabsPage: FC<Props> = memo(({ tabs }) => {
   const { tabId } = useParams();
 
-
   const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (

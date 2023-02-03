@@ -1,9 +1,9 @@
 import { FC, memo } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, To } from 'react-router-dom';
 import cn from 'classnames';
 
 interface Props {
-  to: string,
+  to: To,
   text: string,
 }
 
