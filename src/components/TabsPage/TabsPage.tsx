@@ -22,15 +22,13 @@ export const TabsPage: React.FC = memo(() => {
           </ul>
         </div>
 
-        {!selectedTab
-          ? (
-            <div className="block" data-cy="TabContent">
-              Please select a tab
-            </div>
-          )
-          : (
-            selectedTab.content
-          )}
+        <div className="block" data-cy="TabContent">
+          {!selectedTab
+            ? (
+              'Please select a tab'
+            )
+            : selectedTab.content}
+        </div>
       </div>
     </div>
   );
