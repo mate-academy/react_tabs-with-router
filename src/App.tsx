@@ -1,6 +1,7 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+import { NavigationLink } from './components/NavigationLink';
 
 // const tabs = [
 //   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -17,8 +18,8 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <a href="/" className="navbar-item is-active">Home</a>
-          <a href="/tabs" className="navbar-item">Tabs</a>
+          <NavigationLink to="/" title="Home" />
+          <NavigationLink to="/tabs" title="Tabs" />
         </div>
       </div>
     </nav>
