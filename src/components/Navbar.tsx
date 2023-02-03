@@ -1,7 +1,7 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { TemplateNavLink } from './TemplateNavLink';
 
-export const Navbar: FC = () => {
+export const Navbar: FC = memo(() => {
   return (
     <nav
       className="navbar is-light is-fixed-top is-mobile
@@ -16,4 +16,4 @@ export const Navbar: FC = () => {
       </div>
     </nav>
   );
-};
+});

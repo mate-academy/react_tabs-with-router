@@ -10,7 +10,9 @@ export const App: FC = () => (
     <Navbar />
 
     <div className="section">
-      <Outlet />
+      <div className="container">
+        <Outlet />
+      </div>
     </div>
   </>
 );

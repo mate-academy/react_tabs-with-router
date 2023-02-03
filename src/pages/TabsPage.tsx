@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { Tabs } from '../components/Tabs';
 
 const tabs = [
@@ -6,7 +7,7 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-export const TabsPage = () => {
+export const TabsPage: FC = () => {
   return (
     <>
       <h1 className="title">Tabs page</h1>
