@@ -14,31 +14,28 @@ export const Tabs: FC = () => {
   const activeTab = tabs.find(tab => tab.id === tabId);
 
   return (
-    <div className="section">
-      <div className="container">
-        <div className="tabs is-boxed">
-          <ul>
-            {tabs.map(tab => (
-              <li
-                className={cn({ 'is-active': tabId === tab.id })}
-                data-cy="Tab"
-                key={tab.id}
-              >
-                <Link to={`../${tab.id}`}>
-                  {tab.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="block" data-cy="TabContent">
-          {activeTab
-            ? activeTab.content
-            : 'Please select a tab'}
-        </div>
-
+    <>
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map(tab => (
+            <li
+              className={cn({ 'is-active': tabId === tab.id })}
+              data-cy="Tab"
+              key={tab.id}
+            >
+              <Link to={`../${tab.id}`}>
+                {tab.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
+
+      <div className="block" data-cy="TabContent">
+        {activeTab
+          ? activeTab.content
+          : 'Please select a tab'}
+      </div>
+    </>
   );
 };
