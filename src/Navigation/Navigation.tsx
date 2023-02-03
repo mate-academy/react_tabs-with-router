@@ -1,23 +1,16 @@
 import React, { memo } from 'react';
-import cn from 'classnames';
-import { NavLink } from 'react-router-dom';
+import { NavItem } from './NavItem';
 
 export const Navigation: React.FC = memo(() => (
   <div className="navbar-brand">
-    <NavLink
+    <NavItem
       to="/"
-      className={({ isActive }) => cn('navbar-item',
-        { 'is-active': isActive })}
-    >
-      Home
-    </NavLink>
+      title="Home"
+    />
 
-    <NavLink
+    <NavItem
       to="tabs"
-      className={({ isActive }) => cn('navbar-item',
-        { 'is-active': isActive })}
-    >
-      Tabs
-    </NavLink>
+      title="Tabs"
+    />
   </div>
 ));

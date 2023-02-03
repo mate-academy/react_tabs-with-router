@@ -6,6 +6,15 @@ import {
 } from 'react-router-dom';
 import { Navigation } from './Navigation/Navigation';
 import { TabPage } from './TabPage/TabPages';
+import { Tab } from './types/Tab';
+import { ErrorMessage } from './ErrorMessage/ErrorMessage';
+import { HomePage } from './HomePage/HomePage';
+
+const tabs: Tab[] = [
+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
+  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
+  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+];
 
 export const App = () => (
   <>
@@ -22,7 +31,7 @@ export const App = () => (
     <div className="section">
       <div className="container">
         <Routes>
-          <Route path="/" element={<h1 className="title">Home page</h1>} />
+          <Route path="/" element={<HomePage />} />
           <Route path="home" element={<Navigate to="/" replace />} />
           <Route
             path="tabs"
@@ -33,10 +42,10 @@ export const App = () => (
               </>
             )}
           >
-            <Route index element={<TabPage />} />
-            <Route path=":tabId" element={<TabPage />} />
+            <Route index element={<TabPage tabs={tabs} />} />
+            <Route path=":tabId" element={<TabPage tabs={tabs} />} />
           </Route>
-          <Route path="*" element={<h1 className="title">Page not found</h1>} />
+          <Route path="*" element={<ErrorMessage />} />
         </Routes>
       </div>
     </div>
