@@ -11,7 +11,9 @@ export const CustomLink: FC<Props> = ({ to, title }) => {
   return (
     <NavLink
       to={to}
-      className={(args) => (cn('navbar-item', { 'is-active': args.isActive }))}
+      className={({ isActive }) => (cn('navbar-item', {
+        'is-active': isActive,
+      }))}
     >
       {title}
     </NavLink>
