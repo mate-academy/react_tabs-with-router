@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 const tabs = [
@@ -9,9 +10,9 @@ const tabs = [
 
 export const TabPages = () => {
   const { tabId = '' } = useParams();
-  const selectedTab = tabs.find(
-    tab => tab.id === tabId,
-  );
+  const selectedTab = useMemo(() => (
+    tabs.find(tab => tab.id === tabId)
+  ), [tabId]);
 
   return (
     <>
@@ -33,9 +34,7 @@ export const TabPages = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab
-          ? selectedTab?.content
-          : 'Please, select the tab'}
+        {selectedTab?.content || 'Please select the tab'}
       </div>
     </>
   );
