@@ -27,8 +27,7 @@ export const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<h1 className="title">Home page</h1>} />
             <Route path="/home" element={<Navigate to="/" replace />} />
-            <Route path="tabs">
-              <Route index element={<TabsPage />} />
+            <Route path="/tabs" element={<TabsPage />}>
               <Route path=":tabId" element={<TabsPage />} />
             </Route>
             <Route

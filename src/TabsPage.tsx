@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { memo } from 'react';
+import { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 const tabs = [
@@ -8,10 +8,14 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-export const TabsPage: React.FC = memo(() => {
-  const { tabId } = useParams();
+export const TabsPage = () => {
+  const { tabId = '' } = useParams();
 
-  const selectedTab = tabs.find(tab => tab.id === tabId);
+  const selectedTabContent = useMemo(
+    () => tabs.find(
+      tab => tab.id === tabId,
+    )?.content, [tabId],
+  );
 
   return (
     <>
@@ -24,11 +28,11 @@ export const TabsPage: React.FC = memo(() => {
               data-cy="Tab"
               key={tab.id}
               className={cn(
-                { 'is-active': tabId === tab.id },
+                { 'is-active': tab.id === tabId },
               )}
             >
               <Link
-                to={`../${tab.id}`}
+                to={tab.id}
               >
                 {tab.title}
               </Link>
@@ -38,10 +42,8 @@ export const TabsPage: React.FC = memo(() => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab
-          ? selectedTab?.content
-          : 'Please select a tab'}
+        {selectedTabContent || 'Please select a tab'}
       </div>
     </>
   );
-});
+};
