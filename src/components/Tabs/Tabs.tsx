@@ -15,6 +15,7 @@ export const Tabs: React.FC = memo(() => {
   };
 
   const { tabId = '' } = useParams();
+  const isContentExist = findTabById(tabId)?.content;
 
   return (
     <>
@@ -24,6 +25,7 @@ export const Tabs: React.FC = memo(() => {
             <TabItem
               tab={tab}
               currentTabId={tabId}
+              key={tab.id}
             />
           ))}
         </ul>
@@ -31,14 +33,14 @@ export const Tabs: React.FC = memo(() => {
       </div>
 
       {
-        !findTabById(tabId)?.content
+        isContentExist
           ? (
             <div className="block" data-cy="TabContent">
-              Please select a tab
+              {findTabById(tabId)?.content}
             </div>
           ) : (
             <div className="block" data-cy="TabContent">
-              {findTabById(tabId)?.content}
+              Please select a tab
             </div>
           )
       }
