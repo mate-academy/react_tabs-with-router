@@ -15,18 +15,17 @@ export const App = () => {
   return (
     <>
       <Navigation />
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <div className="section">
         <div className="container">
           <Routes>
-            <Route path="/">
-              <Route index element={<HomePage />} />
-            </Route>
+            <Route path="/" element={<HomePage />} />
+            <Route path="home" element={<Navigate to="/" />} />
+
             <Route path="/tabs">
               <Route index element={<TabsPage />} />
               <Route path=":tabId" element={<TabsPage />} />
             </Route>
-            <Route path="home" element={<Navigate to="/" />} />
+
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>
