@@ -4,6 +4,7 @@ import { tabs } from '../../tabs';
 
 export const TabsPage = () => {
   const { tabId } = useParams<string>();
+  const tabsContent = tabs.find((item) => item.id === tabId)?.content;
 
   return (
     <>
@@ -21,8 +22,7 @@ export const TabsPage = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.find((item) => item.id === tabId)?.content
-         || 'Please select a tab'}
+        {tabsContent || 'Please select a tab'}
       </div>
     </>
   );
