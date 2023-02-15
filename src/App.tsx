@@ -1,8 +1,8 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { NavLink, Outlet } from 'react-router-dom';
-import classNames from 'classnames';
+import { Outlet } from 'react-router-dom';
+import { CustomNavLink } from './components/CustomNavLink';
 
 export const App = () => (
   <>
@@ -12,26 +12,15 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink
+          <CustomNavLink
             to="/"
-            className={
-              ({ isActive }) => classNames(
-                'navbar-item', { 'is-active': isActive },
-              )
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
+            title="Home"
+          />
+          <CustomNavLink
             to="/tabs"
-            className={
-              ({ isActive }) => classNames(
-                'navbar-item', { 'is-active': isActive },
-              )
-            }
-          >
-            Tabs
-          </NavLink>
+            title="Tabs"
+          />
+
         </div>
       </div>
     </nav>

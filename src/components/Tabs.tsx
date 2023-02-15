@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 const tabs = [
@@ -8,11 +9,10 @@ const tabs = [
 
 export const Tabs = () => {
   const { tabId } = useParams();
-  let content = tabs.find(tab => tab.id === tabId)?.content;
 
-  if (!content) {
-    content = 'Please select a tab';
-  }
+  const selectedTab = useMemo(() => (
+    tabs.find(tab => tab.id === tabId)
+  ), [tabs, tabId]);
 
   return (
     <>
@@ -21,7 +21,11 @@ export const Tabs = () => {
         <ul>
           {tabs.map(tab => {
             return (
-              <li data-cy="Tab" className={tabId === tab.id ? 'is-active' : ''}>
+              <li
+                data-cy="Tab"
+                className={tabId === tab.id ? 'is-active' : ''}
+                key={tab.id}
+              >
                 <Link to={`../${tab.id}`}>{tab.title}</Link>
               </li>
             );
@@ -29,7 +33,7 @@ export const Tabs = () => {
         </ul>
       </div>
       <div className="block" data-cy="TabContent">
-        {content}
+        {!selectedTab ? 'Please select a tab' : selectedTab.content}
       </div>
     </>
   );

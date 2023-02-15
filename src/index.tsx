@@ -3,8 +3,9 @@ import {
   HashRouter, Navigate, Route, Routes,
 } from 'react-router-dom';
 import { App } from './App';
-import { HomePage } from './HomePage';
-import { Tabs } from './Tabs';
+import { HomePage } from './pages/HomePage';
+import { NotFoundPage } from './pages/NotFoundPage';
+import { Tabs } from './components/Tabs';
 
 ReactDOM.render(
   <HashRouter>
@@ -13,7 +14,7 @@ ReactDOM.render(
 
         <Route index element={<HomePage />} />
         <Route path="/home" element={<Navigate to="/" replace />} />
-        <Route path="*" element={<h1 className="title">Page not found</h1>} />
+        <Route path="*" element={<NotFoundPage />} />
 
         <Route path="/tabs">
           <Route index element={<Tabs />} />
