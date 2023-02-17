@@ -1,7 +1,7 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { TabPage } from './components/TabPage';
 
@@ -25,9 +25,15 @@ export const App: React.FC = () => {
                 <h1 className="title">Home page</h1>
               }
             />
+            <Route
+              path="/home"
+              element={
+                <Navigate to="/" />
+              }
+            />
             <Route path="/tabs">
               <Route index element={<TabPage tabs={tabs} />} />
-              <Route path="/tabs/:tabId" element={<TabPage tabs={tabs} />} />
+              <Route path=":tabId" element={<TabPage tabs={tabs} />} />
             </Route>
             <Route
               path="*"
