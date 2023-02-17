@@ -1,13 +1,17 @@
 import React from 'react';
 import classNames from 'classnames';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Tab } from '../types/Tab';
 
 type Props = {
   tabs: Tab[],
+  tabId: string | undefined,
 };
 
-export const Tabs: React.FC<Props> = ({ tabs }) => {
+export const Tabs: React.FC<Props> = ({
+  tabs,
+  tabId,
+}) => {
   return (
     <div className="tabs is-boxed">
       <ul>
@@ -15,15 +19,15 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
           <li
             data-cy="Tab"
             key={tab.id}
+            className={classNames(
+              { 'is-active': tab.id === tabId },
+            )}
           >
-            <NavLink
+            <Link
               to={`#/${tab.id}`}
-              className={({ isActive }) => classNames(
-                { 'is-active': isActive },
-              )}
             >
               {tab.title}
-            </NavLink>
+            </Link>
           </li>
         ))}
       </ul>
