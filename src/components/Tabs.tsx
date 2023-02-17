@@ -36,9 +36,9 @@ export const Tabs: React.FC<Props> = ({
         </ul>
       </div>
       <div className="block" data-cy="TabContent">
-        {tabId
+        {selectedTab
           ? (
-            `${selectedTab?.content}`
+            `${selectedTab.content}`
           )
           : (
             'Please select a tab'
