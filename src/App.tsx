@@ -1,7 +1,11 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+import { Route, Routes } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
+import { Home } from './components/Home';
+import { Tabs } from './components/Tabs';
+import { ErrorPage } from './components/ErrorPage';
 
 // const tabs = [
 //   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -15,9 +19,14 @@ export const App = () => (
     <Navigation />
     <div className="section">
       <div className="container">
-        <h1 className="title">Home page</h1>
-        <h1 className="title">Tabs page</h1>
-        <h1 className="title">Page not found</h1>
+        <Routes>
+          <Route
+            path="/"
+            element={<Home />}
+          />
+          <Route path="/tabs" element={<Tabs />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
 
         <div className="tabs is-boxed">
           <ul>
