@@ -7,13 +7,11 @@ type Props = {
   tabs: Tab[],
 };
 
-export const TabPage: React.FC<Props> = ({ tabs }) => {
-  return (
-    <>
-      <h1 className="title">Tabs page</h1>
-      <Tabs
-        tabs={tabs}
-      />
-    </>
-  );
-};
+export const TabPage: React.FC<Props> = ({ tabs }) => (
+  <>
+    <h1 className="title">Tabs page</h1>
+    <Tabs
+      tabs={tabs}
+    />
+  </>
+);

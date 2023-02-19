@@ -7,9 +7,7 @@ type Props = {
   tabs: Tab[],
 };
 
-export const Tabs: React.FC<Props> = ({
-  tabs,
-}) => {
+export const Tabs: React.FC<Props> = ({ tabs }) => {
   const { tabId } = useParams();
 
   const selectedTab = tabs.find((tab) => tab.id === tabId);

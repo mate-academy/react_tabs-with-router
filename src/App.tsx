@@ -32,7 +32,10 @@ export const App: React.FC = () => {
               }
             />
             <Route path="/tabs">
-              <Route index element={<TabPage tabs={tabs} />} />
+              <Route
+                index
+                element={<TabPage tabs={tabs} />}
+              />
               <Route path=":tabId" element={<TabPage tabs={tabs} />} />
             </Route>
             <Route
