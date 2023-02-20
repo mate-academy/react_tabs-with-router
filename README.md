@@ -2,7 +2,7 @@
 
 Implement the `App` with `Home` page available at `/` and `Tabs` page available
 at `/tabs`. Each page should have the correct title `Home page` or `Tabs page`.
-The `Tabs` page should also show a `Tabs` component implemented in [React Tabs](https://github.com/mate-academy/react_tabs#react-tabs).
+The `Tabs` page should also show a `Tabs` component implemented in [React Tabs](/).
 
 > Here is [the working version](https://mate-academy.github.io/react_tabs-with-router)
 
@@ -16,7 +16,7 @@ The `Tabs` page should also show a `Tabs` component implemented in [React Tabs](
       <Route path=":tabId" element={<TabsPage />} />
     </Route>
     ```
-1. Each tab should update the URL on click. 
+1. Each tab should update the URL on click.
     - the URL should follow the next format `/tabs/:tabId` (use actual `tab.id` instead of `:tabId`);
     - replace `<a href="#...">` with `<Link to="/tabs/...">` and remove `onClick`;
     - **don't** use `NavLink` as `is-active` class is added to a parent element;
@@ -31,5 +31,5 @@ The `Tabs` page should also show a `Tabs` component implemented in [React Tabs](
 - Implement a solution following the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline).
 - Use the [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript).
 - Open one more terminal and run tests with `npm test` to ensure your solution is correct.
-- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_tabs-with-router/) and add it to the PR description.
+- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<Grayfox147.github.io/react_tabs-with-router/) and add it to the PR description.
 
