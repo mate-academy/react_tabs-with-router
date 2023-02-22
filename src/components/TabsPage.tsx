@@ -16,27 +16,25 @@ export const TabsPage: React.FC = () => {
   return (
     <>
       <h1 className="title">Tabs page</h1>
-
-      <>
-        <div className="tabs is-boxed">
-          <ul>
-            {tabs.map(tab => (
-              <li
-                data-cy="Tab"
-                className={classNames(
-                  { 'is-active': selectedtabId === tab.id },
-                )}
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map(tab => (
+            <li
+              data-cy="Tab"
+              className={classNames(
+                { 'is-active': selectedtabId === tab.id },
+              )}
+            >
+              <Link
+                to={`/tabs/${tab.id}`}
               >
-                <Link
-                  to={`/tabs/${tab.id}`}
-                >
-                  {tab.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </>
+                {tab.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
       {selectedTab
         ? (
           <div className="block" data-cy="TabContent">

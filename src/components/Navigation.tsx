@@ -4,8 +4,14 @@ import { NavLink } from 'react-router-dom';
 export const Navigation: React.FC = () => {
   return (
     <nav
-      // eslint-disable-next-line max-len
-      className="navbar is-light is-fixed-top is-mobile has-shadow has-navbar-fixed-top"
+      className="
+      navbar
+      is-light
+      is-fixed-top
+      is-mobile
+      has-shadow
+      has-navbar-fixed-top
+      "
       data-cy="Nav"
     >
       <div className="container">
