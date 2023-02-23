@@ -16,7 +16,7 @@ type GetNavItemClassesFunc = (linkState: LinkState) => string;
 export const PageNavLink: React.FC<Props> = ({ to, linkText }) => {
   const getClasses: GetNavItemClassesFunc = ({ isActive }) => {
     return classNames('navbar-item', {
-      'has-background-grey-lighter': isActive,
+      'is-active': isActive,
     });
   };
 
