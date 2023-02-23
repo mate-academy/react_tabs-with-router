@@ -11,23 +11,21 @@ type Props = {
 
 export const Tabs: React.FC<Props> = ({ tabs, selectedTab }) => {
   return (
-    <>
-      <div className="tabs is-boxed">
-        <ul>
-          {tabs.map(tab => {
-            const isSelected = tab === selectedTab;
+    <div className="tabs is-boxed">
+      <ul>
+        {tabs.map(tab => {
+          const isSelected = tab === selectedTab;
 
-            return (
-              <li
-                data-cy="Tab"
-                className={classNames({ 'is-active': isSelected })}
-              >
-                <Link to={`../${tab.id}`}>{tab.title}</Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </>
+          return (
+            <li
+              data-cy="Tab"
+              className={classNames({ 'is-active': isSelected })}
+            >
+              <Link to={`../${tab.id}`}>{tab.title}</Link>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 };
