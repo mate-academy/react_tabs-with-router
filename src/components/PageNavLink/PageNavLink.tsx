@@ -7,23 +7,13 @@ type Props = {
   linkText: string;
 };
 
-type LinkState = {
-  isActive: boolean;
-};
-
-type GetNavItemClassesFunc = (linkState: LinkState) => string;
-
 export const PageNavLink: React.FC<Props> = ({ to, linkText }) => {
-  const getClasses: GetNavItemClassesFunc = ({ isActive }) => {
-    return classNames('navbar-item', {
-      'is-active': isActive,
-    });
-  };
-
   return (
     <NavLink
       to={to}
-      className={getClasses}
+      className={({ isActive }) => classNames('navbar-item', {
+        'is-active': isActive,
+      })}
     >
       {linkText}
     </NavLink>
