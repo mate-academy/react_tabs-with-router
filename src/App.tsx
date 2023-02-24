@@ -11,8 +11,6 @@ import { NavBar } from './components/NavBar';
 export const App: React.FC = () => (
   <>
     <NavBar />
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
-
     <div className="section">
       <div className="container">
         <Routes>
