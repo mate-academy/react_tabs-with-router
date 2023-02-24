@@ -5,14 +5,8 @@ import {
   Navigate, Route, Routes,
 } from 'react-router-dom';
 import { NavBar } from './components/NavBar';
-import { Tab } from './types/Tab';
 import { TabsPage } from './components/TabsPage';
-
-const tabs: Tab[] = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-];
+import { NotFoundPage } from './components/NotFoundPage';
 
 export const App = () => {
   return (
@@ -25,17 +19,17 @@ export const App = () => {
             <Routes>
               <Route
                 path="*"
-                element={<h1 className="title">Page not found</h1>}
+                element={<NotFoundPage />}
               />
 
               <Route path="/" element={<h1 className="title">Home page</h1>} />
               <Route path="/home" element={<Navigate to="/" replace />} />
 
               <Route path="/tabs">
-                <Route index element={<TabsPage tabs={tabs} />} />
+                <Route index element={<TabsPage />} />
                 <Route
                   path=":tabId"
-                  element={<TabsPage tabs={tabs} />}
+                  element={<TabsPage />}
                 />
               </Route>
             </Routes>
