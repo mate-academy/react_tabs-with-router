@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
@@ -9,7 +9,7 @@ type Props = {
   selectedTab: Tab | null;
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, selectedTab }) => {
+export const Tabs: React.FC<Props> = memo(({ tabs, selectedTab }) => {
   return (
     <>
       <div className="tabs is-boxed">
@@ -30,4 +30,4 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTab }) => {
       </div>
     </>
   );
-};
+});

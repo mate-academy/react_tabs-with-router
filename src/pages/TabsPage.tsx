@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Tabs } from '../components/Tabs';
 
@@ -8,7 +8,7 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-export const TabsPage: React.FC = () => {
+export const TabsPage: React.FC = memo(() => {
   const { tabId = '' } = useParams();
 
   const selectedTab = tabs.find(tab => tab.id === tabId) || null;
@@ -20,10 +20,10 @@ export const TabsPage: React.FC = () => {
       <Tabs tabs={tabs} selectedTab={selectedTab} />
 
       <div className="block" data-cy="TabContent">
-        { selectedTab
+        {selectedTab
           ? (selectedTab.content)
           : 'Please select a tab'}
       </div>
     </>
   );
-};
+});
