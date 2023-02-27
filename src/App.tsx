@@ -3,8 +3,8 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { NavLinkBar } from './Components/NavLinkBar/NavLinkBar.tsx';
-import { HomePage } from './Components/HomePage';
 import { PageNotFound } from './Components/PageNotFound';
+import { HomePage } from './Components/HomePage';
 import { TabsPage } from './Components/TabsPage';
 
 export const App = () => (
