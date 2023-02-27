@@ -1,17 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Link, useParams } from 'react-router-dom';
+import { tabs } from '../../api/tabs';
 import { Tab } from '../../types/Tab';
 import { TabContent } from '../TabContent';
 
-type Props = {
-  tabs: Tab[];
-};
-
-export const TabsPage: React.FC<Props> = ({ tabs }) => {
+export const TabsPage: React.FC = () => {
   const { tabId = '' } = useParams();
 
-  const selectedTab = tabs.find(tab => tab.id === tabId);
+  const selectedTab: Tab | undefined = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
