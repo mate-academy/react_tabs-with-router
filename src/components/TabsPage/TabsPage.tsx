@@ -2,13 +2,11 @@ import React from 'react';
 import classNames from 'classnames';
 import { Link, useParams } from 'react-router-dom';
 import { tabs } from '../../api/tabs';
-import { Tab } from '../../types/Tab';
-import { TabContent } from '../TabContent';
 
 export const TabsPage: React.FC = () => {
   const { tabId = '' } = useParams();
 
-  const selectedTab: Tab | undefined = tabs.find(tab => tab.id === tabId);
+  const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
@@ -30,7 +28,11 @@ export const TabsPage: React.FC = () => {
         </ul>
       </div>
 
-      <TabContent tabContent={selectedTab?.content} />
+      <div className="block" data-cy="TabContent">
+        {selectedTab
+          ? (selectedTab.content)
+          : 'Please select a tab'}
+      </div>
     </>
   );
 };
