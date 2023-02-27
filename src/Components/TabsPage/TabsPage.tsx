@@ -7,7 +7,7 @@ type Props = {
   tabs: Tab[],
 };
 
-export const TabsPage: React.FC<Props> = ({ tabs }) => {
+export const TabsPage: React.FC<Props> = React.memo(({ tabs }) => {
   const { tabsId = '' } = useParams();
 
   const selectedTab = tabs.find(tab => tab.id === tabsId) || null;
@@ -15,6 +15,8 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
   return (
     <div className="section">
       <div className="container">
+        <h1 className='title'>Tabs Page</h1>
+
         <div className="tabs is-boxed">
           <ul>
             {tabs.map(tab => (
@@ -39,4 +41,4 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
       </div>
     </div>
   );
-};
+});
