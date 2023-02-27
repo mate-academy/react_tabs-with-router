@@ -13,17 +13,18 @@ export const TabItem: React.FC<Props> = ({
   selectedTabId,
 }) => {
   const isSelected = (tabId: string) => tabId === selectedTabId;
+  const { id, title } = tab;
 
   return (
     <li
       data-cy="Tab"
-      key={tab.id}
-      className={classNames({ 'is-active': isSelected(tab.id) })}
+      key={id}
+      className={classNames({ 'is-active': isSelected(id) })}
     >
       <Link
-        to={`/tabs/${tab.id}`}
+        to={`/tabs/${id}`}
       >
-        {tab.title}
+        {title}
       </Link>
     </li>
   );
