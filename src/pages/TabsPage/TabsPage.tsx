@@ -1,14 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useParams } from 'react-router-dom';
+import { tabs } from '../../api/tabs';
 import { TabLink } from '../../components/TabLink';
 
-const tabs = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-];
-
-export const TabsPages: React.FC = () => {
+export const TabsPages: React.FC = memo(() => {
   const { tabId = '' } = useParams();
 
   const tabContent = tabs.find(tab => tab.id === tabId)?.content || null;
@@ -36,4 +31,4 @@ export const TabsPages: React.FC = () => {
       </div>
     </div>
   );
-};
+});
