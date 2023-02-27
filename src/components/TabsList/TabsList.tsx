@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import { Tab } from '../../types/Tab';
@@ -7,7 +8,7 @@ type Props = {
   selectedTab: string,
 };
 
-export const TabsList: React.FC<Props> = ({ selectedTab, tabs }) => (
+export const TabsList: React.FC<Props> = React.memo(({ selectedTab, tabs }) => (
   <div className="tabs is-boxed">
     <ul>
       {tabs.map(tab => (
@@ -21,4 +22,4 @@ export const TabsList: React.FC<Props> = ({ selectedTab, tabs }) => (
       ))}
     </ul>
   </div>
-);
+));
