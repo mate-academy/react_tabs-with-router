@@ -29,7 +29,6 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
 
       <div className="block" data-cy="TabContent">
         {selectedContent}
-        content
       </div>
 
     </>
