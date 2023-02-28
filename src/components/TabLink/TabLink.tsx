@@ -1,24 +1,15 @@
-import classNames from 'classnames';
-import { FC } from 'react';
-import { tabs } from '../../api/tabs';
-import { PageNavLink } from '../PageNavLink';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Tab } from '../../types/Tab';
 
 type Props = {
-  selectedTabId: string,
+  tab: Tab,
 };
 
-export const TabLink: FC<Props> = ({ selectedTabId }) => (
-  <div className="tabs is-boxed">
-    <ul>
-      {tabs.map(tab => (
-        <li
-          data-cy="Tab"
-          key={tab.id}
-          className={classNames({ 'is-active': tab.id === selectedTabId })}
-        >
-          <PageNavLink to={`/tabs/${tab.id}`} text={tab.title} />
-        </li>
-      ))}
-    </ul>
-  </div>
+export const TabLink: React.FC<Props> = ({ tab }) => (
+  <Link
+    to={`/tabs/${tab.id}`}
+  >
+    {tab.title}
+  </Link>
 );

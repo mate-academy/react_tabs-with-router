@@ -5,7 +5,7 @@ type Props = {
   selectedTab: Tab | null,
 };
 
-export const VisibleTab: React.FC<Props> = ({ selectedTab }) => (
+export const VisibleTab = React.memo<Props>(({ selectedTab }) => (
   <div className="block" data-cy="TabContent">
     {selectedTab
       ? (
@@ -14,4 +14,4 @@ export const VisibleTab: React.FC<Props> = ({ selectedTab }) => (
         'Please select a tab'
       )}
   </div>
-);
+));
