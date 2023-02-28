@@ -1,7 +1,6 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import { Link, useParams } from 'react-router-dom';
-import { Tab } from '../../types/Tab';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -11,10 +10,6 @@ const tabs = [
 
 export const TabsPage: React.FC = () => {
   const { tabId = '' } = useParams();
-  const isActive = useMemo(
-    () => ((tab: Tab) => tab.id === tabId),
-    [tabId],
-  );
 
   const content
   = tabs.find(tab => tab.id === tabId)?.content || 'Please select a tab';
@@ -29,7 +24,7 @@ export const TabsPage: React.FC = () => {
             <li
               key={tab.id}
               data-cy="Tab"
-              className={classNames({ 'is-active': isActive(tab) })}
+              className={classNames({ 'is-active': tab.id === tabId })}
             >
               <Link
                 to={`../${tab.id}`}
