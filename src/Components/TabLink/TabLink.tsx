@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
 
@@ -7,7 +8,7 @@ interface Props {
   tabId: string;
 }
 
-export const TabLink: React.FC<Props> = ({ tab, tabId }) => {
+export const TabLink: React.FC<Props> = React.memo(({ tab, tabId }) => {
   const {
     id,
     title,
@@ -22,4 +23,4 @@ export const TabLink: React.FC<Props> = ({ tab, tabId }) => {
       </Link>
     </li>
   );
-};
+});

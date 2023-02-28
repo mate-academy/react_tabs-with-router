@@ -6,8 +6,8 @@ import { NavBar } from './Components/NavBar';
 import { HomePage } from './Components/HomePage';
 import { TabsPage } from './Components/TabsPage';
 import { PageNotFound } from './Components/PageNotFound';
-import tabs from './Api/tabs.json';
-import navItems from './Api/navItems.json';
+import tabs from './Data/tabs.json';
+import navItems from './Data/navItems.json';
 
 export const App = () => (
   <>

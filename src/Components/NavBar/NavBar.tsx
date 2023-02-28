@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { NavItem } from '../../types/NavItem';
 
@@ -6,7 +7,7 @@ interface Props {
   navItems: NavItem [];
 }
 
-export const NavBar: React.FC<Props> = ({ navItems }) => (
+export const NavBar: React.FC<Props> = React.memo(({ navItems }) => (
   <nav
     className="navbar is-light is-fixed-top is-mobile has-shadow"
     data-cy="Nav"
@@ -27,4 +28,4 @@ export const NavBar: React.FC<Props> = ({ navItems }) => (
       </div>
     </div>
   </nav>
-);
+));

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
 import { getCurrentTabContent } from '../../Utils/helpers';
@@ -7,7 +8,7 @@ interface Props {
   tabs: Tab[]
 }
 
-export const TabsPage: React.FC<Props> = ({ tabs }) => {
+export const TabsPage: React.FC<Props> = React.memo(({ tabs }) => {
   const { tabId = '' } = useParams();
   const content = getCurrentTabContent(tabs, tabId);
 
@@ -26,4 +27,4 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
       </div>
     </>
   );
-};
+});
