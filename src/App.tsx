@@ -3,7 +3,9 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { NavBar } from './components/NavBar';
-import { TabsPage } from './components/TabsPage';
+import { TabsPage } from './components/pages/TabsPage';
+import { HomePage } from './components/pages/HomePage';
+import { ErrorPage } from './components/pages/ErrorPage';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -22,9 +24,9 @@ export const App = () => {
           <Routes>
             <Route
               path="*"
-              element={<h1 className="title">Page not found</h1>}
+              element={<ErrorPage />}
             />
-            <Route path="/" element={<h1 className="title">Home page</h1>} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/home" element={<Navigate to="/" replace />} />
             <Route path="/tabs">
               <Route index element={<TabsPage tabs={tabs} />} />

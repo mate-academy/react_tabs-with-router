@@ -1,14 +1,14 @@
 import classNames from 'classnames';
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Tab } from '../../types/Tab';
-import { TabLink } from '../TabLink';
+import { Tab } from '../../../types/Tab';
+import { TabLink } from '../../TabLink';
 
 type Props = {
   tabs: Tab[]
 };
 
-export const TabsPage: React.FC<Props> = ({ tabs }) => {
+export const TabsPage: React.FC<Props> = React.memo(({ tabs }) => {
   const { tabId: selectedTabId } = useParams();
 
   const selectedTab = tabs.find(tab => tab.id === selectedTabId) || null;
@@ -38,4 +38,4 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
       </div>
     </>
   );
-};
+});
