@@ -6,7 +6,7 @@ type Props = {
   tabs: Tab[];
 };
 
-export const TabPage:React.FC<Props> = ({ tabs }) => {
+export const TabsPage:React.FC<Props> = ({ tabs }) => {
   const { tabId = null } = useParams();
   const selectTab = tabs.find(tab => tab.id === tabId);
 
@@ -22,7 +22,7 @@ export const TabPage:React.FC<Props> = ({ tabs }) => {
               key={tab.id}
             >
               <Link
-                to={`/tabs/${tab.id}`}
+                to={`../${tab.id}`}
                 data-cy="TabLink"
               >
                 {tab.title}

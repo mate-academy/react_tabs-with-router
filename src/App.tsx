@@ -1,9 +1,13 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
-import classNames from 'classnames';
-import { TabPage } from './components/TabsPage';
+import {
+  Navigate, Route, Routes,
+} from 'react-router-dom';
+import { TabsPage } from './components/TabsPage';
+import { NavBar } from './components/NavBar';
+import { NotFoundPage } from './components/NotFoundPage';
+import { HomePage } from './components/HomePage';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -20,24 +24,7 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink
-            to="/"
-            className={({ isActive }) => classNames(
-              'navbar-item',
-              { 'is-active': isActive },
-            )}
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/tabs"
-            className={({ isActive }) => classNames(
-              'navbar-item',
-              { 'is-active': isActive },
-            )}
-          >
-            Tabs
-          </NavLink>
+          <NavBar />
         </div>
       </div>
     </nav>
@@ -47,11 +34,11 @@ export const App = () => (
         <Routes>
           <Route
             path="*"
-            element={<h1 className="title">Page not found</h1>}
+            element={<NotFoundPage />}
           />
           <Route
             path="/"
-            element={<h1 className="title">Home page</h1>}
+            element={<HomePage />}
           />
           <Route
             path="/home"
@@ -62,11 +49,11 @@ export const App = () => (
           >
             <Route
               index
-              element={<TabPage tabs={tabs} />}
+              element={<TabsPage tabs={tabs} />}
             />
             <Route
               path=":tabId"
-              element={<TabPage tabs={tabs} />}
+              element={<TabsPage tabs={tabs} />}
             />
           </Route>
 
