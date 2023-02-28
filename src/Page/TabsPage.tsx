@@ -18,7 +18,11 @@ export const TabsPage = () => {
               key={tab.id}
               className={classNames({ 'is-active': tab.id === tabId })}
             >
-              <TabNavlink to={`../${tab.id}`} text={tab.title} isActive={tab.id === tabId} />
+              <TabNavlink
+                to={`../${tab.id}`}
+                text={tab.title}
+                isActive={tab.id === tabId}
+              />
             </li>
           ))}
         </ul>
