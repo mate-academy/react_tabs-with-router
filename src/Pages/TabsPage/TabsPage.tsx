@@ -2,15 +2,15 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
 import { getCurrentTabContent } from '../../Utils/helpers';
-import { TabLink } from '../TabLink';
+import { TabLabel } from '../../Components/TabLabel';
 
 interface Props {
   tabs: Tab[]
 }
 
 export const TabsPage: React.FC<Props> = React.memo(({ tabs }) => {
-  const { tabId = '' } = useParams();
-  const content = getCurrentTabContent(tabs, tabId);
+  const { tabId: selectedTabId = '' } = useParams();
+  const content = getCurrentTabContent(tabs, selectedTabId);
 
   return (
     <>
@@ -18,7 +18,11 @@ export const TabsPage: React.FC<Props> = React.memo(({ tabs }) => {
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
-            <TabLink key={tab.id} tab={tab} tabId={tabId} />
+            <TabLabel
+              key={tab.id}
+              tab={tab}
+              selectedTabId={selectedTabId}
+            />
           ))}
         </ul>
       </div>

@@ -3,9 +3,9 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { NavBar } from './Components/NavBar';
-import { HomePage } from './Components/HomePage';
-import { TabsPage } from './Components/TabsPage';
-import { PageNotFound } from './Components/PageNotFound';
+import { HomePage } from './Pages/HomePage';
+import { TabsPage } from './Pages/TabsPage';
+import { PageNotFound } from './Pages/PageNotFound';
 import tabs from './Data/tabs.json';
 import navItems from './Data/navItems.json';
 
