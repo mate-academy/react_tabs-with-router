@@ -8,7 +8,7 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-export const TabsPage: React.FC = () => {
+export const TabsPage: React.FC = React.memo(() => {
   const { tabId = 0 } = useParams();
 
   const selectedTab = tabs.find(tab => tab.id === tabId) || null;
@@ -32,4 +32,4 @@ export const TabsPage: React.FC = () => {
       </div>
     </div>
   );
-};
+});

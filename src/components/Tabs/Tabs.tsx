@@ -8,7 +8,7 @@ type Props = {
   selectedTab: Tab | null,
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, selectedTab }) => {
+export const Tabs: React.FC<Props> = React.memo(({ tabs, selectedTab }) => {
   return (
     <div className="tabs is-boxed">
       <ul>
@@ -31,4 +31,4 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTab }) => {
       </ul>
     </div>
   );
-};
+});
