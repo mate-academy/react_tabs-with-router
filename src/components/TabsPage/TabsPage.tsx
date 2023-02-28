@@ -18,7 +18,9 @@ export const TabsPage:React.FC<Props> = ({ tabs }) => {
           {tabs.map(tab => (
             <li
               data-cy="Tab"
-              className={classNames({ 'is-active': tab.id === tabId })}
+              className={classNames(
+                { 'is-active': tab.id === tabId },
+              )}
               key={tab.id}
             >
               <Link
