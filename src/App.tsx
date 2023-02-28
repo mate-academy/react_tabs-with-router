@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom';
 import { TabsPage } from './components/TabsPage';
 import { NavBar } from './components/NavBar';
+import { HomePage } from './components/HomePage';
+import { PageNotFound } from './components/PageNotFound';
 
 export const App: React.FC = () => (
   <>
@@ -14,7 +16,8 @@ export const App: React.FC = () => (
     <div className="section">
       <div className="container">
         <Routes>
-          <Route path="/" element={<h1 className="title">Home page</h1>} />
+          <Route path="*" element={<PageNotFound />} />
+          <Route path="/" element={<HomePage />} />
 
           <Route path="home" element={<Navigate to="/" />} />
 
@@ -22,11 +25,6 @@ export const App: React.FC = () => (
             <Route index element={<TabsPage />} />
             <Route path=":tabId" element={<TabsPage />} />
           </Route>
-
-          <Route
-            path="*"
-            element={<h1 className="title">Page not found</h1>}
-          />
         </Routes>
       </div>
     </div>
