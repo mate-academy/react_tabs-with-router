@@ -1,11 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import { FC } from 'react';
 import classNames from 'classnames';
+import { Props } from './Props';
 
-type Props = {
-  to: string;
-  text: string;
-};
 export const PageNavLink: FC<Props> = ({ to, text }) => (
   <NavLink
     to={to}

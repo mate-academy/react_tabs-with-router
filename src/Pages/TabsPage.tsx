@@ -6,9 +6,7 @@ type Props = {
   tabs: Tab[];
 };
 
-export const TabsPage: React.FC<Props> = ({
-  tabs,
-}) => {
+export const TabsPage: React.FC<Props> = ({ tabs }) => {
   const { tabId = 'Tab-0' } = useParams();
 
   return (
@@ -18,7 +16,7 @@ export const TabsPage: React.FC<Props> = ({
 
         <Tabs
           tabs={tabs}
-          selectedTabId={`Tab-${tabId}`}
+          selectedTabId={tabId}
         />
       </div>
     </div>

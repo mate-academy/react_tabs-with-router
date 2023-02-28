@@ -1,37 +1,18 @@
-import classNames from 'classnames';
-import { Link } from 'react-router-dom';
-import { Tab } from '../../types/Tab';
-
-type Props = {
-  tabs: Tab[];
-  selectedTabId: string;
-};
+import { Tab } from '../Tab/Tab';
+import { Props } from './Props';
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTabId,
 }) => {
-  const selectedTab = tabs.find(tab => `Tab-${tab.id}` === selectedTabId);
+  const selectedTab = tabs.find(tab => `Tab-${tab.id}` === `Tab-${selectedTabId}`);
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
-            <li
-              data-cy="Tab"
-              key={tab.id}
-              className={classNames(
-                { 'is-active': `Tab-${tab.id}` === selectedTabId },
-              )}
-            >
-              <Link
-                to={`/tabs/${tab.id}`}
-                data-cy="TabLink"
-              >
-                {tab.title}
-              </Link>
-            </li>
+            <Tab tab={tab} selectedTabId={selectedTabId} />
           ))}
         </ul>
       </div>
