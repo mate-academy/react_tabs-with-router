@@ -1,6 +1,7 @@
 import classNames from 'classnames';
-import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Tab } from '../../Tab';
+import { PageNavLink } from '../PageNavLink/PageNavLink';
 
 type Props = {
   tabs: Tab[]
@@ -21,14 +22,10 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
               key={tab.id}
               className={classNames({ 'is-active': tabId === tab.id })}
             >
-              <NavLink
+              <PageNavLink
                 to={`../${tab.id}`}
-                className={({ isActive }) => (classNames({
-                  'is-active': isActive,
-                }))}
-              >
-                {tab.title}
-              </NavLink>
+                title={tab.title}
+              />
             </li>
           ))}
         </ul>
