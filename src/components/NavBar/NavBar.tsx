@@ -1,24 +1,9 @@
 import { FC } from 'react';
-import { NavLink } from 'react-router-dom';
-import cn from 'classnames';
+import { NavBarLink } from '../NavBarLink';
 
 export const NavBar: FC = () => (
   <div className="navbar-brand">
-    <NavLink
-      to="/"
-      className={({ isActive }) => cn('navbar-item', {
-        'is-active': isActive,
-      })}
-    >
-      Home
-    </NavLink>
-    <NavLink
-      to="/tabs"
-      className={({ isActive }) => cn('navbar-item', {
-        'is-active': isActive,
-      })}
-    >
-      Tabs
-    </NavLink>
+    <NavBarLink linkTitle="Home" linkPath="/" />
+    <NavBarLink linkTitle="Tabs" linkPath="/tabs" />
   </div>
 );
