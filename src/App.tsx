@@ -15,29 +15,15 @@ export const App = () => (
     <div className="section">
       <div className="container">
         <Routes>
-          <Route
-            path="*"
-            element={<WrongUrlPage />}
-          />
-          <Route
-            path="home"
-            element={<Navigate to="/" replace />}
-          />
-          <Route
-            path="/"
-            element={<HomePage />}
-          />
-          <Route
-            path="tabs"
-            element={<TabsPage />}
-          >
-            <Route
-              path=":tabId"
-            />
-            <Route
-              index
-            />
+          <Route path="*" element={<WrongUrlPage />} />
+          <Route path="home" element={<Navigate to="/" replace />} />
+          <Route path="/" element={<HomePage />} />
+
+          <Route path="tabs" element={<TabsPage />}>
+            <Route path=":tabId" />
+            <Route index />
           </Route>
+
         </Routes>
       </div>
     </div>

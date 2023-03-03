@@ -10,19 +10,15 @@ const tabs = [
 
 export const TabsPage = () => {
   const { tabId = '' } = useParams();
-
   const selectedTabContent = tabs.find(tab => tab.id === tabId)?.content;
 
   return (
-
     <>
       <h1 className="title">Tabs page</h1>
       <TabList tabs={tabs} selectedTabId={tabId} />
       <div className="block" data-cy="TabContent">
         {selectedTabContent || 'Please select a tab'}
       </div>
-
     </>
-
   );
 };
