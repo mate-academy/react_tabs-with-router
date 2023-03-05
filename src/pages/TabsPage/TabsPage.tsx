@@ -15,6 +15,7 @@ export const TabsPage: React.FC = () => {
 
   return (
     <div className="container">
+      <h1 className="title">Title page</h1>
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
@@ -37,7 +38,9 @@ export const TabsPage: React.FC = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab?.content}
+        {selectedTab
+          ? selectedTab.content
+          : 'Please select a tab'}
       </div>
     </div>
   );
