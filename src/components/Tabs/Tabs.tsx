@@ -12,19 +12,17 @@ export const Tabs: FC<Props> = ({ tabs, selectedTab }) => {
   const isSelected = (tab: Tab) => tab.id === selectedTab;
 
   return (
-    <div className="tabs is-boxed">
-      <ul>
-        {tabs.map(tab => (
-          <li
-            data-cy="Tab"
-            key={tab.id}
-            className={classNames({ 'is-active': isSelected(tab) })}
+    <ul className="tabs is-boxed">
+      {tabs.map(tab => (
+        <li
+          data-cy="Tab"
+          key={tab.id}
+          className={classNames({ 'is-active': isSelected(tab) })}
 
-          >
-            <Link to={`../${tab.id}`}>{tab.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+        >
+          <Link to={`../${tab.id}`}>{tab.title}</Link>
+        </li>
+      ))}
+    </ul>
   );
 };
