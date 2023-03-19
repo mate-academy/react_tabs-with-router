@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import { TabContent } from '../components/TabContent';
@@ -10,9 +10,10 @@ type Props = {
 };
 
 export const TabsPage: React.FC<Props> = ({ tabs }) => {
-  const [tabContent, setTabContent] = useState('Please select a tab');
-
   const { id = '' } = useParams();
+
+  const tabContent = tabs.find(tab => tab.id === id)?.content
+    || 'Please select a tab';
 
   return (
     <>
@@ -21,7 +22,6 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
       <TabsList
         tabsList={tabs}
         activeId={id}
-        changeContent={setTabContent}
       />
 
       <TabContent content={tabContent} />

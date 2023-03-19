@@ -7,29 +7,16 @@ import { Tab } from '../types/Tab';
 type Props = {
   tabsList: Tab[],
   activeId: string,
-  changeContent: (content: string) => void,
 };
 
-export const TabsList: React.FC<Props> = ({
-  tabsList,
-  activeId,
-  changeContent,
-}) => {
+export const TabsList: React.FC<Props> = ({ tabsList, activeId }) => {
   const isActive = (id: string) => id === activeId;
 
   return (
     <div className="tabs is-boxed">
       <ul>
         {tabsList.map(tab => {
-          const {
-            title,
-            id,
-            content,
-          } = tab;
-
-          if (isActive(id)) {
-            changeContent(content);
-          }
+          const { title, id } = tab;
 
           return (
             <li
