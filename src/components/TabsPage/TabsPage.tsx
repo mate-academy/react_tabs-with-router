@@ -10,13 +10,11 @@ const tabs = [
 ];
 
 export const TabsPage: React.FC = () => {
-  const [selectTab, setSelectTab] = useState<null | string>(null);
+  const [selectedTab, setSelectedTab] = useState<null | string>(null);
   const { tabId = 0 } = useParams();
 
   useEffect(() => {
-    if (!tabId) {
-      setSelectTab(null);
-    }
+    setSelectedTab(tabId || null);
   }, [tabId]);
 
   return (
@@ -31,14 +29,13 @@ export const TabsPage: React.FC = () => {
             <li
               data-cy="Tab"
               className={classNames('', {
-                'is-active': tabId === element.id,
+                'is-active': selectedTab === element.id,
               })}
               key={element.id}
             >
               <Link
                 to={`/tabs/${element.id}`}
                 state={{ text: element.content }}
-                onClick={() => setSelectTab(element.content)}
               >
                 {element.title}
               </Link>
@@ -50,7 +47,9 @@ export const TabsPage: React.FC = () => {
         className="block"
         data-cy="TabContent"
       >
-        {selectTab || 'Please select a tab'}
+        {(selectedTab !== null)
+          ? tabs.find(tab => tab.id === selectedTab)?.content
+          : 'Please select a tab'}
       </div>
     </>
   );
