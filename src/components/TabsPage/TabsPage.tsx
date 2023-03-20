@@ -10,11 +10,11 @@ const tabs = [
 ];
 
 export const TabsPage: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState<null | string>(null);
-  const { tabId = 0 } = useParams();
+  const { tabId } = useParams<{ tabId?: string }>();
+  const [selectedTab, setSelectedTab] = useState<string | undefined>(tabId);
 
   useEffect(() => {
-    setSelectedTab(tabId || null);
+    setSelectedTab(tabId);
   }, [tabId]);
 
   return (
@@ -47,7 +47,7 @@ export const TabsPage: React.FC = () => {
         className="block"
         data-cy="TabContent"
       >
-        {(selectedTab !== null)
+        {selectedTab !== undefined && tabs.some(tab => tab.id === selectedTab)
           ? tabs.find(tab => tab.id === selectedTab)?.content
           : 'Please select a tab'}
       </div>
