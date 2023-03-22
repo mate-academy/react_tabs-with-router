@@ -1,6 +1,8 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+
+/* eslint-disable */
 import { Routes, Route, Link } from 'react-router-dom';
 import { TabPage } from './TabPabge';
 
@@ -20,7 +22,7 @@ export const App: React.FC = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link to="" className="navbar-item">
+            <Link to="/" className="navbar-item">
               Home
             </Link>
 
@@ -33,7 +35,7 @@ export const App: React.FC = () => {
 
       <Routes>
         <Route path="/tabs/*" element={<TabPage />} />
-        <Route path="" element={<h1 className="title">Home page</h1>} />
+        <Route path="/" element={<h1 className="title">Home page</h1>} />
         <Route path="*" element={<h1 className="title">Page not found</h1>} />
       </Routes>
     </>

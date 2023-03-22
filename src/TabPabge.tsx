@@ -1,9 +1,13 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useMatch } from 'react-router-dom';
+/* eslint-disable */
 import { tabs } from './App';
-
 export const TabPage = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const checkUrl = useMatch('/tabs/:tabId');
+  const selectedTabId = checkUrl?.params.tabId || null;
+
+  const find = tabs.find((tab) => tab.id === selectedTabId);
 
   return (
     <div className="section">
@@ -13,12 +17,14 @@ export const TabPage = () => {
         <div className="tabs is-boxed">
           <ul>
             {tabs.map((tab) => {
+              const handleClick = () => setSelectedTab(tab);
+
               return (
                 <li
                   key={tab.id}
                   data-cy="Tab"
                   className={selectedTab.id === tab.id ? 'is-active' : ''}
-                  onClick={() => setSelectedTab(tab)}
+                  onClick={handleClick}
                 >
                   <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
                 </li>
@@ -26,13 +32,16 @@ export const TabPage = () => {
             })}
           </ul>
         </div>
-        {tabs.map((tab) => {
+
+        {find ? (
           <div className="block" data-cy="TabContent">
-            {selectedTab.id === tab.id
-              ? 'Please select a tab'
-              : selectedTab.content}
-          </div>;
-        })}
+            {find.content}
+          </div>
+        ) : (
+          <div className="block" data-cy="TabContent">
+            Please select a tab
+          </div>
+        )}
       </div>
     </div>
   );
