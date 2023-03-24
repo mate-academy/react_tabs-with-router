@@ -8,7 +8,6 @@ import { Navigation } from './Navigation';
 
 export const App = () => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
     <Navigation />
 
     <div className="section">
