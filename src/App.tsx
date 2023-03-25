@@ -3,8 +3,8 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { NavBar } from './NavBar';
-import { TabsPage } from './TabsPage';
+import { NavBar } from './components/NavBar';
+import { TabsPage } from './pages/TabsPage';
 
 export const App: React.FC = () => {
   return (

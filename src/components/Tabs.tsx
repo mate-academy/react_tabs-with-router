@@ -1,15 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import { Tab } from './types/Tab';
+import { Tab } from '../types/Tab';
+import { tabs } from '../constants/tabs';
 
 type Props = {
-  tabs: Tab[];
   tabId: string;
 };
 
 export const Tabs: React.FC<Props> = ({
-  tabs,
   tabId,
 }) => {
   const isSelected = (tab: Tab) => tab.id === tabId;
@@ -24,7 +23,7 @@ export const Tabs: React.FC<Props> = ({
           {tabs.map((tab) => (
             <li
               key={tab.id}
-              className={classNames({
+              className={classNames('tab-item', {
                 'is-active': isSelected(tab),
               })}
               data-cy="Tab"
