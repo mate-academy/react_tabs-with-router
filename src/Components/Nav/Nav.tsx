@@ -1,7 +1,7 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 
-const selectedNav = (isActive: boolean) => classNames(
+const selectedNav = ({ isActive }: { isActive: boolean }) => cn(
   'navbar-item',
   { 'is-active': isActive },
 );
@@ -15,13 +15,13 @@ const Nav = () => (
       <div className="navbar-brand">
         <NavLink
           to="/"
-          className={({ isActive }) => selectedNav(isActive)}
+          className={selectedNav}
         >
           Home
         </NavLink>
         <NavLink
           to="/tabs"
-          className={({ isActive }) => selectedNav(isActive)}
+          className={selectedNav}
         >
           Tabs
         </NavLink>

@@ -1,5 +1,6 @@
+import { useMemo } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import classNames from 'classnames';
+import cn from 'classnames';
 import { Tab } from '../../types/Tab';
 
 type Props = {
@@ -8,7 +9,9 @@ type Props = {
 
 const Tabs: React.FC<Props> = ({ tabs }) => {
   const { tabId = 0 } = useParams();
-  const foundTab = tabs.find(tab => tab.id === tabId) || null;
+  const foundTab = useMemo(() => {
+    return tabs.find(tab => tab.id === tabId) || null;
+  }, [tabId]);
 
   return (
     <>
@@ -20,7 +23,7 @@ const Tabs: React.FC<Props> = ({ tabs }) => {
             <li
               key={tab.id}
               data-cy="Tab"
-              className={classNames({ 'is-active': tabId === tab.id })}
+              className={cn({ 'is-active': tabId === tab.id })}
             >
               <NavLink to={`../${tab.id}`}>
                 {tab.title}
@@ -31,7 +34,7 @@ const Tabs: React.FC<Props> = ({ tabs }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {foundTab ? foundTab.content : 'Please select a tab'}
+        {foundTab?.content || 'Please select a tab'}
       </div>
     </>
   );
