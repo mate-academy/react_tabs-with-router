@@ -8,7 +8,7 @@ const tabs = [
 ];
 
 export const TabsPage = () => {
-  const { tabId = '0' } = useParams();
+  const { tabId } = useParams();
 
   return (
     <>

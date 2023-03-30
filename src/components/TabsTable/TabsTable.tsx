@@ -5,7 +5,7 @@ import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[];
-  selectedTabId: string;
+  selectedTabId?: string;
 };
 
 export const TabsTable: React.FC<Props> = ({ tabs, selectedTabId }) => {

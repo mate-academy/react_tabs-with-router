@@ -9,6 +9,8 @@ import {
 
 import { TabsPage } from './components/TabsPage';
 import { Navbar } from './components/Navbar';
+import { HomePage } from './components/HomePage';
+import { NotFoundPage } from './components/NotFoundPage';
 
 export const App = () => (
   <>
@@ -19,7 +21,7 @@ export const App = () => (
         <Routes>
           <Route
             path="/"
-            element={<h1 className="title">Home page</h1>}
+            element={<HomePage />}
           />
           <Route
             path="/home"
@@ -39,7 +41,7 @@ export const App = () => (
 
           <Route
             path="*"
-            element={<h1 className="title">Page not found</h1>}
+            element={<NotFoundPage />}
           />
         </Routes>
       </div>
