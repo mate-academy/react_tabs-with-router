@@ -1,7 +1,9 @@
 import { FC } from 'react';
-// import cn from 'classnames';
 import {
-  Route, Routes, Link, useMatch,
+  Route,
+  Routes,
+  Link,
+  useParams,
 } from 'react-router-dom';
 
 import cn from 'classnames';
@@ -13,7 +15,7 @@ const tabs = [
 ];
 
 export const Tabs: FC = () => {
-  const match = useMatch('/tabs/*');
+  const tabId = useParams();
 
   return (
     <>
@@ -25,29 +27,16 @@ export const Tabs: FC = () => {
               <li
                 key={id}
                 data-cy="Tab"
-                // className="is-active"
                 className={cn(
-                  { 'is-active': `/tabs/${id}` === match?.pathname },
+                  { 'is-active': id === tabId['*'] },
                 )}
               >
                 <Link
                   to={id}
                   className="navbar-item"
-                // onClick={() => setSelectedTab(id)}
                 >
                   {title}
                 </Link>
-                {/* <NavLink
-                  to={id}
-                  className={({ isActive }) => (
-                    cn(
-                      'navbar-item',
-                      { 'is-active': isActive },
-                    )
-                  )}
-                >
-                  {title}
-                </NavLink> */}
               </li>
             ))
           }
@@ -65,6 +54,7 @@ export const Tabs: FC = () => {
             />
           ))
         }
+
         <Route
           path="*"
           element={(

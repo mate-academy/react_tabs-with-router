@@ -7,11 +7,10 @@ import cn from 'classnames';
 import {
   Routes,
   Route,
-  // Link,
   Navigate,
   NavLink,
 } from 'react-router-dom';
-import { Tabs } from './Tabs';
+import { Tabs } from './TabsPage';
 
 export const App: FC = () => (
   <>
@@ -78,24 +77,6 @@ export const App: FC = () => (
             }
           />
         </Routes>
-
-        {/* <div className="tabs is-boxed">
-          <ul>
-            <li data-cy="Tab" className="is-active">
-              <a href="#/">Tab 1</a>
-            </li>
-            <li data-cy="Tab">
-              <a href="#/">Tab 2</a>
-            </li>
-            <li data-cy="Tab">
-              <a href="#/">Tab 3</a>
-            </li>
-          </ul>
-        </div> */}
-
-        {/* <div className="block" data-cy="TabContent">
-          Please select a tab
-        </div> */}
       </div>
     </div>
   </>
