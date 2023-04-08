@@ -20,7 +20,7 @@ export const TabItem: FC<Props> = ({ tab }) => {
       data-cy="Tab"
     >
       <Link
-        to={`/tabs/${id}`}
+        to={`../${id}`}
         data-cy="TabLink"
       >
         {title}
