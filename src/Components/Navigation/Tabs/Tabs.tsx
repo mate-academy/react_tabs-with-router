@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { NavLink, useMatch } from 'react-router-dom';
 import { Tab } from '../../../types/Tab';
 
@@ -11,7 +11,9 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
   const match = useMatch('/tabs/:tabId');
   const selectedTabId = match?.params.tabId;
 
-  const selectedTab = tabs.filter(tab => tab.id === selectedTabId);
+  const selectedTab = useMemo(() => {
+    return tabs.filter(tab => tab.id === selectedTabId);
+  }, [selectedTabId, tabs]);
 
   return (
     <>

@@ -5,6 +5,8 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Navigation } from './Components/Navigation';
 import { Tabs } from './Components/Navigation/Tabs';
+import { HomePage } from './Components/HomePage';
+import { PageNotFound } from './Components/PageNotFound';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -22,7 +24,7 @@ export const App: React.FC = () => (
         <Routes>
           <Route
             path="/"
-            element={(<h1 className="title">Home page</h1>)}
+            element={(<HomePage />)}
           />
 
           <Route
@@ -39,7 +41,7 @@ export const App: React.FC = () => (
 
           <Route
             path="*"
-            element={(<h1 className="title">Page not found</h1>)}
+            element={(<PageNotFound />)}
           />
         </Routes>
       </div>
