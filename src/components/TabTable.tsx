@@ -32,9 +32,7 @@ export const TabTable: FC<Props> = ({ tabs, selectedTabId }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {!tabContent
-          ? 'Please select a tab'
-          : tabContent?.content}
+        {tabContent?.content || 'Please select a tab'}
       </div>
     </>
   );
