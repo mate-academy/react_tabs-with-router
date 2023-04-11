@@ -8,15 +8,19 @@ type Props = {
   isSelected: boolean;
 };
 
-export const TabItem: FC<Props> = ({ tab, isSelected }) => (
-  <li
-    data-cy="Tab"
-    className={classNames({
-      'is-active': isSelected,
-    })}
-  >
-    <Link to={`../${tab.id}`}>
-      {tab.title}
-    </Link>
-  </li>
-);
+export const TabItem: FC<Props> = ({ tab, isSelected }) => {
+  const { id, title } = tab;
+
+  return (
+    <li
+      data-cy="Tab"
+      className={classNames({
+        'is-active': isSelected,
+      })}
+    >
+      <Link to={`../${id}`}>
+        {title}
+      </Link>
+    </li>
+  );
+};
