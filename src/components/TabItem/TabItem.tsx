@@ -18,7 +18,6 @@ export const TabItem: React.FC<Props> = ({
       className={classNames(
         { 'is-active': tab.id === selectedTabId },
       )}
-      key={tab.id}
     >
       <Link to={`../${tab.id}`}>
         {tab.title}

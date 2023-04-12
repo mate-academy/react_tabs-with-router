@@ -19,6 +19,7 @@ export const TabsPage: React.FC = () => {
         <ul>
           {tabs.map(tab => (
             <TabItem
+              key={tab.id}
               tab={tab}
               selectedTabId={tabId}
             />
