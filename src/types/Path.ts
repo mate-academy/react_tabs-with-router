@@ -3,5 +3,5 @@ export enum PATH {
   Home = '/home',
   Tabs = '/tabs',
   Error = '/*',
-  TAB_ID = ':slug',
+  TAB_ID = ':tabId',
 }
