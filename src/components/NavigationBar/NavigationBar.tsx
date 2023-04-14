@@ -1,17 +1,16 @@
 import React from 'react';
 import { PageNavLink } from '../PageNavLink/PageNavLink';
 
-export const NavigationBar = () => (
+export const NavigationBar: React.FC = () => (
   <nav
-    data-cy="nav"
-    className="navbar is-fixed-top has-shadow"
-    role="navigation"
-    aria-label="main navigation"
+    className="navbar is-light is-fixed-top is-mobile has-shadow"
+    data-cy="Nav"
   >
     <div className="container">
       <div className="navbar-brand">
-        <PageNavLink title="Home" to="/" />
-        <PageNavLink title="Tabs" to="/tabs" />
+        <PageNavLink to="/" title="Home" />
+
+        <PageNavLink to="/tabs" title="Tabs" />
       </div>
     </div>
   </nav>
