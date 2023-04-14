@@ -1,11 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { TabsNavigation } from '../TabsNavigation/TabsNavigation';
-
-const tabs = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-];
+import { tabs } from '../../data/tabs';
 
 export const TabsPage = () => {
   const { tabId } = useParams();

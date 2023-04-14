@@ -1,5 +1,4 @@
-import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import { TabItem } from '../TabItem/TabItem';
 import { Tab } from '../../types/Tab';
 
 type Props = {
@@ -15,22 +14,22 @@ export const TabsNavigation: React.FC<Props> = ({ tabs, activeTabId }) => {
       <div className="tabs is-boxed">
         <ul>
           {tabs.map((tab) => {
+            const { id, title } = tab;
+
             return (
-              <li
-                data-cy="Tab"
-                className={classNames(
-                  { 'is-active': tab.id === activeTabId },
-                )}
-              >
-                <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
-              </li>
+              <TabItem
+                key={id}
+                id={id}
+                activeTabId={activeTabId}
+                title={title}
+              />
             );
           })}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        {(activeTab && (activeTab.content)) || 'Please select a tab'}
+        {(activeTab && activeTab.content) || 'Please select a tab'}
       </div>
     </>
   );
