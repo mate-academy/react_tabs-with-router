@@ -5,7 +5,7 @@ import { TabType } from '../../types';
 
 interface TabProps {
   tab: TabType;
-  tabId: string
+  tabId: string;
 }
 
 export const Tab: FC<TabProps> = ({ tab, tabId }) => {
