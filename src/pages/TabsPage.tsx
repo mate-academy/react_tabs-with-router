@@ -3,13 +3,13 @@ import { FC } from 'react';
 import { Tabs } from '../components/Tabs';
 
 export const TabsPage: FC = () => {
-  const { tabID = undefined } = useParams();
+  const { tabId = undefined } = useParams();
 
   return (
     <>
       <h1 className="title">Tabs page</h1>
 
-      <Tabs selectetTabId={tabID} />
+      <Tabs selectetTabId={tabId} />
     </>
   );
 };

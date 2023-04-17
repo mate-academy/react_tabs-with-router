@@ -30,7 +30,7 @@ export const Tabs: FC<Props> = ({ selectetTabId }) => {
                 key={id}
                 data-cy="Tab"
                 className={classNames(
-                  { 'is-active': !isSelected },
+                  { 'is-active': isSelected },
                 )}
               >
                 <Link to={`../${id}`} data-cy="TabLink">
