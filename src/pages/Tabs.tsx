@@ -1,6 +1,8 @@
 import classNames from 'classnames';
 import { Link, useParams } from 'react-router-dom';
 
+import { TabId } from '../types/TabId';
+
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
@@ -8,9 +10,9 @@ const tabs = [
 ];
 
 export const Tabs = () => {
-  const { tabId = '' } = useParams();
+  const { tabId = '' } = useParams<TabId>();
 
-  const contentToShow = tabs.find(({ id }) => id === tabId)?.content;
+  const selectedTab = tabs.find(({ id }) => id === tabId);
 
   return (
     <>
@@ -41,7 +43,7 @@ export const Tabs = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {contentToShow || 'Please select a tab'}
+        {selectedTab?.content || 'Please select a tab'}
       </div>
     </>
   );
