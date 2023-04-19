@@ -8,8 +8,12 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
+type Params = {
+  tabId?: string,
+};
+
 export const Tabs = () => {
-  const { tabId = 0 } = useParams();
+  const { tabId = '' } = useParams<Params>();
   const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
