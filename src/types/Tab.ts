@@ -1,5 +1,7 @@
+import { TabId } from './TabId';
+
 export interface Tab {
-  id: string;
+  id: TabId;
   title: string;
   content: string;
 }
