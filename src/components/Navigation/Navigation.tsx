@@ -1,16 +1,27 @@
 import classNames from 'classnames';
+import { PropsWithChildren } from 'react';
 import { NavLink } from 'react-router-dom';
 
-interface NavLinkClassName {
-  isActive: boolean;
+interface Props {
+  to: string;
 }
 
-export const Navigation: React.FC = () => {
-  const getClasses = ({ isActive }: NavLinkClassName) => classNames(
-    'navbar-item',
-    { 'is-active': isActive },
-  );
+const CustomNavLink: React.FC<PropsWithChildren<Props>> = ({
+  to,
+  children,
+}) => (
+  <NavLink
+    to={to}
+    className={({ isActive }) => classNames(
+      'navbar-item',
+      { 'is-active': isActive },
+    )}
+  >
+    {children}
+  </NavLink>
+);
 
+export const Navigation: React.FC = () => {
   return (
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
@@ -18,13 +29,13 @@ export const Navigation: React.FC = () => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to="/" className={getClasses}>
+          <CustomNavLink to="/">
             Home
-          </NavLink>
+          </CustomNavLink>
 
-          <NavLink to="/tabs" className={getClasses}>
+          <CustomNavLink to="/tabs">
             Tabs
-          </NavLink>
+          </CustomNavLink>
         </div>
       </div>
     </nav>

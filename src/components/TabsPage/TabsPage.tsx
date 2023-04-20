@@ -8,8 +8,12 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
+type TabsParams = {
+  tabId: string,
+};
+
 export const TabsPage: React.FC = () => {
-  const { tabId } = useParams();
+  const { tabId } = useParams<TabsParams>();
 
   const selectedTab = useMemo(
     () => tabs.find(tab => tab.id === tabId),
