@@ -1,7 +1,7 @@
 export enum PATH {
-  Main = '/',
-  Home = '/home',
-  Tabs = '/tabs',
-  Error = '/*',
-  TAB_ID = ':tabId',
+  Main = 'main',
+  Home = 'home',
+  Tabs = 'tabs',
+  Error = 'error',
+  TAB_ID = 'tabId',
 }

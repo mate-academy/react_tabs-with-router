@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { PageNavLink } from '../PageNavLink';
-import { PATH } from '../../types';
+import { RoutePath } from '../../utils/constants';
 
 export const Navbar: FC = () => (
   <nav
@@ -14,9 +14,9 @@ export const Navbar: FC = () => (
   >
     <div className="container">
       <div className="navbar-brand">
-        <PageNavLink to={PATH.Main} title="Home" />
+        <PageNavLink to={RoutePath.main} title="Home" />
 
-        <PageNavLink to={PATH.Tabs} title="Tabs" />
+        <PageNavLink to={RoutePath.tabs} title="Tabs" />
       </div>
     </div>
   </nav>

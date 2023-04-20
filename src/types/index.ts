@@ -1,2 +1,2 @@
-export * from './TabType';
 export * from './Path';
+export * from './TabType';

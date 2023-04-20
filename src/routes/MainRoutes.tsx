@@ -7,20 +7,23 @@ import {
 import { HomePage } from '../pages/HomePage';
 import { TabsPage } from '../pages/TabsPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
-import { PATH } from '../types';
+import { RoutePath } from '../utils/constants';
 
 export const MainRoutes: FC = () => (
   <Routes>
-    <Route path={PATH.Main} element={<HomePage />} />
+    <Route path={RoutePath.main} element={<HomePage />} />
 
-    <Route path={PATH.Home} element={<Navigate to={PATH.Main} replace />} />
+    <Route
+      path={RoutePath.home}
+      element={<Navigate to={RoutePath.main} replace />}
+    />
 
-    <Route path={PATH.Tabs}>
+    <Route path={RoutePath.tabs}>
       <Route index element={<TabsPage />} />
 
-      <Route path={PATH.TAB_ID} element={<TabsPage />} />
+      <Route path={RoutePath.tabId} element={<TabsPage />} />
     </Route>
 
-    <Route path={PATH.Error} element={<NotFoundPage />} />
+    <Route path={RoutePath.error} element={<NotFoundPage />} />
   </Routes>
 );
