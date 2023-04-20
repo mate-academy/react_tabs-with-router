@@ -29,7 +29,11 @@ export const TabsNavigation: React.FC<Props> = ({ tabs, activeTabId }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {(activeTab && activeTab.content) || 'Please select a tab'}
+        {
+          activeTab
+            ? activeTab.content
+            : 'Please select a tab'
+        }
       </div>
     </>
   );
