@@ -1,6 +1,6 @@
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useMemo } from 'react';
-import classNames from 'classnames';
+import { TabItem } from '../TabItem';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -15,9 +15,9 @@ type TabsParams = {
 export const TabsPage: React.FC = () => {
   const { tabId } = useParams<TabsParams>();
 
-  const selectedTab = useMemo(
-    () => tabs.find(tab => tab.id === tabId),
-    [tabId, tabs],
+  const selectedTabContent = useMemo(
+    () => tabs.find(tab => tab.id === tabId)?.content,
+    [tabId],
   );
 
   return (
@@ -27,23 +27,19 @@ export const TabsPage: React.FC = () => {
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(({ id, title }) => (
-            <li
-              data-cy="Tab"
-              className={classNames({
-                'is-active': id === tabId,
-              })}
+            <TabItem
               key={id}
-            >
-              <Link to={`/tabs/${id}`}>{title}</Link>
-            </li>
+              id={id}
+              title={title}
+              isSelected={tabId === id}
+            />
           ))}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab
-          ? selectedTab.content
-          : 'Please select a tab'}
+        {selectedTabContent
+          || 'Please select a tab'}
       </div>
     </div>
   );
