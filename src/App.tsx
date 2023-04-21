@@ -10,17 +10,19 @@ import { TabsPage } from './pages/TabsPage';
 import { NavBar } from './components/NavBar';
 
 export const App = () => (
-  <div data-cy="app">
+  <>
     <NavBar />
 
     <div className="section">
       <div className="container">
         <Routes>
           <Route path="/" element={<HomePage />} />
+
           <Route path="home" element={<Navigate to="/" replace />} />
 
           <Route path="tabs">
             <Route index element={<TabsPage />} />
+
             <Route path=":tabId" element={<TabsPage />} />
           </Route>
 
@@ -28,5 +30,5 @@ export const App = () => (
         </Routes>
       </div>
     </div>
-  </div>
+  </>
 );
