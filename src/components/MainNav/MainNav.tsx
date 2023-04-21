@@ -9,6 +9,7 @@ export const MainNav: React.FC = () => (
     <div className="container">
       <div className="navbar-brand">
         <PageNavLink to="/" text="Home" />
+
         <PageNavLink to="tabs" text="Tabs" />
       </div>
     </div>

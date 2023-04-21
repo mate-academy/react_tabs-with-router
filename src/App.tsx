@@ -7,7 +7,7 @@ import {
   Routes,
 } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
-import { UnfoundPage } from './pages/UnfoundPage';
+import { UnfoundPage } from './pages/NotFoundPage';
 import { TabsPage } from './pages/TabsPage';
 import { MainNav } from './components/MainNav';
 
@@ -20,6 +20,7 @@ export const App = () => (
 
         <Routes>
           <Route path="/" element={<HomePage />} />
+
           <Route path="home" element={<Navigate to="/" replace />} />
 
           <Route path="tabs">

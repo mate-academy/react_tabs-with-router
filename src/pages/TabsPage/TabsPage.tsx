@@ -9,7 +9,7 @@ export const tabs = [
 ];
 
 export const TabsPage: React.FC = () => {
-  const { tabId = null } = useParams();
+  const { tabId } = useParams();
 
   return (
     <>

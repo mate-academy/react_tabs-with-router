@@ -1,15 +1,16 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
+import { TabsLink } from '../TabsLink';
 
 type Props = {
   tabs: Tab[];
-  selectedTabs: string | null;
+  selectedTabs?: string;
 };
 
 export const TabList: React.FC<Props> = ({ tabs, selectedTabs }) => {
-  const selectedTabId = tabs.find(tab => tab.id === selectedTabs);
+  const tabContent = tabs
+    .find(tab => tab.id === selectedTabs)?.content || 'Please select a tab';
 
   return (
     <>
@@ -18,20 +19,18 @@ export const TabList: React.FC<Props> = ({ tabs, selectedTabs }) => {
           {tabs.map((tab) => {
             const {
               id,
-              title,
             } = tab;
 
             return (
               <li
                 data-cy="Tab"
                 className={classNames({
-                  'is-active': selectedTabId?.id === id,
+                  'is-active': selectedTabs === id,
                 })}
                 key={id}
               >
-                <Link to={`/tabs/${id}`}>
-                  {title}
-                </Link>
+
+                <TabsLink tab={tab} />
               </li>
             );
           })}
@@ -40,9 +39,7 @@ export const TabList: React.FC<Props> = ({ tabs, selectedTabs }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTabId?.content || (
-          'Please select a tab'
-        )}
+        {tabContent}
       </div>
     </>
   );
