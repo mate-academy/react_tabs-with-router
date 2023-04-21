@@ -3,7 +3,7 @@ import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[];
-  selectedTabId: string;
+  selectedTabId: string | undefined;
 };
 
 export const Tabs: React.FC<Props> = ({
