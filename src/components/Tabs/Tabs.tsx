@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useParams } from 'react-router-dom';
-import { TabItem } from './TabItem';
+import { TabItem } from '../TabItem/index';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -11,7 +11,7 @@ const tabs = [
 export const Tabs: FC = () => {
   const { tabId = '' } = useParams();
 
-  const visibleTab = tabs.find(({ id }) => id === tabId)?.content;
+  const selectedTab = tabs.find(({ id }) => id === tabId)?.content;
 
   return (
     <>
@@ -36,7 +36,7 @@ export const Tabs: FC = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {visibleTab || 'Please select a tab'}
+        {selectedTab || 'Please select a tab'}
       </div>
     </>
   );

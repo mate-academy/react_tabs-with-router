@@ -11,15 +11,16 @@ export const App = () => (
   <>
     <Navbar />
 
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="home" element={<Navigate to="/" replace />} />
-      <Route path="/tabs">
-        <Route index element={<Tabs />} />
-        <Route path=":tabId" element={<Tabs />} />
-      </Route>
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-
+    <div className="section">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="home" element={<Navigate to="/" replace />} />
+        <Route path="/tabs">
+          <Route index element={<Tabs />} />
+          <Route path=":tabId" element={<Tabs />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
   </>
 );

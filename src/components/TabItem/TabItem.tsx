@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import { Tab } from '../types/Tab';
+import { Tab } from '../../types/Tab';
 
 interface Props {
   tab: Tab;
