@@ -7,14 +7,12 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-export const TabsPage: FC = () => {
-  return (
-    <div className="section">
-      <h1 className="title">Tabs page</h1>
+export const TabsPage: FC = () => (
+  <div className="section">
+    <h1 className="title">Tabs page</h1>
 
-      <Tabs
-        tabs={tabs}
-      />
-    </div>
-  );
-};
+    <Tabs
+      tabs={tabs}
+    />
+  </div>
+);

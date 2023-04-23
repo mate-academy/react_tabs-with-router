@@ -13,7 +13,7 @@ export const Tabs: FC<Props> = (
     tabs,
   },
 ) => {
-  const { tabId = '' } = useParams();
+  const { tabId = '' } = useParams<Tab['id'] | ''>();
   const selectedTab = getTabById(tabs, tabId);
   const isTabSelected = (tab: Tab) => tab.id === tabId;
 
