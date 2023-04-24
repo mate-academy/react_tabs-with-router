@@ -30,9 +30,7 @@ export const TabsPage: FC<Props> = ({ tabs }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {content
-          ? content
-          : 'Please select a tab'}
+        {content || 'Please select a tab'}
       </div>
     </>
   );

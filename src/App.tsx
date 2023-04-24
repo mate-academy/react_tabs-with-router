@@ -1,4 +1,9 @@
-import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  NavLink,
+  Navigate,
+} from 'react-router-dom';
 import cn from 'classnames';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
