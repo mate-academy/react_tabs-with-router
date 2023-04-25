@@ -12,7 +12,7 @@ export const PageNavLink: FC<Props> = ({ to, text }) => (
     to={to}
     className={({ isActive }) => classNames(
       'navbar-item',
-      { 'has-background-grey-lighter': isActive },
+      { 'is-active': isActive },
     )}
   >
     {text}
