@@ -8,7 +8,7 @@ export const ListTabs: React.FC<{ tabs: Tab[] }> = ({ tabs }) => {
 
   if (searchTab) {
     return (
-      <div className="tabs is-boxed">
+      <div className="block" data-cy="TabContent">
         {searchTab.content}
       </div>
     );
