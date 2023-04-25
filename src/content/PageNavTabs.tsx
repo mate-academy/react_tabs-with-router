@@ -9,7 +9,7 @@ type Props = {
 };
 
 export const PageNavTabs: FC<Props> = ({ to, tabId, text }) => {
-  const { tab = 'tab' } = useParams();
+  const { tab } = useParams();
 
   return (
     <li
