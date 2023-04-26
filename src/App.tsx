@@ -2,7 +2,7 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Navigation } from './components/navigasion/Navigation';
+import { Navigation } from './components/navigation/Navigation';
 import { TabsPage } from './components/tabsPage/TabsPage';
 
 export const App = () => (

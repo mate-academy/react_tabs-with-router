@@ -11,7 +11,7 @@ const tabs = [
 
 export const TabsPage: React.FC = () => {
   const [selectTab, setSelectTab] = useState<null | string>(null);
-  const { tabId = 0 } = useParams();
+  const { tabId = '0' } = useParams();
 
   useEffect(() => {
     if (!tabId) {
@@ -24,7 +24,7 @@ export const TabsPage: React.FC = () => {
       <h1 className="title">Tabs page</h1>
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map((el:Tab) => (
+          {tabs.map((el: Tab) => (
             <li
               data-cy="Tab"
               className={classNames('', {
@@ -32,7 +32,13 @@ export const TabsPage: React.FC = () => {
               })}
               key={el.id}
             >
-              <Link to={`/tabs/${el.id}`} state={{ text: el.content }} onClick={() => setSelectTab(el.content)}>{el.title}</Link>
+              <Link
+                to={`/tabs/${el.id}`}
+                state={{ text: el.content }}
+                onClick={() => setSelectTab(el.content)}
+              >
+                {el.title}
+              </Link>
             </li>
           ))}
         </ul>
@@ -41,6 +47,5 @@ export const TabsPage: React.FC = () => {
         {selectTab || 'Please select a tab'}
       </div>
     </>
-
   );
 };
