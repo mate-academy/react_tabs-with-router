@@ -9,7 +9,6 @@ import { HomePage } from './components/HomePage';
 
 export const App = () => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
     <NavBar />
 
     <div className="section">
@@ -19,6 +18,7 @@ export const App = () => (
             path="/"
             element={<HomePage />}
           />
+
           <Route
             path="/home"
             element={<Navigate to="/" replace />}
@@ -29,6 +29,7 @@ export const App = () => (
               index
               element={<TabsPage />}
             />
+
             <Route
               path=":selectedTabId"
               element={<TabsPage />}
