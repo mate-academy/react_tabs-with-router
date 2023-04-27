@@ -1,7 +1,6 @@
-import classNames from 'classnames';
 import { useParams } from 'react-router-dom';
-import { TabLink } from '../components/TabLink';
 import { TabContent } from '../components/TabContent';
+import { TabComponent } from '../components/TabComponent';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -25,15 +24,10 @@ export const TabsPage: React.FC = () => {
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
-            <li
-              data-cy="Tab"
+            <TabComponent
               key={tab.id}
-              className={classNames(
-                { 'is-active': tab.id === selectedTabId },
-              )}
-            >
-              <TabLink tab={tab} />
-            </li>
+              tab={tab}
+            />
           ))}
         </ul>
       </div>
