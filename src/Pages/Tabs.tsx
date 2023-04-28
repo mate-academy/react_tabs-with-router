@@ -1,14 +1,11 @@
-import classNames from 'classnames';
-import { Link, useParams } from 'react-router-dom';
-import { Tab } from '../types/Tab';
+import { useParams } from 'react-router-dom';
+import { TabElement } from '../components/TabElement';
+import { tabs } from '../components/tabs';
 
-type Props = {
-  tabs: Tab[]
-};
-
-export const Tabs: React.FC<Props> = ({ tabs }) => {
+export const Tabs: React.FC = () => {
   const { tabID } = useParams();
-  const currentTab = tabs.find(tab => tab.id === tabID);
+  const tabContent = tabs
+    .find(tab => tab.id === tabID)?.content || 'Please select a tab';
   const isSelected = tabs.some(tab => tab.id === tabID);
 
   return (
@@ -23,16 +20,11 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
               const isActive = id === tabID;
 
               return (
-                <li
-                  data-cy="Tab"
-                  className={classNames({
-                    'is-active': isActive,
-                  })}
-                >
-                  <Link to={`/tabs/${id}`}>
-                    {title}
-                  </Link>
-                </li>
+                <TabElement
+                  tabID={id}
+                  title={title}
+                  isActive={isActive}
+                />
               );
             })}
           </ul>
@@ -40,7 +32,7 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
 
         <div className="block" data-cy="TabContent">
           {isSelected
-            ? currentTab?.content
+            ? tabContent
             : 'Please select a tab'}
         </div>
       </div>

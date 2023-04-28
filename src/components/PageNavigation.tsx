@@ -8,6 +8,7 @@ export const PageNavigation: React.FC = () => (
     <div className="container">
       <div className="navbar-brand">
         <PageNavLink url="/" title="Home" />
+
         <PageNavLink url="/tabs" title="Tabs" />
       </div>
     </div>
