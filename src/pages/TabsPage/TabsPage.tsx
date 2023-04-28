@@ -17,7 +17,7 @@ export const TabsPage: React.FC = () => {
         Tabs page
       </h1>
 
-      <TabList tabs={tabs} selectedTabs={tabId} />
+      <TabList tabs={tabs} selectedTabId={tabId} />
     </>
   );
 };

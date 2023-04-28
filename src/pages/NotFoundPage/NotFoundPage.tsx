@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const UnfoundPage: React.FC = () => (
+export const NotFoundPage: React.FC = () => (
   <h1 className="title">Page not found</h1>
 );

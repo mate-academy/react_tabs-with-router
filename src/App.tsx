@@ -7,7 +7,7 @@ import {
   Routes,
 } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
-import { UnfoundPage } from './pages/NotFoundPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 import { TabsPage } from './pages/TabsPage';
 import { MainNav } from './components/MainNav';
 
@@ -28,7 +28,7 @@ export const App = () => (
             <Route path=":tabId" element={<TabsPage />} />
           </Route>
 
-          <Route path="*" element={<UnfoundPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
 
       </div>
