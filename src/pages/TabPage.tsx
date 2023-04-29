@@ -23,6 +23,7 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
                 className={classNames({
                   'is-active': selectedTab?.id === tab.id,
                 })}
+                key={tab.id}
               >
                 <Link to={`/tabs/${tab.id}`}>
                   {tab.title}
