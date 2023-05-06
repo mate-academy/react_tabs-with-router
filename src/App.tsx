@@ -1,21 +1,12 @@
-import React, { useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Tab } from './types/Tab';
 import { MainNav } from './MainNav';
-import { TabsPage } from './TabsList';
+import { TabsPage } from './TabsPage';
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState('');
-
-  const handleTabSelected = (
-    tab: Tab,
-  ) => {
-    setSelectedTabId(tab.id);
-  };
-
   return (
     <>
       {/* Also requires <html class="has-navbar-fixed-top"> */}
@@ -31,15 +22,21 @@ export const App: React.FC = () => {
               </div>
             )}
           />
-          <Route
-            path="/tabs"
-            element={(
-              <TabsPage
-                selectedTabId={selectedTabId}
-                handleTabSelected={handleTabSelected}
-              />
-            )}
-          />
+          <Route path="home" element={<Navigate to="/" replace />} />
+          <Route path="tabs">
+            <Route
+              index
+              element={(
+                <TabsPage />
+              )}
+            />
+            <Route
+              path=":tabId"
+              element={(
+                <TabsPage />
+              )}
+            />
+          </Route>
           <Route
             path="*"
             element={(

@@ -1,49 +1,40 @@
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import React from 'react';
-import { getTabById } from '../helpers';
 import { Tab } from '../types/Tab';
 
 interface Props {
   tabs: Tab[];
-  onTabSelected: (
-    tab: Tab,
-  ) => void;
   selectedTabId: string;
 }
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  onTabSelected,
   selectedTabId,
 }) => {
-  const selectedTab = getTabById(tabs, selectedTabId);
+  const tabId = selectedTabId.slice(-1);
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
           {tabs.map((tab) => {
-            const isActiveTab = selectedTab.id === tab.id;
+            const isActive = tab.id === selectedTabId;
 
             return (
               <li
-                className={classNames({
-                  'is-active': isActiveTab,
-                })}
                 data-cy="Tab"
                 key={tab.id}
+                className={classNames({
+                  'is-active': isActive,
+                })}
               >
-                <a
-                  href={`/${tab.id}`}
+                <Link
+                  to={`/tabs/${tab.id}`}
                   data-cy="TabLink"
-                  onClick={() => {
-                    if (!isActiveTab) {
-                      onTabSelected(tab);
-                    }
-                  }}
                 >
                   {tab.title}
-                </a>
+                </Link>
               </li>
             );
           })}
@@ -54,7 +45,12 @@ export const Tabs: React.FC<Props> = ({
         className="block"
         data-cy="TabContent"
       >
-        {selectedTab.content}
+        {selectedTabId === '' || +tabId > 3
+          ? (
+            'Please select a tab'
+          ) : (
+            `Some text ${tabId}`
+          )}
       </div>
     </div>
   );
