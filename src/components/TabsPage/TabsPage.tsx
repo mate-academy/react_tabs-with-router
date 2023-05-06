@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import classNames from 'classnames';
+import { useParams } from 'react-router-dom';
+
+import { Tab } from '../Tab';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -21,26 +22,14 @@ export const TabsPage = () => {
 
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map((tab) => {
-            const {
-              id,
-              title,
-            } = tab;
-
-            return (
-              <li
-                key={id}
-                data-cy="Tab"
-                className={classNames(
-                  { 'is-active': tabId === id },
-                )}
-              >
-                <Link to={`/tabs/${id}`}>
-                  {title}
-                </Link>
-              </li>
-            );
-          })}
+          {tabs.map(({ id, title }) => (
+            <Tab
+              key={id}
+              isActive={tabId === id}
+              title={title}
+              id={id}
+            />
+          ))}
         </ul>
       </div>
 
