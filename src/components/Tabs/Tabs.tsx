@@ -11,32 +11,27 @@ const tabs = [
 export const Tabs: FC = () => {
   const { tabId = '' } = useParams();
 
-  const visibleTab = tabs.find(({ id }) => id === tabId)?.content;
+  const tabContent
+    = tabs.find(({ id }) => id === tabId)?.content || 'Please select a tab';
 
   return (
     <>
-      <h1 className="title">
-        Tabs page
-      </h1>
+      <h1 className="title">Tabs page</h1>
 
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => {
+          {tabs.map((tab) => {
             const isSelectedTab = tab.id === tabId;
 
             return (
-              <TabItem
-                key={tab.id}
-                tab={tab}
-                isSelectedTab={isSelectedTab}
-              />
+              <TabItem key={tab.id} tab={tab} isSelectedTab={isSelectedTab} />
             );
           })}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        {visibleTab || 'Please select a tab'}
+        {tabContent}
       </div>
     </>
   );

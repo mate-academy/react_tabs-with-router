@@ -7,16 +7,13 @@ interface Props {
   text: string;
 }
 
-export const NavBarLink: FC<Props> = ({ to, text }) => {
-  return (
-    <NavLink
-      to={to}
-      className={({ isActive }) => classNames(
-        'navbar-item',
-        { 'is-active': isActive },
-      )}
-    >
-      {text}
-    </NavLink>
-  );
-};
+export const NavBarLink: FC<Props> = ({ to, text }) => (
+  <NavLink
+    to={to}
+    className={({ isActive }) => classNames('navbar-item', {
+      'is-active': isActive,
+    })}
+  >
+    {text}
+  </NavLink>
+);
