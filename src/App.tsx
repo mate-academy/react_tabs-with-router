@@ -1,5 +1,7 @@
 import classNames from 'classnames';
-import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
+import {
+  Routes, Route, NavLink, Navigate,
+} from 'react-router-dom';
 import { TabsPage } from './pages/TabsPage/TabsPage';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
