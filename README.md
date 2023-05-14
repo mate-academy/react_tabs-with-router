@@ -4,7 +4,7 @@ Implement the `App` with `Home` page available at `/` and `Tabs` page available
 at `/tabs`. Each page should have the correct title `Home page` or `Tabs page`.
 The `Tabs` page should also show a `Tabs` component implemented in [React Tabs](https://github.com/mate-academy/react_tabs#react-tabs).
 
-> Here is [the working version](https://mate-academy.github.io/react_tabs-with-router)
+> Here is [the working version](https://bojkovladislav.github.io/react_tabs-with-router)
 
 1. Navigation with `Home` and `Tabs` links:
     - should be visible on every page;
