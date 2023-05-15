@@ -14,7 +14,7 @@ export const NavItem: React.FC<Props> = ({
 
   return (
     <>
-      <h1 className="title"> Tabs page</h1>
+      <h1 className="title">Tabs page</h1>
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
