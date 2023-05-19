@@ -1,10 +1,15 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Routes, Link, Route } from 'react-router-dom';
+import classnames from 'classnames';
+import {
+  Routes, Link, Route, useLocation,
+} from 'react-router-dom';
 import TabsPage from './components/TabsPage';
 
 export const App = () => {
+  const location = useLocation();
+
   return (
     <div className="has-navbar-fixed-top">
       <nav
@@ -13,10 +18,18 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link to="/" className="navbar-item is-active">
+            <Link
+              to="/"
+              className={classnames('navbar-item', {
+                'is-active': location.pathname === '/',
+              })}
+            >
               Home
             </Link>
-            <Link to="/tabs" className="navbar-item">
+            <Link
+              to="/tabs"
+              className="navbar-item"
+            >
               Tabs
             </Link>
           </div>
