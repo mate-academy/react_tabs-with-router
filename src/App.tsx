@@ -3,12 +3,20 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import classnames from 'classnames';
 import {
-  Routes, Link, Route, useLocation,
+  Routes, Link, Route, useLocation, useNavigate,
 } from 'react-router-dom';
+import { useEffect } from 'react';
 import TabsPage from './components/TabsPage';
 
 export const App = () => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (pathname === '/home') {
+      navigate('/');
+    }
+  }, [pathname, navigate]);
 
   return (
     <div className="has-navbar-fixed-top">
