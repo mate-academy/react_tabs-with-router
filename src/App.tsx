@@ -18,6 +18,10 @@ export const App = () => {
     }
   }, [pathname, navigate]);
 
+  const isTabActive = (tabId: string) => {
+    return pathname.startsWith('/tabs') || pathname.includes(tabId);
+  };
+
   return (
     <div className="has-navbar-fixed-top">
       <nav
@@ -37,7 +41,7 @@ export const App = () => {
             <Link
               to="/tabs"
               className={classnames('navbar-item', {
-                'is-active': pathname === '/tabs',
+                'is-active': isTabActive('/tabs'),
               })}
             >
               Tabs
