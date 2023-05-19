@@ -8,7 +8,7 @@ import {
 import TabsPage from './components/TabsPage';
 
 export const App = () => {
-  const location = useLocation();
+  const { pathname } = useLocation();
 
   return (
     <div className="has-navbar-fixed-top">
@@ -21,14 +21,16 @@ export const App = () => {
             <Link
               to="/"
               className={classnames('navbar-item', {
-                'is-active': location.pathname === '/',
+                'is-active': pathname === '/',
               })}
             >
               Home
             </Link>
             <Link
               to="/tabs"
-              className="navbar-item"
+              className={classnames('navbar-item', {
+                'is-active': pathname === '/tabs',
+              })}
             >
               Tabs
             </Link>
