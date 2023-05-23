@@ -10,10 +10,9 @@ type Props = {
 export const NavLinkPage: React.FC<Props> = ({ to, text }) => (
   <NavLink
     to={to}
-    className={({ isActive }) => cn('navbar-item',
-      {
-        'is-active': isActive,
-      })}
+    className={({ isActive }) => cn('navbar-item', {
+      'is-active': isActive,
+    })}
   >
     {text}
   </NavLink>

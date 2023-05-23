@@ -1,7 +1,7 @@
 import React from 'react';
-import cn from 'classnames';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { tabs } from '../../api/tabs';
+import { TabsItem } from '../TabsItem';
 
 export const TabsPage: React.FC = () => {
   const { tabId = '' } = useParams();
@@ -16,20 +16,11 @@ export const TabsPage: React.FC = () => {
         <div className="tabs is-boxed">
           <ul>
             {tabs.map(tab => (
-              <li
+              <TabsItem
                 key={tab.id}
-                className={cn({
-                  'is-active': tabId === tab.id,
-                })}
-                data-cy="Tab"
-              >
-                <Link
-                  to={`/tabs/${tab.id}`}
-                  data-cy="TabLink"
-                >
-                  {tab.title}
-                </Link>
-              </li>
+                tab={tab}
+                tabId={tabId}
+              />
             ))}
           </ul>
         </div>
