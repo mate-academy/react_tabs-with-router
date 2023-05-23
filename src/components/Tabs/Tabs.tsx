@@ -1,9 +1,13 @@
 import { NavLink, useParams } from 'react-router-dom';
 import React from 'react';
 import classNames from 'classnames';
-import { tabs } from '../../api/tabs';
+import { Tab } from '../../types/Tab';
 
-export const Tabs: React.FC = () => {
+interface Props {
+  tabs: Tab[];
+}
+
+export const Tabs: React.FC<Props> = ({ tabs }) => {
   const { tabId } = useParams();
   const currentTab = tabs.find(({ id }) => id === tabId);
 
@@ -11,26 +15,22 @@ export const Tabs: React.FC = () => {
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map((tab) => {
-            const { id, title } = tab;
-
-            return (
-              <li
-                className={classNames({
-                  'is-active': id === tabId,
-                })}
-                data-cy="Tab"
-                key={id}
+          {tabs.map(({ id, title }) => (
+            <li
+              className={classNames({
+                'is-active': id === tabId,
+              })}
+              data-cy="Tab"
+              key={id}
+            >
+              <NavLink
+                to={`../${id}`}
+                data-cy="TabLink"
               >
-                <NavLink
-                  to={`../${id}`}
-                  data-cy="TabLink"
-                >
-                  {title}
-                </NavLink>
-              </li>
-            );
-          })}
+                {title}
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </div>
 
