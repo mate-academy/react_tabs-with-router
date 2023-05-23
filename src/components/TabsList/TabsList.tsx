@@ -13,17 +13,13 @@ export const TabsList: React.FC<Props> = ({ tabs, selectedTabId }) => {
     <>
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => {
-            const { id, title } = tab;
-
-            return (
-              <TabItem
-                id={id}
-                title={title}
-                selectedTabId={selectedTabId}
-              />
-            );
-          })}
+          {tabs.map(({ id, title }) => (
+            <TabItem
+              id={id}
+              title={title}
+              selectedTabId={selectedTabId}
+            />
+          ))}
         </ul>
       </div>
 
