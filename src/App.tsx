@@ -3,20 +3,12 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import classnames from 'classnames';
 import {
-  Routes, Link, Route, useLocation, useNavigate,
+  Routes, Link, Route, useLocation, Navigate,
 } from 'react-router-dom';
-import { useEffect } from 'react';
 import TabsPage from './components/TabsPage';
 
 export const App = () => {
   const { pathname } = useLocation();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (pathname === '/home') {
-      navigate('/');
-    }
-  }, [pathname, navigate]);
 
   const isTabActive = (tabId: string) => {
     return pathname.startsWith('/tabs') || pathname.includes(tabId);
@@ -60,6 +52,10 @@ export const App = () => {
               </div>
             </div>
           )}
+        />
+        <Route
+          path="/home"
+          element={<Navigate to="/" replace />}
         />
         <Route
           path="tabs/*"
