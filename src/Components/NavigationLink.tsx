@@ -10,7 +10,9 @@ interface Props {
 export const NavigationLink: React.FC<Props> = memo(({ to, name }) => (
   <NavLink
     to={to}
-    className={({ isActive }) => cn('navbar-item', { 'is-active': isActive })}
+    className={({ isActive }) => cn('navbar-item', {
+      'is-active': isActive,
+    })}
   >
     {name}
   </NavLink>

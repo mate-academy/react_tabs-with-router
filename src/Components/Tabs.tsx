@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
+import cn from 'classnames';
 import { Tab } from '../types/Tab';
 
 interface Props {
@@ -15,7 +16,9 @@ export const Tabs: React.FC<Props> = memo(({ tabs, selectedTab }) => {
           <li
             key={tab.id}
             data-cy="Tab"
-            className={tab.id === selectedTab?.id ? 'is-active' : ''}
+            className={cn({
+              'is-active': selectedTab?.id === tab.id,
+            })}
           >
             <Link to={`../${tab.id}`} data-cy="TabLink">
               {tab.title}
