@@ -1,44 +1,16 @@
+import {
+  Routes, Route, Navigate,
+} from 'react-router-dom';
+import { Navbar } from './components/Navbar';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import classnames from 'classnames';
-import {
-  Routes, Route, useLocation, Navigate, NavLink,
-} from 'react-router-dom';
 import TabsPage from './Pages/TabsPage';
 
 export const App = () => {
-  const { pathname } = useLocation();
-
   return (
     <div className="has-navbar-fixed-top">
-      <nav
-        className="navbar is-light is-fixed-top is-mobile has-shadow"
-        data-cy="Nav"
-      >
-        <div className="container">
-          <div className="navbar-brand">
-            <NavLink
-              to="/"
-              className={classnames('navbar-item', {
-                'is-active': pathname === '/',
-              })}
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/tabs"
-              className={({ isActive }) => (
-                classnames('navbar-item', {
-                  'is-active': isActive,
-                })
-              )}
-            >
-              Tabs
-            </NavLink>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       <Routes>
         <Route
