@@ -9,7 +9,6 @@ import { Navbar } from './components/Navbar';
 
 export const App = () => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
     <Navbar />
 
     <div className="section">

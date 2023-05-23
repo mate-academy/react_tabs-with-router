@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import { Tab } from '../../types/Tab';
+import { TabLink } from '../TabLink';
 
 interface Props {
   tabs: Tab[];
@@ -18,9 +18,7 @@ export const TabsList: React.FC<Props> = ({ tabs, selectedId }) => {
             'is-active': selectedId === tab.id,
           })}
         >
-          <Link to={`/tabs/${tab.id}`}>
-            {tab.title}
-          </Link>
+          <TabLink tab={tab} />
         </li>
       ))}
     </ul>
