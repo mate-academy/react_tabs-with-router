@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FC } from 'react';
+import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
 
@@ -7,9 +7,7 @@ interface Props {
   tab: Tab,
 }
 
-export const TabInfo: FC<Props> = ({
-  tab,
-}) => {
+export const TabInfo = React.memo<Props>(({ tab }) => {
   const { tabId = '' } = useParams();
 
   return (
@@ -25,4 +23,4 @@ export const TabInfo: FC<Props> = ({
       </Link>
     </li>
   );
-};
+});
