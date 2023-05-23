@@ -22,8 +22,9 @@ export const Tabs = () => {
         </div>
 
         <div className="block" data-cy="TabContent">
-          {tabId && tabs.find(tab => tab.id === tabId)?.content}
-          {!tabId && 'Please select a tab'}
+          {tabId
+            ? tabs.find(tab => tab.id === tabId)?.content
+            : 'Please select a tab'}
         </div>
       </div>
     </div>
