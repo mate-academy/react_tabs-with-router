@@ -38,11 +38,7 @@ export const App = () => (
           <Route path="/tabs">
             <Route
               index
-              element={(
-                <TabsPage
-                  tabs={tabs}
-                />
-              )}
+              element={(<TabsPage tabs={tabs} />)}
             />
             <Route
               path="/tabs:tabId"
