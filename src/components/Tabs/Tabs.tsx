@@ -8,7 +8,7 @@ interface Props {
   selectedTab: Tab | null;
 }
 
-export const Tabs: React.FC<Props> = ({ tabs, selectedTab }) => (
+export const Tabs: React.FC<Props> = React.memo(({ tabs, selectedTab }) => (
   <div className="tabs is-boxed">
     <ul>
       {tabs.map((tab) => (
@@ -26,4 +26,4 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTab }) => (
       ))}
     </ul>
   </div>
-);
+));
