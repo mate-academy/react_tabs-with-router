@@ -10,6 +10,9 @@ const tabs = [
 
 export const TabsPage: FC = React.memo(() => {
   const { tabId } = useParams();
+  const contentCurrentTab = tabs.find(({ id }) => (
+    id === tabId
+  ))?.content;
 
   return (
     <>
@@ -30,9 +33,7 @@ export const TabsPage: FC = React.memo(() => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.find(({ id }) => (
-          id === tabId
-        ))?.content || 'Please select a tab'}
+        {contentCurrentTab || 'Please select a tab'}
       </div>
     </>
   );

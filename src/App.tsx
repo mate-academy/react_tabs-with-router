@@ -2,24 +2,14 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { PageNavLink } from './components/PageNavLink';
 import { HomePage } from './components/HomePage';
 import { TabsPage } from './components/TabsPage';
+import { Navbar } from './components/Navbar';
+import { NotFoundPage } from './components/NotFoundPage';
 
 export const App = () => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
-    <nav
-      className="navbar is-light is-fixed-top is-mobile has-shadow"
-      data-cy="Nav"
-    >
-      <div className="container">
-        <div className="navbar-brand">
-          <PageNavLink to="/" text="Home" />
-          <PageNavLink to="/tabs" text="Tabs" />
-        </div>
-      </div>
-    </nav>
+    <Navbar />
 
     <div className="section">
       <div className="container">
@@ -30,7 +20,7 @@ export const App = () => (
             <Route index element={<TabsPage />} />
             <Route path=":tabId" element={<TabsPage />} />
           </Route>
-          <Route path="*" element={<h1 className="title">Page not found</h1>} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
     </div>
