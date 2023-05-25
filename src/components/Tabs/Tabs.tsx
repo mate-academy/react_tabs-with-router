@@ -13,7 +13,11 @@ export const Tabs: FC = () => {
         <ul>
           {tabs.map(tab => {
             return (
-              <TabItem tab={tab} tabID={tabId} />
+              <TabItem
+                key={tab.id}
+                tab={tab}
+                tabID={tabId}
+              />
             );
           })}
         </ul>
