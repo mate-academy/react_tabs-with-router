@@ -3,7 +3,7 @@ import {
   HashRouter, Navigate, Route, Routes,
 } from 'react-router-dom';
 import { App } from './App';
-import { Tabs } from './Tabs';
+import { Tabs } from './components/Tabs';
 
 ReactDOM.render(
   <HashRouter>
