@@ -4,6 +4,8 @@ import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 import { TabsComponent } from './components/TabsComponent';
 import { NavigationBar } from './components/NavigationBar';
+import { HomePage } from './components/HomePage';
+import { PageNotFound } from './components/PageNotFound';
 
 export const App = () => {
   return (
@@ -16,7 +18,7 @@ export const App = () => {
             <Route
               path="*"
               element={(
-                <h1 className="title">Page not found</h1>
+                <PageNotFound />
               )}
             />
             <Route
@@ -38,7 +40,7 @@ export const App = () => {
             <Route
               path="/"
               element={(
-                <h1 className="title">Home page</h1>
+                <HomePage />
               )}
             />
           </Routes>
