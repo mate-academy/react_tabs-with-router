@@ -1,62 +1,27 @@
-import {
-  Link,
-  Route, Routes, useParams,
-} from 'react-router-dom';
-import classNames from 'classnames';
 import { FC } from 'react';
+import { useParams } from 'react-router-dom';
+import { tabsList } from '../../TabsList';
 import { Tab } from '../../types/Tab';
+import { TabLink } from '../TabLink';
 
-export type LinkProps = {
-  path: string;
-  title: string;
-};
+export const Tabs: FC = () => {
+  const { tabId = '' } = useParams();
 
-type Props = {
-  tabs: Tab[];
-};
+  const currentTab = tabsList.find((tab: Tab) => tab.id === tabId);
 
-export const TabLink: FC<LinkProps> = ({ path, title }) => {
-  const { tabId } = useParams();
-
-  return (
-    <li
-      data-cy="Tab"
-      className={
-        classNames({ 'is-active': tabId === path })
-      }
-    >
-      <Link to={path}>{title}</Link>
-    </li>
-  );
-};
-
-export const Tabs: FC<Props> = ({ tabs }) => {
   return (
     <>
       <h1 className="title">Tabs page</h1>
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map((tab) => (
+          {tabsList.map((tab: Tab) => (
             <TabLink key={tab.id} path={tab.id} title={tab.title} />
           ))}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        <Routes>
-          {tabs.map((tab) => (
-            <Route
-              key={tab.id}
-              path={tab.id}
-              element={<h1>{tab.content}</h1>}
-            />
-          ))}
-
-          <Route
-            path="*"
-            element={<h1> Please select a tab</h1>}
-          />
-        </Routes>
+        {currentTab ? currentTab.content : 'Please select a tab'}
       </div>
     </>
   );
