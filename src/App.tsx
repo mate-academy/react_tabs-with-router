@@ -9,7 +9,6 @@ import { NotFoundPage } from './components/NotFoundPage';
 
 export const App = () => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
     <NavBar />
 
     <div className="section">
