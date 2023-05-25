@@ -12,15 +12,13 @@ export const TabItem: FC<Props> = ({ tab }) => {
   const { id, title } = tab;
 
   return (
-    <>
-      <li
-        data-cy="Tab"
-        className={classNames({ 'is-active': tabId === id })}
-      >
-        <Link to={`/tabs/${id}`}>
-          {title}
-        </Link>
-      </li>
-    </>
+    <li
+      data-cy="Tab"
+      className={classNames({ 'is-active': tabId === id })}
+    >
+      <Link to={`/tabs/${id}`}>
+        {title}
+      </Link>
+    </li>
   );
 };
