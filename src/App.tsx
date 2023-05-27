@@ -33,7 +33,7 @@ export const App = () => (
             Home
           </NavLink>
           <NavLink
-            to="/"
+            to="/tabs"
             className={
               ({ isActive }) => (classNames(
                 'navbar-item',
