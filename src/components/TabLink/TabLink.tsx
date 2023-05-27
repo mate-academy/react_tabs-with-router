@@ -4,13 +4,11 @@ import { Link } from 'react-router-dom';
 type Props = {
   id: string;
   title: string;
-  onTabPick: (id: string) => void;
 };
 
-export const TabLink: FC <Props> = ({ id, title, onTabPick }) => (
+export const TabLink: FC <Props> = ({ id, title }) => (
   <Link
     to={`../${id}`}
-    onClick={() => onTabPick(id)}
   >
     {title}
   </Link>

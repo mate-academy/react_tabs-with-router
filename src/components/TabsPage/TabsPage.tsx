@@ -1,33 +1,17 @@
-import {
-  FC,
-  useState,
-  useMemo,
-  memo,
-} from 'react';
+import { FC, useMemo, memo } from 'react';
 import { useParams } from 'react-router-dom';
 import classNames from 'classnames';
 import { TabLink } from '../TabLink/TabLink';
-
-const tabs = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-];
+import { tabs } from '../../api/tabs';
 
 export const TabsPage: FC = memo(() => {
   const { tabId = '' } = useParams();
 
-  const [activeTabId, setActiveTabId] = useState(tabId);
-
-  const handleTabSwitch = (id: string) => {
-    setActiveTabId(id);
-  };
-
   const activeTabContent = useMemo(() => {
-    const activeTab = tabs.find(tab => tab.id === activeTabId);
+    const activeTab = tabs.find(tab => tab.id === tabId);
 
     return activeTab?.content || 'Please select a tab';
-  }, [activeTabId]);
+  }, [tabId]);
 
   return (
     <>
@@ -39,13 +23,13 @@ export const TabsPage: FC = memo(() => {
             <li
               data-cy="Tab"
               className={classNames({
-                'is-active': id === activeTabId,
+                'is-active': id === tabId,
               })}
+              key={id}
             >
               <TabLink
                 id={id}
                 title={title}
-                onTabPick={handleTabSwitch}
               />
             </li>
           ))}
