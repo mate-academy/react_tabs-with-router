@@ -1,7 +1,7 @@
 import { Tab } from '../types/Tab';
 
 export const findTabById = (allTabs: Tab[], tabId: string) => {
-  const findedTab = allTabs.find(tab => tab.id === tabId);
+  const foundTab = allTabs.find(tab => tab.id === tabId);
 
-  return findedTab ? findedTab.content : 'Please select a tab';
+  return foundTab ? foundTab.content : 'Please select a tab';
 };
