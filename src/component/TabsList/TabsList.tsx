@@ -18,7 +18,7 @@ export const TabsList: FC<Props> = ({ tabs }) => {
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
-            <TabItem tab={tab} />
+            <TabItem tab={tab} key={tab.id} />
           ))}
         </ul>
       </div>
