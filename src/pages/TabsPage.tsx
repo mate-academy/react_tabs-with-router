@@ -9,13 +9,22 @@ const tabs: Tab[] = [
 ];
 
 const TabsPage = () => {
-  const { tabId } = useParams();
+  const { tabId } = useParams<{ tabId: string }>();
+
+  const selectedTab = tabs.find((tab) => tab.id === tabId) || null;
 
   return (
     <>
       <h1 className="title">Tabs page</h1>
 
-      <Tabs tabs={tabs} selectedTab={tabId} />
+      <Tabs
+        tabs={tabs}
+        selectedTab={tabId}
+      />
+
+      <div className="block" data-cy="TabContent">
+        {selectedTab?.content || 'Please select a tab'}
+      </div>
     </>
   );
 };

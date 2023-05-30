@@ -20,17 +20,10 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTab }) => {
               data-cy="Tab"
               className={cn({ 'is-active': isSelected(tab) })}
             >
-              <Link to={isSelected(tab) ? '/tabs' : `/tabs/${tab.id}`}>
-                {tab.title}
-              </Link>
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
           ))}
         </ul>
-      </div>
-
-      <div className="block" data-cy="TabContent">
-        {tabs.find((tab) => tab.id === selectedTab)?.content
-          || 'Please select a tab'}
       </div>
     </>
   );
