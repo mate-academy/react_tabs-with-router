@@ -10,7 +10,7 @@ interface Props {
 
 export const TabItem: React.FC<Props> = ({ tab, isActive }) => {
   return (
-    <li className={cn({ 'is-active': isActive })} key={tab.id}>
+    <li className={cn({ 'is-active': isActive })} key={tab.id} data-cy="Tab">
       <Link to={`../${tab.id}`}>{tab.title}</Link>
     </li>
   );
