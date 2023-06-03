@@ -1,7 +1,7 @@
 import React from 'react';
-import cn from 'classnames';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
+import { TabItem } from '../TabItem';
 
 interface Props {
   tabs: Tab[];
@@ -16,19 +16,13 @@ export const TabsPage: React.FC<Props> = React.memo(({ tabs }) => {
       <h1 className="title">Tabs page</h1>
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map((tab) => {
-            const { id, title } = tab;
-
-            return (
-              <li
-                data-cy="Tab"
-                className={cn({ 'is-active': id === tabId })}
-                key={id}
-              >
-                <Link to={`../${id}`}>{title}</Link>
-              </li>
-            );
-          })}
+          {tabs.map((tab) => (
+            <TabItem
+              key={tab.id}
+              tab={tab}
+              isActive={tab.id === tabId}
+            />
+          ))}
         </ul>
       </div>
 
