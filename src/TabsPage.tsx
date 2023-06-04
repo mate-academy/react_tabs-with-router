@@ -11,6 +11,7 @@ export const TabsPage: React.FC<Props> = ({
   tabs,
 }) => {
   const { tabId = '' } = useParams();
+  const selectedTab = (id: string) => tabs.find(tab => tab.id === id);
 
   return (
     <>
@@ -21,10 +22,7 @@ export const TabsPage: React.FC<Props> = ({
           {tabs.map(tab => (
             <li
               data-cy="Tab"
-              className={classNames(
-                '',
-                { 'is-active': tabId === tab.id },
-              )}
+              className={classNames({ 'is-active': tabId === tab.id })}
               key={tab.id}
             >
               <Link
@@ -38,8 +36,8 @@ export const TabsPage: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabId !== '' ? (
-          tabs.find(tab => tab.id === tabId)?.content
+        {selectedTab(tabId) ? (
+          selectedTab(tabId)?.content
         ) : (
           'Please select a tab'
         )}
