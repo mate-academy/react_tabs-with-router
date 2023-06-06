@@ -9,6 +9,7 @@ type Props = {
 
 export const TabsPage: FC<Props> = ({ tabs }) => {
   const { tabId } = useParams();
+  const selectedTabContent = (tabs.find(tab => tab.id === tabId)?.content);
 
   return (
     <>
@@ -31,7 +32,7 @@ export const TabsPage: FC<Props> = ({ tabs }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {(tabs.find(tab => tab.id === tabId)?.content) || (
+        { selectedTabContent || (
           'Please select a tab'
         )}
       </div>
