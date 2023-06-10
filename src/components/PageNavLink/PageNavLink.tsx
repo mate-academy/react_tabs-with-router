@@ -12,9 +12,7 @@ export const PageNavLink: React.FC<Props> = ({ to, text }) => (
     className={({ isActive }) => classNames(
       'navbar-item', { 'is-active': isActive },
     )}
-    style={({ isActive }) => ({ color: isActive ? 'red' : 'black' })}
   >
     {text}
   </NavLink>
-
 );

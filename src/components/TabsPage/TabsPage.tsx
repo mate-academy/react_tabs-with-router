@@ -12,7 +12,7 @@ export const TabsPage = () => {
 
   const selectedTabId: Tab = tabs.find(
     tab => selectedTab === tab.id,
-  ) || tabs[-1];
+  ) || tabs[0];
 
   return (
     <>

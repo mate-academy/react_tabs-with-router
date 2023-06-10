@@ -9,9 +9,7 @@ export const MainNav = () => (
       <div className="navbar-brand">
         <PageNavLink to="/" text="Home" />
         <PageNavLink to="/tabs" text="Tabs" />
-
       </div>
     </div>
   </nav>
 );
-//
