@@ -18,15 +18,19 @@ export const TabsPage = () => {
 
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
-            <li
-              data-cy="Tab"
-              className={classNames({ 'is-active': selectedTab === tab.id })}
-              key={tab.id}
-            >
-              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
-            </li>
-          ))}
+          {tabs.map(tab => {
+            const { id, title } = tab;
+
+            return (
+              <li
+                data-cy="Tab"
+                className={classNames({ 'is-active': selectedTab === id })}
+                key={id}
+              >
+                <Link to={`/tabs/${id}`}>{title}</Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
