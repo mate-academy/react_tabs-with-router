@@ -10,7 +10,7 @@ const tabs = [
 
 const TabsPage = () => {
   const { tabId } = useParams();
-  let currentTab = tabs.find(tab => tab.id === tabId) as Tab;
+  const currentTab = tabs.find(tab => tab.id === tabId) as Tab;
 
   return (
     <>
@@ -20,16 +20,13 @@ const TabsPage = () => {
           {tabs.map(tab => (
             <li
               data-cy="Tab"
-              key={tab.content}
+              key={tab.id}
               className={classnames({
                 'is-active': currentTab?.id === tab.id,
               })}
             >
               <Link
                 to={`/tabs/${tab.id}`}
-                onClick={() => {
-                  currentTab = tab;
-                }}
               >
                 {tab.title}
               </Link>
