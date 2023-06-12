@@ -6,6 +6,8 @@ import {
 } from 'react-router-dom';
 import classNames from 'classnames';
 import { Tabs } from './components/Tabs';
+import { NotFoundPage } from './components/NotFoundPage';
+import { HomePage } from './components/HomePage';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -22,7 +24,6 @@ export const App = () => {
 
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <nav
         className="navbar is-light is-fixed-top is-mobile has-shadow"
         data-cy="Nav"
@@ -55,7 +56,7 @@ export const App = () => {
           <Routes>
             <Route
               path="/home"
-              element={<h1 className="title">Home page</h1>}
+              element={<HomePage />}
             />
             <Route path="/" element={<Navigate to="/home" />} />
             <Route
@@ -67,7 +68,7 @@ export const App = () => {
             <Route path="/tabs/:selectedTabId" element={<Tabs tabs={tabs} />} />
             <Route
               path="*"
-              element={<h1 className="title">Page not found</h1>}
+              element={<NotFoundPage />}
             />
           </Routes>
         </div>
