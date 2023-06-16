@@ -9,14 +9,9 @@ type Props = {
 };
 
 export const TabsPage: React.FC<Props> = ({ tabs }) => {
-  /* const [selectedTab, setSelectedTab] = useState<Tab | null>(null); */
   const { tabId } = useParams();
 
   const selectedTab = tabs.find(tab => tabId === tab.id);
-
-  /* const handleTab = (tab: Tab) => {
-    setSelectedTab(tab);
-  }; */
 
   return (
     <>
