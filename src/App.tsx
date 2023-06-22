@@ -1,11 +1,14 @@
-import React from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { NavLink, Navigate, Route, Routes } from 'react-router-dom';
+import {
+  NavLink,
+  Navigate,
+  Route,
+  Routes,
+} from 'react-router-dom';
 import classNames from 'classnames';
 import { TabsPage } from './TabsPage';
-
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -54,8 +57,8 @@ export const App = () => (
           <Route path="/" element={<h1 className="title">Home page</h1>} />
           <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="tabs">
-            <Route index element={<TabsPage tabs={tabs}/>} />
-            <Route path=":tabId" element={<TabsPage tabs={tabs}/>} />
+            <Route index element={<TabsPage tabs={tabs} />} />
+            <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
           </Route>
 
           <Route
