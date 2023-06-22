@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { Link, useOutletContext, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 
-import { Tab } from '../../types/Tab';
+import { Tab } from '../types/Tab';
 
 export const TabsPage = () => {
   const tabs: Tab[] = useOutletContext();

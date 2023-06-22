@@ -8,7 +8,7 @@ import {
 
 import { App } from './App';
 import { Home } from './routes/Home';
-import { TabsPage } from './components/TabsPage/TabsPage';
+import { TabsPage } from './routes/TabsPage';
 
 ReactDOM.render(
   <HashRouter>
