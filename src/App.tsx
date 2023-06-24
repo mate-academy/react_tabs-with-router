@@ -16,7 +16,7 @@ const tabs = [
 ];
 
 export const App = () => {
-  const [selectedTab, setSelectedTab] = useState<Tab | undefined>(undefined);
+  const [selectedTab, setSelectedTab] = useState<Tab | null>(null);
 
   return (
     <div className="has-navbar-fixed-top">
@@ -27,7 +27,7 @@ export const App = () => {
           <Routes>
             <Route
               path="/"
-              element={<h1 className="title">Home Page</h1>}
+              element={<h1 className="title">Home page</h1>}
             />
 
             <Route

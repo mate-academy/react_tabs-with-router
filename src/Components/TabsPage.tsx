@@ -4,14 +4,14 @@ import { Tab } from '../types/Tab';
 
 type Props = {
   tabs: Tab[],
-  selectedTabId: string | undefined,
+  selectedTabId?: string | null,
   setSelectedTab: (tab: Tab) => void
 };
 
 export const TabsPage: React.FC<Props> = ({
   tabs, selectedTabId, setSelectedTab,
 }) => {
-  const isSelectedTab = tabs.find(tab => tab.id === selectedTabId) || undefined;
+  const isSelectedTab = tabs.find(tab => tab.id === selectedTabId);
 
   const selectTab = (tab: Tab) => {
     if (tab.id !== isSelectedTab?.id) {
@@ -45,11 +45,9 @@ export const TabsPage: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {isSelectedTab === undefined ? (
-          'Please select a tab'
-        ) : (
-          isSelectedTab.content
-        )}
+        {isSelectedTab
+          ? isSelectedTab?.content
+          : 'Please select a tab'}
       </div>
     </>
   );
