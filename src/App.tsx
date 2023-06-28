@@ -8,6 +8,8 @@ import { useState } from 'react';
 import { MainNav } from './Components/MainNav';
 import { TabsPage } from './Components/TabsPage';
 import { Tab } from './types/Tab';
+import { HomePage } from './Components/HomePage';
+import { PageNotFound } from './Components/PageNotFound';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -27,7 +29,7 @@ export const App = () => {
           <Routes>
             <Route
               path="/"
-              element={<h1 className="title">Home page</h1>}
+              element={<HomePage />}
             />
 
             <Route
@@ -60,7 +62,7 @@ export const App = () => {
 
             <Route
               path="*"
-              element={<h1 className="title">Page not found</h1>}
+              element={<PageNotFound />}
             />
           </Routes>
         </div>
