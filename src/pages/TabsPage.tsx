@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Tabs } from './Tabs';
+import { Tabs } from '../Tabs';
 
-const TabsPage: React.FC = () => {
+export const TabsPage: React.FC = () => {
   const { tabId = '' } = useParams();
 
   return (
@@ -15,5 +15,3 @@ const TabsPage: React.FC = () => {
     </>
   );
 };
-
-export default TabsPage;
