@@ -4,10 +4,8 @@ import './App.scss';
 import {
   Navigate, Route, Routes,
 } from 'react-router-dom';
-import { useState } from 'react';
 import { MainNav } from './Components/MainNav';
 import { TabsPage } from './Components/TabsPage';
-import { Tab } from './types/Tab';
 import { HomePage } from './Components/HomePage';
 import { PageNotFound } from './Components/PageNotFound';
 
@@ -18,8 +16,6 @@ const tabs = [
 ];
 
 export const App = () => {
-  const [selectedTab, setSelectedTab] = useState<Tab | null>(null);
-
   return (
     <div className="has-navbar-fixed-top">
       <MainNav />
@@ -43,18 +39,14 @@ export const App = () => {
                 element={(
                   <TabsPage
                     tabs={tabs}
-                    selectedTabId={selectedTab?.id}
-                    setSelectedTab={setSelectedTab}
                   />
                 )}
               />
               <Route
-                path={`:${selectedTab?.id}`}
+                path=":tabId"
                 element={(
                   <TabsPage
                     tabs={tabs}
-                    selectedTabId={selectedTab?.id}
-                    setSelectedTab={setSelectedTab}
                   />
                 )}
               />

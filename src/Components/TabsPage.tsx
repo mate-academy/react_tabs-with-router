@@ -1,23 +1,18 @@
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { useMemo } from 'react';
 import { Tab } from '../types/Tab';
 
 type Props = {
-  tabs: Tab[],
-  selectedTabId?: string | null,
-  setSelectedTab: (tab: Tab) => void
+  tabs: Tab[]
 };
 
-export const TabsPage: React.FC<Props> = ({
-  tabs, selectedTabId, setSelectedTab,
-}) => {
-  const isSelectedTab = tabs.find(tab => tab.id === selectedTabId);
+export const TabsPage: React.FC<Props> = ({ tabs }) => {
+  const { tabId = '' } = useParams();
 
-  const selectTab = (tab: Tab) => {
-    if (tab.id !== isSelectedTab?.id) {
-      setSelectedTab(tab);
-    }
-  };
+  const isSelectedTab = useMemo(() => {
+    return tabs.find(tab => tab.id === tabId);
+  }, [tabId]);
 
   return (
     <>
@@ -29,13 +24,12 @@ export const TabsPage: React.FC<Props> = ({
             <li
               data-cy="Tab"
               className={classNames(
-                { 'is-active': isSelectedTab?.id === tab.id },
+                { 'is-active': tabId === tab.id },
               )}
               key={tab.id}
             >
               <Link
                 to={`../${tab.id}`}
-                onClick={() => selectTab(tab)}
               >
                 {tab.title}
               </Link>
@@ -45,9 +39,7 @@ export const TabsPage: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {isSelectedTab
-          ? isSelectedTab?.content
-          : 'Please select a tab'}
+        { isSelectedTab?.content || 'Please select a tab' }
       </div>
     </>
   );
