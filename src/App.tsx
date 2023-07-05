@@ -1,7 +1,6 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { MainNav } from './MainNav';
 import { Tabs } from './Tabs';
