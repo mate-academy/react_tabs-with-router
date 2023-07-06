@@ -4,19 +4,19 @@ import classNames from 'classnames';
 import { Tab } from '../types/Tab';
 
 type Props = {
-  tab: Tab[],
+  tabs: Tab[],
 };
 
-export const TabsPage: FC<Props> = ({ tab }) => {
+export const TabsPage: FC<Props> = ({ tabs }) => {
   const { tabId } = useParams();
-  const selectedTabId = tab.find(item => tabId === item.id)?.content;
+  const selectedTabContent = tabs.find(item => tabId === item.id)?.content;
 
   return (
     <>
       <h1 className="title">Tabs page</h1>
       <div className="tabs is-boxed">
         <ul>
-          {tab.map((item) => (
+          {tabs.map((item) => (
             <li
               data-cy="Tab"
               className={classNames({ 'is-active': item.id === tabId })}
@@ -28,7 +28,7 @@ export const TabsPage: FC<Props> = ({ tab }) => {
         </ul>
       </div>
       <div className="block" data-cy="TabContent">
-        {tabId ? selectedTabId : 'Please select a tab'}
+        {tabId ? selectedTabContent : 'Please select a tab'}
       </div>
     </>
   );
