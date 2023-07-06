@@ -15,7 +15,7 @@ export const Tabs: React.FC = () => {
   const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
-    <>
+    <div className="container">
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
@@ -40,6 +40,6 @@ export const Tabs: React.FC = () => {
           ? selectedTab.content
           : 'Please select a tab'}
       </div>
-    </>
+    </div>
   );
 };
