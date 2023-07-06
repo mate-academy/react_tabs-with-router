@@ -73,7 +73,7 @@ export const App = () => {
 
               <Route
                 path=":tabId"
-                element={<TodoContent tabs={tabs} tabId={tabId} />}
+                element={<TodoContent tabs={tabs} />}
               />
             </Route>
 
