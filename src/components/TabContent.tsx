@@ -5,13 +5,13 @@ interface Props {
   tabs: Tab[],
 }
 
-export const TodoContent:React.FC<Props> = ({ tabs }) => {
+export const TabContent:React.FC<Props> = ({ tabs }) => {
   const { tabId = 0 } = useParams();
   const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <div className="block" data-cy="TabContent">
-      {selectedTab?.title || 'Please select a tab'}
+      {selectedTab?.content || 'Please select a tab'}
     </div>
   );
 };

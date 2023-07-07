@@ -1,15 +1,15 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+import cn from 'classnames';
 import {
-  Link,
+  NavLink,
   Navigate,
   Outlet,
   Route,
   Routes,
-  useParams,
 } from 'react-router-dom';
-import { TodoContent } from './components/TodoContent';
+import { TabContent } from './components/TabContent';
 import { Tabs } from './components/Tabs';
 
 const tabs = [
@@ -19,8 +19,6 @@ const tabs = [
 ];
 
 export const App = () => {
-  const { tabId = '0' } = useParams();
-
   return (
     <>
       {/* Also requires <html class="has-navbar-fixed-top"> */}
@@ -30,8 +28,22 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link to="/" className="navbar-item">Home</Link>
-            <Link to="/tabs" className="navbar-item">Tabs</Link>
+            <NavLink
+              to="/"
+              className={({ isActive }) => cn('navbar-item', {
+                'is-active': isActive,
+              })}
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/tabs"
+              className={({ isActive }) => cn('navbar-item', {
+                'is-active': isActive,
+              })}
+            >
+              Tabs
+            </NavLink>
           </div>
         </div>
       </nav>
@@ -55,7 +67,7 @@ export const App = () => {
                 <>
                   <>
                     <h1 className="title">Tabs page</h1>
-                    <Tabs tabs={tabs} tabId={tabId} />
+                    <Tabs tabs={tabs} />
                   </>
 
                   <Outlet />
@@ -73,7 +85,7 @@ export const App = () => {
 
               <Route
                 path=":tabId"
-                element={<TodoContent tabs={tabs} />}
+                element={<TabContent tabs={tabs} />}
               />
             </Route>
 
