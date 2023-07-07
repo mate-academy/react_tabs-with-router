@@ -16,7 +16,7 @@ export const TabItem: FC<Props> = ({ tab }) => {
       data-cy="Tab"
       className={cn({ 'is-active': tabId === tab.id })}
     >
-      <Link to={`../${tab.id}`}>
+      <Link to={tab.id}>
         {tab.title}
       </Link>
     </li>

@@ -14,13 +14,14 @@ export const App = () => (
     <div className="section">
       <div className="container">
         <Routes>
-          <Route path="tabs">
-            <Route index element={<TabsPage />} />
-            <Route path=":tabId" element={<TabsPage />} />
+          <Route path="/">
+            <Route index element={<HomePage />} />
+            <Route path="home" element={<Navigate to="/" replace />} />
+            <Route path="tabs" element={<TabsPage />}>
+              <Route path=":tabId" element={<TabsPage />} />
+            </Route>
           </Route>
 
-          <Route path="/" element={<HomePage />} />
-          <Route path="home" element={<Navigate to="/" replace />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
