@@ -12,8 +12,9 @@ export const TabsPages = () => {
       <TabsBoxes selectedTabId={tabId} />
 
       <div className="block" data-cy="TabContent">
-        {tabId === '' ? (<>Please select a tab</>)
-          : (<>{selectedTab?.content}</>)}
+        {(tabId !== '' && selectedTab)
+          ? (<>{selectedTab?.content}</>)
+          : (<>Please select a tab</>)}
       </div>
     </>
   );
