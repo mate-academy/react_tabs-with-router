@@ -6,7 +6,6 @@ import {
   Route,
   Routes,
 } from 'react-router-dom';
-// import { TabsList } from './components/TabsList';
 import { TabsPage } from './components/TabsPage';
 import { Navbar } from './components/Navbar';
 
@@ -17,24 +16,9 @@ const tabs = [
 ];
 
 export const App = () => {
-  // const rout = useParams();
-  // console.log(rout)
-
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <Navbar />
-      {/* <nav
-        className="navbar is-light is-fixed-top is-mobile has-shadow"
-        data-cy="Nav"
-      >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item is-active">Home</Link>
-            <Link to="/tabs" className="navbar-item">Tabs</Link>
-          </div>
-        </div>
-      </nav> */}
 
       <div className="section">
         <div className="container">
@@ -69,28 +53,6 @@ export const App = () => {
               />
             </Route>
           </Routes>
-
-          {/* <h1 className="title">Home page</h1>
-          <h1 className="title">Tabs page</h1>
-          <h1 className="title">Page not found</h1>
-
-          <div className="tabs is-boxed">
-            <ul>
-              <li data-cy="Tab" className="is-active">
-                <Link to="#/">Tab 1</Link>
-              </li>
-              <li data-cy="Tab">
-                <Link to="#/">Tab 2</Link>
-              </li>
-              <li data-cy="Tab">
-                <Link to="#/">Tab 3</Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="block" data-cy="TabContent">
-            Please select a tab
-          </div> */}
         </div>
       </div>
     </>

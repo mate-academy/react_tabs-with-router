@@ -1,4 +1,3 @@
-// import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Tab } from '../types/Tab';
 import { TabsList } from './TabsList';
@@ -10,8 +9,6 @@ interface Props {
 export const TabsPage: React.FC<Props> = ({ tabs }) => {
   const { tabId = '' } = useParams();
   const isValidTabId = tabs.some(tab => tab.id === tabId);
-
-  // console.log(isValidTabId)
 
   return (
     <>
