@@ -7,24 +7,27 @@ import {
 } from 'react-router-dom';
 import { TabsPage } from './pages/TabsPage';
 import { MainNav } from './Components/MainNav';
+import { NotFoundPage } from './pages/NotFoundPage';
+import { HomePage } from './pages/HomePage';
+import { Layout } from './Components/Layout';
 
 export const App = () => {
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <MainNav />
 
       <div className="section">
         <Routes>
-          <Route path="tabs">
-            <Route index element={<TabsPage />} />
-            <Route path=":tabId" element={<TabsPage />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path="home" element={<Navigate to="/" replace />} />
+            <Route path="tabs" element={<TabsPage />}>
+              <Route path=":tabId" element={<TabsPage />} />
+            </Route>
           </Route>
-
-          <Route path="/" element={<h1 className="title">Home page</h1>} />
-          <Route path="home" element={<Navigate to="/" replace />} />
-          <Route path="*" element={<h1 className="title">Page not found</h1>} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
+
       </div>
     </>
   );

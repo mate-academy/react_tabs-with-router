@@ -4,7 +4,7 @@ import { Tab } from '../types/Tab';
 
 interface Props {
   tab: Tab;
-  selectedTabId: string
+  selectedTabId: string | null
 }
 
 export const TabInfo: React.FC<Props> = ({ tab, selectedTabId }) => {
@@ -16,7 +16,11 @@ export const TabInfo: React.FC<Props> = ({ tab, selectedTabId }) => {
         data-cy="Tab"
         className={cn({ 'is-active': isSelected(tab) })}
       >
-        <Link to={`../${tab.id}`}>{tab.title}</Link>
+        <Link
+          to={`${tab.id}`}
+        >
+          {tab.title}
+        </Link>
       </li>
     </>
   );
