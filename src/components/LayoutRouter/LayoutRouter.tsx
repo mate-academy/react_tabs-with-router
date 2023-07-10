@@ -8,7 +8,6 @@ import { App } from '../../App';
 import { HomePage } from '../../pages/HomePage';
 import { TabsPage } from '../../pages/TabsPage/TabsPage';
 import { TabsTable } from '../TabsTable';
-import { NotFoundRedirect } from '../../pages/NotFoundPage/NotFoundRedirect';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -20,7 +19,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <NotFoundRedirect />,
+    errorElement: <NotFoundPage />,
     children: [
       {
         path: '/home',
@@ -41,10 +40,6 @@ const router = createBrowserRouter([
             element: <TabsTable tabs={tabs} selectedTabId="" />,
           },
         ],
-      },
-      {
-        path: 'not-found',
-        element: <NotFoundPage />,
       },
     ],
   },
