@@ -1,10 +1,50 @@
-import ReactDOM from 'react-dom';
-import { HashRouter } from 'react-router-dom';
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
+import React from 'react';
 import { App } from './App';
+import { HomePage } from './pages/HomePage';
+import { TabsPage } from './pages/TabsPage/TabsPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
-ReactDOM.render(
-  <HashRouter>
-    <App />
-  </HashRouter>,
-  document.getElementById('root'),
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+
+      {
+        path: 'home',
+        element: <Navigate to="/" replace />,
+      },
+
+      {
+        path: 'tabs',
+        element: <TabsPage />,
+        children: [
+          {
+            path: ':tabId',
+          },
+        ],
+      },
+
+      {
+        path: '*',
+        element: <NotFoundPage />,
+      },
+    ],
+  },
+]);
+
+createRoot(document.getElementById('root') as HTMLDivElement).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
 );
