@@ -1,7 +1,7 @@
 import {
   Navigate,
   RouterProvider,
-  createBrowserRouter,
+  createHashRouter,
 } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
 import React from 'react';
@@ -10,7 +10,7 @@ import { HomePage } from './pages/HomePage';
 import { TabsPage } from './pages/TabsPage/TabsPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <App />,
