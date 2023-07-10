@@ -16,9 +16,19 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
+interface Active {
+  isActive: boolean
+}
+
+const setActiveClassNavLink = ({ isActive }: Active) => {
+  return classNames('navbar-item',
+    {
+      'is-active': isActive,
+    });
+};
+
 export const App = () => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
       data-cy="Nav"
@@ -27,23 +37,13 @@ export const App = () => (
         <div className="navbar-brand">
           <NavLink
             to="/"
-            className={
-              ({ isActive }) => classNames('navbar-item',
-                {
-                  'is-active': isActive,
-                })
-            }
+            className={setActiveClassNavLink}
           >
             Home
           </NavLink>
           <NavLink
             to="/tabs"
-            className={
-              ({ isActive }) => classNames('navbar-item',
-                {
-                  'is-active': isActive,
-                })
-            }
+            className={setActiveClassNavLink}
           >
             Tabs
           </NavLink>
