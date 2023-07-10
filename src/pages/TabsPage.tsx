@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 const tabs = [

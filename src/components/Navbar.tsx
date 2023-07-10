@@ -1,4 +1,3 @@
-import React from 'react';
 import { PageLink } from './PageLink';
 
 export const Navbar = () => (
