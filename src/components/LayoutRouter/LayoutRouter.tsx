@@ -19,12 +19,12 @@ const router = createBrowserRouter([
       },
 
       {
-        path: '/home',
+        path: 'home',
         element: <Navigate to="/" replace />,
       },
 
       {
-        path: '/tabs',
+        path: 'tabs',
         element: <TabsPage />,
         children: [
           {
