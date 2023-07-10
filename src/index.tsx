@@ -3,8 +3,7 @@ import {
   RouterProvider,
   createHashRouter,
 } from 'react-router-dom';
-import { createRoot } from 'react-dom/client';
-import React from 'react';
+import ReactDOM from 'react-dom';
 import { App } from './App';
 import { HomePage } from './pages/HomePage';
 import { TabsPage } from './pages/TabsPage/TabsPage';
@@ -43,8 +42,7 @@ const router = createHashRouter([
   },
 ]);
 
-createRoot(document.getElementById('root') as HTMLDivElement).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+ReactDOM.render(
+  <RouterProvider router={router} />,
+  document.getElementById('root'),
 );
