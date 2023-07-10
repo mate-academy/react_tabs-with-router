@@ -2,11 +2,8 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import {
-  Navigate,
-  Route, Routes,
+  Navigate, Route, Routes,
 } from 'react-router-dom';
-// import classNames from 'classnames';
-// import { useState } from 'react';
 import { HomePage } from './Pages/Home';
 import { TabsPage } from './Pages/Tabs';
 import { Tab } from './types/Tab';
