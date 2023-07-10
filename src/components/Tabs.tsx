@@ -1,29 +1,28 @@
 import cn from 'classnames';
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { Tab } from '../types/Tab';
 
 interface Props {
   tabs: Tab[],
-  selectedTabId: string,
+  selectedTabId?: string,
 }
 
-const getTabById = (
+const getTabContent = (
   tabsList: Tab[],
   id: string,
 ) => (
-  tabsList.find(tab => tab.id === id) || tabsList[0]
+  tabsList.find(tab => tab.id === id)?.content
 );
 
 export const Tabs:FC<Props> = ({ tabs, selectedTabId }) => {
-  const selectedValidTabId = getTabById(tabs, selectedTabId).id;
-
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
             const { id, title } = tab;
-            const isSelected = selectedValidTabId === id;
+            const isSelected = selectedTabId === id;
 
             return (
               <li
@@ -31,13 +30,13 @@ export const Tabs:FC<Props> = ({ tabs, selectedTabId }) => {
                 className={cn({ 'is-active': isSelected })}
                 data-cy="Tab"
               >
-                <a
-                  href={`#${id}`}
+                <Link
+                  to={id}
                   data-cy="TabLink"
                   onClick={() => !isSelected}
                 >
                   {title}
-                </a>
+                </Link>
               </li>
             );
           })}
@@ -45,7 +44,9 @@ export const Tabs:FC<Props> = ({ tabs, selectedTabId }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {getTabById(tabs, selectedTabId)?.content}
+        {selectedTabId
+          ? getTabContent(tabs, selectedTabId)
+          : <p>Please select a tab</p>}
       </div>
     </div>
   );
