@@ -13,7 +13,7 @@ export const MainNav: FC = () => {
         <div className="navbar-brand">
           <TabsNavLink to="/" text="Home" />
 
-          <TabsNavLink to="/tabs/" text="Tabs" />
+          <TabsNavLink to="/tabs" text="Tabs" />
         </div>
       </div>
     </nav>
