@@ -5,7 +5,7 @@ import { Tab } from '../../types/Tab';
 
 interface Props {
   tabs: Tab[];
-  selectedTabId: string;
+  selectedTabId?: string;
 }
 
 export const TabsTable: FC<Props> = ({ tabs, selectedTabId }) => {
@@ -19,7 +19,7 @@ export const TabsTable: FC<Props> = ({ tabs, selectedTabId }) => {
             <li
               data-cy="Tab"
               className={cn({
-                'is-active': selectedTabId && tab.id === selectedTabId,
+                'is-active': tab.id === selectedTabId,
               })}
               key={tab.id}
             >
