@@ -7,7 +7,7 @@ export const Header: React.FC = () => (
   >
     <div className="container">
       <div className="navbar-brand">
-        <HeaderNavLink to="/home" text="Home" />
+        <HeaderNavLink to="/" text="Home" />
         <HeaderNavLink to="/tabs" text="Tabs" />
       </div>
     </div>

@@ -6,7 +6,6 @@ import { Header } from './components/Header/Header';
 
 export const App = () => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
     <Header />
     <div className="section">
       <div className="container">

@@ -1,6 +1,6 @@
 import {
   RouterProvider,
-  createBrowserRouter,
+  createHashRouter,
 } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { App } from './App';
@@ -10,34 +10,35 @@ import { PageNotFound } from './pages/PageNotFound';
 import {
   HomePageRedirect,
 } from './components/HomePageRedirect/HomePageRedirect';
+import {
+  PageNotFoundRedirect,
+} from './components/PageNotFoundRedirect/PageNotFoundRedirect';
 
-const router = createBrowserRouter([
-  {
+const router = createHashRouter([{
+  path: '/',
+  element: <App />,
+  errorElement: <PageNotFoundRedirect />,
+  children: [{
     path: '/',
-    element: <App />,
-    errorElement: <PageNotFound />,
+    element: <HomePage />,
+  },
+  {
+    path: '/home',
+    element: <HomePageRedirect />,
+  },
+  {
+    path: '/tabs',
+    element: <Tabs />,
     children: [{
-      path: '/',
-      element: <HomePage />,
-    },
-    {
-      path: '/home',
-      element: <HomePageRedirect />,
-    },
-    {
-      path: '/tabs',
+      path: '/tabs/:tabId',
       element: <Tabs />,
-      children: [{
-        path: ':tabId',
-        element: <Tabs />,
-      }],
-    },
-    {
-      path: '/not-found',
-      element: <PageNotFound />,
     }],
   },
-]);
+  {
+    path: '/not-found',
+    element: <PageNotFound />,
+  }],
+}]);
 
 ReactDOM.render(
   <RouterProvider router={router} />,
