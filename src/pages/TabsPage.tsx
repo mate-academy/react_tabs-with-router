@@ -8,8 +8,9 @@ type Props = {
 };
 
 export const TabsPage: FC<Props> = ({ tabs }) => {
-  const { tabId } = useParams();
-  const [selectedTab, setSelectedTab] = useState(true);
+  const { tabId = 0 } = useParams();
+  const selectedTab = tabs.find((tab) => tabId === tab.id);
+  const [isSelectedTab, setIsSelectedTab] = useState(true);
 
   return (
     <>
@@ -18,10 +19,7 @@ export const TabsPage: FC<Props> = ({ tabs }) => {
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
-            const {
-              id,
-              title,
-            } = tab;
+            const { id, title } = tab;
 
             return (
               <li
@@ -31,7 +29,7 @@ export const TabsPage: FC<Props> = ({ tabs }) => {
               >
                 <Link
                   to={`/tabs/${id}`}
-                  onClick={() => setSelectedTab(false)}
+                  onClick={() => setIsSelectedTab(false)}
                 >
                   {title}
                 </Link>
@@ -42,9 +40,9 @@ export const TabsPage: FC<Props> = ({ tabs }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab
+        {isSelectedTab
           ? 'Please select a tab'
-          : `Some text ${tabId?.slice(-1)}`}
+          : selectedTab?.content}
       </div>
     </>
   );
