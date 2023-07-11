@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Tab } from '../types/Tab';
 
@@ -10,7 +10,6 @@ type Props = {
 export const TabsPage: FC<Props> = ({ tabs }) => {
   const { tabId = 0 } = useParams();
   const selectedTab = tabs.find((tab) => tabId === tab.id);
-  const [isSelectedTab, setIsSelectedTab] = useState(true);
 
   return (
     <>
@@ -29,7 +28,7 @@ export const TabsPage: FC<Props> = ({ tabs }) => {
               >
                 <Link
                   to={`/tabs/${id}`}
-                  onClick={() => setIsSelectedTab(false)}
+                  data-cy="TabLink"
                 >
                   {title}
                 </Link>
@@ -40,9 +39,9 @@ export const TabsPage: FC<Props> = ({ tabs }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {isSelectedTab
-          ? 'Please select a tab'
-          : selectedTab?.content}
+        {selectedTab
+          ? selectedTab.content
+          : 'Please select a tab'}
       </div>
     </>
   );
