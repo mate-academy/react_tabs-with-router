@@ -10,9 +10,7 @@ export const Tabs: React.FC = () => {
   const isSelected = (tabId: string) => tabId === selectedTabId;
 
   return (
-    <div className="container">
-      <h1 className="title">Tabs page</h1>
-
+    <>
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
           <ul>
@@ -43,6 +41,6 @@ export const Tabs: React.FC = () => {
             )}
         </div>
       </div>
-    </div>
+    </>
   );
 };

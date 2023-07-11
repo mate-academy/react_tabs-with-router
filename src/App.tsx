@@ -7,7 +7,9 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { NavLinkItem } from './components/NavLinkItem';
-import { Tabs } from './components/Tabs';
+import { HomePage } from './pages/HomePage';
+import { PageNotFound } from './pages/PageNotFound';
+import { TabsPage } from './pages/TabsPage';
 
 export const App = () => (
   <>
@@ -33,13 +35,13 @@ export const App = () => (
     <div className="section">
       <Routes>
         <Route path="tabs">
-          <Route index element={<Tabs />} />
-          <Route path=":selectedTabId" element={<Tabs />} />
+          <Route index element={<TabsPage />} />
+          <Route path=":selectedTabId" element={<TabsPage />} />
         </Route>
 
         <Route
           path="/"
-          element={<h1 className="title">Home page</h1>}
+          element={<HomePage />}
         />
 
         <Route
@@ -49,7 +51,7 @@ export const App = () => (
 
         <Route
           path="*"
-          element={<h1 className="title">Page not found</h1>}
+          element={<PageNotFound />}
         />
       </Routes>
     </div>
