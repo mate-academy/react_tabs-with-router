@@ -5,17 +5,19 @@ import { Tab } from '../types/Tab';
 
 interface Props {
   tabs: Tab[],
-  selectedTabId?: string,
+  selectedTabId: string,
 }
 
 const getTabContent = (
   tabsList: Tab[],
   id: string,
 ) => (
-  tabsList.find(tab => tab.id === id)?.content
+  tabsList.find(tab => tab.id === id)?.content ?? 'Please select a tab'
 );
 
 export const Tabs:FC<Props> = ({ tabs, selectedTabId }) => {
+  const tabContent = getTabContent(tabs, selectedTabId);
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -33,7 +35,6 @@ export const Tabs:FC<Props> = ({ tabs, selectedTabId }) => {
                 <Link
                   to={id}
                   data-cy="TabLink"
-                  onClick={() => !isSelected}
                 >
                   {title}
                 </Link>
@@ -44,9 +45,7 @@ export const Tabs:FC<Props> = ({ tabs, selectedTabId }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTabId
-          ? getTabContent(tabs, selectedTabId)
-          : <p>Please select a tab</p>}
+        {tabContent}
       </div>
     </div>
   );
