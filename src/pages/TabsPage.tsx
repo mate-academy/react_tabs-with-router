@@ -13,7 +13,7 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
   const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
-    <>
+    <div className="container">
       <h1 className="title">Tabs page</h1>
 
       <div className="tabs is-boxed">
@@ -37,6 +37,6 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
           ? selectedTab.content
           : 'Please select a tab'}
       </div>
-    </>
+    </div>
   );
 };
