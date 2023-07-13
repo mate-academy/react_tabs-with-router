@@ -28,7 +28,7 @@ export const Tabs: React.FC<Props> = ({
               })}
             >
               <Link
-                to="#/"
+                to={`/tabs/${tab.id}`}
                 onClick={() => handleSelected(tab)}
               >
                 {tab.title}

@@ -2,7 +2,9 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import React, { useState } from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
+import {
+  Link, Route, Routes,
+} from 'react-router-dom';
 import classNames from 'classnames';
 import { Tabs } from './Tabs/Tabs';
 import { Tab } from './types/Tab';
@@ -16,6 +18,7 @@ const tabs: Tab[] = [
 export const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<Tab | null>(null);
   const [selectedPage, setSelectedPage] = useState<string>('page-1');
+  // const { tabId = 0 } = useParams();
 
   const handleSelectedTab = (tab: Tab) => {
     setSelectedTab(tab);
@@ -27,7 +30,6 @@ export const App: React.FC = () => {
 
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <nav
         className="navbar is-light is-fixed-top is-mobile has-shadow"
         data-cy="Nav"
@@ -46,7 +48,7 @@ export const App: React.FC = () => {
             </Link>
             <Link
               key="page-2"
-              to="/tabs"
+              to="tabs"
               className={classNames(
                 'navbar-item', { 'is-active': selectedPage === 'page-2' },
               )}
@@ -62,21 +64,36 @@ export const App: React.FC = () => {
         <div className="container">
           <Routes>
             <Route
+              path="*"
+              element={<h1 className="title">Page not found</h1>}
+            />
+            <Route
               path="/"
               element={<h1 className="title">Home page</h1>}
             />
-            <Route
-              path="/tabs"
-              element={(
-                <Tabs
-                  tabs={tabs}
-                  selectedTab={selectedTab}
-                  handleSelected={handleSelectedTab}
-                />
-              )}
-            />
+            <Route path="tabs">
+              <Route
+                index
+                element={(
+                  <Tabs
+                    tabs={tabs}
+                    selectedTab={selectedTab}
+                    handleSelected={handleSelectedTab}
+                  />
+                )}
+              />
+              <Route
+                path=":tabId"
+                element={(
+                  <Tabs
+                    tabs={tabs}
+                    selectedTab={selectedTab}
+                    handleSelected={handleSelectedTab}
+                  />
+                )}
+              />
+            </Route>
           </Routes>
-          {/* <h1 className="title">Page not found</h1> */}
         </div>
       </div>
     </>
