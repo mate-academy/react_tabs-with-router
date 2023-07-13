@@ -11,17 +11,15 @@ export const TabInfo: React.FC<Props> = ({ tab, selectedTabId }) => {
   const isSelected = (currentTab: Tab) => currentTab.id === selectedTabId;
 
   return (
-    <>
-      <li
-        data-cy="Tab"
-        className={cn({ 'is-active': isSelected(tab) })}
+    <li
+      data-cy="Tab"
+      className={cn({ 'is-active': isSelected(tab) })}
+    >
+      <Link
+        to={`${tab.id}`}
       >
-        <Link
-          to={`${tab.id}`}
-        >
-          {tab.title}
-        </Link>
-      </li>
-    </>
+        {tab.title}
+      </Link>
+    </li>
   );
 };
