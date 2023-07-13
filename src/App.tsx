@@ -8,9 +8,7 @@ export const App = () => (
   <>
     <MainNav />
     <div className="section">
-      <div className="container">
-        <Outlet />
-      </div>
+      <Outlet />
     </div>
   </>
 );

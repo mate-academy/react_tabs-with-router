@@ -5,7 +5,7 @@ import { Tab } from '../../types/Tab';
 
 interface Props {
   tabs: Tab[];
-  selectedTabId?: string;
+  selectedTabId: string | undefined;
 }
 
 export const TabsTable: FC<Props> = ({ tabs, selectedTabId }) => {
@@ -31,8 +31,8 @@ export const TabsTable: FC<Props> = ({ tabs, selectedTabId }) => {
 
       <div className="block" data-cy="TabContent">
         {selectedTab
-          ? (selectedTab.content)
-          : ('Please select a tab')}
+          ? selectedTab.content
+          : 'Please select a tab'}
       </div>
     </>
   );
