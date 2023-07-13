@@ -1,9 +1,7 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import cn from 'classnames';
 import {
-  NavLink,
   Navigate,
   Outlet,
   Route,
@@ -11,12 +9,10 @@ import {
 } from 'react-router-dom';
 import { TabContent } from './components/TabContent';
 import { Tabs } from './components/Tabs';
-
-const tabs = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-];
+import { HomePage } from './components/HomePage';
+import { NotFound } from './components/NotFound';
+import { SearchLink } from './components/SearchLink';
+import { tabs } from './constats';
 
 export const App = () => {
   return (
@@ -28,22 +24,8 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink
-              to="/"
-              className={({ isActive }) => cn('navbar-item', {
-                'is-active': isActive,
-              })}
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/tabs"
-              className={({ isActive }) => cn('navbar-item', {
-                'is-active': isActive,
-              })}
-            >
-              Tabs
-            </NavLink>
+            <SearchLink to="/" text="Home" />
+            <SearchLink to="/tabs" text="Tabs" />
           </div>
         </div>
       </nav>
@@ -53,7 +35,7 @@ export const App = () => {
           <Routes>
             <Route
               path="/"
-              element={<h1 className="title">Home page</h1>}
+              element={<HomePage />}
             />
 
             <Route
@@ -91,7 +73,7 @@ export const App = () => {
 
             <Route
               path="*"
-              element={<h1 className="title">Page not found</h1>}
+              element={<NotFound />}
             />
           </Routes>
 
