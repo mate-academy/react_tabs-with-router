@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { FC } from 'react';
-import { TabInfo } from './TabItem';
+import { TabItem } from './TabItem';
 import { tabs } from '../data/tabs';
 
 export const Tabs: FC = () => {
@@ -12,7 +12,7 @@ export const Tabs: FC = () => {
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
-            <TabInfo
+            <TabItem
               tab={tab}
               key={tab.id}
               selectedTabId={tabId}

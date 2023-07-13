@@ -7,7 +7,7 @@ interface Props {
   selectedTabId: string | null
 }
 
-export const TabInfo: React.FC<Props> = ({ tab, selectedTabId }) => {
+export const TabItem: React.FC<Props> = ({ tab, selectedTabId }) => {
   const isSelected = (currentTab: Tab) => currentTab.id === selectedTabId;
 
   return (
