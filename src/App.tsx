@@ -1,28 +1,27 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Outlet } from 'react-router-dom';
-import { PageNavLink } from './components/PageNavLink';
+import {
+  Navigate,
+  Route,
+  Routes,
+} from 'react-router-dom';
+import { Layout } from './Layout';
+import { HomePage, NotFoundPage, TabsPage } from './pages';
 
 export const App = () => (
-  <>
-    <nav
-      className="navbar is-light is-fixed-top is-mobile has-shadow"
-      data-cy="Nav"
-    >
-      <div className="container">
-        <div className="navbar-brand">
-          <PageNavLink to="/" title="Home" />
-
-          <PageNavLink to="tabs" title="Tabs" />
-        </div>
-      </div>
-    </nav>
-
-    <div className="section">
-      <div className="container">
-        <Outlet />
-      </div>
-    </div>
-  </>
+  <Routes>
+    <Route path="/" element={<Layout />}>
+      <Route index element={<HomePage />} />
+      <Route path="home" element={<Navigate to="/" replace />} />
+      <Route path="tabs">
+        <Route index element={<TabsPage />} />
+        <Route path=":tabId" element={<TabsPage />} />
+      </Route>
+      <Route
+        path="*"
+        element={<NotFoundPage />}
+      />
+    </Route>
+  </Routes>
 );
