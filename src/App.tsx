@@ -9,7 +9,6 @@ import { tabs } from './tabs';
 import { Layout } from './components/Layout';
 
 export const App = () => (
-  <>
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
@@ -21,5 +20,4 @@ export const App = () => (
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
-  </>
 );

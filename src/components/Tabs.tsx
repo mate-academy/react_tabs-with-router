@@ -1,16 +1,13 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { Tab } from '../types/Tab';
 
 type TabsProps = {
   tabs: Tab[];
+  selectedTab: Tab | undefined;
 };
 
-export const Tabs: React.FC<TabsProps> = ({ tabs }) => {
-  const { tabId } = useParams();
-
-  const selectedTab = tabs.find(tab => tabId === tab.id);
-
+export const Tabs: React.FC<TabsProps> = ({ tabs, selectedTab }) => {
   return (
     <div className="tabs is-boxed">
       <ul>

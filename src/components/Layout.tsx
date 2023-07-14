@@ -5,9 +5,7 @@ export const Layout = () => (
   <>
     <NavBar />
     <section className="section">
-      <div className="container">
         <Outlet />
-      </div>
     </section>
   </>
 );
