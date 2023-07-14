@@ -28,7 +28,7 @@ export const TabsPage: React.FC<TabsPageProps> = ({ tabs }) => {
   };
 
   return (
-    <>
+    <div className="container">
       <h1 className="title">Tabs page</h1>
       <div className="tabs is-boxed">
         <ul>
@@ -52,6 +52,6 @@ export const TabsPage: React.FC<TabsPageProps> = ({ tabs }) => {
           ? (checkTabContent(tabId))
           : ('Please select a tab')}
       </div>
-    </>
+    </div>
   );
 };

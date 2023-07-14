@@ -18,24 +18,18 @@ const tabs = [
 ];
 
 export const App = () => (
-  <>
-    <div className="section">
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<HomePage />} />
-            <Route path="/home" element={<Navigate to="/" replace />} />
-            <Route path="tabs">
-              <Route index element={<TabsPage tabs={tabs} />} />
-              <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
-            </Route>
-            <Route
-              path="*"
-              element={<NotFound />}
-            />
-          </Route>
-        </Routes>
-      </div>
-    </div>
-  </>
+  <Routes>
+    <Route path="/" element={<Layout />}>
+      <Route index element={<HomePage />} />
+      <Route path="/home" element={<Navigate to="/" replace />} />
+      <Route path="tabs">
+        <Route index element={<TabsPage tabs={tabs} />} />
+        <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
+      </Route>
+      <Route
+        path="*"
+        element={<NotFound />}
+      />
+    </Route>
+  </Routes>
 );

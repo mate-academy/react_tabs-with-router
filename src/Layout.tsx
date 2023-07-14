@@ -3,9 +3,11 @@ import { Navigation } from './Navigation';
 
 export const Layout = () => {
   return (
-    <>
-      <Navigation />
-      <Outlet />
-    </>
+    <div className="section">
+      <div className="container">
+        <Navigation />
+        <Outlet />
+      </div>
+    </div>
   );
 };
