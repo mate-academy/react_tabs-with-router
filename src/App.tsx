@@ -3,7 +3,9 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import React, { useState } from 'react';
 import {
-  Link, Route, Routes,
+  Link,
+  Route,
+  Routes,
 } from 'react-router-dom';
 import classNames from 'classnames';
 import { Tabs } from './Tabs/Tabs';
@@ -18,7 +20,6 @@ const tabs: Tab[] = [
 export const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<Tab | null>(null);
   const [selectedPage, setSelectedPage] = useState<string>('page-1');
-  // const { tabId = 0 } = useParams();
 
   const handleSelectedTab = (tab: Tab) => {
     setSelectedTab(tab);
