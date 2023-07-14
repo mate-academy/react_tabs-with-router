@@ -19,7 +19,11 @@ export const Tabs: FC = () => {
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
-            <TabItem key={tab.id} tab={tab} />
+            <TabItem
+              key={tab.id}
+              tab={tab}
+              selectedTabId={tabId}
+            />
           ))}
         </ul>
       </div>
