@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
-import { LayoutRouter } from './components/LayoutRouter';
+import { App } from './App';
 
 ReactDOM.render(
-  <LayoutRouter />,
+  <App />,
   document.getElementById('root'),
 );

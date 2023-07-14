@@ -5,7 +5,7 @@ import { Tab } from '../../types/Tab';
 
 interface Props {
   tabs: Tab[];
-  selectedTabId: string | undefined;
+  selectedTabId?: string;
 }
 
 export const TabsTable: FC<Props> = ({ tabs, selectedTabId }) => {

@@ -1,14 +1,14 @@
 import { Navigate, RouterProvider, createHashRouter } from 'react-router-dom';
-import { App } from '../../App';
-import { HomePage } from '../../pages/HomePage';
-import { TabsPage } from '../../pages/TabsPage/TabsPage';
-import { NotFoundPage } from '../../pages/NotFoundPage';
-import { NotFoundRedirect } from '../../pages/NotFoundPage/NotFoundRedirect';
+import { HomePage } from '../../../pages/HomePage';
+import { NotFoundPage } from '../../../pages/NotFoundPage';
+import { NotFoundRedirect } from '../../../pages/NotFoundPage/NotFoundRedirect';
+import { TabsPage } from '../../../pages/TabsPage/TabsPage';
+import { LayoutRouter } from '../LayoutRouter';
 
 const router = createHashRouter([
   {
     path: '/',
-    element: <App />,
+    element: <LayoutRouter />,
     errorElement: <NotFoundRedirect />,
     children: [
       {
@@ -39,6 +39,6 @@ const router = createHashRouter([
   },
 ]);
 
-export const LayoutRouter = () => (
+export const AppRouter = () => (
   <RouterProvider router={router} />
 );
