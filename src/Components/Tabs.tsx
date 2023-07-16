@@ -22,6 +22,7 @@ export const Tabs: FC = () => {
             <TabItem
               key={tab.id}
               tab={tab}
+              selectedTabId={tabId}
             />
           ))}
         </ul>
