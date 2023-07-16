@@ -1,5 +1,10 @@
 import React from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import {
+  HashRouter,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 
 import { App } from './App';
 import { HomePage } from './pages/HomePage';
@@ -13,6 +18,11 @@ export const Root: React.FC = () => (
         <Route
           index
           element={<HomePage />}
+        />
+
+        <Route
+          path="home"
+          element={<Navigate to="/" replace />}
         />
 
         <Route

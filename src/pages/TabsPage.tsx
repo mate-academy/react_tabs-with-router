@@ -13,9 +13,7 @@ export const TabsPage: React.FC = () => {
     <>
       <h1 className="title">Tabs page</h1>
 
-      <Tabs
-        tabs={tabs}
-      />
+      <Tabs tabs={tabs} />
     </>
   );
 };

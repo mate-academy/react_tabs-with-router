@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  NavLink,
-  Outlet,
-  useLocation,
-  useNavigate,
-} from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 import { setActiveLink } from './helpers/setActiveLink';
 
@@ -13,13 +8,6 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 
 export const App: React.FC = () => {
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
-
-  if (pathname === '/home') {
-    navigate('/');
-  }
-
   return (
     <>
       <nav
