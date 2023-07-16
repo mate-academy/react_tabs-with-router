@@ -15,9 +15,7 @@ export const PageNavLink: FC<PageNavLinkProps> = (props) => {
       to={to}
       className={
         ({ isActive }) => classNames(
-          'navbar-item', {
-            'is-active': isActive,
-          },
+          'navbar-item', { 'is-active': isActive },
         )
       }
     >

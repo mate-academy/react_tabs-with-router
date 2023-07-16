@@ -1,6 +1,6 @@
-import classNames from 'classnames';
-import { useMemo } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { Tabs } from '../components/Tabs';
+import { TabResource } from '../components/TabResource';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -10,35 +10,16 @@ const tabs = [
 
 export const TabsPage = () => {
   const { tabId = '' } = useParams();
-  const selectedTab = useMemo(
-    () => tabs.find(tab => tabId.includes(tab.id)),
-    [tabId],
-  );
+  const selectedTab = tabs.find(tab => tabId.includes(tab.id));
 
   return (
-    <>
+    <div className="container">
       <h1 className="title">Tabs page</h1>
-      <div className="tabs is-boxed">
-        <ul>
-          {tabs.map(tab => {
-            const isSelected = tabId.includes(tab.id);
 
-            return (
-              <li
-                data-cy="Tab"
-                className={classNames({ 'is-active': isSelected })}
-                key={tab.id}
-              >
-                <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      <Tabs tabs={tabs} selectedTabId={tabId} />
 
-      <div className="block" data-cy="TabContent">
-        {selectedTab ? (`${selectedTab.content}`) : 'Please select a tab'}
-      </div>
-    </>
+      <TabResource selectedTab={selectedTab} />
+
+    </div>
   );
 };
