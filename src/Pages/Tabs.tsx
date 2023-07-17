@@ -9,16 +9,16 @@ const tabs: Tab[] = [
 ];
 
 export const Tabs = () => {
-  const { tabId } = useParams();
-  const activeTab = tabs.find(tab => tab.id === tabId);
+  const { tabId = null } = useParams();
+  const activeTab = tabs.find(tab => tab.id === tabId) || null;
 
   return (
-    <>
+    <div className="container">
       <h1 className="title">Tabs page</h1>
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
-            <TabItem key={tab.id} tab={tab} />
+            <TabItem key={tab.id} tab={tab} activeTabId={tabId} />
           ))}
         </ul>
       </div>
@@ -29,6 +29,6 @@ export const Tabs = () => {
           : 'Please select a tab'}
 
       </div>
-    </>
+    </div>
   );
 };

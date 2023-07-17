@@ -10,12 +10,10 @@ export const NavigationLink: React.FC<Props> = ({ title, link }) => {
   return (
     <NavLink
       to={link}
-      className={
-        ({ isActive }) => cn(
-          'navbar-item',
-          { 'is-active': isActive },
-        )
-      }
+      className={({ isActive }) => cn(
+        'navbar-item',
+        { 'is-active': isActive },
+      )}
     >
       {title}
     </NavLink>

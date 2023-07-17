@@ -1,19 +1,19 @@
 import cn from 'classnames';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Tab } from '../types/Tab';
 
 type Props = {
-  tab: Tab
+  tab: Tab,
+  activeTabId: string | null,
 };
 
-export const TabItem: React.FC<Props> = ({ tab }) => {
+export const TabItem: React.FC<Props> = ({ tab, activeTabId }) => {
   const { id, title } = tab;
-  const { tabId } = useParams();
 
   return (
     <li
       data-cy="Tab"
-      className={cn({ 'is-active': id === tabId })}
+      className={cn({ 'is-active': id === activeTabId })}
     >
       <Link to={id}>{title}</Link>
     </li>
