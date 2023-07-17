@@ -35,9 +35,7 @@ export const Tabs: React.FC = () => {
       <div className="block" data-cy="TabContent">
         {activeTab
           ? activeTab.content
-          : (
-            'Please select a tab'
-          )}
+          : 'Please select a tab'}
       </div>
     </div>
   );

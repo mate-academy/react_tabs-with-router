@@ -1,3 +1,5 @@
 export const HomePage: React.FC = () => (
-  <h1 className="title">Home page</h1>
+  <div className="container">
+    <h1 className="title">Home page</h1>
+  </div>
 );
