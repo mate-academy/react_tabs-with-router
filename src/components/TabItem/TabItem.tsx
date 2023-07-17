@@ -5,13 +5,13 @@ import { Tab } from '../../types/Tab';
 
 interface TabItemProps {
   tab: Tab;
-  tabId: string | undefined;
+  selectedTabId: string | null;
 }
 
-export const TabItem: React.FC<TabItemProps> = ({ tab, tabId }) => (
+export const TabItem: React.FC<TabItemProps> = ({ tab, selectedTabId }) => (
   <li
     className={cn({
-      'is-active': tab.id === tabId,
+      'is-active': tab.id === selectedTabId,
     })}
     data-cy="Tab"
   >
