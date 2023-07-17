@@ -7,9 +7,7 @@ export const Layout: FC = () => (
     <Navigation />
 
     <div className="section">
-      <div className="container">
-        <Outlet />
-      </div>
+      <Outlet />
     </div>
   </>
 );
