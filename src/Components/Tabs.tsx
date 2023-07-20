@@ -23,6 +23,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
             <li
               data-cy="Tab"
               className={classNames({ 'is-active': tab.id === tabId })}
+              key={tab.id}
             >
               <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
