@@ -27,15 +27,11 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId }) => {
         </ul>
       </div>
 
-      {isSelectedTab ? (
-        <div className="block" data-cy="TabContent">
-          {isSelectedTab.content}
-        </div>
-      ) : (
-        <div className="block" data-cy="TabContent">
-          Please select a tab
-        </div>
-      )}
+      <div className="block" data-cy="TabContent">
+        {isSelectedTab
+          ? isSelectedTab.content
+          : 'Please select a tab'}
+      </div>
     </div>
   );
 };
