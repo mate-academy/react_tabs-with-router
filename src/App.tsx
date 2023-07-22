@@ -17,7 +17,6 @@ const tabs = [
 export const App = () => {
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <nav
         className="navbar is-light is-fixed-top is-mobile has-shadow"
         data-cy="Nav"
@@ -64,17 +63,13 @@ export const App = () => {
               <Route
                 index
                 element={(
-                  <>
-                    <TabsPage tabs={tabs} />
-                  </>
+                  <TabsPage tabs={tabs} />
                 )}
               />
               <Route
                 path="/tabs/:tabId"
                 element={(
-                  <>
-                    <TabsPage tabs={tabs} />
-                  </>
+                  <TabsPage tabs={tabs} />
                 )}
               />
             </Route>

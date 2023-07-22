@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 
@@ -10,7 +10,9 @@ type Props = {
 
 export const TabsPage: FC<Props> = ({ tabs }) => {
   const { tabId = '0' } = useParams();
-  const selectedTab = tabs.find(tab => tab.id === tabId);
+  const memoizedTabid = useMemo(
+    () => tabs.find(tab => tab.id === tabId), [tabId],
+  );
 
   return (
     <>
@@ -30,7 +32,7 @@ export const TabsPage: FC<Props> = ({ tabs }) => {
         </ul>
       </div>
       <div className="block" data-cy="TabContent">
-        {selectedTab?.content || 'Please select a tab'}
+        {memoizedTabid?.content || 'Please select a tab'}
       </div>
     </>
   );
