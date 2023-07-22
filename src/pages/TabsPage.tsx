@@ -11,7 +11,6 @@ const tabs: Tab[] = [
 export const TabsPage: FC = () => (
   <>
     <h1 className="title">Tabs page</h1>
-    {/* Render the Tabs component with the required props */}
     <Tabs tabs={tabs} />
   </>
 );
