@@ -8,9 +8,9 @@ export const Tabs = () => {
   const selectedTabId = tabId || null;
 
   const getContentById = (id: string | null) => {
-    const foundTodo = tabs.find(tab => tab.id === id);
+    const foundTab = tabs.find(tab => tab.id === id);
 
-    return foundTodo ? foundTodo.content : 'Please select a tab';
+    return foundTab ? foundTab.content : 'Please select a tab';
   };
 
   const tabContent = getContentById(selectedTabId);
@@ -29,7 +29,7 @@ export const Tabs = () => {
               data-cy="Tab"
               key={tab.id}
             >
-              <Link to={`../${tab.id}`}>
+              <Link to={`/tabs/${tab.id}`}>
                 {tab.title}
               </Link>
             </li>

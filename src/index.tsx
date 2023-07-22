@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import { Root } from './Root';
+import { Root } from './App';
 
 ReactDOM.render(
   <Root />,

@@ -1,35 +1,29 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { NavLink, Outlet } from 'react-router-dom';
-import classNames from 'classnames';
+import {
+  HashRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
+import { Page } from './Page';
+import { Home } from './components/home';
+import { Tabs } from './components/tabs';
+import { ErrorPage } from './components/error';
 
-const getLincClass = (
-  { isActive }: { isActive: boolean },
-) => classNames('navbar-item', {
-  'is-active': isActive,
-});
-
-export const App = () => {
-  return (
-    <>
-      <nav
-        className="navbar is-light is-fixed-top is-mobile has-shadow"
-        data-cy="Nav"
-      >
-        <div className="container">
-          <div className="navbar-brand">
-            <NavLink to="/" className={getLincClass}>Home</NavLink>
-            <NavLink to="/tabs" className={getLincClass}>Tabs</NavLink>
-          </div>
-        </div>
-      </nav>
-
-      <div className="section">
-        <div className="container">
-          <Outlet />
-        </div>
-      </div>
-    </>
-  );
-};
+export const Root = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<Page />}>
+        <Route index element={<Home />} />
+        <Route path="home" element={<Navigate to=".." />} />
+        <Route path="tabs">
+          <Route index element={<Tabs />} />
+          <Route path=":tabId" element={<Tabs />} />
+        </Route>
+        <Route path="*" element={<ErrorPage />} />
+      </Route>
+    </Routes>
+  </Router>
+);
