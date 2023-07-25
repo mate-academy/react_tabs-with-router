@@ -11,7 +11,7 @@ import classNames from 'classnames';
 
 import { HomePage } from './components/pages/HomePage';
 import { TabsPage } from './components/pages/TabsPage';
-import { WrongPage } from './components/pages/WrongPage';
+import { ErrorPage } from './components/pages/ErrorPage';
 
 const getLinkClass = ({ isActive }: { isActive: boolean }) => classNames(
   'navbar-item',
@@ -55,7 +55,7 @@ export const App = () => (
             <Route path=":tabId" element={<TabsPage />} />
           </Route>
 
-          <Route path="*" element={<WrongPage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
     </div>
