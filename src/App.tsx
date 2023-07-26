@@ -34,10 +34,19 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to="/" className={getLinkClass} style={getLinkStyle}>
+          <NavLink
+            to="/"
+            className={getLinkClass}
+            style={getLinkStyle}
+          >
             Home
           </NavLink>
-          <NavLink to="/tabs" className={getLinkClass} style={getLinkStyle}>
+
+          <NavLink
+            to="/tabs"
+            className={getLinkClass}
+            style={getLinkStyle}
+          >
             Tabs
           </NavLink>
         </div>
