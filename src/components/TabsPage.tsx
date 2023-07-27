@@ -15,13 +15,13 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
       <h1 className="title">Tabs page</h1>
       <div className="tabs is-bpxed">
         <ul>
-          {tabs.map(tab => (
+          {tabs.map(({ id, title }) => (
             <li
-              key={tab.id}
+              key={id}
               data-cy="Tab"
-              className={tab.id === SelectedTabId ? 'is-active' : ''}
+              className={id === SelectedTabId ? 'is-active' : ''}
             >
-              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+              <Link to={`/tabs/${id}`}>{title}</Link>
             </li>
           ))}
         </ul>
