@@ -7,8 +7,8 @@ interface Props {
 
 export const TabsPage: React.FC<Props> = ({ tabs }) => {
   const { tabId } = useParams();
-  const SelectedTabId = tabId || '';
-  const selectedTab = tabs.find((tab) => SelectedTabId === tab.id);
+  const selectedTabId = tabId || '';
+  const selectedTab = tabs.find((tab) => selectedTabId === tab.id);
 
   return (
     <>
@@ -19,7 +19,7 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
             <li
               key={tab.id}
               data-cy="Tab"
-              className={tab.id === SelectedTabId ? 'is-active' : ''}
+              className={tab.id === selectedTabId ? 'is-active' : ''}
             >
               <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>

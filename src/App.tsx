@@ -19,7 +19,7 @@ export const tabs = [
 ];
 
 export const App = () => {
-  const ActiveLinkClassName = ({ isActive }: { isActive: boolean }) => cn(
+  const activeLinkClassName = ({ isActive }: { isActive: boolean }) => cn(
     'navbar-item',
     { 'is-active': isActive },
   );
@@ -39,8 +39,8 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink to="/" className={ActiveLinkClassName}>Home</NavLink>
-            <NavLink to="/tabs" className={ActiveLinkClassName}>Tabs</NavLink>
+            <NavLink to="/" className={activeLinkClassName}>Home</NavLink>
+            <NavLink to="/tabs" className={activeLinkClassName}>Tabs</NavLink>
           </div>
         </div>
       </nav>
