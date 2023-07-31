@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { Tab } from '../types/Tab';
+import cn from 'classnames';
 
 interface Props {
   tabs: Tab[]
@@ -15,13 +16,15 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
       <h1 className="title">Tabs page</h1>
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
+          {tabs.map(({ id, title }) => (
             <li
-              key={tab.id}
+              key={id}
               data-cy="Tab"
-              className={tab.id === selectedTabId ? 'is-active' : ''}
+              className={cn({ 'is-active': id === selectedTabId })}
             >
-              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+              <Link to={`/tabs/${id}`} data-cy="TabLink">
+                {title}
+              </Link>
             </li>
           ))}
         </ul>
