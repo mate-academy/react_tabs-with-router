@@ -8,7 +8,7 @@ import {
   Navigate,
 } from 'react-router-dom';
 import cn from 'classnames';
-import { TabsPage } from './components/TabsContainer';
+import { TabsPage } from './components/TabsPage';
 import { HomePage } from './components/HomePage';
 import { PageNotFound } from './components/PageNotFound';
 
@@ -52,8 +52,8 @@ export const App = () => (
     <Routes>
       <Route path="/">
         <Route path="*" element={<PageNotFound />} />
-        <Route path="/" index element={<HomePage />} />
-        <Route path="/home" element={<Navigate to="/" replace />} />
+        <Route index element={<HomePage />} />
+        <Route path="home" element={<Navigate to="/" replace />} />
         <Route path="tabs">
           <Route index element={<TabsPage tabs={tabs} />} />
           <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
