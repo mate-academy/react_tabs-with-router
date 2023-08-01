@@ -18,7 +18,7 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const makeClassName = (isActive: { isActive: boolean }): string => (
+const makeClassName = ({ isActive }: { isActive: boolean }): string => (
   cn('navbar-item', {
     'is-active': isActive,
   })
