@@ -20,6 +20,7 @@ ReactDOM.render(
         <Route path="tabs">
           <Route index element={<TabsPage />} />
           <Route path=":tabId" element={<TabsPage />} />
+          <Route path="*" element={<ErrorMessagePage />} />
         </Route>
 
         <Route path="*" element={<ErrorMessagePage />} />
