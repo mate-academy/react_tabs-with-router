@@ -1,8 +1,11 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Navigate, Route, Routes } from 'react-router-dom';
 import classNames from 'classnames';
+import { HomePage } from './pages/HomePage';
+import { TabsPage } from './pages/TabsPage';
+import { ErrorMessagePage } from './pages/ErrorMessagePage';
 
 const getLinkClass = ({ isActive }: { isActive: boolean }) => classNames(
   'navbar-item',
@@ -38,7 +41,17 @@ export const App = () => {
 
       <div className="section">
         <div className="container">
-          <Outlet />
+          <Routes>
+            <Route index element={<HomePage />} />
+            <Route path="home" element={<Navigate to="/" />} />
+
+            <Route path="tabs">
+              <Route index element={<TabsPage />} />
+              <Route path=":tabId" element={<TabsPage />} />
+            </Route>
+
+            <Route path="*" element={<ErrorMessagePage />} />
+          </Routes>
         </div>
       </div>
     </>
