@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
 import { Tabs } from '../Tabs/Tabs';
@@ -9,7 +9,10 @@ interface Props {
 
 export const TabsPage: React.FC<Props> = ({ tabs }) => {
   const { tabId } = useParams();
-  const selectedTab = tabs.find(tab => tab.id === tabId);
+
+  const selectedTab = useMemo(() => {
+    return tabs.find(tab => tab.id === tabId);
+  }, [tabId]);
 
   return (
     <div className="section">
@@ -18,15 +21,9 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
 
         <Tabs tabs={tabs} />
 
-        {selectedTab ? (
-          <div className="block" data-cy="TabContent">
-            {selectedTab.content}
-          </div>
-        ) : (
-          <div className="block" data-cy="TabContent">
-            Please select a tab
-          </div>
-        )}
+        <div className="block" data-cy="TabContent">
+          {selectedTab ? selectedTab?.content : 'Please select a tab'}
+        </div>
       </div>
     </div>
   );
