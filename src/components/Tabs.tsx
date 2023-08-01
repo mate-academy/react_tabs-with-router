@@ -21,7 +21,7 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
             return (
               <li
                 className={classNames({
-                  'is-active': tabId === tab.id,
+                  'is-active': tabId === id,
                 })}
                 data-cy="Tab"
                 key={id}
@@ -36,7 +36,7 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
 
       </div>
       <div className="block" data-cy="TabContent">
-        {tabId ? foundTab?.content : 'Please select a tab'}
+        {foundTab?.content || 'Please select a tab'}
       </div>
 
       <Outlet />
