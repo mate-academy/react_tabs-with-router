@@ -1,19 +1,16 @@
 import classNames from 'classnames';
-import React, { useCallback } from 'react';
+import React, { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { Tab } from '../types/Tab';
 
 type Props = {
-  tabs: {
-    id: string,
-    title: string,
-    content: string,
-  }[];
+  tabs: Tab[];
 };
 
 export const TabsPage: React.FC<Props> = ({ tabs }) => {
   const { tabId } = useParams();
 
-  const findSelectedTab = useCallback(() => (
+  const findSelectedTab = useMemo(() => (
     tabs.find(tab => tabId === tab.id)?.content || 'Please select a tab'
   ), [tabId]);
 
@@ -38,7 +35,7 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {findSelectedTab()}
+        {findSelectedTab}
       </div>
     </>
   );
