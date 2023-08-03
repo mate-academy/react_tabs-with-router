@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 type Props = {
@@ -13,6 +13,10 @@ type Props = {
 export const TabsPage: React.FC<Props> = ({ tabs }) => {
   const { tabId } = useParams();
 
+  const findSelectedTab = useCallback(() => (
+    tabs.find(tab => tabId === tab.id)?.content || 'Please select a tab'
+  ), [tabId]);
+
   return (
     <>
       <h1 className="title">Tabs page</h1>
@@ -21,6 +25,7 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
         <ul>
           {tabs.map(tab => (
             <li
+              key={tab.id}
               data-cy="Tab"
               className={classNames({ 'is-active': tab.id === tabId })}
             >
@@ -33,7 +38,7 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.find(tab => tabId === tab.id)?.content || 'Please select a tab'}
+        {findSelectedTab()}
       </div>
     </>
   );
