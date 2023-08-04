@@ -28,15 +28,9 @@ export const TabsPage = () => {
         </ul>
       </div>
 
-      {selectedTab ? (
-        <div className="block" data-cy="TabContent">
-          {selectedTab.content}
-        </div>
-      ) : (
-        <div className="block" data-cy="TabContent">
-          Please select a tab
-        </div>
-      )}
+      <div className="block" data-cy="TabContent">
+        {selectedTab?.content || 'Please select a tab'}
+      </div>
     </div>
   );
 };
