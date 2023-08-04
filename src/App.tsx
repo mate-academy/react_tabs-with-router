@@ -1,7 +1,7 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import {
-  Navigate, Route, Routes, useLocation,
+  Navigate, Route, Routes,
 } from 'react-router-dom';
 import './App.scss';
 import { Home } from './components/Home';
@@ -16,12 +16,6 @@ const tabs = [
 ];
 
 export const App = () => {
-  const { pathname } = useLocation();
-
-  if (pathname === '/home') {
-    return <Navigate to="/" />;
-  }
-
   return (
     <>
       <Navigation />
@@ -33,6 +27,7 @@ export const App = () => {
             <Route index element={<Tabs tabs={tabs} />} />
             <Route path=":tabId" element={<Tabs tabs={tabs} />} />
           </Route>
+          <Route path="/home" element={<Navigate to="/" />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
