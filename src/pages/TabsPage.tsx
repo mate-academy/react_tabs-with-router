@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import { Tabs } from './Tabs';
 
 const tabs = [
@@ -23,6 +23,7 @@ export const TabsPage = () => {
       <div className="block" data-cy="TabContent">
         {activeTab?.content || 'Please select a tab'}
       </div>
+      <Outlet />
     </>
   );
 };
