@@ -32,11 +32,7 @@ export const TabsPage = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab ? (
-          selectedTab.content
-        ) : (
-          'Please select a tab'
-        )}
+        {selectedTab?.content || 'Please select a tab'}
       </div>
     </>
   );
