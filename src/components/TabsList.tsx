@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { TabItem } from './Tab';
+import { TabItem } from './TabItem';
 import { Tab } from '../types/Tab';
 
 export interface Props {
@@ -18,6 +18,7 @@ export const TabsList: React.FC<Props> = ({ tabs }) => {
           {tabs.map(tab => {
             return (
               <TabItem
+                key={tab.id}
                 tab={tab}
                 tabId={tabId || ''}
               />

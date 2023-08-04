@@ -11,7 +11,6 @@ export const TabItem: React.FC<Props> = ({ tab, tabId }) => {
   return (
     <li
       data-cy="Tab"
-      key={tab.id}
       className={classNames({
         'is-active': tabId === tab.id,
       })}
