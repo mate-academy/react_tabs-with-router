@@ -30,5 +30,5 @@ export const TabsPage = () => {
         {(selectedTab && selectedTab.content) || 'Please select a tab'}
       </div>
     </>
-  );//
+  );
 };

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { Link, useParams } from 'react-router-dom';
 import { Tab } from '../types/Tab';
-//
+
 type List = {
   tab: Tab,
 };
