@@ -7,7 +7,7 @@ import { Tab } from '../types/Tab';
 export const TabsPage: React.FC = () => {
   const { tabId } = useParams();
   const activeTab: Tab | undefined = tabs.find(tab => tab.id === tabId);
-  const tabContent = activeTab ? activeTab.content : 'Please select a tab';
+  const tabContent = activeTab?.content || 'Please select a tab';
 
   return (
     <>
