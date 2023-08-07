@@ -8,11 +8,11 @@ type Props = {
 
 export const Tabs: React.FC<Props> = ({ tabs }) => {
   const { tabId } = useParams();
-  const selectedTab = tabs.find(tab => tab.id === tabId) || null;
+  const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
-      {tabs.some(tab => tab.id === tabId) || tabId === undefined
+      {selectedTab || tabId === undefined
         ? (
           <>
             <h1 className="title">Tabs page</h1>
@@ -34,9 +34,7 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
               </ul>
             </div>
             <div className="block" data-cy="TabContent">
-              {selectedTab
-                ? selectedTab.content
-                : 'Please select a tab'}
+              {selectedTab?.content || 'Please select a tab'}
             </div>
           </>
         ) : (
