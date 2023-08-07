@@ -15,7 +15,7 @@ export const App = () => (
       className="navbar is-light is-fixed-top is-mobile has-shadow"
       data-cy="Nav"
     >
-      <div className="container" style={{ maxWidth: 960 }}>
+      <div className="container">
         <div className="navbar-brand">
           <NavLink
             to="/"
