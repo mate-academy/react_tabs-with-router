@@ -1,4 +1,6 @@
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import {
+  HashRouter, Navigate, Route, Routes,
+} from 'react-router-dom';
 import { App } from '../App';
 import { HomePage } from '../pages/HomePage';
 import { TabsPage } from '../pages/TabsPage';
@@ -14,6 +16,7 @@ export const Root = () => (
           <Route path=":tabId" element={<TabsPage />} />
         </Route>
         <Route path="*" element={<NotFound />} />
+        <Route path="home" element={<Navigate to="/" />} />
       </Route>
     </Routes>
   </HashRouter>
