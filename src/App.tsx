@@ -13,6 +13,10 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
+const navItemClassName = ({ isActive }: { isActive: boolean }) => cn(
+  'navbar-item', { 'is-active': isActive },
+);
+
 export const App = () => (
   <>
     <nav
@@ -30,17 +34,13 @@ export const App = () => (
         <div className="navbar-brand">
           <NavLink
             to="/"
-            className={({ isActive }) => cn('navbar-item', {
-              'is-active': isActive,
-            })}
+            className={navItemClassName}
           >
             Home
           </NavLink>
           <NavLink
             to="/tabs"
-            className={({ isActive }) => cn('navbar-item', {
-              'is-active': isActive,
-            })}
+            className={navItemClassName}
           >
             Tabs
           </NavLink>
