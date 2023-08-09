@@ -1,14 +1,10 @@
+/* eslint-disable max-len */
 import classNames from 'classnames';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-const Navbar = () => {
-  const [activeLink, setActiveLink] = useState(window.location.pathname);
+const getLinkClass = ({ isActive }: { isActive: boolean }) => classNames('navbar-item', { 'is-active': isActive });
 
-  const handleLinkClick = (path: string) => {
-    setActiveLink(path);
-  };
-
+const NavBar = () => {
   return (
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
@@ -16,28 +12,16 @@ const Navbar = () => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <Link
-            to="/"
-            onClick={() => handleLinkClick('/')}
-            className={classNames('navbar-item', {
-              'is-active': activeLink === '/',
-            })}
-          >
+          <NavLink to="/" className={getLinkClass}>
             Home
-          </Link>
-          <Link
-            to="/tabs"
-            onClick={() => handleLinkClick('/tabs')}
-            className={classNames('navbar-item', {
-              'is-active': activeLink === '/tabs',
-            })}
-          >
+          </NavLink>
+          <NavLink to="/tabs" className={getLinkClass}>
             Tabs
-          </Link>
+          </NavLink>
         </div>
       </div>
     </nav>
   );
 };
 
-export default Navbar;
+export default NavBar;
