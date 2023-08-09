@@ -2,7 +2,7 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Outlet } from 'react-router-dom';
-import NavBar from './Components/NavBar';
+import NavBar from './components/NavBar';
 
 export const App = () => (
   <>

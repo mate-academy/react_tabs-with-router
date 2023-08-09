@@ -1,8 +1,8 @@
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './Components/HomePage';
-import TabsPage from './Components/TabsPage';
+import HomePage from './components/HomePage';
+import TabsPage from './components/TabsPage';
 import { App } from './App';
-import HomeRedirect from './Components/HomeRedirect';
+import HomeRedirect from './components/HomeRedirect';
 
 export const Root = () => {
   return (
