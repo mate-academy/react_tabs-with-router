@@ -3,8 +3,9 @@ import classNames from 'classnames';
 
 import { tabs } from '../data/tabs';
 
-export const Tabs = () => {
-  const { tabId } = useParams();  
+export const TabsPage = () => {
+  const { tabId } = useParams();
+  const tableContent = tabs.find(tab => tab.id === tabId)?.content;
 
   return (
     <>
@@ -26,15 +27,15 @@ export const Tabs = () => {
         </ul>
       </div>
 
-      {tabId ? (
+      {tableContent ? (
+        <div className="block" data-cy="TabContent">
+          {tableContent}
+        </div>
+      ) : (
         <div className="block" data-cy="TabContent">
           Please select a tab
-        </div>)
-      : (
-        <div className="block" data-cy="TabContent">
-          Please select a tab
-        </div>)
-      }
+        </div>
+      )}
     </>
   );
 };
