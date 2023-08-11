@@ -23,7 +23,7 @@ export const TabsPage = () => {
                 key={tab.id}
                 data-cy="Tab"
                 className={
-                  classNames(null, {
+                  classNames({
                     'is-active': tab.id === tabId,
                   })
                 }
