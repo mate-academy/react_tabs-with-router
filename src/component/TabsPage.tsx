@@ -8,8 +8,7 @@ const tabs = [
 ];
 
 export const TabsPage = () => {
-  const { tabId } = useParams();
-  const selectedTabId = tabId;
+  const { tabId: selectedTabId } = useParams();
 
   const selectedTab = (
     tabs.find(tab => selectedTabId === tab.id)
