@@ -16,7 +16,7 @@ The `Tabs` page should also show a `Tabs` component implemented in [React Tabs](
       <Route path=":tabId" element={<TabsPage />} />
     </Route>
     ```
-1. Each tab should update the URL on click. 
+1. Each tab should update the URL on click.
     - the URL should follow the next format `/tabs/:tabId` (use actual `tab.id` instead of `:tabId`);
     - replace `<a href="#...">` with `<Link to="/tabs/...">` and remove `onClick`;
     - **don't** use `NavLink` as `is-active` class is added to a parent element;
