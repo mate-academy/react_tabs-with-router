@@ -1,10 +1,9 @@
 import ReactDOM from 'react-dom';
-import { HashRouter } from 'react-router-dom';
-import { App } from './App';
+import { Root } from './Root';
+
+const container = document.getElementById('root') as HTMLDivElement;
 
 ReactDOM.render(
-  <HashRouter>
-    <App />
-  </HashRouter>,
-  document.getElementById('root'),
+  <Root />,
+  container,
 );
