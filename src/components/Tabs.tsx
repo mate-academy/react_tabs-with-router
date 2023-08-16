@@ -8,7 +8,7 @@ const Tabs = () => {
     { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
   ];
 
-  const isActive = (id: string) => (tabId === id ? 'is-active' : undefined);
+  const isActive = (id: string) => (tabId === id ? 'is-active' : '');
 
   const getTabById = tabs.find((tab) => tab.id === tabId);
 
