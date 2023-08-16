@@ -12,7 +12,6 @@ const getLinkClass = (
 
 export const App = () => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
       data-cy="Nav"
@@ -28,28 +27,6 @@ export const App = () => (
     <div className="section">
       <div className="container">
         <Outlet />
-
-        {/* <HomePage /> */}
-        {/* <TabsPage tabs={tabs} /> */}
-        {/* <h1 className="title">Page not found</h1> */}
-
-        {/* <div className="tabs is-boxed">
-          <ul>
-            <li data-cy="Tab" className="is-active">
-              <a href="#/">Tab 1</a>
-            </li>
-            <li data-cy="Tab">
-              <a href="#/">Tab 2</a>
-            </li>
-            <li data-cy="Tab">
-              <a href="#/">Tab 3</a>
-            </li>
-          </ul>
-        </div> */}
-
-        {/* <div className="block" data-cy="TabContent">
-          Please select a tab
-        </div> */}
       </div>
     </div>
   </>

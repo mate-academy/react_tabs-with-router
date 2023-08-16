@@ -14,16 +14,16 @@ export const TabsPage: React.FC = () => {
 
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
+          {tabs.map(({ id, title }) => (
             <li
-              key={tab.id}
+              key={id}
               data-cy="Tab"
               className={classNames({
-                'is-active': (selectedTabId === tab.id),
+                'is-active': (selectedTabId === id),
               })}
             >
-              <Link to={`/tabs/${tab.id}`}>
-                {tab.title}
+              <Link to={`/tabs/${id}`}>
+                {title}
               </Link>
             </li>
           ))}
