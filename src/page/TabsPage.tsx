@@ -12,13 +12,13 @@ export const TabsPage = () => {
 
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
+          {tabs.map(({ id, title }) => (
             <li
-              key={tab.id}
+              key={id}
               data-cy="Tab"
-              className={cn({ 'is-active': tabId === tab.id })}
+              className={cn({ 'is-active': tabId === id })}
             >
-              <Link to={`../${tab.id}`}>{tab.title}</Link>
+              <Link to={`../${id}`}>{title}</Link>
             </li>
           ))}
         </ul>
