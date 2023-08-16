@@ -18,13 +18,11 @@ const Tabs = () => {
 
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map((tab) => {
-            return (
-              <li data-cy="Tab" className={isActive(tab.id)} key={tab.id}>
-                <Link to={`${tab.id}`}>{tab.title}</Link>
-              </li>
-            );
-          })}
+          {tabs.map((tab) => (
+            <li data-cy="Tab" className={isActive(tab.id)} key={tab.id}>
+              <Link to={`${tab.id}`}>{tab.title}</Link>
+            </li>
+          ))}
         </ul>
       </div>
 
