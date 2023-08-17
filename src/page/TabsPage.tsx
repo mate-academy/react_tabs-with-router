@@ -4,7 +4,7 @@ import { tabs } from '../date/tabs';
 
 export const TabsPage = () => {
   const { tabId } = useParams();
-  const TabById = tabs.find((tab) => tab.id === tabId);
+  const tabById = tabs.find((tab) => tab.id === tabId);
 
   return (
     <>
@@ -25,7 +25,7 @@ export const TabsPage = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {TabById ? TabById.content : 'Please select a tab'}
+        {tabById ? tabById.content : 'Please select a tab'}
       </div>
     </>
   );
