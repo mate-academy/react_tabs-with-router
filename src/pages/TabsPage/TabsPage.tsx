@@ -4,10 +4,11 @@ import { tabs } from '../../data/tabs';
 
 export const TabsPage = () => {
   const { tabId } = useParams();
+  const isCorrectTab = tabs.some(tab => tab.id === tabId);
   const tabContent = tabs.find(tab => tab.id === tabId);
 
   return (
-    <div>
+    <>
       <h1 className="title">Tabs page</h1>
 
       <div className="tabs is-boxed">
@@ -27,10 +28,10 @@ export const TabsPage = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabId
+        {isCorrectTab && tabId
           ? tabContent?.content
           : 'Please select a tab'}
       </div>
-    </div>
+    </>
   );
 };
