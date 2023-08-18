@@ -1,3 +1,3 @@
-export * from './HomePage/HomePage';
-export * from './TabsPage/TabsPage';
-export * from './PageNotFound/PageNotFound';
+export * from './HomePage';
+export * from './PageNotFound';
+export * from './TabsPage';
