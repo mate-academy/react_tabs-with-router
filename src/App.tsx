@@ -22,17 +22,11 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink
-            to="/"
-            className={getLinkClass}
-          >
+          <NavLink to="/" className={getLinkClass}>
             Home
           </NavLink>
 
-          <NavLink
-            to="/tabs"
-            className={getLinkClass}
-          >
+          <NavLink to="/tabs" className={getLinkClass}>
             Tabs
           </NavLink>
         </div>
