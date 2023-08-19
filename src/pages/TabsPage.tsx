@@ -43,6 +43,5 @@ export const TabsPage = () => {
           : 'Please select a tab'}
       </div>
     </>
-
   );
 };
