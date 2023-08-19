@@ -21,7 +21,7 @@ const TabsPage = () => {
       />
 
       <div className="block" data-cy="TabContent">
-        {tabId ? activeTab?.content : 'Please select a tab'}
+        {activeTab?.content || 'Please select a tab'}
       </div>
     </>
   );
