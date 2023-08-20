@@ -8,8 +8,8 @@ const tabs = [
 ];
 
 export const TabsPage = () => {
-  const { tabId } = useParams();
-  const selectedTabId = tabId;
+  const { tabId: selectedTabId } = useParams();
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
 
   return (
     <>
@@ -38,9 +38,7 @@ export const TabsPage = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.find(tab => tab.id === selectedTabId)
-          ? tabs.find(tab => tab.id === selectedTabId)?.content
-          : 'Please select a tab'}
+        {selectedTab?.content || 'Please select a tab'}
       </div>
     </>
   );
