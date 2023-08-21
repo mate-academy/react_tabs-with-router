@@ -5,7 +5,7 @@ import {
   Routes,
   Route,
   NavLink,
-  useNavigate,
+  Navigate,
 } from 'react-router-dom';
 import classNames from 'classnames';
 
@@ -14,12 +14,6 @@ import ErrorPage from './pages/ErrorPage';
 import TabsPage from './pages/TabsPage';
 
 export const App = () => {
-  const navigate = useNavigate();
-
-  if (window.location.hash === '#/home') {
-    navigate('/');
-  }
-
   return (
     <>
       <nav
@@ -51,6 +45,7 @@ export const App = () => {
       <div className="section">
         <div className="container">
           <Routes>
+            <Route path="/home" element={<Navigate to="/" />} />
             <Route path="/" element={<HomePage />} />
             <Route path="tabs">
               <Route index element={<TabsPage />} />

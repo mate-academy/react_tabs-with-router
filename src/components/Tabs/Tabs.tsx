@@ -22,7 +22,7 @@ export const Tabs: React.FC<Props> = ({
                 'is-active': tabId === tab.id,
               })}
               data-cy="Tab"
-              key={tab.title}
+              key={tab.id}
             >
               <NavLink
                 to={`../${tab.id}`}
