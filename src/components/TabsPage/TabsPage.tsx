@@ -10,7 +10,8 @@ const tabs: Tab[] = [
 
 export const TabsPage = () => {
   const { tabId } = useParams();
-  const selectId = tabId;
+  const selectedId = tabId;
+  const selectedTab = tabs.find(t => t.id === selectedId);
 
   return (
     <div data-cy="TabsComponent">
@@ -18,25 +19,29 @@ export const TabsPage = () => {
 
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
-            <li
-              key={tab.id}
-              className={classNames(
-                { 'is-active': tab.id === selectId },
-              )}
-              data-cy="Tab"
-            >
-              <Link to={`/tabs/${tab.id}`} data-cy="TabLink">
-                {tab.title}
-              </Link>
-            </li>
-          ))}
+          {tabs.map(tab => {
+            const { id, title } = tab;
+
+            return (
+              <li
+                key={id}
+                className={classNames(
+                  { 'is-active': id === selectedId },
+                )}
+                data-cy="Tab"
+              >
+                <Link to={`/tabs/${id}`} data-cy="TabLink">
+                  {title}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.find(t => t.id === selectId)
-          ? tabs.filter(t => t.id === selectId)[0].content
+        {selectedTab
+          ? selectedTab.content
           : 'Please select a tab'}
       </div>
     </div>
