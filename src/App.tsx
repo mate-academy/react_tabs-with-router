@@ -35,7 +35,6 @@ export const App = () => {
               className={({ isActive }) => {
                 return isActive ? 'navbar-item is-active' : 'navbar-item';
               }}
-
             >
               Home
             </NavLink>
