@@ -4,7 +4,10 @@ import {
   NavLink, Navigate, Route, Routes,
 } from 'react-router-dom';
 import './App.scss';
-import { TabsPage } from './components/Tabs/Tabs';
+import cn from 'classnames';
+import { TabsPage } from './pages/TabsPage';
+import { NotFoundPage } from './pages/NotFoundPages';
+import { HomePage } from './pages/HomePage';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -12,18 +15,22 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-function HomePage() {
-  return <h1 className="title">Home Page</h1>;
-}
+// function HomePage() {
+//   return <h1 className="title">Home Page</h1>;
+// }
 
-function NotFoundPage() {
-  return <h1 className="title">Page not found</h1>;
-}
+// function NotFoundPage() {
+//   return <h1 className="title">Page not found</h1>;
+// }
+
+const ActiveLinkClassName = ({ isActive }: { isActive: boolean }) => cn(
+  'navbar-item',
+  { 'is-active': isActive },
+);
 
 export const App = () => {
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <nav
         className="navbar is-light is-fixed-top is-mobile has-shadow"
         data-cy="Nav"
@@ -32,17 +39,13 @@ export const App = () => {
           <div className="navbar-brand">
             <NavLink
               to="/"
-              className={({ isActive }) => {
-                return isActive ? 'navbar-item is-active' : 'navbar-item';
-              }}
+              className={ActiveLinkClassName}
             >
               Home
             </NavLink>
             <NavLink
               to="/tabs"
-              className={({ isActive }) => {
-                return isActive ? 'navbar-item is-active' : 'navbar-item';
-              }}
+              className={ActiveLinkClassName}
             >
               Tabs
             </NavLink>
@@ -52,7 +55,6 @@ export const App = () => {
 
       <div className="section">
         <div className="container">
-          {/* <Switch> */}
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/tabs">

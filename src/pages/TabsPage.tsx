@@ -1,12 +1,12 @@
-// import React from 'react';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Tab } from '../../types/Tab';
+import { Tab } from '../types/Tab';
 
 export const TabsPage = ({ tabs }: { tabs: Tab[] }) => {
   const params = useParams();
-
-  const [tabId, setTabId] = useState(params.tabId);
+  const [selectedTab, setSelectedTab] = useState<Tab | undefined>(
+    tabs.find(tab => tab.id === params.tabId),
+  );
 
   return (
     <>
@@ -17,12 +17,13 @@ export const TabsPage = ({ tabs }: { tabs: Tab[] }) => {
             <li
               data-cy="Tab"
               key={tab.id}
-              className={tab.id === tabId ? 'is-active' : ''}
+              className={tab.id === selectedTab?.id ? 'is-active' : ''}
             >
-              {/* <a href="#/">{tab.title}</a> */}
               <Link
                 to={`/tabs/${tab.id}`}
-                onClick={() => setTabId(tab.id)}
+                onClick={() => {
+                  setSelectedTab(tab);
+                }}
               >
                 {tab.title}
 
@@ -33,18 +34,7 @@ export const TabsPage = ({ tabs }: { tabs: Tab[] }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {(() => {
-          switch (tabId) {
-            case 'tab-1':
-              return 'Some text 1';
-            case 'tab-2':
-              return 'Some text 2';
-            case 'tab-3':
-              return 'Some text 3';
-            default:
-              return 'Please select a tab';
-          }
-        })()}
+        {selectedTab ? selectedTab.content : 'Please select a tab'}
       </div>
     </>
   );
