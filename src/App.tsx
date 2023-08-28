@@ -3,7 +3,6 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { NavLink, Outlet } from 'react-router-dom';
 import cn from 'classnames';
-import { useEffect } from 'react';
 
 const isActiveLink = (
   { isActive }: { isActive: boolean },
@@ -15,10 +14,6 @@ const isActiveLink = (
 };
 
 export const App = () => {
-  useEffect(() => {
-    document.documentElement.classList.add('has-navbar-fixed-top');
-  }, []);
-
   return (
     <>
       <nav
@@ -34,29 +29,6 @@ export const App = () => {
       </nav>
 
       <div className="section">
-        {/* <div className="container">
-          <h1 className="title">Home page</h1>
-          <h1 className="title">Tabs page</h1>
-          <h1 className="title">Page not found</h1>
-
-          <div className="tabs is-boxed">
-            <ul>
-              <li data-cy="Tab" className="is-active">
-                <a href="#/">Tab 1</a>
-              </li>
-              <li data-cy="Tab">
-                <a href="#/">Tab 2</a>
-              </li>
-              <li data-cy="Tab">
-                <a href="#/">Tab 3</a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="block" data-cy="TabContent">
-            Please select a tab
-          </div>
-        </div> */}
         <div className="container">
           <Outlet />
         </div>
