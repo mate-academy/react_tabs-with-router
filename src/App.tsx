@@ -15,14 +15,6 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-// function HomePage() {
-//   return <h1 className="title">Home Page</h1>;
-// }
-
-// function NotFoundPage() {
-//   return <h1 className="title">Page not found</h1>;
-// }
-
 const ActiveLinkClassName = ({ isActive }: { isActive: boolean }) => cn(
   'navbar-item',
   { 'is-active': isActive },
