@@ -46,7 +46,7 @@ export const App = () => {
       </nav>
 
       <div className="section">
-        <div className="container">
+        <ul className="container">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/tabs">
@@ -59,7 +59,7 @@ export const App = () => {
               element={<Navigate to="/" />}
             />
           </Routes>
-        </div>
+        </ul>
       </div>
     </>
   );
