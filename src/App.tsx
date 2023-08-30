@@ -27,8 +27,8 @@ export const App = () => {
         className="navbar is-light is-fixed-top is-mobile has-shadow"
         data-cy="Nav"
       >
-        <div className="container">
-          <div className="navbar-brand">
+        <ul className="container">
+          <li className="navbar-brand">
             <NavLink
               to="/"
               className={ActiveLinkClassName}
@@ -41,8 +41,8 @@ export const App = () => {
             >
               Tabs
             </NavLink>
-          </div>
-        </div>
+          </li>
+        </ul>
       </nav>
 
       <div className="section">
@@ -53,11 +53,11 @@ export const App = () => {
               <Route index element={<TabsPage tabs={tabs} />} />
               <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
             </Route>
-            <Route path="*" element={<NotFoundPage />} />
             <Route
               path="/home"
               element={<Navigate to="/" />}
             />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </ul>
       </div>

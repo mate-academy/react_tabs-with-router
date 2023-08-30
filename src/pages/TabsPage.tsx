@@ -26,7 +26,6 @@ export const TabsPage = ({ tabs }: { tabs: Tab[] }) => {
                 }}
               >
                 {tab.title}
-
               </Link>
             </li>
           ))}
