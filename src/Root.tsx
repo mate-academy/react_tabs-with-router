@@ -18,7 +18,7 @@ export const Root = () => (
           <Route path=":tabId?" element={<TabsPage />} />
         </Route>
 
-        <Route path="/home" element={<Navigate to="/" />} />
+        <Route path="/home" element={<Navigate to="/" replace />} />
         <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>
