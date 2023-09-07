@@ -12,10 +12,6 @@ export const Tabs: React.FC = () => {
   const [tabContent, setTabContent] = useState('Please select a tab');
   const { tabID } = useParams();
 
-  const linkHandler = (content: string) => {
-    setTabContent(content);
-  };
-
   return (
     <>
       <div className="tabs is-boxed">
@@ -28,7 +24,7 @@ export const Tabs: React.FC = () => {
             >
               <Link
                 to={`../${id}`}
-                onClick={() => linkHandler(content)}
+                onClick={() => setTabContent(content)}
               >
                 {title}
               </Link>
