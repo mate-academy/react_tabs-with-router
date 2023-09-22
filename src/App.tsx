@@ -1,7 +1,12 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { NavLink, Navigate, Route, Routes } from 'react-router-dom';
+import {
+  NavLink,
+  Navigate,
+  Route,
+  Routes,
+} from 'react-router-dom';
 import classNames from 'classnames';
 import { Tabs } from './components/Tabs';
 
@@ -55,7 +60,7 @@ export const App = () => {
 
             <Route
               path="*"
-              element={<h1 className="title">Page not Found</h1>}
+              element={<h1 className="title">Page not found</h1>}
             />
           </Routes>
         </div>
