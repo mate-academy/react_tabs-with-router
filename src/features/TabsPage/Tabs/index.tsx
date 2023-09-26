@@ -1,24 +1,16 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+
 import { Tab } from '../../../types/Tab';
 
 type Props = {
   tabs: Tab[];
-  selectedTabId: string | null;
-  onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs = ({
   tabs,
-  selectedTabId,
-  onTabSelected,
 }: Props) => {
-  const activeTab = tabs.find(tab => tab.id === selectedTabId) || null;
-
-  const handleClick = (tab: Tab) => {
-    if (selectedTabId !== tab.id) {
-      onTabSelected(tab);
-    }
-  };
+  const { userId } = useParams();
+  const activeTab = tabs.find(tab => tab.id === userId);
 
   return (
     <>
@@ -34,7 +26,6 @@ export const Tabs = ({
             >
               <Link
                 to={`/tabs/${tab.id}`}
-                onClick={() => handleClick(tab)}
               >
                 {tab.title}
 

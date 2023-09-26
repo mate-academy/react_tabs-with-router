@@ -12,7 +12,6 @@ import { TabsPage } from '../TabsPage';
 export const Navigation = () => {
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <nav
         className="navbar is-light is-fixed-top is-mobile has-shadow"
         data-cy="Nav"
@@ -40,7 +39,7 @@ export const Navigation = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="tabs" element={<TabsPage />} />
-        <Route path="/tabs/:userID" element={<TabsPage />} />
+        <Route path="/tabs/:userId" element={<TabsPage />} />
         <Route
           path="home"
           element={<Navigate to="/" />}

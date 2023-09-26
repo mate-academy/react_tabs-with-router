@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
 import { Tabs } from './Tabs';
 
@@ -10,23 +8,12 @@ export const tabs: Tab[] = [
 ];
 
 export const TabsPage = () => {
-  const { userId } = useParams<{ userId?: string }>();
-  const [selectedTabId, setSelectedTabId] = useState<string | null>(
-    userId !== undefined ? userId : null,
-  );
-
-  const handleTabSelected = (tab: Tab) => {
-    setSelectedTabId(tab.id);
-  };
-
   return (
     <div className="section">
       <div className="container">
         <h1 className="title">Tabs page</h1>
         <Tabs
           tabs={tabs}
-          selectedTabId={selectedTabId}
-          onTabSelected={handleTabSelected}
         />
       </div>
     </div>
