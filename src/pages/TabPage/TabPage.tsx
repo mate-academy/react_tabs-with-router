@@ -1,11 +1,13 @@
-import { Tab } from '../../types/Tab';
+import { useParams } from 'react-router-dom';
+import { tabs } from '../../data/data';
 
-type TabProps = {
-  tab: Tab;
-};
+export const TabPage = () => {
+  const { tabId } = useParams();
+  const selectedTab = tabs.find(el => el.id === tabId);
 
-export const TabPage: React.FC<TabProps> = ({ tab: { content } }) => {
   return (
-    <>{content}</>
+    <>
+      <span>{selectedTab?.content}</span>
+    </>
   );
 };

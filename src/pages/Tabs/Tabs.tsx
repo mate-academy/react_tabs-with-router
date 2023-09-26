@@ -1,16 +1,11 @@
-import { NavLink, Outlet, useMatch } from 'react-router-dom';
-import { tabs } from '../../App';
-
-const isActive = (tabId: string) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const match = useMatch(`/tabs/${tabId}`);
-
-  return match ? 'is-active' : '';
-};
+import { Link, Outlet, useParams } from 'react-router-dom';
+import { tabs } from '../../data/data';
 
 export const Tabs = () => {
+  const { tabId } = useParams();
+
   return (
-    <div>
+    <>
       <h1 className="title">Tabs page</h1>
 
       <div className="tabs is-boxed">
@@ -18,24 +13,24 @@ export const Tabs = () => {
           {tabs.map(tab => (
             <li
               data-cy="Tab"
-              className={isActive(tab.id)}
+              className={tab.id === tabId ? 'is-active' : ''}
+              key={tab.id}
             >
-              <NavLink
-                key={tab.id}
-                to={`/tabs/${tab.id}`}
-              >
+              <Link to={`${tab.id}`}>
                 {tab.title}
-              </NavLink>
+              </Link>
             </li>
           ))}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        Please select a tab
+        {tabs.find(el => el.id === tabId) ? (
+          <Outlet />
+        ) : (
+          <span>Please select a tab</span>
+        )}
       </div>
-
-      <Outlet />
-    </div>
+    </>
   );
 };
