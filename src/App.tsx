@@ -23,7 +23,6 @@ const tabs: Tab[] = [
 export const App: React.FC = () => {
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <nav
         className="navbar is-light is-fixed-top is-mobile has-shadow"
         data-cy="Nav"

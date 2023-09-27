@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Tabs } from '../api/Tabs';
 import { Tab } from '../types/Tab';
 import { TabItem } from './TabItem';
 
