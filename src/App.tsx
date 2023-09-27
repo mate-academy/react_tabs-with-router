@@ -2,6 +2,7 @@ import {
   Routes,
   Route,
   NavLink,
+  Navigate,
 } from 'react-router-dom';
 import classNames from 'classnames';
 
@@ -39,6 +40,7 @@ export const App = () => (
 
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/home" element={<Navigate to="/" />} />
       <Route path="/tabs" element={<TabsPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
