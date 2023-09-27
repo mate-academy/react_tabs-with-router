@@ -13,6 +13,7 @@ import { HomePage } from './pages/HomePage';
 import { TabsPage } from './pages/TabsPage';
 import { TabContent } from './components/TabContent';
 import { Tab } from './types/Tab';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -53,15 +54,12 @@ export const App: React.FC = () => {
 
         <div className="container">
           <Routes>
-            <Route
-              path="*"
-              element={<h1 className="title"> Page not found</h1>}
-            />
             <Route path="/" element={<HomePage />} />
             <Route path="/home" element={<Navigate to="/" />} />
             <Route path="/tabs" element={<TabsPage tabs={tabs} />}>
               <Route path=":tabId" element={<TabContent tabs={tabs} />} />
             </Route>
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
       </div>
