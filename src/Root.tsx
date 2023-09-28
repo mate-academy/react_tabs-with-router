@@ -1,13 +1,17 @@
 import {
-  BrowserRouter as Router, Routes, Route, Navigate,
+  HashRouter,
+  Routes,
+  Route,
+  Navigate,
 }
   from 'react-router-dom';
 import { TabsPage } from './pages/TabsPage';
 import { HomePage } from './pages/HomePage';
+import { PageNotFound } from './pages/PageNotFound';
 import { App } from './App';
 
 export const Root = () => (
-  <Router>
+  <HashRouter>
     <Routes>
       <Route path="/home" element={<Navigate to="/" />} />
       <Route path="/" element={<App />}>
@@ -19,8 +23,8 @@ export const Root = () => (
           <Route path=":tabId?" element={<TabsPage />} />
         </Route>
 
-        <Route path="*" element={<p>Not found</p>} />
+        <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
-  </Router>
+  </HashRouter>
 );
