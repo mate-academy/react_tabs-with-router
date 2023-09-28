@@ -21,20 +21,24 @@ export const Tabs = () => {
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
-            return <Tab tab={tab} selectTabId={selectTabId} />;
+            return (
+              <Tab
+                tab={tab}
+                selectTabId={selectTabId}
+                key={tab.id}
+              />
+            );
           })}
         </ul>
       </div>
 
-      {!selectTabId && (
-        <div className="block" data-cy="TabContent">
-          Please select a tab
-        </div>
-      )}
-
-      {selectTabId && (
+      {selectTab ? (
         <div className="block" data-cy="TabContent">
           {selectTab?.content}
+        </div>
+      ) : (
+        <div className="block" data-cy="TabContent">
+          Please select a tab
         </div>
       )}
     </div>
