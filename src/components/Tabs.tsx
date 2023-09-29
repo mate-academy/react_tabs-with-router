@@ -1,44 +1,30 @@
-// Tabs.tsx
-import React, { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Tab } from '../types/Tab';
+import { TabItem } from './TabItem';
 
-type TabsProps = {
+type Props = {
   tabs: Tab[];
-  activeTab: string;
-  setActiveTab: (tabId: string) => void;
 };
 
-export const Tabs: React.FC<TabsProps>
-= ({ tabs, activeTab, setActiveTab }) => {
+export const Tabs: React.FC<Props> = ({ tabs }) => {
   const { tabId } = useParams();
-
-  useEffect(() => {
-    setActiveTab(tabId || tabs[0].id);
-  }, [tabId, tabs, setActiveTab]);
-
-  const selectedTab = tabs.find((tab) => tab.id === activeTab);
+  const tabcontent = tabs.find(({ id }) => id === tabId);
 
   return (
-    <div data-cy="TabsComponent">
+    <>
+      <h1 className="title">Tabs page</h1>
+
       <div className="tabs is-boxed">
         <ul>
           {tabs.map((tab) => (
-            <li
-              key={tab.id}
-              className={tab.id === activeTab ? 'is-active' : undefined}
-              data-cy="Tab"
-            >
-              <Link to={`/tabs/${tab.id}`} data-cy="TabLink">
-                {tab.title}
-              </Link>
-            </li>
+            <TabItem tab={tab} />
           ))}
         </ul>
       </div>
+
       <div className="block" data-cy="TabContent">
-        {selectedTab ? selectedTab.content : 'Please select a tab'}
+        {tabcontent?.content || 'Please select a tab'}
       </div>
-    </div>
+    </>
   );
 };
