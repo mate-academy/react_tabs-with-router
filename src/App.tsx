@@ -3,7 +3,7 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import {
-  BrowserRouter, Navigate, Route, Routes,
+  HashRouter, Navigate, Route, Routes,
 } from 'react-router-dom';
 import { Nav } from './components/Nav';
 import { Home } from './components/Home';
@@ -12,7 +12,7 @@ import { NotFound } from './components/NotFound';
 
 export const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="section">
         <div className="container">
           <Nav />
@@ -29,6 +29,6 @@ export const App = () => {
           </Routes>
         </div>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
