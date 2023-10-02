@@ -27,19 +27,18 @@ export const App = () => (
       <div className="container">
         <div className="navbar-brand">
           <NavLink
+            to="/"
             className={
               ({ isActive }) => cn('navbar-item', { 'is-active': isActive })
             }
-            to="/"
           >
             Home
           </NavLink>
-
           <NavLink
+            to="/tabs"
             className={
               ({ isActive }) => cn('navbar-item', { 'is-active': isActive })
             }
-            to="/tabs"
           >
             Tabs
           </NavLink>
