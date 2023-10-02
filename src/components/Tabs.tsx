@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { TabItem } from './TabItem';
 
 export const Tabs = () => {
-  const [settedTabId, setTabId] = useState<string | undefined>(undefined);
+  const { tabId } = useParams();
 
   const tabs = [
     { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -10,7 +10,7 @@ export const Tabs = () => {
     { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
   ];
 
-  const usedTab = tabs.find(tab => tab.id === settedTabId);
+  const usedTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
@@ -22,8 +22,6 @@ export const Tabs = () => {
             <TabItem
               tab={tab}
               key={tab.id}
-              setTabId={setTabId}
-              settedTabId={settedTabId}
             />
           ))}
         </ul>

@@ -1,10 +1,6 @@
-import cn from 'classnames';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const Nav: React.FC = () => {
-  const [isActive, setIsActive] = useState<string>('home');
-
   return (
     <>
       <nav
@@ -13,34 +9,18 @@ export const Nav: React.FC = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link
+            <NavLink
               to="/"
-              className={cn(
-                'navbar-item',
-                {
-                  'is-active': isActive === 'home',
-                },
-              )}
-              onClick={() => {
-                setIsActive('home');
-              }}
+              className="navbar-item"
             >
               Home
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/tabs"
-              className={cn(
-                'navbar-item',
-                {
-                  'is-active': isActive === 'tabs',
-                },
-              )}
-              onClick={() => {
-                setIsActive('tabs');
-              }}
+              className="navbar-item"
             >
               Tabs
-            </Link>
+            </NavLink>
           </div>
         </div>
       </nav>
