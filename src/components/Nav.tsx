@@ -1,15 +1,12 @@
-/* eslint-disable react/jsx-fragments */
 import cn from 'classnames';
 import { useState } from 'react';
-import { Link,
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const Nav: React.FC = () => {
   const [isActive, setIsActive] = useState<string>('home');
 
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <nav
         className="navbar is-light is-fixed-top is-mobile has-shadow"
         data-cy="Nav"

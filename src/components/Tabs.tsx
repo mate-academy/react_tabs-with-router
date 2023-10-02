@@ -2,12 +2,7 @@ import { useState } from 'react';
 import { TabItem } from './TabItem';
 
 export const Tabs = () => {
-  // const { tabId } = useParams();
-  const [tabId, setTabId] = useState<string>('');
-
-  if (typeof tabId !== 'string') {
-    return <div>Invalid tab ID</div>;
-  }
+  const [settedTabId, setTabId] = useState<string | undefined>(undefined);
 
   const tabs = [
     { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -15,7 +10,7 @@ export const Tabs = () => {
     { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
   ];
 
-  const Tcontent = tabs.find(tab => tab.id === tabId);
+  const usedTab = tabs.find(tab => tab.id === settedTabId);
 
   return (
     <>
@@ -24,13 +19,18 @@ export const Tabs = () => {
       <div className="tabs is-boxed">
         <ul>
           {tabs.map((tab) => (
-            <TabItem tab={tab} key={tab.id} tabId={tabId} setTabId={setTabId} />
+            <TabItem
+              tab={tab}
+              key={tab.id}
+              setTabId={setTabId}
+              settedTabId={settedTabId}
+            />
           ))}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        {Tcontent ? Tcontent.content : 'Please select a tab'}
+        {usedTab ? usedTab.content : 'Please select a tab'}
       </div>
     </>
   );

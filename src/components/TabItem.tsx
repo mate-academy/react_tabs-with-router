@@ -2,21 +2,26 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
+import { Dispatch, SetStateAction } from 'react';
 import { Tab } from '../types/Tab';
 
 type Props = {
   tab: Tab,
-  tabId: string,
-  setTabId: (arg0: string) => void,
+  setTabId: Dispatch<SetStateAction<string | undefined>>;
+  settedTabId: string | undefined,
 };
 
-export const TabItem: React.FC<Props> = ({ tab, tabId, setTabId }) => {
+export const TabItem: React.FC<Props> = ({
+  tab,
+  setTabId,
+  settedTabId,
+}) => {
   return (
     <>
       <li
         data-cy="Tab"
         className={cn({
-          'is-active': tabId === tab.id,
+          'is-active': settedTabId === tab.id,
         })}
         onClick={(e) => {
           e.preventDefault();
