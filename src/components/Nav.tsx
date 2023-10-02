@@ -14,7 +14,7 @@ export const Nav: React.FC = () => {
         <div className="container">
           <div className="navbar-brand">
             <Link
-              to="/home"
+              to="/"
               className={cn(
                 'navbar-item',
                 {
