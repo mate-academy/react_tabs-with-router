@@ -50,13 +50,24 @@ export const App = () => (
     <div className="section">
       <div className="container">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Navigate to="/" />} />
-          <Route path="tabs">
+          <Route
+            path="/"
+            element={<Home />}
+          />
+          <Route
+            path="tabs"
+          >
             <Route index element={<Tabs tabs={tabs} />} />
             <Route path=":tabId" element={<Tabs tabs={tabs} />} />
           </Route>
-          <Route path="*" element={<NotFound />} />
+          <Route
+            path="/home"
+            element={<Navigate to="/" />}
+          />
+          <Route
+            path="*"
+            element={<NotFound />}
+          />
         </Routes>
       </div>
     </div>
