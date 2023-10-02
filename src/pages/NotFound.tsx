@@ -1,9 +1,7 @@
-const NotFound = () => {
+export const NotFound = () => {
   return (
     <>
-      <h1 className="title">Opps! We ran out of code</h1>
+      <h1 className="title">Page not found</h1>
     </>
   );
 };
-
-export default NotFound;

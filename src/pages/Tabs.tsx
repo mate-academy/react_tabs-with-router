@@ -6,7 +6,7 @@ type TabsProps = {
   tabs: Tab[];
 };
 
-const Tabs: React.FC<TabsProps> = ({ tabs }) => {
+export const Tabs: React.FC<TabsProps> = ({ tabs }) => {
   const { tabId } = useParams();
   const selectedTab = tabs.find(tab => tab.id === tabId);
 
@@ -35,5 +35,3 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
     </>
   );
 };
-
-export default Tabs;

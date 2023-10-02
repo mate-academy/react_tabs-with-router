@@ -3,11 +3,14 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import cn from 'classnames';
 import {
-  NavLink, Routes, Route, Navigate,
+  NavLink,
+  Routes,
+  Route,
+  Navigate,
 } from 'react-router-dom';
-import NotFound from './pages/NotFound';
-import Home from './pages/Home';
-import Tabs from './pages/Tabs';
+import { NotFound } from './pages/NotFound';
+import { Home } from './pages/Home';
+import { Tabs } from './pages/Tabs';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -17,7 +20,6 @@ const tabs = [
 
 export const App = () => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
       data-cy="Nav"
@@ -31,7 +33,6 @@ export const App = () => (
             to="/"
           >
             Home
-
           </NavLink>
 
           <NavLink
@@ -41,7 +42,6 @@ export const App = () => (
             to="/tabs"
           >
             Tabs
-
           </NavLink>
         </div>
       </div>
