@@ -1,15 +1,20 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 import { App } from './App';
 
-const container = document.getElementById('root');
-const root = createRoot(container);
+const root = document.getElementById('root');
 
-root.render(
-  <React.StrictMode>
-    <HashRouter>
-      <App />
-    </HashRouter>
-  </React.StrictMode>,
-);
+if (root !== null) {
+  const reactRoot = ReactDOM.createRoot(root);
+
+  reactRoot.render(
+    <React.StrictMode>
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </React.StrictMode>,
+  );
+} else {
+  console.error('Root element not found');
+}
