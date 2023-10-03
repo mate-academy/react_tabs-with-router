@@ -1,25 +1,14 @@
 import cn from 'classnames';
-import { Tab } from '../../types/Tab';
+import { Link, useParams } from 'react-router-dom';
 
-type TabsProps = {
-  tabs: Tab[];
-  selectedTabId: string;
-  onTabSelected : (tab: Tab) => void;
-};
+export const tabs = [
+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
+  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
+  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+];
 
-export const Tabs = ({
-  tabs, selectedTabId, onTabSelected,
-}: TabsProps) => {
-  const onClickHandler = (tab: Tab) => {
-    if (tab.id !== selectedTabId) {
-      onTabSelected(tab);
-    }
-  };
-
-  const getClassName = (tab: Tab) => cn({
-    'is-active': selectedTabId === tab.id
-    || (tabs[0].id === tab.id && tabs.every(t => t.id !== selectedTabId)),
-  });
+export const Tabs = () => {
+  const { tabId } = useParams();
 
   return (
     <div data-cy="TabsComponent">
@@ -29,18 +18,15 @@ export const Tabs = ({
             tabs.map(tab => (
               <li
                 key={tab.id}
-                className={getClassName(tab)}
+                className={cn({
+                  'is-active': tabId === tab.id,
+                })}
                 data-cy="Tab"
               >
-                <a
-                  href={`#${tab.id}`}
-                  data-cy="TabLink"
-                  onClick={
-                    () => onClickHandler(tab)
-                  }
-                >
+                <Link to={`/tabs/${tab.id}`} data-cy="TabLink">
                   {tab.title}
-                </a>
+                </Link>
+
               </li>
             ))
           }
@@ -48,7 +34,7 @@ export const Tabs = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.find(tab => tab.id === selectedTabId)?.content}
+        {tabs.find(tab => tab.id === tabId)?.content || 'Please select a tab'}
       </div>
     </div>
 
