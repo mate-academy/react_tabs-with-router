@@ -1,10 +1,15 @@
-import ReactDOM from 'react-dom';
-import { HashRouter } from 'react-router-dom';
+import ReactDOM from 'react-dom/client';
+import { HashRouter as Router } from 'react-router-dom';
 import { App } from './App';
 
-ReactDOM.render(
-  <HashRouter>
+const Root = () => (
+  <Router>
     <App />
-  </HashRouter>,
-  document.getElementById('root'),
+  </Router>
 );
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement,
+);
+
+root.render(<Root />);
