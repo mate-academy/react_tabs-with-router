@@ -1,10 +1,41 @@
 import ReactDOM from 'react-dom';
-import { HashRouter } from 'react-router-dom';
+import {
+  HashRouter, Routes, Route, Navigate,
+} from 'react-router-dom';
 import { App } from './App';
+import { TabsProvider } from './store/TabsContext';
+import { Tabs } from './components/Tabs';
 
 ReactDOM.render(
   <HashRouter>
-    <App />
+    <TabsProvider>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route index element={<h1 className="title">Home page</h1>} />
+          <Route path="home" element={<Navigate to=".." />} />
+          <Route path="tabs">
+            <Route
+              index
+              element={(
+                <>
+                  <h1 className="title">Tabs page</h1>
+                  <Tabs />
+                </>
+              )}
+            />
+            <Route
+              path=":tabId"
+              element={(
+                <>
+                  <h1 className="title">Tabs page</h1>
+                </>
+              )}
+            />
+          </Route>
+          <Route path="*" element={<h1 className="title">Page not found</h1>} />
+        </Route>
+      </Routes>
+    </TabsProvider>
   </HashRouter>,
   document.getElementById('root'),
 );
