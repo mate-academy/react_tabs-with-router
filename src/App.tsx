@@ -7,7 +7,7 @@ import { NavPage } from './components/NavPage';
 export const App = () => (
   <>
     {/* Also requires <html class="has-navbar-fixed-top"> */}
-    <NavPage />
+    <NavPage data-cy="Nav" />
 
     <div className="section">
       <div className="container">

@@ -13,11 +13,11 @@ export const NavPage = () => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to="/" className={getLinkClass} data-cy="Nav">
+          <NavLink to="/" className={getLinkClass}>
             Home
           </NavLink>
 
-          <NavLink to="/tabs" className={getLinkClass} data-cy="Nav">
+          <NavLink to="/tabs" className={getLinkClass}>
             Tabs
           </NavLink>
         </div>
