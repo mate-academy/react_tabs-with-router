@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import cn from 'classnames';
-import { useTabs } from '../store/TabsContext';
+import { useTabs } from '../../store/TabsContext';
 
 export const Tabs = () => {
   const { tabId } = useParams();

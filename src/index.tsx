@@ -2,9 +2,10 @@ import ReactDOM from 'react-dom';
 import {
   HashRouter, Routes, Route, Navigate,
 } from 'react-router-dom';
+import { Tabs } from './components/Tabs/Tabs';
+
 import { App } from './App';
 import { TabsProvider } from './store/TabsContext';
-import { Tabs } from './components/Tabs';
 
 ReactDOM.render(
   <HashRouter>
@@ -28,6 +29,7 @@ ReactDOM.render(
               element={(
                 <>
                   <h1 className="title">Tabs page</h1>
+                  <Tabs />
                 </>
               )}
             />

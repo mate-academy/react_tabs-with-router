@@ -1,15 +1,15 @@
 import React, { createContext, useContext, ReactNode } from 'react';
 import { Tab } from '../types/Tab';
 
-type TabsContextProps = {
+interface TabsContextProps {
   tabs: Tab[];
-};
+}
 
 const TabsContext = createContext<TabsContextProps | undefined>(undefined);
 
-type TabsProviderProps = {
+interface TabsProviderProps {
   children: ReactNode;
-};
+}
 
 export const TabsProvider: React.FC<TabsProviderProps> = ({ children }) => {
   const tabs = [
@@ -19,9 +19,7 @@ export const TabsProvider: React.FC<TabsProviderProps> = ({ children }) => {
   ];
 
   return (
-    <TabsContext.Provider value={{ tabs }}>
-      {children}
-    </TabsContext.Provider>
+    <TabsContext.Provider value={{ tabs }}>{children}</TabsContext.Provider>
   );
 };
 
