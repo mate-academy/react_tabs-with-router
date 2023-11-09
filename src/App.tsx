@@ -7,7 +7,8 @@ import classNames from 'classnames';
 
 export const App = () => {
   const getLinkClass = (
-    { isActive }: { isActive: boolean }) => classNames('navbar-item', {
+    { isActive }: { isActive: boolean },
+  ) => classNames('navbar-item', {
     'is-active': isActive,
   });
 
