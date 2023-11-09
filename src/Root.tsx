@@ -11,8 +11,6 @@ export const Root = () => {
     <Router>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path="*" element={<ErrorPage />} />
-
           <Route index element={<HomePage />} />
           <Route path="home" element={<Navigate to="/" />} />
 
@@ -20,6 +18,8 @@ export const Root = () => {
             <Route index element={<TabsPage />} />
             <Route path=":tabId" element={<TabsPage />} />
           </Route>
+
+          <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </Router>
