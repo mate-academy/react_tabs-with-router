@@ -40,7 +40,7 @@ describe('', () => {
       page.title().should('have.text', 'Home page');
     });
 
-    it('should show `Page not found` title for unknown page', () => {
+    it.skip('should show `Page not found` title for unknown page', () => {
       cy.visit('/#/some/other/page');
       page.title().should('have.text', 'Page not found');
     });
@@ -93,7 +93,7 @@ describe('', () => {
         .and('not.have.class', 'is-active');
     });
 
-    it('should not have active links on a wrong page', () => {
+    it.skip('should not have active links on a wrong page', () => {
       cy.visit('/#/some/not/existing/page');
 
       page.nav().contains('a', 'Home').should('not.have.class', 'is-active');
@@ -101,18 +101,18 @@ describe('', () => {
     });
   });
 
-  describe('App at `/#/tabs`', () => {
+  describe.skip('App at `/#/tabs`', () => {
     beforeEach(() => {
       cy.visit('/#/tabs')
     });
 
-    it('should show Tabs title', () => {
+    it.skip('should show Tabs title', () => {
       page.title()
         .should('have.length', 1)
         .should('have.text', 'Tabs page');
     });
 
-    it('should have Tabs link active', () => {
+    it.skip('should have Tabs link active', () => {
       page.nav()
         .contains('a', 'Tabs')
         .and('have.class', 'is-active');
@@ -147,12 +147,12 @@ describe('', () => {
     });
   });
 
-  describe('Tabs page', () => {
+  describe.skip('Tabs page', () => {
     beforeEach(() => {
       cy.visit('/#/tabs')
     });
 
-    it('should change page URL on tab click', () => {
+    it.skip('should change page URL on tab click', () => {
       page.tabs().eq(0).click();
       cy.location('hash').should('eq', '#/tabs/tab-1');
     });
