@@ -1,4 +1,3 @@
-import React from 'react';
 import cn from 'classnames';
 import {
   NavLink,
@@ -24,7 +23,7 @@ export const App = () => {
   }
 
   return (
-    <React.Component>
+    <>
       <nav
         className="navbar is-light is-fixed-top is-mobile has-shadow"
         data-cy="Nav"
@@ -58,6 +57,6 @@ export const App = () => {
           <Outlet />
         </div>
       </div>
-    </React.Component>
+    </>
   );
 };
