@@ -11,7 +11,7 @@ ReactDOM.render(
   <HashRouter>
     <Routes>
       <Route
-        path="/"
+        path="/:path?"
         element={<App />}
       >
         <Route
@@ -19,7 +19,7 @@ ReactDOM.render(
           element={<Home />}
         />
         <Route
-          path="/tabs"
+          path="tabs"
           element={<Tabs />}
         >
           {tabs.map(tab => (

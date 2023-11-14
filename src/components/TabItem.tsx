@@ -10,14 +10,12 @@ export const TabItem: React.FC<Props> = ({ tab }) => {
   const { tabId } = useParams();
 
   return (
-    <>
-      <li
-        data-cy="Tab"
-        className={cn({ 'is-active': tabId === tab.id })}
-        key={tab.id}
-      >
-        <Link to={tab.id}>{tab.title}</Link>
-      </li>
-    </>
+    <li
+      data-cy="Tab"
+      className={cn({ 'is-active': tabId === tab.id })}
+      key={tab.id}
+    >
+      <Link to={tab.id}>{tab.title}</Link>
+    </li>
   );
 };
