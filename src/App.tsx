@@ -13,7 +13,7 @@ export const App = () => {
   const { path } = useParams();
 
   if (path === 'home') {
-    (<Navigate to="/" />);
+    return <Navigate to="/" />;
   }
 
   return (
