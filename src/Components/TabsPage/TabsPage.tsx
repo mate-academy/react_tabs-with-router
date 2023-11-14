@@ -18,11 +18,14 @@ export const TabsPage = () => {
                 : ''}
               key={tab.id}
             >
-              <NavLink to={tab.id}>{tab.title}</NavLink>
+              <NavLink to={tab.id}>
+                {tab.title}
+              </NavLink>
             </li>
           ))}
         </ul>
       </div>
+
       <div className="block" data-cy="TabContent">
         {tabs.find(tab => tab.id === tabId)
           ? tabs.find(tab => tab.id === tabId)?.content
