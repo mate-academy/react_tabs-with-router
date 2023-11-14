@@ -1,6 +1,7 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+import { Routes, Route, Link } from 'react-router-dom';
 
 // const tabs = [
 //   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -16,9 +17,12 @@ export const App = () => (
       data-cy="Nav"
     >
       <div className="container">
+        <Routes>
+          <Route />
+        </Routes>
         <div className="navbar-brand">
-          <a href="/" className="navbar-item is-active">Home</a>
-          <a href="/tabs" className="navbar-item">Tabs</a>
+          <Link to="/" className="navbar-item is-active">Home</Link>
+          <Link to="/tabs" className="navbar-item">Tabs</Link>
         </div>
       </div>
     </nav>
@@ -32,13 +36,13 @@ export const App = () => (
         <div className="tabs is-boxed">
           <ul>
             <li data-cy="Tab" className="is-active">
-              <a href="#/">Tab 1</a>
+              <Link to="#/">Tab 1</Link>
             </li>
             <li data-cy="Tab">
-              <a href="#/">Tab 2</a>
+              <Link to="#/">Tab 2</Link>
             </li>
             <li data-cy="Tab">
-              <a href="#/">Tab 3</a>
+              <Link to="#/">Tab 3</Link>
             </li>
           </ul>
         </div>
