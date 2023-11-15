@@ -1,10 +1,9 @@
 import {
-  Route, Routes, Link, useParams, Navigate, useLocation,
+  Route, Routes, Link, useParams, Navigate, NavLink,
 } from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import React from 'react';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -40,9 +39,6 @@ export const TabsPage = () => {
 };
 
 export const App = () => {
-  const location = useLocation();
-  const isActive = (pathname: string) => location.pathname === pathname;
-
   return (
     <>
       {/* Also requires <html class="has-navbar-fixed-top"> */}
@@ -52,18 +48,18 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link
+            <NavLink
               to="/"
-              className={`navbar-item ${isActive('/') ? 'is-active' : ''}`}
+              className={({ isActive }) => `navbar-item ${isActive ? 'is-active' : ''}`}
             >
               Home
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/tabs"
-              className={`navbar-item ${isActive('/tabs') ? 'is-active' : ''}`}
+              className={({ isActive }) => `navbar-item ${isActive ? 'is-active' : ''}`}
             >
               Tabs
-            </Link>
+            </NavLink>
           </div>
         </div>
       </nav>
