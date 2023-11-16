@@ -52,6 +52,7 @@ export const App = () => {
           <Route path="/home" element={<Navigate to="/" />} />
           <Route path="tabs">
             <Route index element={<TabsPage tabs={tabs} />} />
+            <Route path="*" element={<TabsPage tabs={tabs} />} />
             <Route
               path=":tabId"
               element={(
