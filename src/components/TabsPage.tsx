@@ -41,7 +41,7 @@ export const TabsPage: React.FC<Props> = ({
         <div className="block" data-cy="TabContent">
           {tabId
             ? tabs.find(tab => tab.id === tabId)?.content
-            : ' Please select a tab'}
+            : 'Please select a tab'}
         </div>
       </div>
     </>
