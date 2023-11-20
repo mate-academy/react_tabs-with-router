@@ -1,27 +1,27 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import 'bulma/css/bulma.css';
 
-export interface TabProps {
-  isActive: boolean;
-  title: string;
-  id: string;
-  setActiveTabId: (id: string) => void
+interface TabProps {
+  id: string,
+  title: string,
 }
 
-export const Tab: React.FC<TabProps> = React.memo(({
-  isActive,
-  title,
-  id,
-  setActiveTabId,
-}) => {
-  const handleTabClick = () => {
-    setActiveTabId(id);
-  };
+export const Tab: React.FC<TabProps> = ({ id, title }) => {
+  const [isActive, setIsActive] = React.useState(false);
 
   return (
-    <li className={isActive ? 'is-active' : ''} data-cy="Tab">
-      <a href={`#${id}`} data-cy="TabLink" onClick={handleTabClick}>
+    <li data-cy="Tab" className={isActive ? 'is-active' : ''}>
+      <NavLink
+        to={`/tabs/${id}`}
+        className={({ isActive: active }) => {
+          setIsActive(active);
+
+          return '';
+        }}
+      >
         {title}
-      </a>
+      </NavLink>
     </li>
   );
-});
+};

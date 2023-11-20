@@ -1,74 +1,60 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.scss';
 import { Navbar } from './components/Navbar';
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
+import { HomePage } from './components/HomePage';
+import { Tabs } from './components/Tabs';
 
 export const App: React.FC = () => {
   return (
     <>
       <Navbar />
-
-      <Routes>
+      <div className="container">
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage />}
+          />
+          <Route
+            path="/tabs/*"
+            element={<Tabs />}
+          />
+          <Route
+            path="/tabs/:tabId/*"
+            element={<Tabs />}
+          />
+          <Route
+            path="/home"
+            element={<Navigate to="/" replace />}
+          />
+          <Route
+            path="*"
+            element={<h1 className="title">Page not found</h1>}
+          />
+        </Routes>
+      </div>
+      {/* <Routes>
         <Route
           path="/"
-          element={(
-            <div className="container">
-              <h1 className="title">Home page</h1>
-            </div>
-          )}
+          element={<HomePage />}
         />
-
         <Route
-          path="/tabs"
-          element={(
-            <div className="container">
-              <h1 className="title">Tabs page</h1>
-            </div>
-          )}
+          path="/tabs/*"
+          element={<Tabs />}
         />
-
+        <Route
+          path="/tabs/:tabId/*"
+          element={<Tabs />}
+        />
+        <Route
+          path="/home"
+          element={<Navigate to="/" replace />}
+        />
         <Route
           path="*"
-          element={(
-            <div className="container">
-              <h1 className="title">Page not found</h1>
-            </div>
-          )}
+          element={<h1 className="title">Page not found</h1>}
         />
-
-      </Routes>
-
-      <div className="section">
-        <div className="container">
-          {/* <h1 className="title">Home page</h1>
-          <h1 className="title">Tabs page</h1>
-          <h1 className="title">Page not found</h1> */}
-
-          <div className="tabs is-boxed">
-            <ul>
-              <li data-cy="Tab" className="is-active">
-                <a href="#/">Tab 1</a>
-              </li>
-              <li data-cy="Tab">
-                <a href="#/">Tab 2</a>
-              </li>
-              <li data-cy="Tab">
-                <a href="#/">Tab 3</a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="block" data-cy="TabContent">
-            Please select a tab
-          </div>
-        </div>
-      </div>
+      </Routes> */}
     </>
   );
 };
