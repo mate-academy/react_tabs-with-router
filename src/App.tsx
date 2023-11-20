@@ -1,6 +1,5 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import './App.scss';
 import { Navbar } from './components/Navbar';
 import { HomePage } from './components/HomePage';
 import { Tabs } from './components/Tabs';
