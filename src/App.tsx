@@ -1,19 +1,13 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import {
-  NavLink, Navigate, Route, Routes,
-} from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import cn from 'classnames';
-import { HomePage } from './components/HomePage';
-import { ErrorPage } from './components/ErrorPage';
-import { TabsPage } from './components/TabsPage';
 
-const tabs = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-];
+const getLinkClass = ({ isActive }: { isActive: boolean }) => cn(
+  'navbar-item',
+  { 'is-active': isActive },
+);
 
 export const App = () => (
   <>
@@ -25,17 +19,13 @@ export const App = () => (
         <div className="navbar-brand">
           <NavLink
             to="/"
-            className={({ isActive }) => cn('navbar-item', {
-              'is-active': isActive,
-            })}
+            className={getLinkClass}
           >
             Home
           </NavLink>
           <NavLink
             to="/tabs"
-            className={({ isActive }) => cn('navbar-item', {
-              'is-active': isActive,
-            })}
+            className={getLinkClass}
           >
             Tabs
           </NavLink>
@@ -45,16 +35,7 @@ export const App = () => (
 
     <div className="section">
       <div className="container">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="*" element={<ErrorPage />} />
-          <Route path="/home" element={<Navigate to="/" />} />
-          <Route path="tabs">
-            <Route index element={<TabsPage tabs={tabs} />} />
-            <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
-            <Route path="/tabs" element={<TabsPage tabs={tabs} />} />
-          </Route>
-        </Routes>
+        <Outlet />
       </div>
     </div>
   </>

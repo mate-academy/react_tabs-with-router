@@ -1,15 +1,30 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
+/* eslint-disable react/no-deprecated */
+import ReactDOM from 'react-dom';
+import {
+  HashRouter,
+  Navigate,
+  Route,
+  Routes,
+} from 'react-router-dom';
 import { App } from './App';
+import { HomePage } from './components/HomePage';
+import { TabsPage } from './components/TabsPage';
 
-const rootElement = document.getElementById('root');
+ReactDOM.render(
+  <HashRouter>
+    <Routes>
+      <Route path="/" element={<App />}>
+        <Route path="/home" element={<Navigate to="/" />} />
+        <Route index element={<HomePage />} />
 
-if (rootElement) {
-  const root = createRoot(rootElement);
+        <Route path="tabs">
+          <Route index element={<TabsPage />} />
+          <Route path=":tabId?" element={<TabsPage />} />
+        </Route>
 
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-  );
-}
+        <Route path="*" element={<h1 className="title">Page not found</h1>} />
+      </Route>
+    </Routes>
+  </HashRouter>,
+  document.getElementById('root'),
+);
