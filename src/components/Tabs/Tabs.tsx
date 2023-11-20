@@ -1,4 +1,5 @@
 import { Route, Routes, useParams } from 'react-router-dom';
+import React from 'react';
 import { Tab } from '../Tab/Tab';
 
 const tabs = [
