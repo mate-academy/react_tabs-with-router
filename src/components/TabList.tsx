@@ -14,21 +14,15 @@ export const TabList = () => {
 
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => {
-            return (
-              <li
-                data-cy="Tab"
-                className={
-                  cn(
-                    '',
-                    { 'is-active': tab.id === selectedTab },
-                  )
-                }
-              >
-                <Link to={`${tab.id}`}>{`${tab.id}`}</Link>
-              </li>
-            );
-          })}
+          {tabs.map((tab) => (
+            <li
+              key={tab.id}
+              data-cy="Tab"
+              className={cn({ 'is-active': tab.id === selectedTab })}
+            >
+              <Link to={`/${tab.id}`}>{tab.id}</Link>
+            </li>
+          ))}
         </ul>
       </div>
 
