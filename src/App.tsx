@@ -11,8 +11,6 @@ export const tabs = [
 ];
 
 export const App = () => {
-  // const [tabContent, setTabContent] = useState('');
-
   return (
     <>
       {/* Also requires <html class="has-navbar-fixed-top"> */}

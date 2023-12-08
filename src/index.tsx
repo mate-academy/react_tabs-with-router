@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import {
   HashRouter,
+  Navigate,
   Outlet,
   Route,
   Routes,
@@ -17,13 +18,13 @@ createRoot(document.getElementById('root') as HTMLElement)
           element={<App />}
         >
           <Route path="/" element={<h1 className="title">Home page</h1>} />
+          <Route path="/home" element={<Navigate to="/" />} />
           <Route
             path="tabs/:tabId?"
             element={(
               <>
                 <h1 className="title">
                   Tabs page
-                  {' '}
                 </h1>
                 <Outlet />
               </>

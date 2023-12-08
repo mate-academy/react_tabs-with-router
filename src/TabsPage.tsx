@@ -16,7 +16,6 @@ export const TabsPage: React.FC<T> = ({ tabs }) => {
 
   const selectedTab = tabs.find(tab => tab.id === tabId);
 
-
   return (
     <>
       <div className="tabs is-boxed">
@@ -30,7 +29,6 @@ export const TabsPage: React.FC<T> = ({ tabs }) => {
               className={selectedTab?.id === id ? 'is-active' : ''}
               key={id}
             >
-              {/* onClick={() => setTabContent(content)} */}
               <Link to={`/tabs/${id}`}>{title}</Link>
             </li>
           ))}
