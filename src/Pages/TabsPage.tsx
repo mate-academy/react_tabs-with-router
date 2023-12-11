@@ -1,4 +1,4 @@
-import { Tabs } from "../Components/Tabs";
+import { Tabs } from '../Components/Tabs';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -7,11 +7,11 @@ const tabs = [
 ];
 
 export const TabsPage = () => {
-  return(
+  return (
     <>
       <h1 className="title">Tabs page</h1>
 
-      <Tabs tabs={tabs}/>
+      <Tabs tabs={tabs} />
     </>
   );
 };

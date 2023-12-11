@@ -1,10 +1,12 @@
 import { NavLink, Outlet } from 'react-router-dom';
-import classNames from 'classnames'
+import classNames from 'classnames';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 
-const getLinkClass = ({ isActive }: { isActive: boolean}) => classNames('navbar-item', {
+const getLinkClass = (
+  { isActive }: { isActive: boolean },
+) => classNames('navbar-item', {
   'is-active': isActive,
 });
 
