@@ -8,9 +8,9 @@ export const TabsPage = () => {
   const [activeTab, setActiveTab] = useState<string | null>(null);
 
   const tabs = [
-    { id: 'tab1', content: 'Tab 1' },
-    { id: 'tab2', content: 'Tab 2' },
-    { id: 'tab3', content: 'Tab 3' },
+    { id: 'tab-1', content: 'Tab 1' },
+    { id: 'tab-2', content: 'Tab 2' },
+    { id: 'tab-3', content: 'Tab 3' },
   ];
 
   return (
@@ -37,7 +37,9 @@ export const TabsPage = () => {
         </ul>
       </div>
       <Outlet />
-      {activeTab ? null : <p>Please select a tab</p>}
+      {activeTab ? null : (
+        <div className="block" data-cy="TabContent">Please select a tab</div>
+      )}
     </>
   );
 };
