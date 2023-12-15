@@ -12,7 +12,9 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
   const content = tabs.find(tab => tab.id === tabId)?.content || '';
 
   return (
-    <>
+    <div data-cy="TabsComponent">
+      <h1 className="title">Tabs page</h1>
+
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
@@ -43,6 +45,6 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
           Please select a tab
         </div>
       )}
-    </>
+    </div>
   );
 };
