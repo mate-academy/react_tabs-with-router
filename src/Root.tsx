@@ -19,8 +19,8 @@ export const Root = () => {
           <Route path="tabs">
             <Route path=":tabId?" element={<Tabs tabs={tabs} />} />
           </Route>
+          <Route path="*" element={<h1 className="title">Page not found</h1>} />
         </Route>
-        <Route path="*" element={<h1 className="title">Page not found</h1>} />
       </Routes>
     </HashRouter>
   );
