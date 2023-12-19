@@ -45,6 +45,7 @@ export const Tabs = ({ tabs }: Props) => {
       <div className="block" data-cy="TabContent">
         <Routes>
           <Route path=":tabId" element={<TabContent tabs={tabs} />} />
+          <Route path="" element={<>Please select a tab</>} />
         </Routes>
       </div>
     </>
