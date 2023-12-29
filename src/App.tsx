@@ -7,6 +7,7 @@ import {
   Route,
   Routes,
   NavLink,
+  useLocation,
   useNavigate,
 } from 'react-router-dom';
 import { Home } from './components/Home';
@@ -19,13 +20,14 @@ const isLinkActive = ({ isActive }: { isActive: boolean }) => (
 );
 
 export const App = () => {
+  const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (window.location.hash === '#/home') {
+    if (location.pathname + location.hash === '/home') {
       navigate('/');
     }
-  }, [navigate]);
+  }, [location, navigate]);
 
   return (
     <>
