@@ -7,7 +7,7 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-export const TabsPage = () => {
+export const TabsPage: React.FC = () => {
   const { tabId } = useParams();
   const selectedTab = tabs.find(tab => tab.id === tabId);
 
@@ -19,6 +19,7 @@ export const TabsPage = () => {
         <ul>
           {tabs.map(tab => (
             <li
+              key={tab.id}
               data-cy="Tab"
               className={classNames({ 'is-active': tab === selectedTab })}
             >
