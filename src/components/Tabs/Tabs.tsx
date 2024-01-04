@@ -9,7 +9,7 @@ export const Tabs: FC<TabsProps> = ({ tabs }) => {
   return (
     <>
       <h1 className="title">
-        Tabs Page
+        Tabs page
       </h1>
 
       <div data-cy="TabsComponent">
@@ -17,7 +17,7 @@ export const Tabs: FC<TabsProps> = ({ tabs }) => {
           <ul>
             {tabs.map((tab) => (
               <li
-                // className={selectedTab?.id === tab.id ? 'is-active' : ''}
+                className={selectedTab?.id === tab.id ? 'is-active' : ''}
                 data-cy="Tab"
                 key={tab.id}
               >
