@@ -1,29 +1,46 @@
+/* eslint-disable max-len */
 /* eslint-disable import/no-cycle */
 import React from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import {
+  Route, Routes, Navigate, NavLink,
+} from 'react-router-dom';
+import classNames from 'classnames';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { TabsPage } from './components/TabsPage/TabsPage';
 
-export const tabs = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-];
+interface NavLinkProps {
+  isPending: boolean
+  isActive: boolean
+  isTransitioning: boolean
+}
+
+const getLinkClass = (prop: NavLinkProps) => classNames(
+  'navbar-item',
+  { 'is-active': prop.isActive },
+);
 
 export const App: React.FC = () => {
   return (
     <div className="app">
-      <nav className="nav" data-cy="Nav">
-        <ul className="nav__list">
-          <li className="is-active">
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/tabs">Tabs</a>
-          </li>
-        </ul>
+      <nav className="navbar is-light is-fixed-top is-mobile has-shadow" data-cy="Nav">
+        <div className="container">
+          <div className="navbar-brand">
+            <NavLink
+              to="/"
+              className={getLinkClass}
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/tabs"
+              className={getLinkClass}
+            >
+              Tabs
+            </NavLink>
+          </div>
+        </div>
       </nav>
       <Routes>
         <Route path="/home" element={<Navigate to="/" />} />
@@ -35,10 +52,17 @@ export const App: React.FC = () => {
             </div>
           )}
         />
-        <Route path="/tabs" element={<TabsPage />} />
+        <Route path="tabs">
+          <Route index element={<TabsPage />} />
+          <Route path=":tabId" element={<TabsPage />} />
+        </Route>
         <Route
           path="*"
-          element={<h1 className="title">Page not found</h1>}
+          element={(
+            <div className="section">
+              <h1 className="title">Page not found</h1>
+            </div>
+          )}
         />
       </Routes>
     </div>
