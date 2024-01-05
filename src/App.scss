@@ -1,3 +1,40 @@
 iframe {
   display: none;
 }
+
+body {
+  margin: 0;
+}
+
+.nav {
+  background-color: #F5F5F5;
+  margin: -52px 0 0;
+
+  &__list {
+    display: flex;
+    height: 54px;
+  }
+
+  &__list li {
+    box-sizing: border-box;
+    padding: 0 12px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: #E8E8E8;
+      cursor: pointer;
+    }
+
+    &:visited {
+      background-color: blue;
+    }
+  }
+
+  &__list a {
+    text-decoration: none;
+    color: #454545;
+  }
+}
