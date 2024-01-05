@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-/* eslint-disable import/no-cycle */
 import React from 'react';
 import {
   Route, Routes, Navigate, NavLink,
@@ -27,16 +26,10 @@ export const App: React.FC = () => {
       <nav className="navbar is-light is-fixed-top is-mobile has-shadow" data-cy="Nav">
         <div className="container">
           <div className="navbar-brand">
-            <NavLink
-              to="/"
-              className={getLinkClass}
-            >
+            <NavLink to="/" className={getLinkClass}>
               Home
             </NavLink>
-            <NavLink
-              to="/tabs"
-              className={getLinkClass}
-            >
+            <NavLink to="/tabs" className={getLinkClass}>
               Tabs
             </NavLink>
           </div>
