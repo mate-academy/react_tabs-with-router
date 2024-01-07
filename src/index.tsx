@@ -16,16 +16,18 @@ createRoot(document.getElementById('root') as HTMLElement)
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<HomePage />} />
+
           <Route
             path="home"
             element={<Navigate to=".." />}
           />
+
           <Route path="tabs">
             <Route path=":tabId?" element={<TabsPage />} />
           </Route>
-        </Route>
 
-        <Route path="*" element={<NotFoundPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
       </Routes>
     </HashRouter>,
   );
