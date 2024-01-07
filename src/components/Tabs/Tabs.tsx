@@ -32,8 +32,8 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
 
       <div className="block" data-cy="TabContent">
         {
-          selectedTabId
-            ? selectedTab?.content
+          selectedTabId && selectedTab
+            ? selectedTab.content
             : 'Please select a tab'
         }
       </div>
