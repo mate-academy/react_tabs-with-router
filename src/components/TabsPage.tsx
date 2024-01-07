@@ -33,9 +33,8 @@ export const TabsPage = () => {
 
       <div className="block" data-cy="TabContent">
         {
-          selectedTab
-            ? tabs.find(tab => tab.id === selectedTab)?.content
-            : 'Please select a tab'
+          tabs.find(tab => tab.id === selectedTab)?.content
+            || 'Please select a tab'
         }
       </div>
     </>
