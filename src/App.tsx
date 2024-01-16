@@ -2,6 +2,7 @@ import 'bulma/css/bulma.css';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+import classNames from 'classnames';
 import { Home } from './components/Home';
 import { Tabs } from './components/Tabs';
 import { Tab1 } from './components/Tabs/Tabs/Tab1';
@@ -13,6 +14,13 @@ export const tabs = [
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
+
+const getLinkClass = ({ isActive }: { isActive: boolean }) => classNames(
+  'navbar-item', {
+    'is-active': isActive,
+  },
+);
+
 export const App = () => (
   <>
     {/* Also requires <html class="has-navbar-fixed-top"> */}
@@ -22,8 +30,8 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to="/" className="navbar-item">Home</NavLink>
-          <NavLink to="/tabs" className="navbar-item">Tabs</NavLink>
+          <NavLink to="/" className={getLinkClass}>Home</NavLink>
+          <NavLink to="/tabs" className={getLinkClass}>Tabs</NavLink>
         </div>
       </div>
     </nav>
