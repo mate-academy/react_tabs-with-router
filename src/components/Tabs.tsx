@@ -1,21 +1,24 @@
 import { NavLink, Outlet } from 'react-router-dom';
+import { TabType } from '../types/Tab';
 
-export const Tabs = () => {
+interface Props {
+  tabs: TabType[],
+}
+
+export const Tabs: React.FC<Props> = ({
+  tabs,
+}) => {
   return (
     <>
       <h1 className="title">Tabs page</h1>
 
       <div className="tabs is-boxed">
         <ul>
-          <li data-cy="Tab">
-            <NavLink to="/tabs/tab1">Tab 1</NavLink>
-          </li>
-          <li data-cy="Tab">
-            <NavLink to="/tabs/tab2">Tab 2</NavLink>
-          </li>
-          <li data-cy="Tab">
-            <NavLink to="/tabs/tab3">Tab 3</NavLink>
-          </li>
+          {tabs.map((currentTab: TabType) => (
+            <li key={currentTab.id} data-cy="Tab">
+              <NavLink to={`/tabs/${currentTab.id}`}>{currentTab.title}</NavLink>
+            </li>
+          ))}
         </ul>
       </div>
 
