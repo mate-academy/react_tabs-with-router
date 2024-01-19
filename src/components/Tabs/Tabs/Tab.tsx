@@ -5,16 +5,17 @@ interface Props {
   tabs: TabType[],
 }
 
-export const Tab:React.FC<Props> = ({
+export const Tab: React.FC<Props> = ({
   tabs,
 }) => {
   const { id } = useParams();
+  const findId = tabs.find((tab: TabType) => (
+    tab.id === id
+  ));
 
   return (
     <>
-      {tabs.map((tab: TabType) => (
-        tab.id === id ? <p key={tab.id}>{tab.content}</p> : null
-      ))}
+      <p key={findId?.id}>{findId?.content}</p>
     </>
   );
 };
