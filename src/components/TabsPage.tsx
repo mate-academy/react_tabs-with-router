@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -8,8 +8,8 @@ const tabs = [
 ];
 
 export const TabsPage = () => {
-  const validTabsId = tabs.map(tab => tab.id);
   const { tabId } = useParams();
+  const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
@@ -32,10 +32,12 @@ export const TabsPage = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {!tabId || !validTabsId.includes(tabId)
-          ? 'Please select a tab'
-          : tabs.filter(tab => tab.id === tabId)[0].content}
+        {selectedTab
+          ? tabs.filter(tab => tab.id === tabId)[0].content
+          : 'Please select a tab'}
       </div>
+
+      <Outlet />
     </>
   );
 };
