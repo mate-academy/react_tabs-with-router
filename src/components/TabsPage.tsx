@@ -32,9 +32,7 @@ export const TabsPage = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab
-          ? tabs.filter(tab => tab.id === tabId)[0].content
-          : 'Please select a tab'}
+        {selectedTab ? selectedTab.content : 'Please select a tab'}
       </div>
 
       <Outlet />
