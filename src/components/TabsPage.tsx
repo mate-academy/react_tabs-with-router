@@ -8,6 +8,7 @@ const tabs = [
 ];
 
 export const TabsPage = () => {
+  const validTabsId = tabs.map(tab => tab.id);
   const { tabId } = useParams();
 
   return (
@@ -31,9 +32,9 @@ export const TabsPage = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {!tabId
-          ? ('Please select a tab')
-          : (tabs.filter(tab => tab.id === tabId)[0].content)}
+        {!tabId || !validTabsId.includes(tabId)
+          ? 'Please select a tab'
+          : tabs.filter(tab => tab.id === tabId)[0].content}
       </div>
     </>
   );
