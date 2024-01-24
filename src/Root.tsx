@@ -6,7 +6,7 @@ export const Root = () => {
   return (
     <HashRouter>
       <Routes>
-        <Route path="*" element={<h1 className="title">H</h1>} />
+        <Route path="*" element={<h1 className="title">Page not found</h1>} />
 
         <Route path="/" element={<App />}>
           <Route index element={<h1 className="title">Home page</h1>} />
