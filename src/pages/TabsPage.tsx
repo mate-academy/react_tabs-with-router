@@ -1,25 +1,45 @@
-import { Link } from 'react-router-dom';
+import classNames from 'classnames';
+import { Link, useParams } from 'react-router-dom';
+import { Tab } from '../types/Tab';
 
-export const TabsPage = () => (
-  <>
-    <h1 className="title">Tabs page</h1>
+const tabs = [
+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
+  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
+  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+];
 
-    <div className="tabs is-boxed">
-      <ul>
-        <li data-cy="Tab" className="is-active">
-          <Link to="/">Tab 1</Link>
-        </li>
-        <li data-cy="Tab">
-          <Link to="/">Tab 2</Link>
-        </li>
-        <li data-cy="Tab">
-          <Link to="/">Tab 3</Link>
-        </li>
-      </ul>
-    </div>
+export const TabsPage = () => {
+  const { tabId } = useParams();
 
-    <div className="block" data-cy="TabContent">
-      Please select a tab
-    </div>
-  </>
-);
+  const selectedTab = tabs
+    .find((tab) => tab.id === tabId);
+
+  return (
+    <>
+      <h1 className="title">Tabs page</h1>
+
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map((tab: Tab) => (
+            <li
+              data-cy="Tab"
+              className={classNames({
+                'is-active': tab.id === tabId,
+              })}
+            >
+              <Link to={`./${tab.id}`}>{tab.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="block" data-cy="TabContent">
+        {selectedTab ? (
+          selectedTab.content
+        ) : (
+          'Please select a tab'
+        )}
+      </div>
+    </>
+  );
+};
