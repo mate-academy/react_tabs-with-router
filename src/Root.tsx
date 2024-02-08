@@ -1,4 +1,9 @@
-import { Routes, Route, HashRouter } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  HashRouter,
+  Navigate,
+} from 'react-router-dom';
 import { App } from './App';
 import { TabsPage } from './components/TabsPage/TabsPage';
 
@@ -13,6 +18,7 @@ export const Root = () => {
             <Route path=":tabId" element={<TabsPage />} />
           </Route>
           <Route path="*" element={<h1 className="title">Page not found</h1>} />
+          <Route path="home" element={<Navigate to="/" />} />
         </Route>
       </Routes>
     </HashRouter>
