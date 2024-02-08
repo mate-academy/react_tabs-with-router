@@ -8,7 +8,7 @@ or [React Tabs](https://github.com/mate-academy/react_tabs#react-tabs).
 > Here is [the working version](https://mate-academy.github.io/react_tabs-with-router)
 
 1. Navigation with `Home` and `Tabs` links:
-    - should be visible on every page;
+  DONE - should be visible on every page;
     - should highlight an active link with `is-active` class;
 1. `TabsPage` page should work for both `/tabs` and `/tabs/:tabId` paths (use nested routes);
     ```tsx
@@ -17,7 +17,7 @@ or [React Tabs](https://github.com/mate-academy/react_tabs#react-tabs).
       <Route path=":tabId" element={<TabsPage />} />
     </Route>
     ```
-1. Each tab should update the URL on click. 
+1. Each tab should update the URL on click.
     - the URL should follow the next format `/tabs/:tabId` (use actual `tab.id` instead of `:tabId`);
     - replace `<a href="#...">` with `<Link to="/tabs/...">` and remove `onClick`;
     - **don't** use `NavLink` as `is-active` class is added to a parent element;
@@ -32,5 +32,5 @@ or [React Tabs](https://github.com/mate-academy/react_tabs#react-tabs).
 - Implement a solution following the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline).
 - Use the [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript).
 - Open one more terminal and run tests with `npm test` to ensure your solution is correct.
-- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_tabs-with-router/) and add it to the PR description.
+DONE - Replace `<your_account>` with your Github username in the [DEMO LINK](https://Manankin.github.io/react_tabs-with-router/) and add it to the PR description.
 
