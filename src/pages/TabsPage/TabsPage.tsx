@@ -1,6 +1,6 @@
 import { Link, Outlet, useParams } from 'react-router-dom';
 import classNames from 'classnames';
-import { tabs } from '../../tabs';
+import { tabs } from '../../api/tabs';
 
 export const TabsPage: React.FC = () => {
   const { tabsId } = useParams();
