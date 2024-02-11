@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { tabs } from '../api/tabs';
+import { tabs } from '../tabs';
 
 export const TabItem = () => {
   const { tabsId } = useParams();

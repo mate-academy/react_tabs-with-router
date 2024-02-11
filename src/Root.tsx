@@ -1,10 +1,10 @@
 import React from 'react';
 import { Routes, Route, HashRouter } from 'react-router-dom';
 import { App } from './App';
-import { HomePage } from './Pages/HomePage/HomePage';
+import { HomePage } from './Pages/HomePage';
 
 import { TabItem } from './components/TabItem';
-import { TabsPage } from './Pages/TabsPage/TabsPage';
+import { TabsPage } from './Pages/TabsPage';
 
 export const Root: React.FC = () => {
   return (
