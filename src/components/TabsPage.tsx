@@ -1,9 +1,14 @@
 import { Link, useParams, Outlet } from 'react-router-dom';
+import { Tab } from '../types/Tab';
 
-export const TabsPage = ({ tabs }: any) => {
+interface Props {
+  tabs: Tab[];
+}
+
+export const TabsPage = ({ tabs }: Props) => {
   const { tabId } = useParams();
 
-  const selectedTab = tabs.find((tab: any) => tab.id === tabId);
+  const selectedTab = tabs.find((tab: Tab) => tab.id === tabId);
 
   return (
     <>
@@ -12,8 +17,12 @@ export const TabsPage = ({ tabs }: any) => {
 
         <div className="tabs is-boxed">
           <ul>
-            {tabs.map((tab: any) => (
-              <li key={tab.id} data-cy="Tab" className={tab.id === tabId ? 'is-active' : ''}>
+            {tabs.map((tab: Tab) => (
+              <li
+                key={tab.id}
+                data-cy="Tab"
+                className={tab.id === tabId ? 'is-active' : ''}
+              >
                 <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
               </li>
             ))}
@@ -25,15 +34,13 @@ export const TabsPage = ({ tabs }: any) => {
           </div>
         ) : (
           <div className="block" data-cy="TabContent">
-            {tabs.find((tab: any) => tab.id === tabId)?.content}
+            {tabs.find((tab: Tab) => tab.id === tabId)?.content}
           </div>
         )}
 
         <Outlet />
       </div>
 
-
     </>
   );
 };
-

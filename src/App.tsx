@@ -2,11 +2,12 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import cn from 'classnames';
-import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
+import {
+  Routes, Route, NavLink, Navigate,
+} from 'react-router-dom';
 import { TabsPage } from './components/TabsPage';
 import { HomePage } from './components/HomePage';
 import { Error } from './components/Error';
-
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -24,14 +25,20 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink to="/" className={({ isActive }) => cn('navbar-item', {
-              'is-active': isActive,
-            })}>
+            <NavLink
+              to="/"
+              className={({ isActive }) => cn('navbar-item', {
+                'is-active': isActive,
+              })}
+            >
               Home
             </NavLink>
-            <NavLink to="/tabs" className={({ isActive }) => cn('navbar-item', {
-              'is-active': isActive,
-            })}>
+            <NavLink
+              to="/tabs"
+              className={({ isActive }) => cn('navbar-item', {
+                'is-active': isActive,
+              })}
+            >
               Tabs
             </NavLink>
           </div>
@@ -49,7 +56,7 @@ export const App = () => {
             <Route path="home" element={<Navigate to="/" />} />
             <Route path="*" element={<Error />} />
           </Routes>
-      </div>
+        </div>
       </div>
     </>
   );
