@@ -7,11 +7,8 @@ export const TabItem = () => {
 
   return (
     <div className="block" data-cy="TabContent">
-      {tabContent ? (
-        <p>{tabContent}</p>
-      ) : (
-        <p>Please select a tab</p>
-      )}
+      {!tabContent && <p>Please select a tab</p>}
+      {tabContent && <p>{tabContent}</p>}
     </div>
   );
 };
