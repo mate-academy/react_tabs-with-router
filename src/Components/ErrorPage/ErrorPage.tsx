@@ -1,3 +1,8 @@
+import { Nav } from '../Nav/Nav';
+
 export const ErrorPage = () => (
-  <h1 className="title">Page not found</h1>
+  <>
+    <Nav />
+    <h1 className="title">Page not found</h1>
+  </>
 );
