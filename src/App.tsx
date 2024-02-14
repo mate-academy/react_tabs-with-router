@@ -2,11 +2,15 @@ import cn from 'classnames';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Route, Routes, NavLink } from 'react-router-dom';
+import {
+  Route,
+  Routes,
+  NavLink,
+  Navigate,
+} from 'react-router-dom';
 import { TabsPage } from './Components/Tabs';
 import { HomePage } from './Components/HomePage';
 import { NotFoundPage } from './Components/NotFoundPage';
-import { RedirectToRoot } from './Components/Redirect';
 
 const getLinkClass = ({ isActive }:
 { isActive: boolean }) => cn('navbar-item', {
@@ -35,7 +39,7 @@ export const App = () => (
       <div className="container">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/home" element={<RedirectToRoot />} />
+          <Route path="home" element={<Navigate to="/" replace />} />
           <Route path="tabs">
             <Route index element={<TabsPage />} />
             <Route path=":tabId" element={<TabsPage />} />
