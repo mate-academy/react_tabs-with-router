@@ -17,8 +17,12 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <a href="/" className="navbar-item is-active">Home</a>
-          <a href="/tabs" className="navbar-item">Tabs</a>
+          <a href="/" className="navbar-item is-active">
+            Home
+          </a>
+          <a href="/tabs" className="navbar-item">
+            Tabs
+          </a>
         </div>
       </div>
     </nav>
