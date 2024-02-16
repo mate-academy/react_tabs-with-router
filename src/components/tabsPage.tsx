@@ -30,12 +30,12 @@ export const TabsPage = () => {
         </ul>
       </div>
       </div>
-      {selectedTab 
+      <div className="block" data-cy="TabContent">
+        {selectedTab 
           ? selectedTab.content
-          : <div className="block" data-cy="TabContent">
-              Please select a tab
-            </div>
+          : 'Please select a tab'
         }
+      </div>
       <Outlet />
     </>
   )
