@@ -13,16 +13,18 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to="/" 
+          <NavLink
+            to="/"
             className={({ isActive }) => classNames(
-              'navbar-item', {'is-active': isActive},
-              )}
+              'navbar-item', { 'is-active': isActive },
+            )}
           >
             Home
           </NavLink>
-          <NavLink to="/tabs" 
+          <NavLink
+            to="/tabs"
             className={({ isActive }) => classNames(
-              'navbar-item', {'is-active': isActive},
+              'navbar-item', { 'is-active': isActive },
             )}
           >
             Tabs
