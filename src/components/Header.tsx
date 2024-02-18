@@ -10,7 +10,7 @@ const Header = () => {
       <div className="container">
         <div className="navbar-brand">
           <NavLink
-            to="/home"
+            to="/"
             className={
               ({ isActive }) => cn('navbar-item', { 'is-active': isActive })
             }
