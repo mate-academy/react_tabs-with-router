@@ -1,3 +1,4 @@
+import React from 'react';
 import cn from 'classnames';
 import { Tab } from '../../types/Tab';
 import { TabsProps } from '../../types/TabsProps';
