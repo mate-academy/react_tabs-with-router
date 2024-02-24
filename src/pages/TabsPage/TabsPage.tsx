@@ -9,7 +9,6 @@ const tabs = [
 
 export const TabsPage = () => {
   const { tabId } = useParams();
-
   const currentTab = tabs.find(item => item.id === String(tabId));
 
   return (
