@@ -25,7 +25,6 @@ const getLinkStyle = ({ isActive }: { isActive: boolean }) => ({
 
 export const App = () => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
       data-cy="Nav"
