@@ -14,8 +14,6 @@ export const Tab: React.FC<Props> = ({
   ));
 
   return (
-    <>
-      <p key={findId?.id}>{findId?.content}</p>
-    </>
+    <p key={findId?.id}>{findId?.content}</p>
   );
 };
