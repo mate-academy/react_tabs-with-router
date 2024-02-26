@@ -6,7 +6,6 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import classNames from 'classnames';
 import { Tabs } from './components/Tabs';
-import { Tab } from './components/Tabs/Tabs/Tab';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -55,13 +54,10 @@ export const App = () => (
       <div className="container">
         <Routes>
           <Route path="/home" element={<Navigate to="/" />} />
-          <Route
-            path="/"
-            element={<h1 className="title">Home page</h1>}
-          />
-          <Route path="/tabs" element={<Tabs tabs={tabs} />}>
-            <Route element={<p>Please select a tab</p>} />
-            <Route path="/tabs/:id?" element={<Tab tabs={tabs} />} />
+          <Route path="/" element={<h1 className="title">Home page</h1>} />
+          <Route path="tabs">
+            <Route index element={<Tabs tabs={tabs} />} />
+            <Route path=":id?" element={<Tabs tabs={tabs} />} />
           </Route>
           <Route path="*" element={<h1 className="title">Page not found</h1>} />
         </Routes>

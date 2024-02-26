@@ -1,4 +1,5 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
+import { Tab } from './Tabs/Tabs/Tab';
 import { TabType } from '../types/Tab';
 
 interface Props {
@@ -8,6 +9,9 @@ interface Props {
 export const Tabs: React.FC<Props> = ({
   tabs,
 }) => {
+  const { id } = useParams();
+  const findTab = tabs.find(tab => tab.id === id);
+
   return (
     <>
       <h1 className="title">Tabs page</h1>
@@ -15,7 +19,11 @@ export const Tabs: React.FC<Props> = ({
       <div className="tabs is-boxed">
         <ul>
           {tabs.map((currentTab: TabType) => (
-            <li key={currentTab.id} data-cy="Tab">
+            <li
+              className={currentTab.id === id ? 'is-active' : ''}
+              key={currentTab.id}
+              data-cy="Tab"
+            >
               <NavLink to={`/tabs/${currentTab.id}`}>{currentTab.title}</NavLink>
             </li>
           ))}
@@ -23,7 +31,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        <Outlet />
+        {findTab ? <Tab tabs={tabs} /> : 'Please select a tab' }
       </div>
     </>
   );
