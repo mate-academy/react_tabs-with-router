@@ -1,5 +1,7 @@
 import 'bulma/css/bulma.css';
-import { Routes, Route, NavLink } from 'react-router-dom';
+import {
+  Routes, Route, NavLink, Navigate,
+} from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import classNames from 'classnames';
@@ -52,13 +54,14 @@ export const App = () => (
     <div className="section">
       <div className="container">
         <Routes>
+          <Route path="/home" element={<Navigate to="/" />} />
           <Route
             path="/"
             element={<h1 className="title">Home page</h1>}
           />
           <Route path="/tabs" element={<Tabs tabs={tabs} />}>
-            <Route path="/tabs/:id" element={<Tab tabs={tabs} />} />
-            <Route index element={<p>Choose some tab</p>} />
+            <Route element={<p>Please select a tab</p>} />
+            <Route path="/tabs/:id?" element={<Tab tabs={tabs} />} />
           </Route>
           <Route path="*" element={<h1 className="title">Page not found</h1>} />
         </Routes>
