@@ -5,9 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 
 const getLinkClass = ({ isActive }: { isActive: boolean }) => {
-  return cn('navbar-item', {
-    'is-active': isActive,
-  });
+  return cn('navbar-item', { 'is-active': isActive });
 };
 
 export const App = () => {
