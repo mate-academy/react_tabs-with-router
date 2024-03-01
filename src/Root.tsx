@@ -17,9 +17,8 @@ export const Root = () => {
               <Route index element={<TabsPage />} />
               <Route path=":tabId" element={<TabsPage />} />
             </Route>
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
-
-          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </TabsProvider>
     </HashRouter>
