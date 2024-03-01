@@ -1,13 +1,35 @@
-import { Tabs } from './Tabs';
+import cn from 'classnames';
+import { useContext } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { TabsContext } from './TabsContext';
 
 export const TabsPage = () => {
-  return (
-    <>
-      <div className="container">
-        <h1 className="title">Tabs page</h1>
+  const tabs = useContext(TabsContext);
+  const { tabId } = useParams();
 
-        <Tabs />
+  const currentTub = tabs.find(tab => tab.id === tabId);
+
+  return (
+    <div className="container">
+      <h1 className="title">Tabs page</h1>
+
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map(tab => (
+            <li
+              key={tab.id}
+              data-cy="Tab"
+              className={cn({ 'is-active': tab.id === tabId })}
+            >
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+            </li>
+          ))}
+        </ul>
       </div>
-    </>
+
+      <div className="block" data-cy="TabContent">
+        {!currentTub ? 'Please select a tab' : currentTub.content}
+      </div>
+    </div>
   );
 };
