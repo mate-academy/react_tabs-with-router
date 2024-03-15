@@ -1,4 +1,5 @@
-import { Link, useParams } from 'react-router-dom';
+import classNames from 'classnames';
+import { Link, Outlet, useParams } from 'react-router-dom';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -8,30 +9,36 @@ const tabs = [
 
 export const Tabs = () => {
   const { tabId } = useParams();
-
-  const currentContent = tabs.find(tab => tab.id === tabId)?.content;
+  const selectadTabId = tabs.find(tab => tab.id === tabId);
 
   return (
-    <>
+    <div className="container">
+      <Outlet />
       <h1 className="title">Tabs page</h1>
+
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => {
-            return (
-              <li
-                data-cy="Tab"
-                className={tab.id === tabId ? 'is-active' : ''}
-                key={tab.id}
-              >
-                <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
-              </li>
-            );
-          })}
+          {tabs.map(tab => (
+            <li
+              data-cy="Tab"
+              className={classNames({
+                'is-active': tab.id === tabId,
+              })}
+            >
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+            </li>
+          ))}
         </ul>
       </div>
-      <div className="block" data-cy="TabContent">
-        {currentContent || 'Please select a tab'}
-      </div>
-    </>
+      {selectadTabId ? (
+        <div className="block" data-cy="TabContent">
+          {selectadTabId.content}
+        </div>
+      ) : (
+        <div className="block" data-cy="TabContent">
+          Please select a tab
+        </div>
+      )}
+    </div>
   );
 };
