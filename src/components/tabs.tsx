@@ -3,8 +3,8 @@ import { tabsList } from '../tabsContent';
 import { Tab } from './tab';
 
 export const TabsPage = () => {
-  const { id } = useParams();
-  const tab = tabsList.find(elem => elem.id === id);
+  const { tabId } = useParams();
+  const tab = tabsList.find(elem => elem.id === tabId);
 
   return (
     <>
@@ -13,7 +13,11 @@ export const TabsPage = () => {
       <div className="tabs is-boxed">
         <ul>
           {tabsList.map(elem => (
-            <li key={elem.id} className={elem.id === id ? 'is-active' : ''}>
+            <li
+              key={elem.id}
+              className={elem.id === tabId ? 'is-active' : ''}
+              data-cy="Tab"
+            >
               <NavLink to={`${elem.id}`}>{elem.title}</NavLink>
             </li>
           ))}
