@@ -7,6 +7,7 @@ export const List = () => {
     <>
       {tabsList.map(elem => (
         <Route
+          key={elem.id}
           path={elem.id}
           element={<Tab key={elem.id} content={elem.content} />}
         />
