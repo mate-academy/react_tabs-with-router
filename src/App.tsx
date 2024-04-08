@@ -3,8 +3,8 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { NavLink, Navigate, Route, Routes } from 'react-router-dom';
 import classNames from 'classnames';
-import { HomePage } from './components/HomePage';
-import { Tabs } from './components/Tabs/Tabs';
+import { HomePage } from './Components/HomePage';
+import { Tabs } from './Components/Tabs/Tabs';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
