@@ -25,7 +25,7 @@ export const TabsPage: FC<Props> = ({ tabs }) => {
                 data-cy="Tab"
                 key={id}
               >
-                <Link to={`/tabs/${id}`} data-cy="TabLink" onClick={() => {}}>
+                <Link to={`/tabs/${id}`} data-cy="TabLink">
                   {title}
                 </Link>
               </li>
