@@ -19,6 +19,7 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
           {tabs.map(tab => (
             <li
               data-cy="Tab"
+              key={tab.id}
               className={classNames({ 'is-active': tabId === tab.id })}
             >
               <NavLink to={`./${tab.id}`}>{tab.title}</NavLink>
