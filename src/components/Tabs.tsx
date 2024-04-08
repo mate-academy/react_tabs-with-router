@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import cn from 'classnames';
+import React from 'react';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -14,10 +15,7 @@ export const Tabs = () => {
   return (
     <div className="section">
       <div className="container">
-        <h1 className="title">Home page</h1>
         <h1 className="title">Tabs page</h1>
-        <h1 className="title">Page not found</h1>
-
         <div className="tabs is-boxed">
           <ul>
             {tabs.map(tab => (
@@ -29,13 +27,6 @@ export const Tabs = () => {
                 <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
               </li>
             ))}
-
-            <li data-cy="Tab">
-              <a href="#/">Tab 2</a>
-            </li>
-            <li data-cy="Tab">
-              <a href="#/">Tab 3</a>
-            </li>
           </ul>
         </div>
 

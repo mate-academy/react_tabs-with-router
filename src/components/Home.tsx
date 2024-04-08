@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const Home = () => (
   <div className="section">
     <div className="container">

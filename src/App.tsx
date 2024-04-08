@@ -5,6 +5,7 @@ import cn from 'classnames';
 import { NavLink, Navigate, Route, Routes } from 'react-router-dom';
 import { Home } from './components/Home';
 import { Tabs } from './components/Tabs';
+import React from 'react';
 
 const getLinkActive = ({ isActive }: { isActive: boolean }) => {
   return cn('navbar-item', {
@@ -32,13 +33,13 @@ export const App = () => (
     </nav>
 
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route index element={<Home />} />
       <Route path="home" element={<Navigate to="/" />} />
       <Route path="tabs">
         <Route index element={<Tabs />} />
         <Route path=":tabsId" element={<Tabs />} />
       </Route>
-      <Route index element={<h1 className="title">Page not found</h1>} />
+      <Route path="*" element={<h1 className="title">Page not found</h1>} />
     </Routes>
   </>
 );
