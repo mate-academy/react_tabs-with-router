@@ -14,6 +14,7 @@ export const TabsPage: FC<Props> = ({ tabs }) => {
   return (
     <>
       <h1 className="title">Tabs page</h1>
+
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
@@ -34,7 +35,7 @@ export const TabsPage: FC<Props> = ({ tabs }) => {
         </ul>
       </div>
       <div className="block" data-cy="TabContent">
-        {currentTab ? currentTab?.content : 'Please select a tab'}
+        {currentTab ? currentTab.content : 'Please select a tab'}
       </div>
     </>
   );

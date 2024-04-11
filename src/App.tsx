@@ -27,6 +27,7 @@ export const App = () => (
           >
             Home
           </NavLink>
+
           <NavLink
             to="/tabs"
             className={({ isActive }) =>
@@ -43,11 +44,12 @@ export const App = () => (
       <div className="container">
         <Routes>
           <Route path="/" element={<h1 className="title">Home page</h1>} />
-          <Route path="tabs">
-            <Route index element={<TabsPage tabs={tabs} />} />
+          <Route path="home" element={<Navigate to="/" replace />} />
+
+          <Route path="tabs" element={<TabsPage tabs={tabs} />}>
             <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
           </Route>
-          <Route path="home" element={<Navigate to="/" />} />
+
           <Route path="*" element={<h1 className="title">Page not found</h1>} />
         </Routes>
       </div>
