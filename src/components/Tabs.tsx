@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import cn from 'classnames';
+import React from 'react';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },

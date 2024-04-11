@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Tabs from './components/Tabs';
 import NotFoundPage from './components/NotFoundPage';
 import classNames from 'classnames';
+import React from 'react';
 
 const isActiveLink = ({ isActive }: { isActive: boolean }) => {
   return classNames('navbar-item', { 'is-active': isActive });
