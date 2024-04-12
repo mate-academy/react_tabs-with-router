@@ -23,7 +23,7 @@ export const TabsPage = () => {
               key={tab.id}
               className={classNames({ 'is-active': tab.id === tabId })}
             >
-              <Link to={`${tab.id}`}>{tab.title}</Link>
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
           ))}
         </ul>
