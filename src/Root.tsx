@@ -1,4 +1,4 @@
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Navigate } from 'react-router-dom';
 import { App } from './App';
 import { Routes, Route } from 'react-router-dom';
 import { HomePage } from './components/pages/HomePage';
@@ -8,6 +8,7 @@ export const Root = () => (
   <Router>
     <Routes>
       <Route path="/" element={<App />}>
+      <Route path="home" element={<Navigate to="/" />} />
         <Route index element={<HomePage />} />
         <Route path="tabs">
           <Route index element={<TabsPage />} />
