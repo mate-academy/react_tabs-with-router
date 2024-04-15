@@ -9,7 +9,7 @@ export const Root = () => (
     <Routes>
       <Route path="/" element={<App />}>
         <Route index element={<HomePage />} />
-        <Route path="/home" element={<Navigate to=".." replace={true} />} />
+        <Route path="/home" element={<Navigate to="/" replace={true} />} />
         <Route path="tabs" element={<TabsPage />}>
           <Route index element={<TabsPage />} />
           <Route path=":tabId" element={<TabsPage />} />
