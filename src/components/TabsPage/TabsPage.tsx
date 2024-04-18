@@ -1,7 +1,7 @@
-import { useParams } from 'react-router-dom';
-import { TabInfo } from '../TabInfo/TabInfo';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
+import { TabInfo } from '../TabInfo';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
