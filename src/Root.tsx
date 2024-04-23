@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { App, tabs } from './App';
 import { Routes, Route } from 'react-router-dom';
 import { Homepage } from './components/HomePage';
-import { TabsPage } from './components/Tabs';
+import { TabsPage } from './components/TabsPage';
 
 export const Root = () => (
   <HashRouter>

@@ -7,6 +7,7 @@ type Props = {
 export const TabsPage: React.FC<Props> = ({ tabs }) => {
   const { tabId } = useParams();
   const selectedTabId = tabId ? tabId : 0;
+  const tabIds = tabs.map(tab => tab.id);
 
   return (
     <>
@@ -19,7 +20,7 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
         </ul>
       </div>
 
-      {selectedTabId !== 0 ? (
+      {tabIds.includes(`${selectedTabId}`) ? (
         tabs
           .filter(tab => tab.id === selectedTabId)
           .map(selectedTodo => (
