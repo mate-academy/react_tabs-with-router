@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Tab } from '../types/Tab';
 
 type Props = {
@@ -7,14 +7,10 @@ type Props = {
 
 type TabsAppContextType = {
   tabs: Tab[];
-  selectedTab: Tab | null;
-  setSelectedTab: (v: Tab | null) => void;
 };
 
 export const TabsAppContext = React.createContext<TabsAppContextType>({
   tabs: [],
-  selectedTab: null,
-  setSelectedTab: () => {},
 });
 
 const tabsArray = [
@@ -25,12 +21,9 @@ const tabsArray = [
 
 export const TabsAppProvider: React.FC<Props> = ({ children }) => {
   const tabs = tabsArray;
-  const [selectedTab, setSelectedTab] = useState<Tab | null>(null);
 
   const contextValue = {
     tabs,
-    selectedTab,
-    setSelectedTab,
   };
 
   return (
