@@ -28,7 +28,7 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
           ))}
         </ul>
       </div>
-      {formattedId ? (
+      {formattedId < 4 && formattedId > 0 ? (
         <div className="block" data-cy="TabContent">
           {tabs[formattedId - 1].content}
         </div>
