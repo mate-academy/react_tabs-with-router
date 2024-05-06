@@ -12,21 +12,24 @@ import { HomePage } from './pages/homePage';
 import { NotFoundPage } from './pages/notFoundPage';
 import { TabsPage } from './pages/tabsPage';
 import { App } from './App';
+import { TabsProvider } from './context/tabsContext';
 
 export const Root = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<HomePage />} />
-          <Route path="tabs">
-            <Route index element={<TabsPage />} />
-            <Route path=":tabId" element={<TabsPage />} />
+    <TabsProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<HomePage />} />
+            <Route path="tabs">
+              <Route index element={<TabsPage />} />
+              <Route path=":tabId" element={<TabsPage />} />
+            </Route>
+            <Route path="*" element={<NotFoundPage />} />
+            <Route path="home" element={<Navigate to="/" />} />
           </Route>
-          <Route path="*" element={<NotFoundPage />} />
-          <Route path="home" element={<Navigate to="/" />} />
-        </Route>
-      </Routes>
-    </Router>
+        </Routes>
+      </Router>
+    </TabsProvider>
   );
 };

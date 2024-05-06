@@ -1,10 +1,12 @@
+import { useContext } from 'react';
 import { TabsList } from '../components/tabsList';
+import { TabsContext } from '../context/tabsContext';
 import { useParams } from 'react-router-dom';
 
 export const TabsPage = () => {
   const { tabId } = useParams();
 
-  const clickedTab = tabId ? tabId.slice(-1) : '';
+  const { currentTab } = useContext(TabsContext);
 
   return (
     <>
@@ -15,7 +17,7 @@ export const TabsPage = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {clickedTab ? `Some Text ${clickedTab}` : 'Please select a tab'}
+        {tabId === currentTab.id ? currentTab.content : 'Please select a tab'}
       </div>
     </>
   );

@@ -1,12 +1,11 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Link, Outlet } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
-export const App = () => {
-  const [isTabsActive, setIsTabsActive] = useState(false);
+export const App: React.FC = () => {
+  const location = useLocation();
 
   return (
     <>
@@ -19,18 +18,20 @@ export const App = () => {
           <div className="navbar-brand">
             <Link
               to="/"
-              onClick={() => setIsTabsActive(false)}
               className={classNames('navbar-item', {
-                'is-active': !isTabsActive,
+                'is-active':
+                  location.pathname === '/' || location.pathname === '/home',
               })}
             >
               Home
             </Link>
+
             <Link
               to="/tabs"
-              onClick={() => setIsTabsActive(true)}
               className={classNames('navbar-item', {
-                'is-active': isTabsActive,
+                'is-active':
+                  location.pathname === '/tabs' ||
+                  location.pathname.startsWith('/tabs/'),
               })}
             >
               Tabs
