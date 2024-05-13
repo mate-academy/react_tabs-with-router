@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/components/TabList.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1715596367861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715596378386,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n import { FC } from \"react\";\n \n export const TabList: FC = () => (\n+  <>\n   <h1 className=\"title\">TabsPage</h1>\n   <Tabs />\n+  </>\n )\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1715596521029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import { FC } from 'react';\n+import { Tabs } from './Tab';\n \n export const TabList: FC = () => (\n   <>\n     <h1 className=\"title\">TabsPage</h1>\n"
+                },
+                {
+                    "date": 1715598619666,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { FC } from 'react';\n-import { Tabs } from './Tab';\n+import { Tab } from './Tab';\n \n export const TabList: FC = () => (\n   <>\n     <h1 className=\"title\">TabsPage</h1>\n-    <Tabs />\n+    <Tab />\n   </>\n );\n"
+                }
+            ],
+            "date": 1715596367861,
+            "name": "Commit-0",
+            "content": "import { FC } from \"react\";\n\nexport const TabList: FC = () => (\n  <h1 className=\"title\">TabsPage</h1>\n  <Tabs />\n)"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/index.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1715595425696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1715595425696,
+            "name": "Commit-0",
+            "content": "import { createRoot } from 'react-dom/client';\nimport { HashRouter as Router} from 'react-router-dom';\nimport { App } from './App';\n\ncreateRoot(document.getElementById('root') as HTMLElement).render(\n  <Router>\n    <App />\n  </Router>,\n);\n"
+        }
+    ]
+}
