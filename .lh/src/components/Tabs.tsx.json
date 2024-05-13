@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/Tabs.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1715598650515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715598954636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n           {tabs.map((tab: Tab) => (\n             <li\n               key={tab.id}\n               data-cy=\"Tab\"\n-              className={classNames({ 'is-active': activeTab?.id === tab.id })}\n+              className={classNames({ 'is-active': true })}\n             >\n               <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>\n             </li>\n           ))}\n"
+                },
+                {
+                    "date": 1715598964277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n           {tabs.map((tab: Tab) => (\n             <li\n               key={tab.id}\n               data-cy=\"Tab\"\n-              className={classNames({ 'is-active': true })}\n+              className={classNames({ 'is-active': activeTab?.id === tab.id })}\n             >\n               <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>\n             </li>\n           ))}\n"
+                }
+            ],
+            "date": 1715598650515,
+            "name": "Commit-0",
+            "content": "import { FC } from 'react';\nimport { Link } from 'react-router-dom';\nimport classNames from 'classnames';\nimport { useTabs } from '../providers/TabProvider';\nimport { Tab } from '../types/Tab';\nexport const Tabs: FC = () => {\n  const { tabs, activeTab } = useTabs();\n\n  return (\n    <div data-cy=\"TabsComponent\">\n      <div className=\"tabs is-boxed\">\n        <ul>\n          {tabs.map((tab: Tab) => (\n            <li\n              key={tab.id}\n              data-cy=\"Tab\"\n              className={classNames({ 'is-active': activeTab?.id === tab.id })}\n            >\n              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>\n            </li>\n          ))}\n        </ul>\n      </div>\n      <div className=\"block\" data-cy=\"TabContent\">\n        {activeTab ? activeTab.content : 'Please select a tab'}\n      </div>\n    </div>\n  );\n};\n"
+        }
+    ]
+}

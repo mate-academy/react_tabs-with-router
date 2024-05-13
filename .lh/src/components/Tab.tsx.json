@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/components/Tab.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1715596415540,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1715596461032,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,17 @@\n import { FC } from 'react';\n import { Link } from 'react-router-dom';\n import classNames from 'classnames';\n import { useTabs } from '../providers/TabsProvider';\n-\n+import { Tab } from '../types/Tab';\n export const Tabs: FC = () => {\n   const { tabs, activeTab } = useTabs();\n \n   return (\n     <div data-cy=\"TabsComponent\">\n       <div className=\"tabs is-boxed\">\n         <ul>\n-          {tabs.map(tab => (\n+          {tabs.map((tab: Tab) => (\n             <li\n               key={tab.id}\n               data-cy=\"Tab\"\n               className={classNames({ 'is-active': activeTab?.id === tab.id })}\n"
+                },
+                {
+                    "date": 1715596513707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import { FC } from 'react';\n import { Link } from 'react-router-dom';\n import classNames from 'classnames';\n-import { useTabs } from '../providers/TabsProvider';\n+import { useTabs } from '../providers/TabProvider';\n import { Tab } from '../types/Tab';\n export const Tabs: FC = () => {\n   const { tabs, activeTab } = useTabs();\n \n"
+                },
+                {
+                    "date": 1715597006352,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,5 +25,5 @@\n         {activeTab ? activeTab.content : 'Please select a tab'}\n       </div>\n     </div>\n   );\n-};\n\\ No newline at end of file\n+};\n"
+                }
+            ],
+            "date": 1715596415540,
+            "name": "Commit-0",
+            "content": "import { FC } from 'react';\nimport { Link } from 'react-router-dom';\nimport classNames from 'classnames';\nimport { useTabs } from '../providers/TabsProvider';\n\nexport const Tabs: FC = () => {\n  const { tabs, activeTab } = useTabs();\n\n  return (\n    <div data-cy=\"TabsComponent\">\n      <div className=\"tabs is-boxed\">\n        <ul>\n          {tabs.map(tab => (\n            <li\n              key={tab.id}\n              data-cy=\"Tab\"\n              className={classNames({ 'is-active': activeTab?.id === tab.id })}\n            >\n              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>\n            </li>\n          ))}\n        </ul>\n      </div>\n      <div className=\"block\" data-cy=\"TabContent\">\n        {activeTab ? activeTab.content : 'Please select a tab'}\n      </div>\n    </div>\n  );\n};"
+        }
+    ]
+}
