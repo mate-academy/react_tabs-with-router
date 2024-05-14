@@ -22,7 +22,7 @@ export const App = () => {
             <NavLink to="/" className={isLinkActive}>
               Home
             </NavLink>
-            <NavLink to="tabs" className={isLinkActive}>
+            <NavLink to="/tabs" className={isLinkActive}>
               Tabs
             </NavLink>
           </div>
