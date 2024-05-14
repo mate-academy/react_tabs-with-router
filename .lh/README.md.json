@@ -1,0 +1,18 @@
+{
+    "sourceFile": "README.md",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1715683702586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1715683702586,
+            "name": "Commit-0",
+            "content": "# React Tabs with Router\n\nImplement the `App` with `Home` page available at `/` and `Tabs` page available\nat `/tabs`. Each page should have the correct title `Home page` or `Tabs page`.\nThe `Tabs` page should also show a `Tabs` component implemented in [React Tabs JS](https://github.com/mate-academy/react_tabs-js#react-tabs-js)\nor [React Tabs](https://github.com/mate-academy/react_tabs#react-tabs).\n\n> Here is [the working version](https://mate-academy.github.io/react_tabs-with-router)\n\n1. Navigation with `Home` and `Tabs` links:\n    - should be visible on every page;\n    - should highlight an active link with `is-active` class;\n1. `TabsPage` page should work for both `/tabs` and `/tabs/:tabId` paths (use nested routes);\n    ```tsx\n    <Route path=\"tabs\">\n      <Route index element={<TabsPage />} />\n      <Route path=\":tabId\" element={<TabsPage />} />\n    </Route>\n    ```\n1. Each tab should update the URL on click.\n    - the URL should follow the next format `/tabs/:tabId` (use actual `tab.id` instead of `:tabId`);\n    - replace `<a href=\"#...\">` with `<Link to=\"/tabs/...\">` and remove `onClick`;\n    - **don't** use `NavLink` as `is-active` class is added to a parent element;\n    - read `tabId` from the URL using [useParams](https://reactrouter.com/docs/en/v6/hooks/use-params) hook;\n    - if the `tabId` does not match any tab show `Please select a tab` message instead of a tab content.\n1. The page should show the same content after a reload.\n1. Redirect from `/home` to `/` using the [Navigate](https://reactrouter.com/docs/en/v6/components/navigate) component;\n1. Show the `Page not found` title for all the other URLs;\n\n## Instructions\n- Install Prettier Extention and use this [VSCode settings](https://mate-academy.github.io/fe-program/tools/vscode/settings.json) to enable format on save.\n- Implement a solution following the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline).\n- Use the [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript).\n- Open one more terminal and run tests with `npm test` to ensure your solution is correct.\n- Replace `<your_account>` with your Github username in the [DEMO LINK](https://marinatea.github.io/react_tabs-with-router/) and add it to the PR description.\n\n"
+        }
+    ]
+}

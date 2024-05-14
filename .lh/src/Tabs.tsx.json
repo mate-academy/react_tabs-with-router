@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/Tabs.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1715683303815,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1715683303815,
+            "name": "Commit-0",
+            "content": "import { Link, useParams } from 'react-router-dom';\nimport classNames from 'classnames';\n\nconst tabs = [\n  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },\n  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },\n  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },\n];\n\nexport const Tabs: React.FC = () => {\n  const { tabId } = useParams();\n  const selectedTab = tabs.find(tab => tab.id === tabId);\n\n  return (\n    <>\n      <h1 className=\"title\">Tabs page</h1>\n\n      <div className=\"tabs is-boxed\">\n        <ul>\n          {tabs.map(tab => (\n            <li\n              key={tab.id}\n              data-cy=\"Tab\"\n              className={classNames({ 'is-active': tab === selectedTab })}\n            >\n              <Link to={`/tabs/${tab.id}`}>\n                {tab.title}\n              </Link>\n            </li>\n          ))}\n        </ul>\n      </div>\n\n      <div\n        className=\"block\"\n        data-cy=\"TabContent\"\n      >\n        {selectedTab ? selectedTab.content : 'Please select a tab'}\n      </div>\n    </>\n  );\n};\n"
+        }
+    ]
+}
