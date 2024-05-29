@@ -1,11 +1,11 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import {Navigate, NavLink, Route, Routes} from "react-router-dom";
-import classNames from "classnames";
-import {Home} from "./components/Home";
-import {PageNotFound} from "./components/PageNotFound";
-import {Tabs} from "./components/Tabs";
+import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
+import classNames from 'classnames';
+import { Home } from './components/Home';
+import { PageNotFound } from './components/PageNotFound';
+import { Tabs } from './components/Tabs';
 
 // const tabs = [
 //   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -13,8 +13,8 @@ import {Tabs} from "./components/Tabs";
 //   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 // ];
 
-function getNavLinkClass({isActive}: {isActive: boolean}) {
-  return classNames("navbar-item", {"is-active": isActive});
+function getNavLinkClass({ isActive }: { isActive: boolean }) {
+  return classNames('navbar-item', { 'is-active': isActive });
 }
 
 export const App = () => (
@@ -37,11 +37,11 @@ export const App = () => (
     </nav>
 
     <Routes>
-      <Route index element={<Home />}/>
-      <Route path="home" element={<Navigate to="/"/>}/>
-      <Route path="*" element={<PageNotFound/>}/>
+      <Route index element={<Home />} />
+      <Route path="home" element={<Navigate to="/" />} />
+      <Route path="*" element={<PageNotFound />} />
       <Route path="tabs">
-        <Route path=":selectedTabId?" element={<Tabs />}/>
+        <Route path=":selectedTabId?" element={<Tabs />} />
       </Route>
     </Routes>
   </>
