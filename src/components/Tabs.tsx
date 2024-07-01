@@ -8,10 +8,10 @@ export interface TabsProps {
 
 export const Tabs: React.FC<TabsProps> = ({ tabs, updateText }) => {
   const { tabId } = useParams();
-  const selectedTab = tabId;
-  const tab: Tab | undefined = tabs.find(tab => tab.id === selectedTab);
 
-  updateText(tab?.content);
+  const selectedTab: Tab | undefined = tabs.find(tab => tab.id === tabId);
+
+  updateText(selectedTab?.content);
 
   return (
     <div className="tabs is-boxed">
@@ -19,7 +19,7 @@ export const Tabs: React.FC<TabsProps> = ({ tabs, updateText }) => {
         {tabs.map(tab => (
           <li
             data-cy="Tab"
-            className={`${selectedTab === tab.id ? 'is-active' : ''} `}
+            className={`${selectedTab?.id === tab.id ? 'is-active' : ''} `}
             key={tab.id}
           >
             <NavLink to={`/tabs/${tab.id}`}>{tab.title}</NavLink>
