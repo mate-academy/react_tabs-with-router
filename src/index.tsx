@@ -9,7 +9,7 @@ createRoot(document.getElementById('root') as HTMLElement).render(
   <HashRouter>
     <Routes>
       <Route path="/" element={<App />}>
-        <Route path="home" element={<HomePage />} />
+        <Route index element={<HomePage />} />
         <Route path="tabs">
           <Route index element={<TabsPage />} />
           <Route path=":tabId" element={<TabsPage />} />
