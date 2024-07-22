@@ -1,27 +1,29 @@
 import { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { tabs } from '../App';
 import { Tabs } from './Tabs';
-import { useParams } from 'react-router-dom';
 
 type Props = {
   selectedTabId: string | null;
-  handleSelectedTab: (id: string) => void;
+  handleSelectedTab: (id: string | null) => void;
 };
 
 export const TabsPage: React.FC<Props> = ({
   selectedTabId,
   handleSelectedTab,
 }) => {
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
   const { tabId } = useParams<{ tabId?: string }>();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (tabId && tabs.some(tab => tab.id === tabId)) {
       handleSelectedTab(tabId);
-    } else if (!selectedTabId) {
-      handleSelectedTab(tabs[0].id);
+    } else {
+      handleSelectedTab(null);
     }
-  }, [handleSelectedTab, selectedTabId, tabId]);
+  }, [handleSelectedTab, tabId]);
+
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
 
   return (
     <div className="section">
@@ -31,7 +33,10 @@ export const TabsPage: React.FC<Props> = ({
         <Tabs
           tabs={tabs}
           selectedTabId={selectedTabId}
-          selectTab={handleSelectedTab}
+          selectTab={id => {
+            handleSelectedTab(id);
+            navigate(`/tabs/${id}`);
+          }}
         />
 
         <div className="block" data-cy="TabContent">
