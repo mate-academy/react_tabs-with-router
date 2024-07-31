@@ -1,10 +1,11 @@
 import { useContext } from 'react';
 import { TabContext } from '../context/Store';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 import cn from 'classnames';
 
 export const Tabs = () => {
   const tabs = useContext(TabContext);
+  const { id } = useParams();
 
   return (
     <div className="container">
@@ -12,25 +13,24 @@ export const Tabs = () => {
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
-            <NavLink
+            <li
               data-cy="Tab"
               key={tab.id}
-              to={`${tab.id}`}
-              className={({ isActive }) =>
-                cn('navbar-item', { 'is-active': isActive })
-              }
+              className={tab.id === id ? 'is-active' : ''}
             >
-              {tab.title}
-            </NavLink>
+              <NavLink
+                to={`${tab.id}`}
+                className={({ isActive }) =>
+                  cn('navbar-item', { 'is-active': isActive })
+                }
+              >
+                {tab.title}
+              </NavLink>
+            </li>
           ))}
         </ul>
       </div>
       <Outlet />
-      {/* <Routes>
-        {tabs.map(tab => (
-          <Route path={tab.id} element={<TabContent />} key={tab.id} />
-        ))}
-      </Routes> */}
     </div>
   );
 };

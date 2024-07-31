@@ -1,4 +1,9 @@
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import {
+  Navigate,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from 'react-router-dom';
 import { App } from './App';
 import { GlobalProvider, TabContext } from './context/Store';
 import { Home } from './components/Home';
@@ -15,11 +20,13 @@ export const Root = () => {
       <GlobalProvider>
         <Routes>
           <Route path="/" element={<App />}>
-            <Route element={<Home />} />
-            <Route path="/tabs" element={<Tabs />} />
+            <Route index element={<Home />} />
+            <Route path="tabs/" element={<Tabs />}>
               {tabs.map(tab => (
-                <Route path={`tabs/${tab.id}`} element={<TabContent />} key={tab.id} />
+                <Route path=":id" element={<TabContent />} key={tab.id} />
               ))}
+            </Route>
+            <Route path="home" element={<Navigate to="/" />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

@@ -1,7 +1,14 @@
+import { useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { TabContext } from '../context/Store';
+
 export const TabContent = () => {
+  const tabs = useContext(TabContext);
+  const { id } = useParams();
+
   return (
     <div className="block" data-cy="TabContent">
-      Please select a tab
+      {tabs.map(tab => tab.id === id && tab.content)}
     </div>
   );
 };
