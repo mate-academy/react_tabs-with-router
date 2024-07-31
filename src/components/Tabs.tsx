@@ -30,7 +30,13 @@ export const Tabs = () => {
           ))}
         </ul>
       </div>
-      <Outlet />
+      {tabs.find(tab => tab.id === id) === undefined ? (
+        <div className="block" data-cy="TabContent">
+          Please select a tab
+        </div>
+      ) : (
+        <Outlet />
+      )}
     </div>
   );
 };

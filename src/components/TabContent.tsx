@@ -8,7 +8,9 @@ export const TabContent = () => {
 
   return (
     <div className="block" data-cy="TabContent">
-      {tabs.map(tab => tab.id === id && tab.content)}
+      {tabs.map(tab => {
+        return tab.id === id && tab.content;
+      })}
     </div>
   );
 };
