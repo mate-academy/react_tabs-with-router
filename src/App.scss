@@ -1,3 +1,13 @@
-iframe {
-  display: none;
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-right: 10px;
+}
+
+nav .is-active {
+  font-weight: bold;
 }
