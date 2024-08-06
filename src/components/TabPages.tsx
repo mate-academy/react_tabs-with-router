@@ -12,17 +12,15 @@ export const TabPages: React.FC = () => {
 
       <div className="tabs is-boxed">
         <ul>
-          {
-            tabs.map(tab => (
-              <li
-                key={tab.id}
-                data-cy="Tab"
-                className={tabsId === tab.id ? 'is-active' : ''}
-              >
-                <NavLink to={`/tabs/${tab.id}`}>{tab.title}</NavLink>
-              </li>
-            ))
-          }
+          {tabs.map(tab => (
+            <li
+              key={tab.id}
+              data-cy="Tab"
+              className={tabsId === tab.id ? 'is-active' : ''}
+            >
+              <NavLink to={`/tabs/${tab.id}`}>{tab.title}</NavLink>
+            </li>
+          ))}
         </ul>
       </div>
 
@@ -30,5 +28,5 @@ export const TabPages: React.FC = () => {
         {currentTab ? currentTab.content : 'Please select a tab'}
       </div>
     </>
-  )
-}
+  );
+};
