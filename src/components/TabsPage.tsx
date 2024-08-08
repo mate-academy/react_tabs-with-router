@@ -10,14 +10,12 @@ export const TabsPage = () => {
 
   const { tabId } = useParams();
 
-  const obj = tabs.find(tab => {
-    return tab.id === tabId;
-  });
+  const obj = tabs.find(tab => tab.id === tabId);
 
   let activeId = 'tab-0';
 
   if (obj?.id) {
-    activeId = obj?.id;
+    activeId = obj.id;
   }
 
   const index = +activeId[activeId.length - 1];
@@ -25,7 +23,6 @@ export const TabsPage = () => {
   return (
     <>
       <h1 className="title">Tabs page</h1>
-
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
@@ -41,7 +38,6 @@ export const TabsPage = () => {
           ))}
         </ul>
       </div>
-
       <div className="block" data-cy="TabContent">
         {activeId === 'tab-0' ? 'Please select a tab' : tabs[index - 1].content}
       </div>
