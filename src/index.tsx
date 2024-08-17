@@ -13,7 +13,7 @@ createRoot(document.getElementById('root') as HTMLElement).render(
         <Route path="/tabs">
           <Route path=":tabId?" element={<Tabs />} />
         </Route>
-        <Route path="*" element={<h1 className="Title">Page not found</h1>} />
+        <Route path="*" element={<h1 className="title">Page not found</h1>} />
       </Route>
     </Routes>
   </HashRouter>,
