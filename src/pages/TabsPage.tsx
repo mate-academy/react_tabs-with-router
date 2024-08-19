@@ -5,7 +5,7 @@ export const TabsPage = () => {
   let selectedTabId = tabId ? tabId.replace('tab-', '') : '';
 
   if (+selectedTabId > 3) {
-    selectedTabId = ''
+    selectedTabId = '';
   }
 
   return (
