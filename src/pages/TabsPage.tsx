@@ -2,7 +2,11 @@ import { Link, useParams } from 'react-router-dom';
 
 export const TabsPage = () => {
   const { tabId } = useParams();
-  const selectedTabId = tabId ? tabId.replace('tab-', '') : '';
+  let selectedTabId = tabId ? tabId.replace('tab-', '') : '';
+
+  if (+selectedTabId > 3) {
+    selectedTabId = ''
+  }
 
   return (
     <>
