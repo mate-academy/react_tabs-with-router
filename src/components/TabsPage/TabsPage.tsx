@@ -10,9 +10,9 @@ const tabs = [
 
 export const TabsPage: React.FC = () => {
   const { tabId } = useParams();
+  const isActualTabId = tabs.some(({ id }) => id === tabId);
   const content = tabs.find(({ id }) => id === tabId)?.content;
-
-  const text = tabId ? content : 'Please select a tab';
+  const text = tabId && isActualTabId ? content : 'Please select a tab';
 
   return (
     <>
