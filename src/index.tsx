@@ -1,9 +1,12 @@
 import { createRoot } from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
-import { App } from './App';
+import { TabProvider } from './context/TabContext';
+import { Router } from './Router/Router';
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <HashRouter>
-    <App />
+    <TabProvider>
+      <Router />
+    </TabProvider>
   </HashRouter>,
 );
