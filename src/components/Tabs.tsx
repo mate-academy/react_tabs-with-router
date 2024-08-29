@@ -28,9 +28,7 @@ export const TabsPage = ({ tabs }: Props) => {
               data-cy="Tab"
               key={tab.id}
             >
-              <Link to={`/tabs/${tab.id}`} data-cy="Tab">
-                {tab.title}
-              </Link>
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
           ))}
         </ul>
