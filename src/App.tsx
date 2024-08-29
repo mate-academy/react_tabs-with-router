@@ -5,6 +5,7 @@ import { NavLink, Route, Routes } from 'react-router-dom';
 import { Home } from './components/Home';
 import { TabsPage } from './components/Tabs';
 import classNames from 'classnames';
+import { NotFoundPage } from './components/NotFoundPage';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -45,6 +46,7 @@ export const App = () => (
         <Route path="/" element={<Home />} />
         <Route path="/tabs" element={<TabsPage tabs={tabs} />} />
         <Route path="/tabs/:tabId" element={<TabsPage tabs={tabs} />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   </>
