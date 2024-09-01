@@ -1,6 +1,5 @@
-import classNames from 'classnames';
-import { NavLink, useParams } from 'react-router-dom';
-// import { TabsItem } from './TabsItem';
+import { useParams } from 'react-router-dom';
+import { TabsItem } from './TabsItem';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -10,20 +9,13 @@ const tabs = [
 
 export const TabsList = () => {
   const { tabId } = useParams();
-  const isLinkActive = (id: string) => id === tabId;
 
   return (
     <>
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
-            <li
-              data-cy="Tab"
-              className={classNames({ 'is-active': isLinkActive(tab.id) })}
-              key={tab.id}
-            >
-              <NavLink to={`${tab.id}`}>{`${tab.title}`}</NavLink>
-            </li>
+            <TabsItem tab={tab} key={tab.id} />
           ))}
         </ul>
       </div>

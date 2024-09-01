@@ -3,7 +3,6 @@ import { App } from './App';
 import { HomePage } from './pages/HomePage';
 import { TabsPage } from './pages/TabsPage';
 import { TabsList } from './components/TabsList';
-// import { TabsItem } from './components/TabsList/TabsItem';
 
 export const Root = () => {
   return (
