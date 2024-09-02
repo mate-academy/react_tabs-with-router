@@ -14,10 +14,15 @@ export const TabsPage = () => {
   return (
     <div className="section">
       <div className="container">
+        <h1 className="title">Tabs page</h1>
         <div className="tabs is-boxed">
           <ul>
             {tabs.map(tab => (
-              <li key={tab.id} className={tab.id === tabId ? 'is-active' : ''}>
+              <li
+                key={tab.id}
+                className={tab.id === tabId ? 'is-active' : ''}
+                data-cy="Tab"
+              >
                 <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
               </li>
             ))}
