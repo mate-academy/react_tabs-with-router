@@ -1,23 +1,23 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Link, Routes, Route, useLocation } from 'react-router-dom';
+import { Link, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 
 const Tab1Content = () => (
   <div className="block" data-cy="TabContent">
-    Some text in tab 1
+    Some text 1
   </div>
 );
 
 const Tab2Content = () => (
   <div className="block" data-cy="TabContent">
-    Some text in tab 2
+    Some text 2
   </div>
 );
 
 const Tab3Content = () => (
   <div className="block" data-cy="TabContent">
-    Some text in tab 3
+    Some text 3
   </div>
 );
 
@@ -32,16 +32,19 @@ const TabsPage = () => {
         <ul>
           <li
             className={location.pathname === '/tabs/tab-1' ? 'is-active' : ''}
+            data-cy="Tab"
           >
             <Link to="tab-1">Tab 1</Link>
           </li>
           <li
             className={location.pathname === '/tabs/tab-2' ? 'is-active' : ''}
+            data-cy="Tab"
           >
             <Link to="tab-2">Tab 2</Link>
           </li>
           <li
             className={location.pathname === '/tabs/tab-3' ? 'is-active' : ''}
+            data-cy="Tab"
           >
             <Link to="tab-3">Tab 3</Link>
           </li>
@@ -60,29 +63,43 @@ const TabsPage = () => {
   );
 };
 
-export const App = () => (
-  <>
+const NotFoundPage = () => (
+  <h1 className="title">Page not found</h1>
+);
+
+const Navigation = () => {
+  const location = useLocation();
+
+  return (
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
       data-cy="Nav"
     >
       <div className="container">
         <div className="navbar-brand">
-          <Link to="/" className="navbar-item">
+          <Link to="/" className={`navbar-item ${location.pathname === '/' ? 'is-active' : ''}`}>
             Home
           </Link>
-          <Link to="/tabs" className="navbar-item">
+          <Link to="/tabs" className={`navbar-item ${location.pathname.startsWith('/tabs') ? 'is-active' : ''}`}>
             Tabs
           </Link>
         </div>
       </div>
     </nav>
+  );
+};
+
+export const App = () => (
+  <>
+    <Navigation />
 
     <div className="section">
       <div className="container">
         <Routes>
           <Route path="/" element={<h1 className="title">Home page</h1>} />
+          <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="/tabs/*" element={<TabsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
     </div>
