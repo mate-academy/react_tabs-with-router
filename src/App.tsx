@@ -1,19 +1,7 @@
-import { useState } from 'react';
-import { NavLink, Routes, Route } from 'react-router-dom';
-import { HomePage } from './Components/HomePage';
-import { TabsPage } from './Components/TabsPage';
-import classNames from 'classnames';
-
-type Page = 'home' | 'tabs';
-
-const getLinkClass = ({ isActive }: { isActive: boolean }) =>
-  classNames('navbar-item', {
-    'is-active': isActive,
-  });
+import { NavLink, Outlet } from 'react-router-dom';
+import 'bulma/css/bulma.css';
 
 export const App = () => {
-  const [page, setPage] = useState<Page>('home');
-
   return (
     <>
       {/* Also requires <html class="has-navbar-fixed-top"> */}
@@ -25,15 +13,17 @@ export const App = () => {
           <div className="navbar-brand">
             <NavLink
               to="/"
-              className={getLinkClass}
-              onClick={() => setPage('home')}
+              className={({ isActive }) =>
+                `navbar-item ${isActive ? 'is-active' : ''}`
+              }
             >
               Home
             </NavLink>
             <NavLink
               to="/tabs"
-              className={getLinkClass}
-              onClick={() => setPage('tabs')}
+              className={({ isActive }) =>
+                `navbar-item ${isActive ? 'is-active' : ''}`
+              }
             >
               Tabs
             </NavLink>
@@ -43,16 +33,7 @@ export const App = () => {
 
       <div className="section">
         <div className="container">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-
-            <Route path="/tabs">
-              <Route index element={<TabsPage />} />
-              <Route path=":tabId" element={<TabsPage />} />
-            </Route>
-          </Routes>
-
-          {page !== 'home' && <h1 className="title">Page not found</h1>}
+          <Outlet />
         </div>
       </div>
     </>
