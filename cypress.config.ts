@@ -19,8 +19,8 @@ module.exports = defineConfig({
   component: {
     specPattern: 'src/**/*.spec.{js,ts,jsx,tsx}',
     devServer: {
-      framework: 'react',
-      bundler: 'vite',
+      framework: 'create-react-app',
+      bundler: 'webpack',
     },
   },
 });
