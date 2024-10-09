@@ -65,12 +65,12 @@ import { TabsPage } from './components/TabsPage';
 import { Navigate } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 
-
 export const App: React.FC = () => {
   const getLinkClass = ({ isActive }: { isActive: boolean }) =>
     classNames('navbar-item', { 'is-active': isActive });
 
   const location = useLocation();
+
   return (
     <>
       <nav
@@ -97,12 +97,15 @@ export const App: React.FC = () => {
         <div className="container">
           <Routes>
             <Route path="/" element={<h1 className="title">Home page</h1>} />
-            <Route path="/home" element={<Navigate to='/' />} />
+            <Route path="/home" element={<Navigate to="/" />} />
             <Route path="tabs">
               <Route index element={<TabsPage />} />
               <Route path=":tabId" element={<TabsPage />} />
             </Route>
-            <Route path="*" element={<h1 className='title'>Page not found</h1>} />
+            <Route
+              path="*"
+              element={<h1 className="title">Page not found</h1>}
+            />
           </Routes>
         </div>
       </div>
