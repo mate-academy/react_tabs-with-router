@@ -1,9 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
+import { useLocation } from 'react-router-dom';
+
 
 export const NotFoundPage: React.FC = () => {
   const getLinkClass = ({ isActive }: { isActive: boolean }) =>
     classNames('navbar-item', { 'is-active': isActive });
+
+  const location = useLocation();
+
   return (
     <>
       <nav
@@ -26,7 +31,7 @@ export const NotFoundPage: React.FC = () => {
           </div>
         </div>
       </nav>
-      <h1 className="title">Page not found</h1>
+
     </>
   );
 };
