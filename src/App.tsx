@@ -55,7 +55,6 @@
 //   </>
 // );
 
-
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -63,14 +62,11 @@ import { NavLink, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 import { Outlet } from 'react-router-dom';
 
-
 export const App: React.FC = () => {
-  const getLinkClass = ({ isActive } : { isActive: boolean }) => classNames(
-    "navbar-item", { "is-active" : isActive});
+  const getLinkClass = ({ isActive }: { isActive: boolean }) =>
+    classNames('navbar-item', { 'is-active': isActive });
 
   const location = useLocation();
-
-  console.log('location', location.pathname.startsWith('/tabs'));
 
   return (
     <>
@@ -84,7 +80,12 @@ export const App: React.FC = () => {
             <NavLink to="/" className={getLinkClass}>
               Home
             </NavLink>
-            <NavLink to="/tabs" className={classNames("navbar-item", {"is-active": location.pathname.startsWith('/tabs')})}>
+            <NavLink
+              to="/tabs"
+              className={classNames('navbar-item', {
+                'is-active': location.pathname.startsWith('/tabs'),
+              })}
+            >
               Tabs
             </NavLink>
           </div>
@@ -98,4 +99,4 @@ export const App: React.FC = () => {
       </div>
     </>
   );
-}
+};

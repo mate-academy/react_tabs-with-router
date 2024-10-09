@@ -1,6 +1,5 @@
-import { Tabs } from "./Tabs";
+import { Tabs } from './Tabs';
 import { useParams } from 'react-router-dom';
-
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -10,21 +9,15 @@ const tabs = [
 
 export const TabsPage: React.FC = () => {
   const { tabId } = useParams();
-  const activeTabId = tabs.find((tab) => tab.id === tabId);
+  const activeTabId = tabs.find(tab => tab.id === tabId);
+
   return (
     <>
-
-     <h1 className="title">Tabs page</h1>
-      <Tabs
-        tabs={tabs}
-        activeTabId={activeTabId? activeTabId.id : ''}
-      />
+      <h1 className="title">Tabs page</h1>
+      <Tabs tabs={tabs} activeTabId={activeTabId ? activeTabId.id : ''} />
       <div className="block" data-cy="TabContent">
         {activeTabId ? activeTabId.content : 'Please select a tab'}
       </div>
     </>
-
-
-
-  )
-}
+  );
+};
