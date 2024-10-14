@@ -57,11 +57,13 @@ export const App = () => {
                   <h1 className="title">Tabs page</h1>
                   <div className="tabs is-boxed">
                     <ul>
-                      {tabs.map((tab) => (
+                      {tabs.map(tab => (
                         <li
                           key={tab.id}
                           data-cy="Tab"
-                          className={classNames({ 'is-active': activeTab === tab.id })}
+                          className={classNames({
+                            'is-active': activeTab === tab.id,
+                          })}
                         >
                           <NavLink
                             to={tab.id}
@@ -75,7 +77,7 @@ export const App = () => {
                   </div>
 
                   <Routes>
-                    {tabs.map((tab) => (
+                    {tabs.map(tab => (
                       <Route
                         key={tab.id}
                         path={tab.id}
@@ -100,7 +102,10 @@ export const App = () => {
               }
             />
 
-            <Route path="*" element={<h1 className="title">Page not found</h1>} />
+            <Route
+              path="*"
+              element={<h1 className="title">Page not found</h1>}
+            />
           </Routes>
         </div>
       </div>
