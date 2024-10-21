@@ -8,11 +8,10 @@ export const tabs = [
 ];
 
 export const Tabs = () => {
-  // const [selectedTabId, setSelectedTabId] = useState(tabs[0]);
   const { tabId } = useParams();
   const selectedTabsId = tabId ? tabId : '';
 
-  const content = tabs.find(tab => tabId === tab.id)?.content;
+  const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
@@ -33,15 +32,9 @@ export const Tabs = () => {
           })}
         </ul>
       </div>
-      {selectedTabsId ? (
-        <div className="block" data-cy="TabContent">
-          {content}
-        </div>
-      ) : (
-        <div className="block" data-cy="TabContent">
-          Please select a tab
-        </div>
-      )}
+      <div className="block" data-cy="TabContent">
+        {selectedTab ? selectedTab.content : 'Please select a tab'}
+      </div>
     </>
   );
 };

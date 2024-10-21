@@ -9,14 +9,13 @@ const getLinkClass = ({ isActive }: { isActive: boolean }) =>
 
 export const App = () => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
       data-cy="Nav"
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to="/home" className={getLinkClass}>
+          <NavLink to="/" className={getLinkClass}>
             Home
           </NavLink>
           <NavLink to="/tabs" className={getLinkClass}>
@@ -27,9 +26,6 @@ export const App = () => (
     </nav>
     <div className="section">
       <div className="container">
-        {/* <h1 className="title">Home page</h1>
-        <h1 className="title">Tabs page</h1>
-        <h1 className="title">Page not found</h1> */}
         <Outlet />
       </div>
     </div>
