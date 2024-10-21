@@ -21,10 +21,10 @@ or [React Tabs](https://github.com/mate-academy/react_tabs#react-tabs).
     - the URL should follow the next format `/tabs/:tabId` (use actual `tab.id` instead of `:tabId`);
     - replace `<a href="#...">` with `<Link to="/tabs/...">` and remove `onClick`;
     - **don't** use `NavLink` as `is-active` class is added to a parent element;
-    - read `tabId` from the URL using [useParams](https://reactrouter.com/en/main/hooks/use-params) hook;
+    - read `tabId` from the URL using [useParams](https://reactrouter.com/docs/en/v6/hooks/use-params) hook;
     - if the `tabId` does not match any tab show `Please select a tab` message instead of a tab content.
 1. The page should show the same content after a reload.
-1. Redirect from `/home` to `/` using the [Navigate](https://reactrouter.com/en/main/components/navigate) component;
+1. Redirect from `/home` to `/` using the [Navigate](https://reactrouter.com/docs/en/v6/components/navigate) component;
 1. Show the `Page not found` title for all the other URLs;
 
 ## Instructions
@@ -32,5 +32,5 @@ or [React Tabs](https://github.com/mate-academy/react_tabs#react-tabs).
 - Implement a solution following the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline).
 - Use the [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript).
 - Open one more terminal and run tests with `npm test` to ensure your solution is correct.
-- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_tabs-with-router/) and add it to the PR description.
+- Replace `<your_account>` with your Github username in the [DEMO LINK](https://meljaszuk.github.io/react_tabs-with-router/) and add it to the PR description.
 
