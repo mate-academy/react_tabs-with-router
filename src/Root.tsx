@@ -2,22 +2,22 @@ import {
   HashRouter as Router,
   Route,
   Routes,
-  // Navigate,
+  Navigate,
 } from 'react-router-dom';
 import { App } from './App';
 import { HomePage } from './pages/HomePage';
 import { TabsPage } from './pages/TabsPage';
 
-// const HomeRedirect = () => {
-//   return <Navigate to="/" />;
-// };
+const HomeRedirect = () => {
+  return <Navigate to="/" />;
+};
 
 export const Root = () => (
   <Router>
     <Routes>
       <Route path="/" element={<App />}>
-        {/* <Route path="home" element={<HomeRedirect />} /> */}
-        <Route index element={<HomePage />} />
+        <Route path="/" element={<HomeRedirect />} />
+        <Route path="home" element={<HomePage />} />
         <Route path="tabs">
           <Route index element={<TabsPage />} />
           <Route path=":tabId" element={<TabsPage />} />
