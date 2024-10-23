@@ -12,22 +12,23 @@ const getLinkClass = ({ isActive }: { isActive: boolean }) =>
 
 export const App = () => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
-    <nav
-      className="navbar is-light is-fixed-top is-mobile has-shadow"
-      data-cy="Nav"
-    >
-      <div className="container">
-        <div className="navbar-brand">
-          <NavLink to="/" className={getLinkClass}>
-            Home
-          </NavLink>
-          <NavLink to="/tabs" className={getLinkClass}>
-            Tabs
-          </NavLink>
+    <html className="has-navbar-fixed-top">
+      <nav
+        className="navbar is-light is-fixed-top is-mobile has-shadow"
+        data-cy="Nav"
+      >
+        <div className="container">
+          <div className="navbar-brand">
+            <NavLink to="/" className={getLinkClass}>
+              Home
+            </NavLink>
+            <NavLink to="/tabs" className={getLinkClass}>
+              Tabs
+            </NavLink>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </html>
 
     <div className="section">
       <div className="container">
