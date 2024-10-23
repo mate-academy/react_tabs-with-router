@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 
 export const TabsPage = () => {
   const { tabId } = useParams<{ tabId: string }>();
-  const selectedTab = tabId ? tabs.find(tab => tab.id === tabId) : undefined;
+  const selectedTab = tabs.find(tab => tab.id === tabId);
 
   const [content, setContent] = useState<string | undefined>(undefined);
 
