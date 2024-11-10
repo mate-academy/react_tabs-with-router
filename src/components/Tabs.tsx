@@ -8,7 +8,9 @@ type Props = {
 export const Tabs: React.FC<Props> = ({ tabs }) => {
   const { tabId } = useParams();
 
-  const index = tabId?.substring(tabId.length - 1) || 0;
+  const selectedTab  =  tabs.find(tab => tab.id === tabId);
+
+  // const index = tabId?.substring(tabId.length - 1) || 0;
 
   return (
     <div className="section">
@@ -24,17 +26,11 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
                 key={tab.id}
               >
                 {tabId === tab.id ? (
-                  <Link
-                    to="/tabs"
-                    data-cy="TabLink"
-                  >
+                  <Link to="/tabs" data-cy="TabLink">
                     {tab.title}
                   </Link>
                 ) : (
-                  <Link
-                    to={`/tabs/${tab.id}`}
-                    data-cy="TabLink"
-                  >
+                  <Link to={`/tabs/${tab.id}`} data-cy="TabLink">
                     {tab.title}
                   </Link>
                 )}
@@ -43,13 +39,13 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
           </ul>
         </div>
 
-        {+index > tabs.length || index === 0 ? (
+        {!selectedTab ? (
           <div className="block" data-cy="TabContent">
             Please select a tab
           </div>
         ) : (
           <div className="block" data-cy="TabContent">
-            {tabs[+index - 1]?.content}
+            {selectedTab.content}
           </div>
         )}
       </div>

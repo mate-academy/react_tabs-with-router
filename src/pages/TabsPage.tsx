@@ -1,5 +1,5 @@
-import { Tabs } from "../components/Tabs"
-import { Outlet } from "react-router-dom";
+import { Tabs } from '../components/Tabs';
+import { Outlet } from 'react-router-dom';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -8,15 +8,11 @@ const tabs = [
 ];
 
 export const TabsPage = () => {
-
   return (
     <>
-    <Tabs
-            tabs={tabs}
-    />
+      <Tabs tabs={tabs} />
 
       <Outlet />
-      </>
-  )
-}
-
+    </>
+  );
+};
