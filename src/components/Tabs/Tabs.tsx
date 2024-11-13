@@ -12,7 +12,10 @@ export const Tabs: React.FC<Props> = ({ tab }) => {
   const selectedTabId = tabId ? tabId : 0;
 
   return (
-    <li data-cy="Tab" className={classNames({'is-active': selectedTabId === tab.id})}>
+    <li
+      data-cy="Tab"
+      className={classNames({ 'is-active': selectedTabId === tab.id })}
+    >
       <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
     </li>
   );

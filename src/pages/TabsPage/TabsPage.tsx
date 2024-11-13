@@ -10,10 +10,7 @@ const tabs = [
 
 export const TabsPage: React.FC = () => {
   const { tabId } = useParams();
-  const selectedTabId = tabId ? tabId : 0;
-
-  console.log(selectedTabId);
-  
+  const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
@@ -27,16 +24,9 @@ export const TabsPage: React.FC = () => {
         </ul>
       </div>
 
-      {selectedTabId === 0 ? (
-        <div className="block" data-cy="TabContent">
-          Please select a tab
-        </div>
-      ) : (
-        <div className="block" data-cy="TabContent">
-          {selectedTabId}
-          {/* for example */}
-        </div>
-      )}
+      <div className="block" data-cy="TabContent">
+        {selectedTab ? selectedTab.content : 'Please select a tab'}
+      </div>
     </>
   );
 };
