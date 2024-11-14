@@ -1,7 +1,14 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  Link,
+  useLocation,
+  Navigate,
+  Outlet,
+} from 'react-router-dom';
 import { TabsPage } from './pages/TabsPage';
 import { PageNotFound } from './pages/PageNotFound';
 import { HomePage } from './pages/HomePage';
@@ -38,6 +45,12 @@ export const App: React.FC = () => {
           </div>
         </div>
       </nav>
+
+      <div className="section">
+        <div className="container">
+          <Outlet />
+        </div>
+      </div>
 
       <Routes>
         <Route path="/" element={<HomePage />} />
