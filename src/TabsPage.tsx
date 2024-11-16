@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { NavComponent } from './components/navComponent';
+import { NavComponent } from './components/NavComponent';
 
 export function TabsPage() {
   const tabs = [

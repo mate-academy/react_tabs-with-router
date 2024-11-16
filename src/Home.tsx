@@ -1,4 +1,4 @@
-import { NavComponent } from './components/navComponent';
+import { NavComponent } from './components/NavComponent';
 
 export function Home() {
   return (
