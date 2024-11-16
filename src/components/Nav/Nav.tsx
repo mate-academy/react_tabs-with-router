@@ -9,8 +9,9 @@ export const Nav = () => (
   >
     <div className="container">
       <div className="navbar-brand">
-        {navLinks.map(({ path, title }) => (
+        {navLinks.map(({ path, title, id }) => (
           <NavLink
+            key={id}
             to={path}
             className={({ isActive }) =>
               cn('navbar-item', { 'is-active': isActive })
