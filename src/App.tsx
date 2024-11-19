@@ -27,6 +27,9 @@ export const App = () => (
       </div>
     </nav>
 
+    <div>test </div>
+    <div>test </div>
+
     <div className="section">
       <div className="container">
         <h1 className="title">Home page</h1>
