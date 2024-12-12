@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-import { tabs } from '../utils/Tabs';
+import { tabs } from '../utils/tabs';
 
 export const Tabs = () => {
   const { tabId } = useParams();
