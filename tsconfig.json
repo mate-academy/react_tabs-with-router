@@ -4,6 +4,9 @@
     "src"
   ],
   "compilerOptions": {
+    "jsx": "react-jsx", // Указывает, что используется React 17+ с новой трансформацией JSX.
+    "module": "ESNext", // Рекомендуется для React, особенно если используете ES-модули.
+    "target": "ES6", // Устанавливает уровень синтаксиса ECMAScript.
     "sourceMap": false,
     "types": ["node", "cypress"]
   }
