@@ -1,0 +1,12 @@
+.tabs li.is-active a {
+  border-bottom-color: #485fc7;
+  color: #485fc7;
+}
+
+
+.tabs.is-boxed li.is-active a {
+  background-color: #fff;
+  border-color: #dbdbdb;
+  border-bottom-color: transparent !important;
+}
+
