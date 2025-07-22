@@ -1,3 +1,9 @@
 iframe {
   display: none;
 }
+
+@media screen and (min-width: 1024px) {
+  .navbar.is-fixed-bottom, .navbar.is-fixed-top {
+    position: unset;
+  }
+}
