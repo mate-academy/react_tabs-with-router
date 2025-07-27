@@ -20,7 +20,7 @@ export const SectionTabs: React.FC = () => {
                     location.pathname === `/tabs/${id}` ? 'is-active' : ''
                   }
                 >
-                  <Link to={id}>{title}</Link>
+                  <Link to={`/tabs/${id}`}>{title}</Link>
                 </li>
               );
             })}
