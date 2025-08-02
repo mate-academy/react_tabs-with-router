@@ -1,3 +1,6 @@
+import { App } from '../../src/App.tsx';
+import React from 'react';
+
 /// <reference types="Cypress" />
 const page = {
   title: () => cy.get('.title'),
@@ -21,8 +24,8 @@ describe('', () => {
   });
 
   describe('App by default', () => {
-    it('should show only Home page title at /', () => {
-      cy.visit('/');
+it('should show only Home page title at /', () => {
+  cy.mount(<App />);
       page.title()
         .should('have.length', 1)
         .and('have.text', 'Home page');
