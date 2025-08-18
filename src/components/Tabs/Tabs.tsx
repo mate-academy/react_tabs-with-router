@@ -1,13 +1,12 @@
-import { Tab } from '../../types/Tab';
 import { Link } from 'react-router-dom';
+import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[];
   activeTabId?: string;
-  onTabSelected: (tabId: string) => void;
 };
 
-export const Tabs = ({ tabs, activeTabId, onTabSelected }: Props) => {
+export const Tabs = ({ tabs, activeTabId }: Props) => {
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -21,7 +20,8 @@ export const Tabs = ({ tabs, activeTabId, onTabSelected }: Props) => {
               <Link
                 to={`/tabs/${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => onTabSelected(tab.id)}
+                className="tab-link"
+                replace
               >
                 {tab.title}
               </Link>

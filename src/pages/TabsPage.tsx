@@ -1,6 +1,6 @@
-import { useParams } from 'react-router-dom';
-import { Tab } from '../types/Tab';
+import { useParams, useLocation } from 'react-router-dom';
 import { Tabs } from '../components/Tabs/Tabs';
+import { Tab } from '../types/Tab';
 
 type Props = {
   tabs: Tab[];
@@ -8,11 +8,13 @@ type Props = {
 
 export const TabsPage = ({ tabs }: Props) => {
   const { tabId } = useParams();
+  const location = useLocation();
+  const shouldShowActiveTab = !(location.pathname === '/tabs' && !tabId);
 
   return (
-    <div>
+    <>
       <h1 className="title">Tabs page</h1>
-      <Tabs tabs={tabs} activeTabId={tabId} onTabSelected={() => {}} />
-    </div>
+      <Tabs tabs={tabs} activeTabId={shouldShowActiveTab ? tabId : undefined} />
+    </>
   );
 };

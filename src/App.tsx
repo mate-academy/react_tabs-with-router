@@ -3,8 +3,10 @@ import { HomePage } from './pages/HomePage';
 import { TabsPage } from './pages/TabsPage';
 import { Tab } from './types/Tab';
 import './App.scss';
+import 'bulma/css/bulma.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 
-export const tabs: Tab[] = [
+const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
@@ -24,12 +26,14 @@ export const App = () => {
             <Link
               to="/"
               className={`navbar-item ${location.pathname === '/' ? 'is-active' : ''}`}
+              data-cy="NavLink-home"
             >
               Home
             </Link>
             <Link
               to="/tabs"
-              className={`navbar-item ${window.location.hash.startsWith('#/tabs') ? 'is-active' : ''}`}
+              className={`navbar-item ${location.pathname.startsWith('/tabs') ? 'is-active' : ''}`}
+              data-cy="NavLink-tabs"
             >
               Tabs
             </Link>
