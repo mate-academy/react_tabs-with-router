@@ -31,8 +31,8 @@ export const Tabs = ({ tabs, activeTabId }: Props) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {activeTabId ? (
-          tabs.find(tab => tab.id === activeTabId)?.content
+        {activeTabId && tabs.some(tab => tab.id === activeTabId) ? (
+          tabs.find(tab => tab.id === activeTabId)!.content
         ) : (
           <div>Please select a tab</div>
         )}
