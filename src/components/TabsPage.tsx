@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Tab } from '../types/Tab';
 import classNames from 'classnames';
@@ -24,7 +24,9 @@ export const TabsPage: React.FC<TabsPageProps> = ({ someProp }) => {
               className={classNames({ 'is-active': activeTabId === tab.id })}
               key={tab.id}
             >
-              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+              <Link to={`/tabs/${tab.id}`} data-cy="TabLink">
+                {tab.title}
+              </Link>
             </li>
           ))}
         </ul>
@@ -41,8 +43,6 @@ export const TabsPage: React.FC<TabsPageProps> = ({ someProp }) => {
           {activeTab.content}
         </div>
       )}
-
-      <Outlet />
     </div>
   );
 };
