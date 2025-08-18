@@ -23,20 +23,20 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <div
+            <Link
+              to="/"
               className={`navbar-item ${location.pathname === '/' ? 'is-active' : ''}`}
+              data-cy="NavLink-home"
             >
-              <Link to="/" data-cy="NavLink-home">
-                Home
-              </Link>
-            </div>
-            <div
+              Home
+            </Link>
+            <Link
+              to="/tabs"
               className={`navbar-item ${location.pathname.startsWith('/tabs') ? 'is-active' : ''}`}
+              data-cy="NavLink-tabs"
             >
-              <Link to="/tabs" data-cy="NavLink-tabs">
-                Tabs
-              </Link>
-            </div>
+              Tabs
+            </Link>
           </div>
         </div>
       </nav>
