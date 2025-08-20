@@ -24,12 +24,7 @@ export const TabsPage: React.FC<Props> = ({ tabs }) => {
               data-cy="Tab"
               className={tab.id === tabId ? 'is-active' : ''}
             >
-              <Link
-                to={`/tabs/${tab.id}`}
-                className={`navbar-item ${location.pathname === '/tabs' ? 'is-active' : ''}`}
-              >
-                {tab.title}
-              </Link>
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
           ))}
         </ul>
