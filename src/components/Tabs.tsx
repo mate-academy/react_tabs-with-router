@@ -17,8 +17,6 @@ const Tabs: React.FC = () => {
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
-            // We check if the current URL path ends with the tab's ID.
-            // This is a simple way to check for the active tab in this case.
             const isActive = location.pathname.endsWith(tab.id);
 
             return (
@@ -31,7 +29,14 @@ const Tabs: React.FC = () => {
       </div>
 
       <Routes>
-        <Route index element={<div className="block" data-cy="TabContent">Please select a tab</div>} />
+        <Route
+          index
+          element={
+            <div className="block" data-cy="TabContent">
+              Please select a tab
+            </div>
+          }
+        />
         <Route path=":tabId" element={<TabContent tabs={tabs} />} />
       </Routes>
     </>
