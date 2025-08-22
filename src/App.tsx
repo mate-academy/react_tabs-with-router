@@ -1,9 +1,9 @@
 import {
   Routes,
   Route,
-  NavLink,
   Navigate,
   useLocation,
+  Link,
 } from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
@@ -24,16 +24,16 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink
+            <Link
               to="/"
               className={
                 currentPath === '/' ? 'navbar-item is-active' : 'navbar-item'
               }
             >
               Home
-            </NavLink>
+            </Link>
 
-            <NavLink
+            <Link
               to="/tabs"
               className={
                 currentPath.startsWith('/tabs')
@@ -42,7 +42,7 @@ export const App = () => {
               }
             >
               Tabs
-            </NavLink>
+            </Link>
           </div>
         </div>
       </nav>
@@ -51,7 +51,8 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
-          <Route path="tabs" element={<TabsPage />}>
+          <Route path="tabs">
+            <Route index element={<TabsPage />} />
             <Route path=":tabId" element={<TabsPage />} />
           </Route>
           <Route path="/*" element={<NotFound />} />
