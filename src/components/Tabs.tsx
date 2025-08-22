@@ -20,7 +20,7 @@ const Tabs: React.FC = () => {
             const isActive = location.pathname.endsWith(tab.id);
 
             return (
-              <li key={tab.id} className={isActive ? 'is-active' : ''}>
+              <li key={tab.id} className={isActive ? 'is-active' : ''} data-cy="Tab">
                 <Link to={tab.id}>{tab.title}</Link>
               </li>
             );
