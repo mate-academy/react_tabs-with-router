@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Tab } from '../types/Tab';
 
 interface Props {
@@ -6,20 +6,31 @@ interface Props {
 }
 
 export const TabsPage = ({ tabs }: Props) => {
+  const { tabId } = useParams();
+  const selectedTab = tabs.find(tab => tab.id === tabId);
+
   return (
     <>
       <h1 className="title">Tabs page</h1>
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
-            <li key={tab.id} data-cy="Tab">
-              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
-            </li>
-          ))}
+          {tabs.map(tab => {
+            const isActive = tab.id === tabId;
+
+            return (
+              <li
+                key={tab.id}
+                data-cy="Tab"
+                className={isActive ? 'is-active' : ''}
+              >
+                <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div className="block" data-cy="TabContent">
-        Please select a tab
+        {selectedTab ? selectedTab.content : 'Please select a tab'}
       </div>
     </>
   );

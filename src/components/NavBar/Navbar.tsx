@@ -10,18 +10,18 @@ const Navbar: React.FC = () => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <Link
-            to="/"
-            className={`navbar-item ${location.pathname === '/' ? 'is-active' : ''}`}
+          <div className={location.pathname === '/' ? 'is-active' : ''}>
+            <Link to="/" className="navbar-item">
+              Home
+            </Link>
+          </div>
+          <div
+            className={location.pathname.startsWith('/tabs') ? 'is-active' : ''}
           >
-            Home
-          </Link>
-          <Link
-            to="/tabs"
-            className={`navbar-item ${location.pathname.startsWith('/tabs') ? 'is-active' : ''}`}
-          >
-            Tabs
-          </Link>
+            <Link to="/tabs" className="navbar-item">
+              Tabs
+            </Link>
+          </div>
         </div>
       </div>
     </nav>
