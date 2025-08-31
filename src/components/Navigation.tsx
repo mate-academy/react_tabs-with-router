@@ -1,4 +1,4 @@
-import cn from 'classnames';
+import classNames from 'classnames';
 import { Link, matchPath, useLocation } from 'react-router-dom';
 
 export const Navigation = () => {
@@ -17,13 +17,15 @@ export const Navigation = () => {
         <div className="navbar-brand">
           <Link
             to="/"
-            className={cn('navbar-item', { 'is-active': pathname === '/' })}
+            className={classNames('navbar-item', {
+              'is-active': pathname === '/',
+            })}
           >
             Home
           </Link>
           <Link
             to="tabs"
-            className={cn('navbar-item', { 'is-active': isNavActive })}
+            className={classNames('navbar-item', { 'is-active': isNavActive })}
           >
             Tabs
           </Link>
