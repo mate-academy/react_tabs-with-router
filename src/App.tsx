@@ -7,7 +7,6 @@ import HomePage from './components/HomePage';
 import TabsPage from './components/TabsPage';
 import NotFoundPage from './components/NotFoundPage';
 
-
 export default function App() {
   const { pathname } = useLocation();
 
