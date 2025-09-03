@@ -1,15 +1,15 @@
-import { useContext } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { TabContext } from '../store/TabContext';
+import { Link } from 'react-router-dom';
 import { TabContent } from './TabContent';
+import { Tab } from '../types/Tab';
 
-export const Tabs = () => {
-  const { tabs } = useContext(TabContext);
-  const { tabId } = useParams();
+type Props = {
+  tabs: Tab[];
+  tabId: string | undefined;
+};
 
+export const Tabs: React.FC<Props> = ({ tabs, tabId }) => {
   return (
     <div>
-      <h1 className="title">Tabs page</h1>
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (

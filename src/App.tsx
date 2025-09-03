@@ -3,7 +3,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Navigation } from './components/Navigation';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Tabs } from './components/Tabs';
+import { TabsPage } from './pages/TabsPage';
 
 export const App = () => (
   <>
@@ -14,8 +14,8 @@ export const App = () => (
         <Routes>
           <Route path="/" element={<h1 className="title">Home page</h1>} />
           <Route path="/tabs">
-            <Route index element={<Tabs />} />
-            <Route path=":tabId" element={<Tabs />} />
+            <Route index element={<TabsPage />} />
+            <Route path=":tabId" element={<TabsPage />} />
           </Route>
           <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="*" element={<h1 className="title">Page not found</h1>} />
