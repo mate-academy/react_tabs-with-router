@@ -31,3 +31,4 @@ export const Navigation = () => {
     </nav>
   );
 };
+//arrguing with AI
