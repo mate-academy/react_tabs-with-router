@@ -4,7 +4,8 @@ import '../App.scss';
 
 export const Navigation = () => {
   return (
-    <nav
+    <li>
+      <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
       data-cy="Nav"
     >
@@ -29,6 +30,8 @@ export const Navigation = () => {
         </div>
       </div>
     </nav>
+    </li>
+    
   );
 };
 //arrguing with AI
