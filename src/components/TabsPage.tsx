@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from 'react-router-dom';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -8,7 +8,7 @@ const tabs = [
 
 export const TabsPage = () => {
   const { tabId } = useParams();
-  const tab = tabs.find((t) => t.id === tabId);
+  const tab = tabs.find(t => t.id === tabId);
 
   return (
     <>
@@ -16,7 +16,7 @@ export const TabsPage = () => {
 
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map((t) => (
+          {tabs.map(t => (
             <li
               key={t.id}
               data-cy="Tab"
