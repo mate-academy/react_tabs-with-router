@@ -7,8 +7,8 @@ const tabs = [
 ];
 
 export const TabsPage = () => {
-  const { id } = useParams();
-  const activeTab = tabs.find(t => t.id === id) || null;
+  const { tabId } = useParams();
+  const activeTab = tabs.find(t => t.id === tabId) || null;
 
   return (
     <>
