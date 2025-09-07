@@ -12,26 +12,21 @@ export const TabsPage = () => {
   const { tabId } = useParams();
   const activeTabIndex = tabs.findIndex(tab => tab.id === tabId);
 
-  if (tabId && activeTabIndex === -1) {
-    return <Navigate to="/404" replace />; // Или рендери <PageNotFound /> прямо здесь
-  }
-
   return (
     <>
       <h1 className="title">Tabs page</h1>
 
       <Tabs defaultIndex={activeTabIndex === -1 ? 0 : activeTabIndex}>
         <TabList className="tabs is-boxed">
-          {tabs.map(tab => {
-            return (
-              <Tab
-                data-cy="Tab"
-                className={tab.id === tabId ? 'is-active' : ''}
-              >
-                <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
-              </Tab>
-            );
-          })}
+          {tabs.map(tab => (
+            <Tab
+              key={tab.id}
+              data-cy="Tab"
+              className={tab.id === tabId ? 'is-active' : ''}
+            >
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+            </Tab>
+          ))}
         </TabList>
 
         {tabs.map(tab => (

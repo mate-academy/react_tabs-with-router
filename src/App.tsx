@@ -31,7 +31,7 @@ export const App = () => (
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/tabs" element={<TabsPage />}>
-            <Route path=':tabId'/>
+            <Route path=':tabId' element={<TabsPage />}/>
           </Route>
           <Route path="/home" element={<Navigate to='/' replace/>} />
           <Route path="*" element={<PageNotFound />} />
