@@ -1,3 +1,13 @@
 iframe {
   display: none;
 }
+
+/* Переопределяем поведение Bulma */
+.tabs {
+  justify-content: flex-start; /* ← ставим их влево */
+}
+
+.tabs ul {
+  flex-wrap: nowrap; /* вкладки не переносятся на новую строку */
+}
+
