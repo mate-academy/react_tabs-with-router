@@ -16,10 +16,20 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to="/" className={({isActive}) => classNames("navbar-item", {'is-active': isActive })}>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              classNames('navbar-item', { 'is-active': isActive })
+            }
+          >
             Home
           </NavLink>
-          <NavLink to="/tabs" className={({isActive}) => classNames("navbar-item", {'is-active': isActive })}>
+          <NavLink
+            to="/tabs"
+            className={({ isActive }) =>
+              classNames('navbar-item', { 'is-active': isActive })
+            }
+          >
             Tabs
           </NavLink>
         </div>
@@ -30,10 +40,11 @@ export const App = () => (
       <div className="container">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/tabs" element={<TabsPage />}>
-            <Route path=':tabId' element={<TabsPage />}/>
+          <Route path="/tabs">
+            <Route index element={<TabsPage />} />
+            <Route path=":tabId" element={<TabsPage />} />
           </Route>
-          <Route path="/home" element={<Navigate to='/' replace/>} />
+          <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
