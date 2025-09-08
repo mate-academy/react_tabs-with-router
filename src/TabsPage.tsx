@@ -8,12 +8,12 @@ const tabs = [
 
 export const TabsPage = () => {
   const { tabId } = useParams();
-
   const currentTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
       <h1 className="title">Tabs page</h1>
+
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (

@@ -10,6 +10,7 @@
     "bulma": "^0.9.4",
     "classnames": "^2.5.1",
     "react": "^18.3.1",
+    "react_tabs": "github:mate-academy/react_tabs",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.25.1",
     "react-transition-group": "^4.4.5"
