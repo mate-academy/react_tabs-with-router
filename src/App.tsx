@@ -1,8 +1,7 @@
-import { Routes, Route, Link, Navigate, useLocation } from 'react-router-dom';
+import { Outlet, Link, useLocation } from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { TabsPage } from './TabsPage';
 
 export const App = () => {
   const location = useLocation();
@@ -15,35 +14,32 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link
-              to="/"
-              className={`navbar-item ${location.pathname === '/' ? 'is-active' : ''}`}
-            >
-              Home
-            </Link>
-            <Link
-              to="/tabs"
-              className={`navbar-item ${location.pathname.startsWith('/tabs') ? 'is-active' : ''}`}
-            >
-              Tabs
-            </Link>
+            <div className="navbar-item">
+              <Link
+                to="/"
+                className={location.pathname === '/' ? 'is-active' : ''}
+              >
+                Home
+              </Link>
+            </div>
+            {/* Tabs */}
+            <div className="navbar-item">
+              <Link
+                to="/tabs"
+                className={
+                  location.pathname.startsWith('/tabs') ? 'is-active' : ''
+                }
+              >
+                Tabs
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
 
       <div className="section">
         <div className="container">
-          <Routes>
-            <Route path="/" element={<h1 className="title">Home page</h1>} />
-            <Route path="/home" element={<Navigate to="/" />} />
-
-            <Route path="tabs">
-              <Route index element={<TabsPage />} />
-              <Route path=":tabId" element={<TabsPage />} />
-            </Route>
-
-            <Route path="*" element={<h1 className="title">Page not found</h1>} />
-          </Routes>
+          <Outlet />
         </div>
       </div>
     </>
