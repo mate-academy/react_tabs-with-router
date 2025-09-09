@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
+import { Tabs } from 'mate-academy/react_tabs'; // ⬅️ import da lib
 import { Tab } from '../types/Tab';
 
 interface Props {
@@ -13,23 +14,18 @@ export const TabsPage = ({ tabs }: Props) => {
     <>
       <h1 className="title">Tabs page</h1>
 
-      <div className="tabs is-boxed">
-        <ul>
-          {tabs.map(tab => {
-            const active = tab.id === tabId;
-
-            return (
-              <li
-                key={tab.id}
-                data-cy="Tab"
-                className={active ? 'is-active' : ''}
-              >
-                <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      <Tabs
+        tabs={tabs.map(tab => ({
+          title: (
+            <Link to={`/tabs/${tab.id}`} data-cy="TabLink">
+              {tab.title}
+            </Link>
+          ),
+          id: tab.id,
+        }))}
+        selectedId={tabId} // controla a aba pelo URL
+        renderContent={() => null} // a gente ignora o conteúdo da lib
+      />
 
       <div className="block" data-cy="TabContent">
         {selectedTab ? selectedTab.content : 'Please select a tab'}

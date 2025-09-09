@@ -3,6 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 export const Navigation = () => {
   const location = useLocation();
 
+  const isHomeActive = location.pathname === '/';
+  const isTabsActive = location.pathname.startsWith('/tabs');
+
   return (
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
@@ -10,18 +13,13 @@ export const Navigation = () => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <Link
-            to="/"
-            className={`navbar-item ${location.pathname === '/' ? 'is-active' : ''}`}
-          >
-            Home
-          </Link>
-          <Link
-            to="/tabs"
-            className={`navbar-item ${location.pathname.startsWith('/tabs') ? 'is-active' : ''}`}
-          >
-            Tabs
-          </Link>
+          <div className={`navbar-item ${isHomeActive ? 'is-active' : ''}`}>
+            <Link to="/">Home</Link>
+          </div>
+
+          <div className={`navbar-item ${isTabsActive ? 'is-active' : ''}`}>
+            <Link to="/tabs">Tabs</Link>
+          </div>
         </div>
       </div>
     </nav>
