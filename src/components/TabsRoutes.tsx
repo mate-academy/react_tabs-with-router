@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Tab } from '../types/Tab';
 import { TabsPage } from './TabsPage';
+import React from 'react';
 
 interface Props {
   tabs: Tab[];
