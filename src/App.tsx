@@ -23,6 +23,7 @@ export const App = () => {
             >
               Home
             </Link>
+
             <Link
               to="/tabs"
               className={classNames('navbar-item', {
