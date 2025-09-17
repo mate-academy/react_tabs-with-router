@@ -3,14 +3,16 @@ const page = {
   title: () => cy.get('.title'),
   nav: () => cy.getByDataCy('Nav'),
   tabs: () => cy.getByDataCy('Tab'),
-  assertContent: (text) => cy.getByDataCy('TabContent').should('have.text', text),
-  assertTabActive: index => page.tabs().eq(index).should('have.class', 'is-active'),
-  assertTabNotActive: index => page.tabs().eq(index).should('not.have.class', 'is-active'),
+  assertContent: text => cy.getByDataCy('TabContent').should('have.text', text),
+  assertTabActive: index =>
+    page.tabs().eq(index).should('have.class', 'is-active'),
+  assertTabNotActive: index =>
+    page.tabs().eq(index).should('not.have.class', 'is-active'),
 };
 
 let failed = false;
 
-Cypress.on('fail', (e) => {
+Cypress.on('fail', e => {
   failed = true;
   throw e;
 });
@@ -23,15 +25,12 @@ describe('', () => {
   describe('App by default', () => {
     it('should show only Home page title at /', () => {
       cy.visit('/');
-      page.title()
-        .should('have.length', 1)
-        .and('have.text', 'Home page');
+      page.title().should('have.length', 1).and('have.text', 'Home page');
     });
 
     it('should not show tabs at /', () => {
       cy.visit('/');
-      page.tabs()
-        .should('not.exist');
+      page.tabs().should('not.exist');
     });
 
     it('should redirect from /home to /', () => {
@@ -79,7 +78,8 @@ describe('', () => {
 
     it('should have a Home link with `is-active` class', () => {
       cy.visit('/');
-      page.nav()
+      page
+        .nav()
         .contains('a', 'Home')
         .should('have.attr', 'href', '#/')
         .and('have.class', 'is-active');
@@ -87,7 +87,8 @@ describe('', () => {
 
     it('should have Tabs link without `is-active` class', () => {
       cy.visit('/');
-      page.nav()
+      page
+        .nav()
         .contains('a', 'Tabs')
         .should('have.attr', 'href', '#/tabs')
         .and('not.have.class', 'is-active');
@@ -103,30 +104,23 @@ describe('', () => {
 
   describe('App at `/#/tabs`', () => {
     beforeEach(() => {
-      cy.visit('/#/tabs')
+      cy.visit('/#/tabs');
     });
 
     it('should show Tabs title', () => {
-      page.title()
-        .should('have.length', 1)
-        .should('have.text', 'Tabs page');
+      page.title().should('have.length', 1).should('have.text', 'Tabs page');
     });
 
     it('should have Tabs link active', () => {
-      page.nav()
-        .contains('a', 'Tabs')
-        .and('have.class', 'is-active');
+      page.nav().contains('a', 'Tabs').and('have.class', 'is-active');
     });
 
     it('should have Home link not active', () => {
-      page.nav()
-        .contains('a', 'Home')
-        .and('not.have.class', 'is-active');
+      page.nav().contains('a', 'Home').and('not.have.class', 'is-active');
     });
 
     it('should show 3 tabs', () => {
-      page.tabs()
-        .should('have.length', 3);
+      page.tabs().should('have.length', 3);
     });
 
     it('should have correct link for each tab', () => {
@@ -141,7 +135,6 @@ describe('', () => {
       page.assertTabNotActive(2);
     });
 
-
     it('should have default content', () => {
       page.assertContent('Please select a tab');
     });
@@ -149,7 +142,7 @@ describe('', () => {
 
   describe('Tabs page', () => {
     beforeEach(() => {
-      cy.visit('/#/tabs')
+      cy.visit('/#/tabs');
     });
 
     it('should change page URL on tab click', () => {
@@ -176,15 +169,14 @@ describe('', () => {
 
     it('should hightlight Tabs link in the nav when a tab is selected', () => {
       cy.visit('/#/tabs/tab-1');
-      page.nav().contains('a', 'Tabs')
-        .should('have.class', 'is-active');
+      page.nav().contains('a', 'Tabs').should('have.class', 'is-active');
     });
 
     it('should correctly select a second tab', () => {
       page.tabs().eq(1).click();
 
       cy.location('hash').should('eq', '#/tabs/tab-2');
-      page.assertContent('Some text 2')
+      page.assertContent('Some text 2');
       page.assertTabNotActive(0);
       page.assertTabActive(1);
       page.assertTabNotActive(2);
@@ -194,7 +186,7 @@ describe('', () => {
       page.tabs().eq(2).click();
 
       cy.location('hash').should('eq', '#/tabs/tab-3');
-      page.assertContent('Some text 3')
+      page.assertContent('Some text 3');
       page.assertTabNotActive(0);
       page.assertTabNotActive(1);
       page.assertTabActive(2);
@@ -215,8 +207,7 @@ describe('', () => {
     it('should hightlight Tabs link in the nav when a tabId is wrong', () => {
       cy.visit('/#/tabs/tab-4');
 
-      page.nav().contains('a', 'Tabs')
-        .should('have.class', 'is-active');
+      page.nav().contains('a', 'Tabs').should('have.class', 'is-active');
     });
   });
 });
