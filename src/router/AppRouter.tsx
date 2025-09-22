@@ -9,9 +9,12 @@ const AppRouter: React.FC = () => (
     <Routes>
       <Route path="/" element={<App />}>
         <Route index element={<HomePage />} />
+
         <Route path="tabs">
-          <Route path=":tabId?" element={<TabsPage />} />
+          <Route index element={<TabsPage />} />
+          <Route path=":tabId" element={<TabsPage />} />
         </Route>
+
         <Route path="home" element={<Navigate to="/" replace />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
