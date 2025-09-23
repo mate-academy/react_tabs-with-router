@@ -12,7 +12,7 @@ const Root = () => (
           <Route index element={<TabsPage />} />
           <Route path=":tabId" element={<TabsPage />} />
         </Route>
-        <Route path="home" element={<Navigate to=".." />} />
+        <Route path="home" element={<Navigate to="/" replace />} />
         <Route path="*" element={<h1 className="title">Page not found</h1>} />
       </Route>
     </Routes>

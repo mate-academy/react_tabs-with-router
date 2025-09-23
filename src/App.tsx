@@ -10,8 +10,10 @@ export const App = () => {
       'is-active': isActive,
     });
 
+  document.documentElement.classList.add('has-navbar-fixed-top');
+
   return (
-    <html className="has-navbar-fixed-top">
+    <>
       <nav
         className="navbar is-light is-fixed-top is-mobile has-shadow"
         data-cy="Nav"
@@ -33,6 +35,6 @@ export const App = () => {
           <Outlet />
         </div>
       </div>
-    </html>
+    </>
   );
 };
