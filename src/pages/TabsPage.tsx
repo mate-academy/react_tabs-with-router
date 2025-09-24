@@ -1,6 +1,5 @@
-import { Tabs } from "../components/Tabs";
-import { useParams } from "react-router-dom";
-import { Tab } from "../types/Tab";
+import { Tabs } from '../components/Tabs';
+import { useParams } from 'react-router-dom';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },

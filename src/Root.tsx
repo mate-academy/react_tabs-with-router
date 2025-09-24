@@ -1,8 +1,13 @@
-import { Navigate, Route, HashRouter as Router, Routes } from "react-router-dom";
-import { App } from "./App";
-import { HomePage } from "./pages/HomePage";
-import { TabsPage } from "./pages/TabsPage";
-import { NoPage } from "./pages/NoPage";
+import {
+  Navigate,
+  Route,
+  HashRouter as Router,
+  Routes,
+} from 'react-router-dom';
+import { App } from './App';
+import { HomePage } from './pages/HomePage';
+import { TabsPage } from './pages/TabsPage';
+import { NoPage } from './pages/NoPage';
 
 export const Root = () => (
   <Router>
@@ -14,6 +19,7 @@ export const Root = () => (
           <Route index element={<TabsPage />} />
           <Route path=":tabId" element={<TabsPage />} />
         </Route>
+
         <Route path="home" element={<Navigate to="/" />} />
         <Route path="*" element={<NoPage />} />
       </Route>

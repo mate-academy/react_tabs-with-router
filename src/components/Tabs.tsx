@@ -1,7 +1,7 @@
-import React from "react";
-import { Tab } from "../types/Tab";
-import classNames from "classnames";
-import { Link, useParams } from "react-router-dom";
+import React from 'react';
+import { Tab } from '../types/Tab';
+import classNames from 'classnames';
+import { Link, useParams } from 'react-router-dom';
 
 type Props = {
   tabs: Tab[];

@@ -16,22 +16,20 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link
-              to="/"
+            <div
               className={classNames('navbar-item', {
                 'is-active': location.pathname === '/',
               })}
             >
-              Home
-            </Link>
-            <Link
-              to="/tabs"
+              <Link to="/">Home</Link>
+            </div>
+            <div
               className={classNames('navbar-item', {
                 'is-active': location.pathname.startsWith('/tabs'),
               })}
             >
-              Tabs
-            </Link>
+              <Link to="/tabs">Home</Link>
+            </div>
           </div>
         </div>
       </nav>
