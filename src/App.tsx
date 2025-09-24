@@ -28,7 +28,7 @@ export const App = () => {
                 'is-active': location.pathname.startsWith('/tabs'),
               })}
             >
-              <Link to="/tabs">Home</Link>
+              <Link to="/tabs">Tabs</Link>
             </div>
           </div>
         </div>
