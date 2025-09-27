@@ -1,15 +1,21 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+import {Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { Home } from './pages/home/Home';
+import { Tabs } from './pages/tabs/Tabs';
+import { NotFound } from './pages/not-found/NotFound';
 
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
+export const App = () => {
 
-export const App = () => (
-  <>
+  const location = useLocation();
+
+  if(location.pathname === '/home') {
+    return <Navigate to="/" />
+  }
+
+  return(
+    <>
     {/* Also requires <html class="has-navbar-fixed-top"> */}
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
@@ -17,40 +23,39 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <a href="/" className="navbar-item is-active">
-            Home
-          </a>
-          <a href="/tabs" className="navbar-item">
-            Tabs
-          </a>
+          <Link to="/" className='navbar-item'>Home</Link>
+          <Link to="/tabs" className="navbar-item">Tabs</Link>
         </div>
       </div>
     </nav>
 
     <div className="section">
       <div className="container">
-        <h1 className="title">Home page</h1>
-        <h1 className="title">Tabs page</h1>
-        <h1 className="title">Page not found</h1>
-
-        <div className="tabs is-boxed">
-          <ul>
-            <li data-cy="Tab" className="is-active">
-              <a href="#/">Tab 1</a>
-            </li>
-            <li data-cy="Tab">
-              <a href="#/">Tab 2</a>
-            </li>
-            <li data-cy="Tab">
-              <a href="#/">Tab 3</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="block" data-cy="TabContent">
-          Please select a tab
-        </div>
+        {
+          location.pathname === '/'
+          ||
+          (location.pathname === '/tabs' || location.pathname === '/tabs/')
+          ||
+          location.pathname === '/tabs/tab-1'
+          ||
+          location.pathname === '/tabs/tab-2'
+          ||
+          location.pathname === '/tabs/tab-3'
+          ? (
+            <Routes>
+              <Route path="/" index element={<Home />} />
+              <Route path='tabs' element={<Tabs />}>
+                <Route path=':tabId' element={<Tabs />} />
+              </Route> 
+            </Routes>
+          ) : (
+            <Routes>
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          )
+        }
       </div>
     </div>
   </>
-);
+  )
+};
