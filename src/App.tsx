@@ -3,7 +3,6 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import { Tabs } from './components/Tabs/Tabs';
-// import { Home } from './components/Home/Home';
 
 export const App = () => {
   const location = useLocation();
