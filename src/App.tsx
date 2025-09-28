@@ -1,11 +1,14 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import { Tabs } from './components/Tabs/Tabs';
 // import { Home } from './components/Home/Home';
 
 export const App = () => {
+  const location = useLocation();
+  const { pathname } = location;
+
   return (
     <>
       {/* Also requires <html class="has-navbar-fixed-top"> */}
@@ -15,23 +18,19 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink
+            <Link
               to="/"
-              className={({ isActive }) =>
-                isActive ? 'navbar-item is-active' : 'navbar-item'
-              }
+              className={`navbar-item ${pathname === '/' ? 'is-active' : ''}`}
             >
               Home
-            </NavLink>
+            </Link>
 
-            <NavLink
+            <Link
               to="/tabs"
-              className={({ isActive }) =>
-                isActive ? 'navbar-item is-active' : 'navbar-item'
-              }
+              className={`navbar-item ${pathname.startsWith('/tabs') ? 'is-active' : ''}`}
             >
               Tabs
-            </NavLink>
+            </Link>
           </div>
         </div>
       </nav>
@@ -40,7 +39,7 @@ export const App = () => {
         <Routes>
           <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="/" element={<h1 className="title">Home page</h1>} />
-          <Route path="/tabs">
+          <Route path="tabs">
             <Route index element={<Tabs />} />
             <Route path=":tabId" element={<Tabs />} />
           </Route>
