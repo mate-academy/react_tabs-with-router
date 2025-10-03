@@ -20,7 +20,7 @@ export const TabsPage: React.FC = () => {
       <h1 className="title">Tabs page</h1>
 
       <Tabs
-        selectedIndex={selectedIndex >= 0 ? selectedIndex : -1}
+        selectedIndex={selectedIndex >= 0 ? selectedIndex : undefined}
         onSelect={index => navigate(`/tabs/${tabs[index].id}`)}
       >
         <TabList>
@@ -38,7 +38,13 @@ export const TabsPage: React.FC = () => {
         ))}
       </Tabs>
 
-      {selectedIndex === -1 && (
+      {selectedIndex >= 0 ? (
+        tabs.map(tab => (
+          <TabPanel key={tab.id} data-cy="TabContent">
+            {tab.content}
+          </TabPanel>
+        ))
+      ) : (
         <div className="block" data-cy="TabContent">
           Please select a tab
         </div>
