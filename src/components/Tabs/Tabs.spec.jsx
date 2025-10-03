@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-filename-extension */
 import { mount } from '@cypress/react18';
+import { MemoryRouter } from 'react-router-dom';
 import { Tabs } from './Tabs';
 
 const page = {
@@ -20,11 +21,9 @@ describe('Tabs component', () => {
       ];
 
       mount(
-        <Tabs
-          tabs={tabs}
-          activeTabId="tab-20"
-          onTabSelected={cy.spy().as('onTabSelected')}
-        />,
+        <MemoryRouter initialEntries={['/tabs/tab-20']}>
+          <Tabs tabs={tabs} />
+        </MemoryRouter>,
       );
     });
 
@@ -41,12 +40,12 @@ describe('Tabs component', () => {
       page
         .tabLink(0)
         .should('have.text', 'Tab 10')
-        .and('have.attr', 'href', '#tab-10');
+        .and('have.attr', 'href', '/tabs/tab-10');
 
       page
         .tabLink(3)
         .should('have.text', 'Tab 40')
-        .and('have.attr', 'href', '#tab-40');
+        .and('have.attr', 'href', '/tabs/tab-40');
     });
 
     it('should highlight only a selected tab', () => {
@@ -60,42 +59,8 @@ describe('Tabs component', () => {
       page.content().should('have.text', 'Some text 20');
     });
 
-    it('should not invoke onTabSelected callback before click', () => {
-      cy.get('@onTabSelected').should('not.be.called');
-    });
-
-    it('should invoke onTabSelected if another tab is clicked', () => {
-      page.tabLink(3).click();
-
-      cy.get('@onTabSelected').should('be.calledOnce');
-    });
-
-    it('should invoke onTabSelected with id of new selected tab', () => {
-      page.tabLink(3).click();
-
-      cy.get('@onTabSelected').should('be.calledWith', 'tab-40');
-    });
-
-    it('should not invoke onTabSelected if the current tab is clicked', () => {
-      page.tabLink(1).click();
-
-      cy.get('@onTabSelected').should('not.be.called');
-    });
+    // Router-driven: no onTabSelected callback tests
   });
 
-  describe('', () => {
-    it('should highlight the first tab if activeTabId is wrong', () => {
-      const tabs = [
-        { id: 'tab-10', title: 'Tab 10', content: 'Some text 10' },
-        { id: 'tab-20', title: 'Tab 20', content: 'Some text 20' },
-        { id: 'tab-30', title: 'Tab 30', content: 'Some text 30' },
-        { id: 'tab-40', title: 'Tab 40', content: 'Some text 40' },
-      ];
-
-      mount(<Tabs tabs={tabs} activeTabId="asdasd" onTabSelected={() => {}} />);
-
-      page.tab(0).should('have.class', 'is-active');
-      page.tab(1).should('not.have.class', 'is-active');
-    });
-  });
+  // No activeTabId prop: router controls activeness
 });

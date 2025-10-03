@@ -9,7 +9,7 @@ const tabs = [
 
 interface TabContextType {
   activeTab: Tab;
-  setActiveTab: (tab: Tab) => void;
+  setActiveTab: React.Dispatch<React.SetStateAction<Tab>>;
   tabs: Tab[];
 }
 
