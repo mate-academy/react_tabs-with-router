@@ -1,6 +1,7 @@
 import React from 'react';
-import classNames from 'classnames';
-import { Link, useMatch, useParams } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -8,40 +9,40 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const TabLink: React.FC<{ to: string; children: React.ReactNode }> = ({
-  to,
-  children,
-}) => {
-  const match = useMatch({ path: `/tabs/${to}`, end: true });
-
-  return (
-    <li data-cy="Tab" className={classNames({ 'is-active': !!match })}>
-      <Link to={`/tabs/${to}`}>{children}</Link>
-    </li>
-  );
-};
-
 export const TabsPage: React.FC = () => {
   const { tabId } = useParams();
-  const activeTab = tabs.find(tab => tab.id === tabId);
+  const navigate = useNavigate();
+
+  const selectedIndex = tabs.findIndex(tab => tab.id === tabId);
 
   return (
     <>
       <h1 className="title">Tabs page</h1>
 
-      <div className="tabs is-boxed">
-        <ul>
+      <Tabs
+        selectedIndex={selectedIndex >= 0 ? selectedIndex : -1}
+        onSelect={index => navigate(`/tabs/${tabs[index].id}`)}
+      >
+        <TabList>
           {tabs.map(tab => (
-            <TabLink key={tab.id} to={tab.id}>
-              {tab.title}
-            </TabLink>
+            <Tab key={tab.id} data-cy="Tab" selectedClassName="is-active">
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+            </Tab>
           ))}
-        </ul>
-      </div>
+        </TabList>
 
-      <div className="block" data-cy="TabContent">
-        {activeTab ? activeTab.content : 'Please select a tab'}
-      </div>
+        {tabs.map(tab => (
+          <TabPanel key={tab.id} data-cy="TabContent">
+            {tab.content}
+          </TabPanel>
+        ))}
+      </Tabs>
+
+      {selectedIndex === -1 && (
+        <div className="block" data-cy="TabContent">
+          Please select a tab
+        </div>
+      )}
     </>
   );
 };
