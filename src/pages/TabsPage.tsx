@@ -19,7 +19,7 @@ export const TabsPage = () => {
     <div className="container">
       <h1 className="title">Tabs page</h1>
 
-      <Tabs selectedIndex={activeIndex >= 0 ? activeIndex : -1}>
+      <Tabs selectedIndex={activeIndex >= 0 ? activeIndex : undefined}>
         <TabList>
           {tabs.map(tab => (
             <Tab key={tab.id} selectedClassName="is-active">
