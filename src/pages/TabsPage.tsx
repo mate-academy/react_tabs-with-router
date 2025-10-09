@@ -1,38 +1,47 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { useParams, Link } from 'react-router-dom';
-import { Tab } from '../types/Tab';
+import { Tab as TabType } from '../types/Tab';
 import React from 'react';
+import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
-const tabs: Tab[] = [
+const tabs: TabType[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
 export const TabsPage = () => {
-  const { tabId } = useParams<{ tabId: string }>();
-  const activeTab = tabs.find(tab => tab.id === tabId);
+  const { tabId } = useParams<{ tabId?: string }>();
+  const activeIndex = tabs.findIndex(tab => tab.id === tabId);
 
   return (
     <div className="container">
       <h1 className="title">Tabs page</h1>
 
-      <div className="tabs is-boxed">
-        <ul>
+      <Tabs selectedIndex={activeIndex >= 0 ? activeIndex : -1}>
+        <TabList>
           {tabs.map(tab => (
-            <li
-              key={tab.id}
-              data-cy="Tab"
-              className={tab.id === tabId ? 'is-active' : ''}
-            >
-              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
-            </li>
+            <Tab key={tab.id} selectedClassName="is-active">
+              <Link to={`/tabs/${tab.id}`} data-cy="Tab">
+                {tab.title}
+              </Link>
+            </Tab>
           ))}
-        </ul>
-      </div>
+        </TabList>
 
-      <div className="block" data-cy="TabContent">
-        {activeTab ? activeTab.content : 'Please select a tab'}
-      </div>
+        {tabs.map(tab => (
+          <TabPanel key={tab.id} data-cy="TabContent">
+            {tab.id === tabId ? tab.content : null}
+          </TabPanel>
+        ))}
+      </Tabs>
+
+      {activeIndex === -1 && (
+        <div className="block" data-cy="TabContent">
+          Please select a tab
+        </div>
+      )}
     </div>
   );
 };
