@@ -10,6 +10,11 @@ export const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
+const getLinkClass = ({ isActive }: { isActive: boolean }) =>
+  classNames('navbar-item', {
+    'is-active': isActive,
+  });
+
 export const App = () => (
   <>
     <nav
@@ -18,20 +23,10 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink
-            to="/"
-            className={({ isActive }) => {
-              return classNames('navbar-item', { 'is-active': isActive });
-            }}
-          >
+          <NavLink to="/" className={getLinkClass}>
             Home
           </NavLink>
-          <NavLink
-            to="/tabs"
-            className={({ isActive }) => {
-              return classNames('navbar-item', { 'is-active': isActive });
-            }}
-          >
+          <NavLink to="/tabs" className={getLinkClass}>
             Tabs
           </NavLink>
         </div>
