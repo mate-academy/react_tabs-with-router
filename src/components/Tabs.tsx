@@ -1,28 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Tab } from '../types/Tab';
+import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
+import { Tab as TabType } from '../types/Tab';
 
 type Props = {
-  tabs: Tab[];
+  tabs: TabType[];
   activeTabId?: string | null;
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, activeTabId }) => {
+export const MyTabs: React.FC<Props> = ({ tabs }) => {
   return (
-    <div>
-      <div className="tabs is-boxed">
-        <ul>
-          {tabs.map((tab) => (
-            <li
-              key={tab.id}
-              data-cy="Tab"
-              className={tab.id === activeTabId ? 'is-active' : ''}
-            >
-              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <Tabs>
+      <TabList>
+        {tabs.map(tab => (
+          <Tab key={tab.id}>{tab.title}</Tab>
+        ))}
+      </TabList>
+
+      {tabs.map(tab => (
+        <TabPanel key={tab.id}>{tab.content ? tab.content : null}</TabPanel>
+      ))}
+    </Tabs>
   );
 };

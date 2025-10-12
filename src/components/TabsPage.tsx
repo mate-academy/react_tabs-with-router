@@ -13,7 +13,7 @@ export const TabsPage: React.FC = () => {
   const { tabId } = useParams();
 
   // procura a tab pelo id (se tabId não existir ou não corresponder, active será null)
-  const active = tabId ? defaultTabs.find((t) => t.id === tabId) || null : null;
+  const active = tabId ? defaultTabs.find(t => t.id === tabId) || null : null;
 
   return (
     <>
