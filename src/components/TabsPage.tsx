@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet, useParams } from 'react-router-dom';
-import { Tabs } from './Tabs';
+import { Tabs } from 'react-tabs';
 import { Tab } from '../types/Tab';
 
 const defaultTabs: Tab[] = [
