@@ -1,7 +1,7 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { NavLink, NavLinkRenderProps, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import classNames from 'classnames';
 
 export const App = () => (
@@ -15,7 +15,7 @@ export const App = () => (
         <div className="navbar-brand">
           <NavLink
             to="/"
-            className={({ isActive }: NavLinkRenderProps) =>
+            className={({ isActive }: { isActive: boolean }) =>
               classNames('navbar-item', { 'is-active': isActive })
             }
           >
@@ -23,7 +23,7 @@ export const App = () => (
           </NavLink>
           <NavLink
             to="/tabs"
-            className={({ isActive }: NavLinkRenderProps) =>
+            className={({ isActive }: { isActive: boolean }) =>
               classNames('navbar-item', { 'is-active': isActive })
             }
           >

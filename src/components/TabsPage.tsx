@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { Link, useParams } from 'react-router-dom';
 
 export const TabsPage = () => {
-  const { tabId } = useParams();
+  const { tabId } = useParams<{ tabId?: string }>();
 
   const tabs = [
     { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
