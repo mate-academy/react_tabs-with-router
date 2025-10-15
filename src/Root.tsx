@@ -1,6 +1,10 @@
-import { HashRouter as Router } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  Navigate,
+  HashRouter as Router,
+} from 'react-router-dom';
 import { App } from './App';
-import { Routes, Route, Navigate } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { NotFound } from './pages/NotFound';
 import { TabsPage } from './pages/TabsPage';

@@ -5,12 +5,12 @@ import { Outlet } from 'react-router-dom';
 import { Header } from './components/Header';
 
 export const App = () => (
-  <html className="has-navbar-fixed-top">
+  <div className="has-navbar-fixed-top">
     <Header />
     <div className="section">
       <div className="container">
         <Outlet />
       </div>
     </div>
-  </html>
+  </div>
 );

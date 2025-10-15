@@ -1,23 +1,25 @@
-import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
 
-const getLinkClass = ({ isActive }: { isActive: boolean }) =>
-  classNames('navbar-item', { 'is-active': isActive });
-
 export const Header = () => {
+  const links = [
+    { to: '/', label: 'Home' },
+    { to: '/tabs', label: 'Tabs' },
+  ];
+
   return (
-    <nav
-      className="navbar is-light is-fixed-top is-mobile has-shadow"
-      data-cy="Nav"
-    >
+    <nav className="navbar is-light is-fixed-top is-mobile has-shadow" data-cy="Nav">
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to="/" className={getLinkClass}>
-            Home
-          </NavLink>
-          <NavLink to="/tabs" className={getLinkClass}>
-            Tabs
-          </NavLink>
+          {links.map(link => (
+            <div key={link.to} className="navbar-item-wrapper">
+              <NavLink
+                to={link.to}
+                className={({ isActive }) => (isActive ? 'navbar-item is-active' : 'navbar-item')}
+              >
+                {link.label}
+              </NavLink>
+            </div>
+          ))}
         </div>
       </div>
     </nav>
