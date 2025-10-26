@@ -1,9 +1,25 @@
 import { createRoot } from 'react-dom/client';
-import { HashRouter } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { App } from './App';
+import { HomePage } from './pages/HomePage/HomePage';
+import { TabsPage } from './pages/TabsPage/TabsPage';
 
-createRoot(document.getElementById('root') as HTMLElement).render(
+const container = document.getElementById("root") as HTMLElement;
+
+createRoot(container).render(
   <HashRouter>
-    <App />
-  </HashRouter>,
+    <Routes>
+      <Route path="/" element={<App />}>
+        <Route index element={<HomePage />} />
+        <Route path="home" element={<Navigate to="/" replace />} />
+        <Route path="tabs">
+          <Route index element={<TabsPage />} />
+          <Route path=":tabId" element={<TabsPage />} />
+        </Route>
+
+        {/* Ось цей Route важливий! 👇 */}
+        <Route path="*" element={<h1 className="title">Page not found</h1>} />
+      </Route>
+    </Routes>
+  </HashRouter>
 );
