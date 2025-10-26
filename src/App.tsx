@@ -1,53 +1,37 @@
-import React from 'react';
-// eslint-disable-next-line max-len
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  NavLink,
-  Navigate,
-} from 'react-router-dom';
-import { HomePage } from './pages/HomePage';
-import { TabsPage } from './pages/TabsPage';
+import 'bulma/css/bulma.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+import './App.scss';
+import { NavLink, Outlet } from 'react-router-dom';
+import classNames from 'classnames';
 
-const NotFound: React.FC = () => {
-  document.title = 'Page not found';
+const getLinkClass = ({ isActive }: { isActive: boolean }) =>
+  classNames('navbar-item', { 'is-active': isActive });
 
-  return (
-    <div className="page">
-      <h1>Page not found</h1>
+export const App = () => (
+  <>
+    <nav
+      className="navbar is-info"
+      role="navigation"
+      aria-label="main navigation"
+      data-cy="Nav"
+    >
+      <div className="container">
+        <div className="navbar-brand">
+          <NavLink to="/" className={getLinkClass} end>
+            Home
+          </NavLink>
+
+          <NavLink to="/tabs" className={getLinkClass}>
+            Tabs
+          </NavLink>
+        </div>
+      </div>
+    </nav>
+
+    <div className="section">
+      <div className="container">
+        <Outlet />
+      </div>
     </div>
-  );
-};
-
-export const App: React.FC = () => {
-  return (
-    <BrowserRouter>
-      <nav className="nav">
-        <NavLink
-          to="/"
-          end
-          className={({ isActive }) => (isActive ? 'is-active' : '')}
-        >
-          Home
-        </NavLink>
-        <NavLink
-          to="/tabs"
-          className={({ isActive }) => (isActive ? 'is-active' : '')}
-        >
-          Tabs
-        </NavLink>
-      </nav>
-
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/home" element={<Navigate to="/" replace />} />
-        <Route path="/tabs">
-          <Route index element={<TabsPage />} />
-          <Route path=":tabId" element={<TabsPage />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
-  );
-};
+  </>
+);
