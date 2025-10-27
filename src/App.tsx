@@ -2,17 +2,18 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import Navbar from './components/Navbar';
-import { Outlet } from 'react-router-dom';
+import { ReactNode } from 'react';
 
-export const App = () => (
+type Props = {
+  children: ReactNode;
+};
+
+export const App = ({ children }: Props) => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
     <Navbar />
 
     <div className="section">
-      <div className="container">
-        <Outlet />
-      </div>
+      <div className="container">{children}</div>
     </div>
   </>
 );
