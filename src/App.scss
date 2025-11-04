@@ -1,3 +1,8 @@
 iframe {
   display: none;
 }
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+}
