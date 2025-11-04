@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
-import { Tabs, tabs } from '../../../react_tabs/src/App';
+import { tabs } from '../../../react_tabs/src/App';
+import { Tabs } from '../../../react_tabs/src/components/Tabs';
 
 export const TabsPage = () => {
   const { tabId } = useParams<{ tabId?: string }>();
