@@ -1,7 +1,6 @@
 import React from 'react';
-import { TabsContent } from './TabsContent';
+import { Link, Outlet, useParams } from 'react-router-dom';
 import { Tab } from '../types/Tab';
-import { Link, useParams } from 'react-router-dom';
 
 type Props = {
   tabs: Tab[];
@@ -17,22 +16,20 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
 
         <div className="tabs is-boxed">
           <ul>
-            {tabs.map(tab => {
-              return (
-                <li
-                  data-cy="Tab"
-                  className={tabId === tab.id ? 'is-active' : undefined}
-                  key={tab.id}
-                >
-                  <Link to={tab.id}>{tab.title}</Link>
-                </li>
-              );
-            })}
+            {tabs.map(tab => (
+              <li
+                data-cy="Tab"
+                className={tabId === tab.id ? 'is-active' : undefined}
+                key={tab.id}
+              >
+                <Link to={tab.id}>{tab.title}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div className="block" data-cy="TabContent">
-          <TabsContent tabs={tabs} />
+          <Outlet />
         </div>
       </div>
     </div>
