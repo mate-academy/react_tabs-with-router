@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Tabs as RTabs, TabList, Tab } from 'react-tabs';
 import { Tab as TabModel } from '../types/Tab';
 
