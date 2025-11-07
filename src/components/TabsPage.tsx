@@ -17,6 +17,7 @@ export const TabsPage: React.FC = () => {
 
   const selectedIndex = tabs.findIndex(tab => tab.id === tabId);
   const activeTab = selectedIndex >= 0 ? tabs[selectedIndex] : null;
+  const validIndex = selectedIndex >= 0 ? selectedIndex : 0;
 
   return (
     <div className="section">
@@ -24,7 +25,7 @@ export const TabsPage: React.FC = () => {
         <h1 className="title">Tabs page</h1>
 
         <RTabs
-          selectedIndex={selectedIndex >= 0 ? selectedIndex : 0}
+          selectedIndex={validIndex}
           onSelect={i => {
             navigate(`/tabs/${tabs[i].id}`);
 
