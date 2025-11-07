@@ -36,6 +36,7 @@ export const App: React.FC = () => {
             <Route path="/home" element={<Navigate to="/" replace />} />
 
             <Route path="/tabs" element={<TabsPage />}>
+              <Route index element={<TabsPage />} />
               <Route path=":tabId" element={<TabsPage />} />
             </Route>
 
