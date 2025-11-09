@@ -18,7 +18,6 @@ createRoot(document.getElementById('root') as HTMLElement).render(
         <Route path="home" element={<Navigate to="/" />} />
 
         <Route path="*" element={<NotFoundPage />} />
-        <Route path="secret" element={<p>You found me</p>} />
       </Route>
     </Routes>
   </HashRouter>,
