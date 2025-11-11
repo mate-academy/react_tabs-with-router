@@ -31,8 +31,7 @@ export const App = () => (
             to="/tabs"
             className={({ isActive }) =>
               classNames('navbar-item', {
-                'is-active':
-                  isActive || window.location.pathname.startsWith('/tabs'),
+                'is-active': isActive,
               })
             }
           >
@@ -48,8 +47,7 @@ export const App = () => (
           <Route path="/" element={<h1 className="title">Home page</h1>} />
           <Route path="/home" element={<Navigate to="/" replace />} />
 
-          <Route path="/tabs" element={<TabsPage />} />
-          <Route path="/tabs/:tabId" element={<TabsPage />} />
+          <Route path="tabs/:tabId" element={<TabsPage />} />
 
           <Route path="*" element={<h1 className="title">Page not found</h1>} />
         </Routes>
