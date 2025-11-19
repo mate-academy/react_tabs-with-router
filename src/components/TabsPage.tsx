@@ -1,4 +1,5 @@
-import { Link, useParams } from 'react-router-dom';
+import { Tabs, TabList, TabPanel } from 'react-tabs';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -8,31 +9,48 @@ const tabs = [
 
 export const TabsPage: React.FC = () => {
   const { tabId } = useParams();
-  const activeTab = tabs.find(tab => tab.id === tabId);
+  const navigate = useNavigate();
+
+  const activeIndex = tabs.findIndex(tab => tab.id === tabId);
+
+  const handleSelect = (index: number) => {
+    navigate(`/tabs/${tabs[index].id}`);
+  };
 
   return (
     <>
       <h1 className="title">Tabs page</h1>
 
-      <div className="tabs is-boxed">
-        <ul>
-          {tabs.map(tab => (
-            <li
-              key={tab.id}
-              data-cy="Tab"
-              className={tab.id === tabId ? 'is-active' : ''}
-            >
-              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Tabs
+        selectedIndex={activeIndex >= 0 ? activeIndex : -1}
+        onSelect={handleSelect}
+      >
+        <TabList hidden />
+
+        <div className="tabs is-boxed">
+          <ul>
+            {tabs.map((tab, index) => (
+              <li
+                key={tab.id}
+                data-cy="Tab"
+                className={index === activeIndex ? 'is-active' : ''}
+              >
+                <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {tabs.map(tab => (
+          <TabPanel key={tab.id} />
+        ))}
+      </Tabs>
 
       <div className="block" data-cy="TabContent">
-        {!tabId || !activeTab ? (
+        {activeIndex === -1 ? (
           <>Please select a tab</>
         ) : (
-          <>{activeTab.content}</>
+          <>{tabs[activeIndex].content}</>
         )}
       </div>
     </>
