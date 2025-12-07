@@ -1,33 +1,58 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 import { tabs } from '../data/tabs';
 
 export const TabsPage: React.FC = () => {
   const { tabId } = useParams<{ tabId: string }>();
-  const selectedTab = tabs.find(tab => tab.id === tabId);
+  const navigate = useNavigate();
+  const selectedIndex = tabId ? tabs.findIndex(tab => tab.id === tabId) : -1;
+  const handleTabSelect = (index: number) => {
+    navigate(`/tabs/${tabs[index].id}`);
+  };
 
   return (
     <div className="section">
       <div className="container">
         <h1 className="title">Tabs page</h1>
 
-        <div className="tabs is-boxed">
-          <ul>
-            {tabs.map(tab => (
-              <li
-                key={tab.id}
-                data-cy="Tab"
-                className={tabId === tab.id ? 'is-active' : ''}
-              >
-                <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {selectedIndex >= 0 ? (
+          <Tabs
+            selectedIndex={selectedIndex}
+            onSelect={handleTabSelect}
+            selectedTabClassName="is-active"
+          >
+            <TabList>
+              {tabs.map(tab => (
+                <Tab key={tab.id} data-cy="Tab">
+                  <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+                </Tab>
+              ))}
+            </TabList>
 
-        <div className="block" data-cy="TabContent">
-          {selectedTab ? selectedTab.content : 'Please select a tab'}
-        </div>
+            {tabs.map(tab => (
+              <TabPanel key={tab.id} data-cy="TabContent">
+                {tab.content}
+              </TabPanel>
+            ))}
+          </Tabs>
+        ) : (
+          <>
+            <div className="tabs is-boxed">
+              <ul>
+                {tabs.map(tab => (
+                  <li key={tab.id} data-cy="Tab">
+                    <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="block" data-cy="TabContent">
+              Please select a tab
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

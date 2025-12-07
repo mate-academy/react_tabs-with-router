@@ -1,8 +1,9 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const Navigation: React.FC = () => {
   const location = useLocation();
+  const isHomeActive = location.pathname === '/';
   const isTabsActive = location.pathname.startsWith('/tabs');
 
   return (
@@ -12,22 +13,18 @@ export const Navigation: React.FC = () => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink
+          <Link
             to="/"
-            className={({ isActive }) =>
-              `navbar-item ${isActive && !isTabsActive ? 'is-active' : ''}`
-            }
-            end
+            className={`navbar-item ${isHomeActive ? 'is-active' : ''}`}
           >
             Home
-          </NavLink>
-          <NavLink
+          </Link>
+          <Link
             to="/tabs"
             className={`navbar-item ${isTabsActive ? 'is-active' : ''}`}
-            end
           >
             Tabs
-          </NavLink>
+          </Link>
         </div>
       </div>
     </nav>
