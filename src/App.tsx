@@ -14,7 +14,7 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 
-export const App = () => {
+export const App: React.FC = () => {
   return (
     <Router>
       <div className="has-navbar-fixed-top">
