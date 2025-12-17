@@ -7,7 +7,7 @@ export const Tabs = () => {
     { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
     { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
   ];
-
+  const selectedTab = tabs.find(tab => tab.id === tabId);
   return (
     <>
       <div className="section">
@@ -28,12 +28,11 @@ export const Tabs = () => {
               ))}
             </ul>
           </div>
-          {tabs.map(tab => (
-            <div key={tab.id} className="block" data-cy="TabContent">
-              {tab.id === tabId && tab.content}
+         {selectedTab ? (
+            <div className="block" data-cy="TabContent">
+              {selectedTab.content}
             </div>
-          ))}
-          {!tabId && (
+          ) : (
             <div className="block" data-cy="TabContent">
               Please select a tab
             </div>

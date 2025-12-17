@@ -16,7 +16,7 @@ export const Root = () => (
           <Route path=":tabId" element={<Tabs />} />
         </Route>
 
-        <Route path="*" element={<p>Page not found</p>} />
+        <Route path="*" element={<p className='title'>Page not found</p>} />
       </Route>
     </Routes>
   </Router>
