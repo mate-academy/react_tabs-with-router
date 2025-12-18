@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { TabsBlock } from '../components/TabsBlock';
+import { Tabs } from '../components/Tabs';
 import { tabs } from '../App';
 
 export const TabsPage = () => {
@@ -10,7 +10,7 @@ export const TabsPage = () => {
   return (
     <>
       <h1 className="title">Tabs page</h1>
-      <TabsBlock currentTabId={tabId} />
+      <Tabs activeTabId={tabId} tabs={tabs} />
 
       <div className="block" data-cy="TabContent">
         {!tabId || !selectedTab ? (

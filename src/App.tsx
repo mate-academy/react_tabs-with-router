@@ -3,7 +3,6 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 
-
 import { HomePage } from './pages/HomePage';
 import { TabsPage } from './pages/TabsPage';
 
