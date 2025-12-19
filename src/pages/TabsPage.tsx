@@ -1,8 +1,8 @@
-import { NavLink, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Tab } from '../types/Tab';
 
 export const TabsPage = () => {
-  const { id } = useParams();
+  const { tabId } = useParams();
 
   const tabs: Tab[] = [
     { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -10,7 +10,7 @@ export const TabsPage = () => {
     { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
   ];
 
-  const activeTab = tabs.find(tab => tab.id === id);
+  const activeTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <div className="container">
@@ -21,9 +21,9 @@ export const TabsPage = () => {
             <li
               key={tab.id}
               data-cy="Tab"
-              className={tab.id === id ? 'is-active' : ''}
+              className={tab.id === tabId ? 'is-active' : ''}
             >
-              <NavLink to={tab.id}>{tab.title}</NavLink>
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
           ))}
         </ul>
