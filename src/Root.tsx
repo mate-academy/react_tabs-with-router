@@ -1,4 +1,9 @@
-import { Navigate, Route, HashRouter  as Router, Routes } from 'react-router-dom';
+import {
+  Navigate,
+  Route,
+  HashRouter as Router,
+  Routes,
+} from 'react-router-dom';
 import { HomePage } from './components/HomePage';
 import { TabsPage } from './components/TabsPage';
 import { PageNotFound } from './components/PageNotFound';
@@ -14,18 +19,14 @@ export const Root = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<App />}>
+        <Route path="/" element={<App />}>
           <Route index element={<HomePage />} />
-          <Route path='home' element={<Navigate to="/" replace/>} />
-          <Route path='tabs'>
-            <Route index element={<TabsPage
-              tabs={tabs}
-            />} />
-            <Route path=":tabId" element={<TabsPage
-              tabs={tabs}
-            />} />
+          <Route path="home" element={<Navigate to="/" replace />} />
+          <Route path="tabs">
+            <Route index element={<TabsPage tabs={tabs} />} />
+            <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
           </Route>
-          <Route path='*' element={<PageNotFound />} />
+          <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
     </Router>

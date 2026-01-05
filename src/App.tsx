@@ -4,7 +4,6 @@ import './App.scss';
 import { NavLink, Outlet } from 'react-router-dom';
 
 export const App = () => {
-
   return (
     <>
       {/* Also requires <html class="has-navbar-fixed-top"> */}
@@ -17,12 +16,18 @@ export const App = () => {
             <NavLink
               to="/"
               end
-              className={({ isActive }) => `navbar-item${isActive ? ' is-active' : ''}`}>
+              className={({ isActive }) =>
+                `navbar-item${isActive ? ' is-active' : ''}`
+              }
+            >
               Home
             </NavLink>
             <NavLink
               to="/tabs"
-              className={({ isActive }) => `navbar-item${isActive ? ' is-active' : ''}`}>
+              className={({ isActive }) =>
+                `navbar-item${isActive ? ' is-active' : ''}`
+              }
+            >
               Tabs
             </NavLink>
           </div>
@@ -35,5 +40,5 @@ export const App = () => {
         </div>
       </div>
     </>
-  )
+  );
 };
