@@ -20,7 +20,7 @@ export const TabsList = () => {
                 'is-active': tab.id === selectedTabId,
               })}
             >
-              <Link to={`../${tab.id}`}>{tab.title}</Link>
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
           );
         })}
