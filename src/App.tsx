@@ -19,25 +19,19 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const HomePage = () => <h1 className="title">Home page</h1>;
-
-const NotFoundPage = () => <h1 className="title">Page not found</h1>;
-
-const TabsPage = () => {
+const Tabs = ({ items }) => {
   const { tabId } = useParams();
-  const activeTab = tabs.find(tab => tab.id === tabId);
+  const activeTab = items.find(tab => tab.id === tabId);
 
   return (
     <>
-      <h1 className="title">Tabs page</h1>
-
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
+          {items.map(tab => (
             <li
               key={tab.id}
               data-cy="Tab"
-              className={tab.id === tabId ? 'is-active' : ''}
+              className={classNames({ 'is-active': tab.id === tabId })}
             >
               <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
@@ -52,10 +46,20 @@ const TabsPage = () => {
   );
 };
 
-const Layout = () => {
-  const getNavClass = ({ isActive }) =>
-    classNames('navbar-item', { 'is-active': isActive });
+const HomePage = () => <h1 className="title">Home page</h1>;
 
+const NotFoundPage = () => <h1 className="title">Page not found</h1>;
+
+const TabsPage = () => {
+  return (
+    <>
+      <h1 className="title">Tabs page</h1>
+      <Tabs items={tabs} />
+    </>
+  );
+};
+
+const Layout = () => {
   return (
     <>
       <nav
@@ -64,11 +68,21 @@ const Layout = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink to="/" end className={getNavClass}>
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) =>
+                classNames('navbar-item', { 'is-active': isActive })
+              }
+            >
               Home
             </NavLink>
-
-            <NavLink to="/tabs" className={getNavClass}>
+            <NavLink
+              to="/tabs"
+              className={({ isActive }) =>
+                classNames('navbar-item', { 'is-active': isActive })
+              }
+            >
               Tabs
             </NavLink>
           </div>
@@ -88,7 +102,6 @@ export const App = () => (
   <Routes>
     <Route path="/" element={<Layout />}>
       <Route index element={<HomePage />} />
-
       <Route path="home" element={<Navigate to="/" replace />} />
 
       <Route path="tabs">
