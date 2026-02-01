@@ -1,6 +1,4 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
-// import HomePage from './HomaPage';
-// import { TagsPage } from './TagsPage';
 
 export const PageContent = () => {
   const { pathname } = useLocation();
@@ -32,8 +30,6 @@ export const PageContent = () => {
       <div className="section">
         <div className="container">
           <Outlet />
-          {/* {false && <HomePage />}
-          <TabsPage /> */}
         </div>
       </div>
     </>
