@@ -10,8 +10,6 @@ export const TabContent = () => {
     <p>Please select a tab</p>
   );
 
-  console.log(tabContentTru)
-
   return (
     <div className="block" data-cy="TabContent">
       {tabContentTru}
