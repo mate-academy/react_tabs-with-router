@@ -1,18 +1,16 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
 
 interface TabsPageProps {
-  tabs: { id: string; title: string; content: string }[];
+  tabs: { id: string; title: string }[];
 }
 
 export const TabsPage = ({ tabs }: TabsPageProps) => {
-  const { tabId } = useParams<{ tabId: string }>();
-  const activeTab = tabs.find(tab => tab.id === tabId);
+  const { tabId } = useParams<{ tabId?: string }>();
 
   return (
     <div className="section">
       <div className="container">
         <h1 className="title">Tabs page</h1>
-
         <div className="tabs is-boxed">
           <ul>
             {tabs.map(tab => {
@@ -31,9 +29,7 @@ export const TabsPage = ({ tabs }: TabsPageProps) => {
           </ul>
         </div>
 
-        <div className="block" data-cy="TabContent">
-          {activeTab ? activeTab.content : 'Please select a tab'}
-        </div>
+        <Outlet />
       </div>
     </div>
   );
