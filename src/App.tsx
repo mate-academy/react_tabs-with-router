@@ -1,7 +1,7 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Routes, Route, Navigate} from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { NavBar } from './components/NavBar';
 import { HomePage } from './pages/HomePage';
 import { TabsPage } from './pages/TabsPage';
@@ -16,6 +16,7 @@ const initialTabs = [
 
 export const App = () => {
   const tabs: Tab[] = initialTabs;
+
   return (
     <>
       <NavBar />
@@ -26,12 +27,8 @@ export const App = () => {
             <Route path="/home" element={<Navigate to="/" replace />} />
 
             <Route path="/tabs">
-              <Route index element={<TabsPage
-                tabs={tabs}
-              />}></Route>
-              <Route path=":tabId?" element={<TabsPage
-                tabs={tabs}
-              />}></Route>
+              <Route index element={<TabsPage tabs={tabs} />}></Route>
+              <Route path=":tabId" element={<TabsPage tabs={tabs} />}></Route>
             </Route>
 
             <Route path="*" element={<NotFoundPage />}></Route>

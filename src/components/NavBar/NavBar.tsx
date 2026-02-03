@@ -2,8 +2,9 @@ import { NavLink } from 'react-router-dom';
 
 export const NavBar = () => {
   const getActiveLink = ({ isActive }: { isActive: boolean }): string => {
-    return `navbar-item ${isActive ? 'is-active' : ''}`
-  }
+    return `navbar-item ${isActive ? 'is-active' : ''}`;
+  };
+
   return (
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
