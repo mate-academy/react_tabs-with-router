@@ -1,13 +1,14 @@
-import { Routes, Route, useParams, Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+
+const tabs = [
+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
+  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
+  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+];
 
 export const TabsPage = () => {
   const { tabId } = useParams();
 
-  const tabs = [
-    { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-    { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-    { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-  ];
   const activeTab = tabs.find(tab => tab.id === tabId);
 
   return (
@@ -28,28 +29,9 @@ export const TabsPage = () => {
         </ul>
       </div>
 
-      <Routes>
-        <Route
-          index
-          element={
-            <div className="block" data-cy="TabContent">
-              {activeTab ? activeTab.content : 'Please select a tab'}
-            </div>
-          }
-        />
-        <Route
-          path="tab-1"
-          element={<div data-cy="TabContent">Tab 1 content</div>}
-        />
-        <Route
-          path="tab-2"
-          element={<div data-cy="TabContent">Tab 2 content</div>}
-        />
-        <Route
-          path="tab-3"
-          element={<div data-cy="TabContent">Tab 3 content</div>}
-        />
-      </Routes>
+      <div className="block" data-cy="TabContent">
+        {activeTab ? activeTab.content : 'Please select a tab'}
+      </div>
     </>
   );
 };
