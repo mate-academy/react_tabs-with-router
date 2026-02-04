@@ -8,16 +8,9 @@ const page = {
   assertTabNotActive: index => page.tabs().eq(index).should('not.have.class', 'is-active'),
 };
 
-let failed = false;
-
-Cypress.on('fail', (e) => {
-  failed = true;
-  throw e;
-});
-
 describe('', () => {
   beforeEach(() => {
-    if (failed) Cypress.runner.stop();
+    if (typeof failed !== 'undefined' && failed) Cypress.runner.stop();
   });
 
   describe('App by default', () => {
