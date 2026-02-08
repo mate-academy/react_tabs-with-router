@@ -18,10 +18,10 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to={AppPath.HOME} className={navLinkClassName}>
+          <NavLink to={AppPath.Home} className={navLinkClassName}>
             Home
           </NavLink>
-          <NavLink to={AppPath.TABS} className={navLinkClassName}>
+          <NavLink to={AppPath.Tabs} className={navLinkClassName}>
             Tabs
           </NavLink>
         </div>

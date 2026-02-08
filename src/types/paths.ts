@@ -1,6 +1,6 @@
 export enum AppPath {
-  HOME = '/',
-  TABS = 'tabs',
+  Home = '/',
+  Tabs = 'tabs',
 }
 
 export enum TabsPath {

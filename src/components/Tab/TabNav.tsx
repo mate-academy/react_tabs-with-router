@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
+import { AppPath } from '../../types/paths';
 
 interface Props {
   tabs: Tab[];
@@ -16,7 +17,7 @@ export const TabNav = ({ tabs, activeTabId }: Props) => {
           data-cy="Tab"
           className={classNames({ 'is-active': tab.id === activeTabId })}
         >
-          <Link to={tab.id}>{tab.title}</Link>
+          <Link to={`/${AppPath.Tabs}/${tab.id}`}>{tab.title}</Link>
         </li>
       ))}
     </ul>
