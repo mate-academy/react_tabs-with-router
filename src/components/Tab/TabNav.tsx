@@ -1,3 +1,5 @@
+//used from React Tabs JS
+
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
