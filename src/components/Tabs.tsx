@@ -1,6 +1,7 @@
+import React, { FC } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-interface Tab {
+export interface Tab {
   id: string;
   title: string;
 }
@@ -9,8 +10,8 @@ interface Props {
   tabs: Tab[];
 }
 
-export const Tabs: React.FC<Props> = ({ tabs }) => {
-  const { tabId } = useParams();
+export const Tabs: FC<Props> = ({ tabs }) => {
+  const { tabId } = useParams<{ tabId?: string }>();
 
   return (
     <div className="tabs is-boxed">

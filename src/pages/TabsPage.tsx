@@ -1,3 +1,4 @@
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Tabs } from '../components/Tabs';
 
@@ -8,7 +9,7 @@ const tabs = [
 ];
 
 export const TabsPage = () => {
-  const { tabId } = useParams();
+  const { tabId } = useParams<{ tabId?: string }>();
   const activeTab = tabs.find(t => t.id === tabId);
 
   return (
