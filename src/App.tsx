@@ -13,8 +13,7 @@ import { NotFoundPage } from './pages/PageNotFound';
 export const App = () => {
   const { pathname } = useLocation();
 
-  const isTabsActive =
-    pathname === '/tabs' || pathname.startsWith('/tabs/');
+  const isTabsActive = pathname === '/tabs' || pathname.startsWith('/tabs/');
 
   return (
     <>
