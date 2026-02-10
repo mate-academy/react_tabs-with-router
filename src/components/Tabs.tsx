@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 export interface Tab {
   id: string;
   title: string;
+  content: string;
 }
 
 interface Props {
