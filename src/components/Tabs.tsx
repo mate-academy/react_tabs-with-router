@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import { getSelectedTab } from './../functions';
 import { Tab } from '../types/Tab';
+import { Link } from 'react-router-dom';
 
 // type Props = {
 //   tabs: [Tab, ...Tab[]];
@@ -20,7 +21,7 @@ export const tabs = [
 export const Tabs: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<Tab | null>(null);
 
-  // const { id, content } = selectedTab;
+  // const { tabId } = useParams();
 
   function handleClick(event: React.MouseEvent<HTMLAnchorElement>) {
     const id = event.currentTarget.id;
@@ -41,14 +42,15 @@ export const Tabs: React.FC = () => {
               data-cy="Tab"
               key={tab.id}
             >
-              <a
-                href={`#${tab.id}`}
+              <Link
+                to="/tabs"
+                // to="/tabs/tab.id"
                 data-cy="TabLink"
                 id={tab.id}
                 onClick={event => handleClick(event)}
               >
                 {tab.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

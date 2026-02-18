@@ -2,14 +2,19 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 
-import { useState } from 'react';
+// import { useState } from 'react';
 import { HomePage } from './pages/HomePage';
 import { TabsPage } from './pages/TabsPage';
+import { NavLink, Route, Routes } from 'react-router-dom';
+import classNames from 'classnames';
 
-type Page = 'home' | 'tabs';
+// type Page = 'home' | 'tabs';
 
 export const App: React.FC = () => {
-  const [page, setPage] = useState<Page>('home');
+  // const [page, setPage] = useState<Page>('home');
+  function getLinkClass({ isActive }: { isActive: boolean }) {
+    return classNames('navbar-item', { 'is-active': isActive });
+  }
 
   return (
     <>
@@ -20,28 +25,28 @@ export const App: React.FC = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <a
-              href="#/"
-              className="navbar-item is-active"
-              onClick={() => setPage('home')}
-            >
+            <NavLink to="/" className={getLinkClass} end>
               Home
-            </a>
-            <a
-              href="#/tabs"
-              className="navbar-item"
-              onClick={() => setPage('tabs')}
-            >
+            </NavLink>
+            <NavLink to="/tabs" className={getLinkClass}>
               Tabs
-            </a>
+            </NavLink>
           </div>
         </div>
       </nav>
 
       <div className="section">
         <div className="container">
-          {page === 'home' && <HomePage />}
-          {page === 'tabs' && <TabsPage />}
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+
+            <Route path="tabs">
+              <Route index element={<TabsPage />} />
+              <Route path=":tabId" element={<TabsPage />} />
+            </Route>
+
+            <Route path="*" element={<p>Page not found</p>} />
+          </Routes>
         </div>
       </div>
     </>
