@@ -8,17 +8,19 @@ import {
   useParams,
 } from 'react-router-dom';
 
+import { Tabs as ReactTabs, TabList, Tab, TabPanel } from 'react-tabs';
+
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 
-export interface Tab {
+export interface TabItem {
   id: string;
   title: string;
   content: string;
 }
 
-const tabs: Tab[] = [
+const tabs: TabItem[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
@@ -36,6 +38,7 @@ const NavBar: React.FC = () => {
     >
       <div className="container">
         <div className="navbar-brand">
+          {/* don't use NavLink; is-active is on parent element */}
           <Link className={`navbar-item ${isHome ? 'is-active' : ''}`} to="/">
             Home
           </Link>
@@ -60,47 +63,71 @@ const HomePage: React.FC = () => (
   </div>
 );
 
-const Tabs: React.FC<{ tabs: Tab[] }> = ({ tabs: allTabs }) => {
-  const { tabId } = useParams<{ tabId?: string }>();
+/**
+ * Presentational tabs using the REQUIRED library (`react-tabs`).
+ * URL changes happen via <Link to="/tabs/:tabId"> (no onClick handlers).
+ * Selected tab is controlled by selectedIndex (derived from URL in TabsPage).
+ */
+const LibraryTabs: React.FC<{
+  tabs: TabItem[];
+  selectedTabId?: string;
+}> = ({ tabs: allTabs, selectedTabId }) => {
+  const selectedIndex = allTabs.findIndex(t => t.id === selectedTabId);
+  const hasValidTab = selectedIndex !== -1;
 
-  const activeTab = allTabs.find(tab => tab.id === tabId) || null;
+  // react-tabs needs a number; when invalid/missing we keep index 0,
+  // but render NO panel content and show the required message instead.
+  const safeIndex = hasValidTab ? selectedIndex : 0;
 
   return (
     <>
-      <div className="tabs is-boxed">
-        <ul>
-          {allTabs.map(tab => {
-            const isActive = tab.id === tabId;
-
-            return (
-              <li
-                key={tab.id}
-                data-cy="Tab"
-                className={isActive ? 'is-active' : ''}
-              >
-                {/* URL updates on click, no onClick, no <a href="#..."> */}
+      <ReactTabs selectedIndex={safeIndex}>
+        <div className="tabs is-boxed">
+          <TabList>
+            {allTabs.map(tab => (
+              <Tab key={tab.id} data-cy="Tab" selectedClassName="is-active">
+                {/* replace <a href="#..."> with Link and remove onClick */}
                 <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+              </Tab>
+            ))}
+          </TabList>
+        </div>
 
-      <div className="block" data-cy="TabContent">
-        {activeTab ? activeTab.content : 'Please select a tab'}
-      </div>
+        {allTabs.map(tab => (
+          <TabPanel key={tab.id}>
+            {/* Show content only when URL tabId matches a real tab */}
+            {hasValidTab && tab.id === selectedTabId ? (
+              <div className="block" data-cy="TabContent">
+                {tab.content}
+              </div>
+            ) : null}
+          </TabPanel>
+        ))}
+      </ReactTabs>
+
+      {/* If tabId is missing or invalid -> required message */}
+      {!hasValidTab && (
+        <div className="block" data-cy="TabContent">
+          Please select a tab
+        </div>
+      )}
     </>
   );
 };
 
-const TabsPage: React.FC = () => (
-  <div className="section">
-    <div className="container">
-      <h1 className="title">Tabs page</h1>
-      <Tabs tabs={tabs} />
+const TabsPage: React.FC = () => {
+  // requirement: read tabId at the page level
+  const { tabId } = useParams<{ tabId?: string }>();
+
+  return (
+    <div className="section">
+      <div className="container">
+        <h1 className="title">Tabs page</h1>
+        <LibraryTabs tabs={tabs} selectedTabId={tabId} />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const NotFoundPage: React.FC = () => (
   <div className="section">
@@ -121,7 +148,7 @@ export const App: React.FC = () => (
       {/* Redirect /home -> / */}
       <Route path="/home" element={<Navigate to="/" replace />} />
 
-      {/* Tabs page should work for both /tabs and /tabs/:tabId */}
+      {/* Nested routes for /tabs and /tabs/:tabId */}
       <Route path="tabs">
         <Route index element={<TabsPage />} />
         <Route path=":tabId" element={<TabsPage />} />
