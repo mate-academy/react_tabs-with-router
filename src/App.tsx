@@ -78,6 +78,7 @@ const Tabs: React.FC<{ tabs: Tab[] }> = ({ tabs: allTabs }) => {
                 data-cy="Tab"
                 className={isActive ? 'is-active' : ''}
               >
+                {/* URL updates on click, no onClick, no <a href="#..."> */}
                 <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
               </li>
             );
@@ -120,7 +121,7 @@ export const App: React.FC = () => (
       {/* Redirect /home -> / */}
       <Route path="/home" element={<Navigate to="/" replace />} />
 
-      {/* Nested routes for /tabs and /tabs/:tabId */}
+      {/* Tabs page should work for both /tabs and /tabs/:tabId */}
       <Route path="tabs">
         <Route index element={<TabsPage />} />
         <Route path=":tabId" element={<TabsPage />} />
