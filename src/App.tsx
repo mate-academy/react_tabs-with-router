@@ -2,16 +2,10 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 
-// import { useState } from 'react';
-import { HomePage } from './pages/HomePage';
-import { TabsPage } from './pages/TabsPage';
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import classNames from 'classnames';
 
-// type Page = 'home' | 'tabs';
-
 export const App: React.FC = () => {
-  // const [page, setPage] = useState<Page>('home');
   function getLinkClass({ isActive }: { isActive: boolean }) {
     return classNames('navbar-item', { 'is-active': isActive });
   }
@@ -37,16 +31,7 @@ export const App: React.FC = () => {
 
       <div className="section">
         <div className="container">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-
-            <Route path="tabs">
-              <Route index element={<TabsPage />} />
-              <Route path=":tabId" element={<TabsPage />} />
-            </Route>
-
-            <Route path="*" element={<p>Page not found</p>} />
-          </Routes>
+          <Outlet />
         </div>
       </div>
     </>
