@@ -1,4 +1,4 @@
-import { Link, useParams, Routes, Route, useMatch } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -6,20 +6,9 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const TabContent = () => {
+export const TabsPage = () => {
   const { tabId } = useParams();
   const activeTab = tabs.find(tab => tab.id === tabId);
-
-  return (
-    <div className="block" data-cy="TabContent">
-      {activeTab ? activeTab.content : 'Please select a tab'}
-    </div>
-  );
-};
-
-export const TabsPage = () => {
-  const match = useMatch('/tabs/:tabId');
-  const tabId = match?.params.tabId;
 
   return (
     <>
@@ -39,17 +28,9 @@ export const TabsPage = () => {
         </ul>
       </div>
 
-      <Routes>
-        <Route path=":tabId" element={<TabContent />} />
-        <Route
-          index
-          element={
-            <div className="block" data-cy="TabContent">
-              Please select a tab
-            </div>
-          }
-        />
-      </Routes>
+      <div className="block" data-cy="TabContent">
+        {activeTab ? activeTab.content : 'Please select a tab'}
+      </div>
     </>
   );
 };
