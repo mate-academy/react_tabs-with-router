@@ -1,9 +1,9 @@
-import { HashRouter } from 'react-router-dom';
-// import { App } from './App';
+import { HashRouter, Navigate } from 'react-router-dom';
 
 import { HomePage } from './pages/HomePage';
 import { TabsPage } from './pages/TabsPage';
-// import { Tabs } from './components/Tabs';
+import { NotFoundPage } from './pages/NotFoundPage';
+
 import { Route, Routes } from 'react-router-dom';
 import { App } from './App';
 
@@ -12,13 +12,26 @@ export const Root = () => (
     <Routes>
       <Route path="/" element={<App />}>
         <Route index element={<HomePage />} />
+        <Route path="home" element={<Navigate to="/" replace />} />
+
+        {/* the first variant absolute path */}
+        <Route path="tabs">
+          <Route index element={<TabsPage />} />
+          <Route path=":tabId" element={<TabsPage />} />
+        </Route>
+
+        {/* the second variant relative path */}
+        {/* <Route path="tabs">
+          <Route path=":tabId?" element={<TabsPage />} />
+        </Route> */}
+
+        {/* the third variant relative path */}
         {/* <Route path="tabs">
           <Route index element={<TabsPage />} />
           <Route path=":tabId?" element={<TabsPage />} />
         </Route> */}
-        <Route path="tabs/:tabId?" element={<TabsPage />} />
 
-        <Route path="*" element={<p>Page not found</p>} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   </HashRouter>
