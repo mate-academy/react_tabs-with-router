@@ -25,16 +25,7 @@ export const Tabs: React.FC = () => {
               data-cy="Tab"
               key={tab.id}
             >
-              {/* the first variant absolute path */}
               <Link to={`/tabs/${tab.id}`} data-cy="TabLink" id={tab.id}>
-                {/* the second variant relative path */}
-                {/* <Link to={`../${tab.id}`} data-cy="TabLink" id={tab.id}> */}
-                {/* the third variant relative path */}
-                {/* <Link
-                to={selectedTab ? `../${tab.id}` : `${tab.id}`}
-                data-cy="TabLink"
-                id={tab.id}
-              > */}
                 {tab.title}
               </Link>
             </li>
