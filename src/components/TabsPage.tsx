@@ -1,24 +1,41 @@
 export const TabsPage = () => {
+  const { tabId } = useParams();
+  const tab = tabs.find(({ id }) => id === tabId);
+
   return (
     <>
       <h1 className="title">Tabs page</h1>
 
       <div className="tabs is-boxed">
         <ul>
-          <li data-cy="Tab" className="is-active">
-            <a href="#/">Tab 1</a>
-          </li>
-          <li data-cy="Tab">
-            <a href="#/">Tab 2</a>
-          </li>
-          <li data-cy="Tab">
-            <a href="#/">Tab 3</a>
-          </li>
+          {tabs.map(({ id, title }) => (
+            <li
+              data-cy="Tab"
+              key={id}
+              className={classNames({ 'is-active': id === tabId })}
+            >
+              {tab ? (
+                <Link to={`../${id}`} relative="path">
+                  {title}
+                </Link>
+              ) : (
+                <Link to={`${id}`} relative="path">
+                  {title}
+                </Link>
+              )}
+            </li>
+          ))}
+          {/*<li data-cy="Tab">*/}
+          {/*  <NavLink to="/">Tab 2</NavLink>*/}
+          {/*</li>*/}
+          {/*<li data-cy="Tab">*/}
+          {/*  <NavLink to="/">Tab 3</NavLink>*/}
+          {/*</li>*/}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        Please select a tab
+        {tab ? tab.content : 'Please select a tab'}
       </div>
     </>
   );
