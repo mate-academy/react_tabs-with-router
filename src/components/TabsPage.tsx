@@ -23,23 +23,11 @@ export const TabsPage = () => {
               key={id}
               className={classNames({ 'is-active': id === tabId })}
             >
-              {tab ? (
-                <Link to={`../${id}`} relative="path">
-                  {title}
-                </Link>
-              ) : (
-                <Link to={`${id}`} relative="path">
-                  {title}
-                </Link>
-              )}
+              <Link to={tabId ? `../${id}` : id} relative="path">
+                {title}
+              </Link>
             </li>
           ))}
-          {/*<li data-cy="Tab">*/}
-          {/*  <NavLink to="/">Tab 2</NavLink>*/}
-          {/*</li>*/}
-          {/*<li data-cy="Tab">*/}
-          {/*  <NavLink to="/">Tab 3</NavLink>*/}
-          {/*</li>*/}
         </ul>
       </div>
 
