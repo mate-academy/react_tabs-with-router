@@ -42,4 +42,5 @@ export const TabsPage: React.FC<TabsPageProps> = ({ tabs }) => {
   );
 };
 
+
 export default TabsPage;
