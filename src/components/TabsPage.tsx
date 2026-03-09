@@ -2,14 +2,14 @@ import { Link, useParams } from 'react-router-dom';
 import { Tab } from '../types/Tab';
 import React from 'react';
 
-type Props = {
+interface TabsPageProps {
   tabs: Tab[];
-};
+}
 
-export const TabsPage: React.FC<Props> = ({ tabs }) => {
+export const TabsPage: React.FC<TabsPageProps> = ({ tabs }) => {
   const { tabId } = useParams();
 
-  const searchByTabId = tabs.find((tab: { tab: Tab }) => tab.id === tabId);
+  const searchByTabId = tabs.find((tab: Tab) => tab.id === tabId);
 
   return (
     <div className="section">
