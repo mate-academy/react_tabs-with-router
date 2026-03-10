@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export interface Tab {
   id: string;
   title: string;
