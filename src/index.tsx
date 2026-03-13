@@ -2,8 +2,10 @@ import { createRoot } from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 import { App } from './App';
 
-createRoot(document.getElementById('root') as HTMLElement).render(
+const Root = () => (
   <HashRouter>
     <App />
-  </HashRouter>,
+  </HashRouter>
 );
+
+createRoot(document.getElementById('root') as HTMLElement).render(<Root />);
