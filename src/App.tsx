@@ -18,7 +18,7 @@ const getNavbarLinkClass = ({ isActive }: { isActive: boolean }) => {
 
 export const App = () => (
   <>
-   <nav
+    <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
       data-cy="Nav"
     >
@@ -26,20 +26,23 @@ export const App = () => (
         <div className="navbar-brand">
           <NavLink to="/" className={getNavbarLinkClass}>
             Home
-            </NavLink>
+          </NavLink>
           <NavLink to="/tabs" className={getNavbarLinkClass}>
             Tabs
-            </NavLink>
+          </NavLink>
         </div>
       </div>
     </nav>
 
     <div className="section">
       <div className="container">
-         <Routes>
+        <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/tabs/:tabId?" element={<TabsPage />} />
-            <Route path="*" element={<h1 className="title">Page not found</h1>} />
+          <Route path="/tabs" element={<TabsPage />}>
+            <Route index element={<TabsPage />} />
+            <Route path=":tabId" element={<TabsPage />} />
+          </Route>
+          <Route path="*" element={<h1 className="title">Page not found</h1>} />
           <Route path="/home" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
