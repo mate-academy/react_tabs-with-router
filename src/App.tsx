@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import classNames from 'classnames';
 import 'bulma/css/bulma.css';
+import { Tabs, TabList, Tab } from 'react-tabs';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -22,26 +23,31 @@ export const HomePage = () => <h1 className="title">Home page</h1>;
 export const TabsPage = () => {
   const { tabId } = useParams();
 
+  const selectedIndex = tabs.findIndex(tab => tab.id === tabId);
+
   return (
     <>
       <h1 className="title">Tabs page</h1>
-      <div className="tabs is-boxed">
-        <ul>
-          {tabs.map(tab => {
-            const isActive = tabId === tab.id;
-
-            return (
-              <li
-                key={tab.id}
-                className={classNames({ 'is-active': isActive })}
-                data-cy="Tab"
-              >
-                <Link to={tab.id}>{tab.title}</Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      <Tabs
+        selectedIndex={selectedIndex === -1 ? 0 : selectedIndex}
+        onSelect={() => {}}
+      >
+        <div className="tabs is-boxed">
+          <TabList>
+            <ul>
+              {tabs.map(tab => (
+                <Tab
+                  key={tab.id}
+                  className={classNames({ 'is-active': tabId === tab.id })}
+                  data-cy="Tab"
+                >
+                  <Link to={tab.id}>{tab.title}</Link>
+                </Tab>
+              ))}
+            </ul>
+          </TabList>
+        </div>
+      </Tabs>
 
       <div className="block" data-cy="TabContent">
         <Outlet />
