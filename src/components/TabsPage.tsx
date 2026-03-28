@@ -25,7 +25,7 @@ export const TabsPage = () => {
                 'is-active': tabId === tab.id,
               })}
             >
-              <Link to={`../${tab.id}`}>{tab.title}</Link>
+              <Link to={`${tab.id}`}>{tab.title}</Link>
             </li>
           ))}
         </ul>

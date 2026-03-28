@@ -16,6 +16,5 @@ export const Root = () => (
         </Route>
       </Route>
     </Routes>
-    <App />
   </HashRouter>
 );
