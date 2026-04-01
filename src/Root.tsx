@@ -12,7 +12,7 @@ export const Root = () => (
         <Route path="/" element={<App />}>
           <Route index element={<HomePage />} />
           <Route path="home" element={<Navigate to={'/'} replace />} />
-          <Route path="/tabs">
+          <Route path="tabs">
             <Route index element={<TabsPage />} />
             <Route path=":tabId" element={<TabsPage />} />
           </Route>

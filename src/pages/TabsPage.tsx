@@ -20,7 +20,7 @@ export const TabsPage: React.FC = () => {
               data-cy="Tab"
               className={classNames('', { 'is-active': tab.id === tabId })}
             >
-              <Link to={tabId ? `../${tab.id}` : tab.id}>{`${tab.title}`}</Link>
+              <Link to={`/tabs/${tab.id}`}>{`${tab.title}`}</Link>
             </li>
           ))}
         </ul>
