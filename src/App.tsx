@@ -1,7 +1,7 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
+import { Navigate, NavLink, Outlet, Route, Routes } from 'react-router-dom';
 import { Tabs } from './Components/Tabs';
 
 const tabs = [
@@ -48,12 +48,14 @@ export const App = () => (
           <Route
             path="/tabs"
             element={
-              <>
+              <div className="container">
                 <h1 className="title">Tabs page</h1>
-                <Tabs tabs={tabs} />
-              </>
+                <Outlet />
+              </div>
             }
           >
+            <Route index element={<Tabs tabs={tabs} />} />
+
             <Route path=":tabId" element={<Tabs tabs={tabs} />} />
           </Route>
 
