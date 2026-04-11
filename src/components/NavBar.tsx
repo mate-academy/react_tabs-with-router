@@ -1,9 +1,8 @@
 import classNames from 'classnames';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const NavBar = () => {
   const { pathname } = useLocation();
-  const { tabId } = useParams();
 
   return (
     <nav
@@ -23,7 +22,7 @@ export const NavBar = () => {
           <Link
             to="/tabs"
             className={classNames('navbar-item', {
-              'is-active': pathname === '/tabs' || tabId,
+              'is-active': pathname.startsWith('/tabs'),
             })}
           >
             Tabs
