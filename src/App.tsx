@@ -2,14 +2,7 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 
-import {
-  HashRouter,
-  Link,
-  Navigate,
-  Route,
-  Routes,
-  useLocation,
-} from 'react-router-dom';
+import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 
 import { HomePage } from './components/HomePage';
 import { TabsPage } from './components/TabsPage';
@@ -18,7 +11,8 @@ import { NotFoundPage } from './components/NotFoundPage';
 export const App = () => {
   const location = useLocation();
 
-  const isHomeActive = location.pathname === '/' || location.pathname === '/home';
+  const isHomeActive =
+    location.pathname === '/' || location.pathname === '/home';
   const isTabsActive = location.pathname.startsWith('/tabs');
 
   return (
