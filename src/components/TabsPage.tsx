@@ -18,7 +18,9 @@ export const TabsPage = () => {
               data-cy="Tab"
               className={tab.id === tabId ? 'is-active' : ''}
             >
-              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+              <Link to={`/tabs/${tab.id}`}>
+                {tab.title}
+              </Link>
             </li>
           ))}
         </ul>
