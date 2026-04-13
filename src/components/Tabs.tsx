@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Tab } from '../types/Tab';
 
 type Props = {
@@ -7,8 +7,6 @@ type Props = {
 };
 
 export const Tabs: React.FC<Props> = ({ tabs, selectedTabId }) => {
-  const { tabId } = useParams();
-
   const activeTab = tabs.find(tab => tab.id === selectedTabId);
 
   return (
@@ -19,7 +17,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId }) => {
             <li
               data-cy="Tab"
               key={tab.id}
-              className={tab.id === tabId ? 'is-active' : ''}
+              className={tab.id === selectedTabId ? 'is-active' : ''}
             >
               <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
