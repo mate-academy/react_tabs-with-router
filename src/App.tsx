@@ -2,7 +2,15 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 
-import { Link, Route, Routes, useLocation, Navigate } from 'react-router-dom';
+import {
+  HashRouter,
+  Link,
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+} from 'react-router-dom';
+
 import { HomePage } from './components/HomePage';
 import { TabsPage } from './components/TabsPage';
 import { NotFoundPage } from './components/NotFoundPage';
@@ -10,7 +18,7 @@ import { NotFoundPage } from './components/NotFoundPage';
 export const App = () => {
   const location = useLocation();
 
-  const isHomeActive = location.pathname === '/';
+  const isHomeActive = location.pathname === '/' || location.pathname === '/home';
   const isTabsActive = location.pathname.startsWith('/tabs');
 
   return (
@@ -41,15 +49,19 @@ export const App = () => {
       <div className="section">
         <div className="container">
           <Routes>
+            {/* Home */}
             <Route path="/" element={<HomePage />} />
 
+            {/* redirect /home -> / */}
             <Route path="/home" element={<Navigate to="/" replace />} />
 
-            <Route path="/tabs">
+            {/* Tabs (ВАЖНО: без /) */}
+            <Route path="tabs">
               <Route index element={<TabsPage />} />
               <Route path=":tabId" element={<TabsPage />} />
             </Route>
 
+            {/* 404 */}
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
