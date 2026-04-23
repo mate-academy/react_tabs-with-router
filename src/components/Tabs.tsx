@@ -6,7 +6,6 @@ interface Props {
 }
 
 export const Tabs: React.FC<Props> = ({ tabs, activeTabId }) => {
-
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
