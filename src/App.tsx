@@ -33,7 +33,7 @@ const TabsPage = () => {
       <Tabs tabs={tabs} selectedTabId={selectedTab?.id} />
 
       <div className="block" data-cy="TabContent">
-        {selectedTab?.content || 'Please select a tab'}
+        {selectedTab ? selectedTab.content : 'Please select a tab'}
       </div>
     </>
   );
