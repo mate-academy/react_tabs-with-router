@@ -1,12 +1,12 @@
-import { Routes, Route, Navigate, NavLink } from 'react-router-dom';
+import { Routes, Route, Navigate, Link, useMatch } from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { TabsPage } from './components/TabsPage';
 
 export const App = () => {
-  const getNavLinkClass = ({ isActive }: { isActive: boolean }) =>
-    isActive ? 'navbar-item is-active' : 'navbar-item';
+  const isHomeActive = useMatch('/');
+  const isTabsActive = useMatch('/tabs/*');
 
   return (
     <>
@@ -16,12 +16,18 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink to="/" className={getNavLinkClass}>
+            <Link
+              to="/"
+              className={`navbar-item ${isHomeActive ? 'is-active' : ''}`}
+            >
               Home
-            </NavLink>
-            <NavLink to="/tabs" className={getNavLinkClass}>
+            </Link>
+            <Link
+              to="/tabs"
+              className={`navbar-item ${isTabsActive ? 'is-active' : ''}`}
+            >
               Tabs
-            </NavLink>
+            </Link>
           </div>
         </div>
       </nav>
