@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import classNames from 'classnames';
 import { Link, useParams } from 'react-router-dom';
 
@@ -10,6 +9,7 @@ const tabs = [
 
 export const TabsPage = () => {
   const { tabId } = useParams();
+
   const activeTab = tabs.find(tab => tab.id === tabId);
 
   return (
@@ -22,7 +22,9 @@ export const TabsPage = () => {
             <li
               key={tab.id}
               data-cy="Tab"
-              className={classNames({ "is-active": tabId === tab.id })}
+              className={classNames({
+                'is-active': tabId === tab.id,
+              })}
             >
               <Link to={`/tabs/${tab.id}`}>
                 {tab.title}
@@ -33,11 +35,7 @@ export const TabsPage = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {activeTab ? (
-          activeTab.content
-        ): (
-          "Please select a tab"
-        )}
+        {activeTab ? activeTab.content : 'Please select a tab'}
       </div>
     </>
   );
