@@ -26,9 +26,7 @@ export const TabsPage = () => {
                 'is-active': tabId === tab.id,
               })}
             >
-              <a href={`#/tabs/${tab.id}`}>
-                {tab.title}
-              </a>
+              <a href={`#/tabs/${tab.id}`}>{tab.title}</a>
             </li>
           ))}
         </ul>
