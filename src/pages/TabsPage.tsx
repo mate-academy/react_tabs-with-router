@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -26,9 +26,9 @@ export const TabsPage = () => {
                 'is-active': tabId === tab.id,
               })}
             >
-              <Link to={`/tabs/${tab.id}`}>
+              <a href={`#/tabs/${tab.id}`}>
                 {tab.title}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
