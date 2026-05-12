@@ -2,12 +2,12 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import {
-  NavLink,
   Link,
   Route,
   Routes,
   Navigate,
   useParams,
+  useLocation,
 } from 'react-router-dom';
 
 const tabs = [
@@ -46,6 +46,10 @@ export const TabsPage = () => {
 };
 
 export const App = () => {
+  const location = useLocation();
+  const isActive = (path: string) =>
+    location.pathname === path ? 'is-active' : '';
+
   return (
     <>
       {/* Also requires <html class="has-navbar-fixed-top"> */}
@@ -55,22 +59,16 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `navbar-item ${isActive ? 'is-active' : ''}`
-              }
-            >
+            <Link to="/" className={`navbar-item ${isActive('/')}`}>
               Home
-            </NavLink>
-            <NavLink
+            </Link>
+
+            <Link
               to="/tabs"
-              className={({ isActive }) =>
-                `navbar-item ${isActive ? 'is-active' : ''}`
-              }
+              className={`navbar-item ${location.pathname.startsWith('/tabs') ? 'is-active' : ''}`}
             >
               Tabs
-            </NavLink>
+            </Link>
           </div>
         </div>
       </nav>
