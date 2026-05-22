@@ -2,7 +2,7 @@
   "extends": "@mate-academy/students-ts-config",
   "include": [
     "src"
-  ],
+, "node_modules/react_tabs-js/src/components/Tabs/Tabs.jsx"  ],
   "compilerOptions": {
     "sourceMap": false,
     "types": ["node", "cypress"]
