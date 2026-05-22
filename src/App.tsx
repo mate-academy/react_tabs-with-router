@@ -2,7 +2,7 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { TabsPage } from './components/TabsPage';
-import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
+import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -10,7 +10,10 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-export const App = () => (
+export const App = () => {
+  const { pathname } = useLocation();
+
+  return (
   <>
     {/* Also requires <html class="has-navbar-fixed-top"> */}
     <nav
@@ -19,39 +22,46 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              'navbar-item' + (isActive ? ' is-active' : '')
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/tabs"
-            className={({ isActive }) =>
-              'navbar-item' + (isActive ? ' is-active' : '')
-            }
-          >
-            Tabs
-          </NavLink>
+
+        <Link
+        to="/"
+        className={
+          "navbar-item" + (pathname === '/'
+            ? " is-active"
+            : "")}
+        >
+        Home
+        </Link>
+
+        <Link
+          to="/tabs"
+          className={
+            "navbar-item" + (pathname.startsWith('/tabs')
+              ? " is-active"
+              : "")}
+        >
+        Tabs
+        </Link>
         </div>
       </div>
     </nav>
 
-    <Routes >
-      <Route path='/' element={
+    <Routes>
+      <Route
+        path="/"
+        element={
           <div className="section">
             <div className="container">
               <h1 className="title">Home page</h1>
+            </div>
           </div>
-          </div>
-      } />
+        }
+      />
       <Route path="home" element={<Navigate to="/" />} />
 
-      <Route path='tabs'>
+      <Route path="tabs">
         <Route index element={<TabsPage tabs={tabs} />} />
-        <Route path=':tabId' element={<TabsPage tabs={tabs} />} />
+        <Route path=":tabId" element={<TabsPage tabs={tabs} />} />
       </Route>
 
       <Route
@@ -62,7 +72,9 @@ export const App = () => (
               <h1 className="title">Page not found</h1>
             </div>
           </div>
-        } />
+        }
+      />
     </Routes>
   </>
-);
+)
+}
