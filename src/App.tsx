@@ -1,12 +1,12 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Outlet, useLocation, Navigate, NavLink } from 'react-router-dom';
+import { Outlet, useLocation, Navigate, Link } from 'react-router-dom';
 
 export const App = () => {
-  const location = useLocation();
+  const { pathname } = useLocation();
 
-  if (location.pathname === '/home') {
+  if (pathname === '/home') {
     return <Navigate to="/" />;
   }
 
@@ -19,22 +19,24 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink
+            <Link
               to="/"
-              className={({ isActive }) =>
-                `navbar-item ${isActive ? 'is-active' : ''}`
+              className={
+                pathname === '/' ? 'navbar-item is-active' : 'navbar-item'
               }
             >
               Home
-            </NavLink>
-            <NavLink
+            </Link>
+            <Link
               to="/tabs"
-              className={({ isActive }) =>
-                `navbar-item ${isActive ? 'is-active' : ''}`
+              className={
+                pathname.startsWith('/tabs')
+                  ? 'navbar-item is-active'
+                  : 'navbar-item'
               }
             >
               Tabs
-            </NavLink>
+            </Link>
           </div>
         </div>
       </nav>
