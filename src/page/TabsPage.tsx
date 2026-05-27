@@ -7,10 +7,10 @@ const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-export function Tabs() {
+export function TabsPage() {
   const { tabId } = useParams();
 
-  const content = tabs.find(tab => tab.id === tabId)?.content ?? null;
+  const activeTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
@@ -31,17 +31,9 @@ export function Tabs() {
           ))}
         </ul>
       </div>
-      {tabId && (
-        <div className="block" data-cy="TabContent">
-          {content}
-        </div>
-      )}
-
-      {!content && (
-        <div className="block" data-cy="TabContent">
-          Please select a tab
-        </div>
-      )}
+      <div className="block" data-cy="TabContent">
+        {activeTab ? activeTab.content : 'Please select a tab'}
+      </div>
     </>
   );
 }
