@@ -1,3 +1,5 @@
+
+
 /// <reference types="Cypress" />
 const page = {
   title: () => cy.get('.title'),
