@@ -39,7 +39,7 @@ export const App = () => {
             <Route index element={<HomePage />} />
             <Route path="home" element={<Navigate to="/" replace />} />
             <Route path="tabs">
-              <Route path=":tabId?" element={<TabsPage />} />
+              <Route path=":tabId" element={<TabsPage />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Route>
