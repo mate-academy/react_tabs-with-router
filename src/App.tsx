@@ -1,71 +1,76 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+
 import {
   Routes,
   Route,
   Link,
-  // NavLink,
-  // Outlet,
-  // useParams,
-  // useNavigate,
-  // Navigate,
+  useParams,
+  Navigate,
   useLocation,
 } from 'react-router-dom';
+
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
+const Home = () => {
+  return (
+    <div className="section">
+      <div className="container">
+        <h1 className="title">Home page</h1>
+      </div>
+    </div>
+  );
+};
+
+const Tabs = () => {
+  const { tabId } = useParams();
+
+  const activeTab = tabs.find(tab => tab.id === tabId);
+
+  return (
+    <div className="section">
+      <div className="container">
+        <h1 className="title">Tabs page</h1>
+
+        <div className="tabs is-boxed">
+          <ul>
+            {tabs.map(tab => (
+              <li
+                key={tab.id}
+                data-cy="Tab"
+                className={tab.id === tabId ? 'is-active' : ''}
+              >
+                <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="block" data-cy="TabContent">
+          {activeTab ? activeTab.content : 'Please select a tab'}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const NotFound = () => {
+  return (
+    <div className="section">
+      <div className="container">
+        <h1 className="title">Page not found</h1>
+      </div>
+    </div>
+  );
+};
+
 export const App = () => {
   const location = useLocation();
-  const listaLocationHash = ['#/1', '#/2', '#/3'];
-  const activeTab = tabs[listaLocationHash.indexOf(location.hash)];
-
-  const Home = () => {
-    return (
-      <div className="section">
-        <div className="container">
-          <h1 className="title">Home page</h1>
-        </div>
-      </div>
-    );
-  };
-
-  const Tabs = () => {
-    return (
-      <div className="section">
-        <div className="container">
-          <h1 className="title">Tabs page</h1>
-
-          <div className="tabs is-boxed">
-            <ul>
-              {tabs.map((tab, index) => (
-                <li
-                  data-cy="Tab"
-                  key={tab.id}
-                  className={
-                    listaLocationHash[index] === location.hash
-                      ? 'is-active'
-                      : ''
-                  }
-                >
-                  <Link to={listaLocationHash[index]}>{tab.title}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="block" data-cy="TabContent">
-            {!listaLocationHash.includes(location.hash)
-              ? 'Please select a tab '
-              : `${activeTab.content}`}
-          </div>
-        </div>
-      </div>
-    );
-  };
 
   return (
     <>
@@ -77,27 +82,37 @@ export const App = () => {
           <div className="navbar-brand">
             <Link
               to="/"
-              className={`navbar-item ${location.pathname === '/' ? 'is-active' : ''}`}
+              className={`navbar-item ${
+                location.pathname === '/' ? 'is-active' : ''
+              }`}
             >
               Home
             </Link>
+
             <Link
               to="/tabs"
-              className={`navbar-item ${location.pathname === '/tabs' ? 'is-active' : ''}`}
+              className={`navbar-item ${
+                location.pathname.includes('/tabs') ? 'is-active' : ''
+              }`}
             >
               Tabs
             </Link>
           </div>
         </div>
       </nav>
+
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/tabs" element={<Tabs />}></Route>
+        <Route path="/home" element={<Navigate to="/" replace />} />
+
+        <Route path="/" element={<Home />} />
+
+        <Route path="tabs">
+          <Route index element={<Tabs />} />
+          <Route path=":tabId" element={<Tabs />} />
+        </Route>
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
 };
-
-// RECADO PARA AMANHÃ
-
-// VOCE VAI TER QUE FINALIZAR COLOCANDO OS CONTEUDOS DOS TABS, JÁ TA TUDO FEITINHO SÓ FINALIZAR :)
