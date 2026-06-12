@@ -1,6 +1,7 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+
 import {
   Link,
   Outlet,
@@ -30,15 +31,16 @@ const TabContent = () => {
 };
 
 const Tabs = () => {
-  const location = useLocation();
+  const { tabId } = useParams();
 
   return (
     <>
       <h1 className="title">Tabs page</h1>
+
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
-            const isActive = location.pathname === `/tabs/${tab.id}`;
+            const isActive = tab.id === tabId;
 
             return (
               <li
@@ -54,6 +56,7 @@ const Tabs = () => {
           })}
         </ul>
       </div>
+
       <div className="block" data-cy="TabContent">
         <Outlet />
       </div>
@@ -73,7 +76,7 @@ export const App = () => {
         <div className="container">
           <div className="navbar-brand">
             <Link
-              to={'/'}
+              to="/"
               className={
                 location.pathname === '/'
                   ? 'navbar-item is-active'
@@ -82,8 +85,9 @@ export const App = () => {
             >
               Home
             </Link>
+
             <Link
-              to={'/tabs'}
+              to="/tabs"
               className={
                 location.pathname.startsWith('/tabs')
                   ? 'navbar-item is-active'
@@ -100,14 +104,14 @@ export const App = () => {
         <div className="container">
           <Routes>
             <Route path="/" element={<h1 className="title">Home page</h1>} />
+
             <Route path="home" element={<Navigate to="/" />} />
+
             <Route path="tabs" element={<Tabs />}>
               <Route index element={<>Please select a tab</>} />
-
-              {tabs.map(tab => (
-                <Route key={tab.id} path=":tabId" element={<TabContent />} />
-              ))}
+              <Route path=":tabId" element={<TabContent />} />
             </Route>
+
             <Route
               path="*"
               element={<h1 className="title">Page not found</h1>}
