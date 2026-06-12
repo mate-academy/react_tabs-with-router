@@ -1,3 +1,4 @@
+// src/pages/TabsPage.tsx
 import { useParams } from 'react-router-dom';
 import TabsComponent from '../components/TabsComponent';
 import { tabs } from '../data/tabs';
@@ -5,6 +6,7 @@ import { Tab } from '../types/Tab';
 
 export default function TabsPage() {
   const { tabId } = useParams<{ tabId?: string }>();
+
   const selected: Tab | undefined = tabId
     ? tabs.find(t => t.id === tabId)
     : undefined;
@@ -15,7 +17,6 @@ export default function TabsPage() {
 
       <TabsComponent />
 
-      {/* Заголовок таба винесено назовні, щоб data-cy="TabContent" містив тільки текст */}
       {tabId && selected && (
         <h2 className="subtitle" data-cy="TabTitle">
           {selected.title}
