@@ -8,6 +8,7 @@ import {
   Routes,
   useLocation,
   Navigate,
+  useParams,
 } from 'react-router-dom';
 
 const tabs = [
@@ -15,6 +16,18 @@ const tabs = [
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
+
+const TabContent = () => {
+  const { tabId } = useParams();
+
+  const selectedTab = tabs.find(tab => tab.id === tabId);
+
+  if (!selectedTab) {
+    return <>Please select a tab</>;
+  }
+
+  return <p>{selectedTab.content}</p>;
+};
 
 const Tabs = () => {
   const location = useLocation();
@@ -87,18 +100,13 @@ export const App = () => {
         <div className="container">
           <Routes>
             <Route path="/" element={<h1 className="title">Home page</h1>} />
-            <Route path="/home" element={<Navigate to="/" />} />
-            <Route path="/tabs" element={<Tabs />}>
+            <Route path="home" element={<Navigate to="/" />} />
+            <Route path="tabs" element={<Tabs />}>
               <Route index element={<>Please select a tab</>} />
 
               {tabs.map(tab => (
-                <Route
-                  key={tab.id}
-                  path={tab.id}
-                  element={<p>{tab.content}</p>}
-                />
+                <Route key={tab.id} path=":tabId" element={<TabContent />} />
               ))}
-              <Route path="*" element={<>Please select a tab</>} />
             </Route>
             <Route
               path="*"
