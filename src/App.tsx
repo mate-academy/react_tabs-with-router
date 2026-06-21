@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Routes,
-  Route,
-  Navigate,
-  NavLink,
-  useParams,
-  Link,
-} from 'react-router-dom';
+import { Routes, Route, Navigate, NavLink, useParams, Link } from 'react-router-dom';
 
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
@@ -32,15 +25,11 @@ interface TabsProps {
 const Tabs: React.FC<TabsProps> = ({ tabs, activeTabId }) => (
   <div className="tabs is-boxed">
     <ul>
-      {tabs.map(tab => {
+      {tabs.map((tab) => {
         const isActive = tab.id === activeTabId;
 
         return (
-          <li
-            key={tab.id}
-            data-cy="Tab"
-            className={isActive ? 'is-active' : ''}
-          >
+          <li key={tab.id} data-cy="Tab" className={isActive ? 'is-active' : ''}>
             <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
           </li>
         );
@@ -55,12 +44,12 @@ interface TabsPageProps {
 
 const TabsPage: React.FC<TabsPageProps> = ({ tabs }) => {
   const { tabId } = useParams<{ tabId: string }>();
-  const activeTab = tabs.find(tab => tab.id === tabId);
+  const activeTab = tabs.find((tab) => tab.id === tabId);
 
   return (
     <>
       <h1 className="title">Tabs page</h1>
-
+      
       <Tabs tabs={tabs} activeTabId={tabId} />
 
       <div className="block" data-cy="TabContent">
@@ -79,10 +68,7 @@ export const App = () => {
 
   return (
     <>
-      <nav
-        className="navbar is-light is-fixed-top is-mobile has-shadow"
-        data-cy="Nav"
-      >
+      <nav className="navbar is-light is-fixed-top is-mobile has-shadow" data-cy="Nav">
         <div className="container">
           <div className="navbar-brand">
             <NavLink to="/" className={getNavLinkClass} end>
