@@ -4,6 +4,7 @@ import './App.scss';
 import {
   Link,
   Navigate,
+  Outlet,
   Route,
   Routes,
   useLocation,
@@ -46,9 +47,19 @@ const Nav = () => {
 
 const HomePage = () => <h1 className="title">Home page</h1>;
 
-const TabsPage = () => {
+const TabContent = () => {
   const { tabId } = useParams();
   const activeTab = tabs.find(tab => tab.id === tabId);
+
+  return (
+    <div className="block" data-cy="TabContent">
+      {activeTab ? activeTab.content : 'Please select a tab'}
+    </div>
+  );
+};
+
+const TabsPage = () => {
+  const { tabId } = useParams();
 
   return (
     <>
@@ -67,9 +78,7 @@ const TabsPage = () => {
         </ul>
       </div>
 
-      <div className="block" data-cy="TabContent">
-        {activeTab ? activeTab.content : 'Please select a tab'}
-      </div>
+      <Outlet />
     </>
   );
 };
@@ -85,8 +94,12 @@ export const App = () => (
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
-          <Route path="/tabs" element={<TabsPage />} />
-          <Route path="/tabs/:tabId" element={<TabsPage />} />
+
+          <Route path="tabs" element={<TabsPage />}>
+            <Route index element={<TabContent />} />
+            <Route path=":tabId" element={<TabContent />} />
+          </Route>
+
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
