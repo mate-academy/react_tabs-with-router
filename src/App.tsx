@@ -10,7 +10,6 @@ export const App = () => {
 
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <nav
         className="navbar is-light is-fixed-top is-mobile has-shadow"
         data-cy="Nav"
@@ -20,14 +19,12 @@ export const App = () => {
             <Link
               to="/"
               className={`navbar-item ${pathname === '/' ? 'is-active' : ''}`}
-              data-cy="TabLink"
             >
               Home
             </Link>
             <Link
               to="/tabs"
               className={`navbar-item ${pathname.startsWith('/tabs') ? 'is-active' : ''}`}
-              data-cy="TabLink"
             >
               Tabs
             </Link>

@@ -16,11 +16,7 @@ export const TabsPage = () => {
     <>
       <div>
         <h1 className="title">Tabs page</h1>
-        <Tabs
-          tabs={tabsData}
-          activeTabId={tabId || ''}
-          onTabSelected={() => {}}
-        />
+        <Tabs tabs={tabsData} activeTabId={tabId || ''} />
       </div>
       <div className="block" data-cy="TabContent">
         {selectedTab ? selectedTab.content : 'Please select a tab'}
