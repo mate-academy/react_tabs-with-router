@@ -1,11 +1,19 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Routes, Route, Navigate, NavLink } from 'react-router-dom';
+
+import classNames from 'classnames';
+import {
+  Routes,
+  Route,
+  Navigate,
+  Link,
+  useLocation,
+} from 'react-router-dom';
+
 import { Tabs } from './components/Tabs/Tabs';
 import { Home } from './components/Home/Home';
 import { NotFound } from './components/NotFound/NotFound';
-import classNames from 'classnames';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -13,11 +21,12 @@ export const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-
-const getLinkIsActive = ({ isActive }: { isActive: boolean }) =>
-  classNames('navbar-item', { 'is-active': isActive });
-
 export const App = () => {
+  const { pathname } = useLocation();
+
+  const isHomeActive = pathname === '/';
+  const isTabsActive = pathname.startsWith('/tabs');
+
   return (
     <>
       <nav
@@ -26,12 +35,21 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink to="/" className={getLinkIsActive}>
-              Home
-            </NavLink>
-            <NavLink to="/tabs" className={getLinkIsActive}>
-              Tabs
-            </NavLink>
+            <div
+              className={classNames('navbar-item', {
+                'is-active': isHomeActive,
+              })}
+            >
+              <Link to="/">Home</Link>
+            </div>
+
+            <div
+              className={classNames('navbar-item', {
+                'is-active': isTabsActive,
+              })}
+            >
+              <Link to="/tabs">Tabs</Link>
+            </div>
           </div>
         </div>
       </nav>
@@ -40,14 +58,15 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
+
           <Route path="tabs">
             <Route index element={<Tabs tabs={tabs} />} />
             <Route path=":tabId" element={<Tabs tabs={tabs} />} />
           </Route>
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </>
   );
 };
-
