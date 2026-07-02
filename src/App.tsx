@@ -40,7 +40,14 @@ export const App = () => {
                 'is-active': isHomeActive,
               })}
             >
-              <Link to="/">Home</Link>
+              <Link
+                to="/"
+                className={classNames({
+                  'is-active': isHomeActive,
+                })}
+              >
+                Home
+              </Link>
             </div>
 
             <div
@@ -48,7 +55,14 @@ export const App = () => {
                 'is-active': isTabsActive,
               })}
             >
-              <Link to="/tabs">Tabs</Link>
+              <Link
+                to="/tabs"
+                className={classNames({
+                  'is-active': isTabsActive,
+                })}
+              >
+                Tabs
+              </Link>
             </div>
           </div>
         </div>
