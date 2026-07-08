@@ -17,28 +17,26 @@ export const App = () => {
         data-cy="Nav"
       >
         <div className="navbar-brand">
-          <Link
-            to="/"
-            className={
-              location.pathname === '/'
-                ? 'navbar-item is-active'
-                : 'navbar-item'
-            }
+          <div
+  className={
+    location.pathname === '/'
+      ? 'navbar-item is-active'
+      : 'navbar-item'
+  }
           >
-            Home
-          </Link>
+            <Link to="/">Home</Link>
+          </div>
 
-          <Link
-            to="/tabs"
-            className={
-              location.pathname.startsWith('/tabs')
-                ? 'navbar-item is-active'
-                : 'navbar-item'
-            }
-          >
-            Tabs
-          </Link>
-        </div>
+<div
+  className={
+    location.pathname.startsWith('/tabs')
+      ? 'navbar-item is-active'
+      : 'navbar-item'
+  }
+>
+  <Link to="/tabs">Tabs</Link>
+  </div>
+</div>
       </nav>
 
       <div className="section">
