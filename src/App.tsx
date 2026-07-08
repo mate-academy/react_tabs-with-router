@@ -18,25 +18,37 @@ export const App = () => {
       >
         <div className="navbar-brand">
           <div
-  className={
-    location.pathname === '/'
-      ? 'navbar-item is-active'
-      : 'navbar-item'
-  }
+            className={
+              location.pathname === '/'
+                ? 'navbar-item is-active'
+                : 'navbar-item'
+            }
           >
-            <Link to="/">Home</Link>
+            <Link
+              to="/"
+              className={location.pathname === '/' ? 'is-active' : ''}
+            >
+              Home
+            </Link>
           </div>
 
-<div
-  className={
-    location.pathname.startsWith('/tabs')
-      ? 'navbar-item is-active'
-      : 'navbar-item'
-  }
->
-  <Link to="/tabs">Tabs</Link>
-  </div>
-</div>
+          <div
+            className={
+              location.pathname.startsWith('/tabs')
+                ? 'navbar-item is-active'
+                : 'navbar-item'
+            }
+          >
+            <Link
+              to="/tabs"
+              className={
+                location.pathname.startsWith('/tabs') ? 'is-active' : ''
+              }
+            >
+              Tabs
+            </Link>
+          </div>
+        </div>
       </nav>
 
       <div className="section">
@@ -44,11 +56,11 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/home" element={<Navigate to="/" replace />} />
-            <Route path="*" element={<NotFoundPage />} />
             <Route path="tabs">
               <Route index element={<TabsPage />} />
               <Route path=":tabId" element={<TabsPage />} />
             </Route>
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
       </div>
