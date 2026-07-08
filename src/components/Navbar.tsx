@@ -1,9 +1,8 @@
 // .. Navbar.tsx
-import { Link, useLocation } from 'react-router-dom';
+// Navbar.tsx
+import { NavLink } from 'react-router-dom';
 
 export const Navbar = () => {
-  const { pathname } = useLocation();
-
   return (
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
@@ -11,23 +10,24 @@ export const Navbar = () => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <div
-            className={
-              pathname === '/' ? 'navbar-item is-active' : 'navbar-item'
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? 'navbar-item is-active' : 'navbar-item'
             }
+            end
           >
-            <Link to="/">Home</Link>
-          </div>
+            Home
+          </NavLink>
 
-          <div
-            className={
-              pathname.startsWith('/tabs')
-                ? 'navbar-item is-active'
-                : 'navbar-item'
+          <NavLink
+            to="/tabs"
+            className={({ isActive }) =>
+              isActive ? 'navbar-item is-active' : 'navbar-item'
             }
           >
-            <Link to="/tabs">Tabs</Link>
-          </div>
+            Tabs
+          </NavLink>
         </div>
       </div>
     </nav>

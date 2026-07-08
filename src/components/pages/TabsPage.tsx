@@ -19,11 +19,10 @@ export const TabsPage = () => {
       <div className="container">
         <h1 className="title">Tabs page</h1>
 
-        {/* Якщо індекс менше 0, передаємо undefined замість -1 */}
         <Tabs selectedIndex={selectedIndex >= 0 ? selectedIndex : undefined}>
           <TabList>
             {tabs.map(tab => (
-              <Tab key={tab.id}>
+              <Tab key={tab.id} data-cy="Tab" selectedClassName="is-active">
                 <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
               </Tab>
             ))}
