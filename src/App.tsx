@@ -1,39 +1,41 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { NavLink, Outlet } from 'react-router-dom';
-import classNames from 'classnames';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 
-export const App = () => (
-  <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
-    <nav
-      className="navbar is-light is-fixed-top is-mobile has-shadow"
-      data-cy="Nav"
-    >
-      <div className="container">
-        <div className="navbar-brand">
-          <NavLink
-            to={'/'}
-            className={({ isActive }) => {
-              return classNames('navbar-item', { 'is-active': isActive });
-            }}
-          >
-            Home
-          </NavLink>
+export const App = () => {
+  const currentPath = useLocation();
+  const isHomeActive = currentPath.pathname === '/';
 
-          <NavLink
-            to={'/tabs'}
-            className={({ isActive }) => {
-              return classNames('navbar-item', { 'is-active': isActive });
-            }}
-          >
-            Tabs
-          </NavLink>
+  const isTabsActive = currentPath.pathname.startsWith('/tabs');
+
+  return (
+    <>
+      {/* Also requires <html class="has-navbar-fixed-top"> */}
+      <nav
+        className="navbar is-light is-fixed-top is-mobile has-shadow"
+        data-cy="Nav"
+      >
+        <div className="container">
+          <div className="navbar-brand">
+            <Link
+              to={'/'}
+              className={`navbar-item ${isHomeActive ? 'is-active' : ''}`}
+            >
+              Home
+            </Link>
+
+            <Link
+              to={'/tabs'}
+              className={`navbar-item ${isTabsActive ? 'is-active' : ''}`}
+            >
+              Tabs
+            </Link>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
-    <Outlet />
-  </>
-);
+      <Outlet />
+    </>
+  );
+};
