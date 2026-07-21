@@ -42,6 +42,9 @@ The content is organized as follows:
 
 <directory_structure>
 src/
+  pages/
+    HomePage.tsx
+    TabsPage.tsx
   types/
     Tab.ts
   App.scss
@@ -54,6 +57,12 @@ README.md
 <files>
 This section contains the contents of the repository's files.
 
+<file path="src/pages/HomePage.tsx">
+export const HomePage = () => {
+  return <h1 className="title">Home page</h1>;
+};
+</file>
+
 <file path="src/types/Tab.ts">
 export interface Tab {
   id: string;
@@ -64,6 +73,45 @@ export interface Tab {
 
 <file path="src/vite-env.d.ts">
 /// <reference types="vite/client" />
+</file>
+
+<file path="src/pages/TabsPage.tsx">
+import { useParams, Link } from 'react-router-dom';
+import cn from 'classnames';
+
+const tabs = [
+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
+  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
+  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+];
+
+export const TabsPage = () => {
+  const { tabId } = useParams();
+  const selectedTab = tabs.find(tab => tab.id === tabId);
+
+  return (
+    <>
+      <h1 className="title">Tabs page</h1>
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map(tab => (
+            <li
+              key={tab.id}
+              data-cy="Tab"
+              className={cn({ 'is-active': tab.id === tabId })}
+            >
+              <Link to={`/tabs/${tab.id}`}>{tab.title} </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="block" data-cy="TabContent">
+        {selectedTab ? selectedTab.content : 'Please select a tab'}
+      </div>
+    </>
+  );
+};
 </file>
 
 <file path="src/App.scss">
@@ -85,15 +133,13 @@ createRoot(document.getElementById('root') as HTMLElement).render(
 </file>
 
 <file path="src/App.tsx">
+import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
+
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
+import { HomePage } from './pages/HomePage';
+import { TabsPage } from './pages/TabsPage';
 
 export const App = () => (
   <>
@@ -104,39 +150,38 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <a href="/" className="navbar-item is-active">
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) =>
+              `navbar-item ${isActive ? 'is-active' : ''}`
+            }
+          >
             Home
-          </a>
-          <a href="/tabs" className="navbar-item">
+          </NavLink>
+          <NavLink
+            to="/tabs"
+            className={({ isActive }) =>
+              `navbar-item ${isActive ? 'is-active' : ''}`
+            }
+          >
             Tabs
-          </a>
+          </NavLink>
         </div>
       </div>
     </nav>
 
     <div className="section">
       <div className="container">
-        <h1 className="title">Home page</h1>
-        <h1 className="title">Tabs page</h1>
-        <h1 className="title">Page not found</h1>
-
-        <div className="tabs is-boxed">
-          <ul>
-            <li data-cy="Tab" className="is-active">
-              <a href="#/">Tab 1</a>
-            </li>
-            <li data-cy="Tab">
-              <a href="#/">Tab 2</a>
-            </li>
-            <li data-cy="Tab">
-              <a href="#/">Tab 3</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="block" data-cy="TabContent">
-          Please select a tab
-        </div>
+        <Routes>
+          <Route path='home' element={<Navigate path="/" replace />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="tabs">
+            <Route index element={<TabsPage />} />
+            <Route path=":tabId" element={<TabsPage />} />
+          </Route>
+          <Route path="*" element={<h1 className="title">Page not found</h1>} />
+        </Routes>
       </div>
     </div>
   </>
@@ -178,7 +223,7 @@ or [React Tabs](https://github.com/mate-academy/react_tabs#react-tabs).
 - Implement a solution following the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline).
 - Use the [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript).
 - Open one more terminal and run tests with `npm test` to ensure your solution is correct.
-- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_tabs-with-router/) and add it to the PR description.
+- Replace `<your_account>` with your Github username in the [DEMO LINK](https://Grigoriy01.github.io/react_tabs-with-router/) and add it to the PR description.
 </file>
 
 </files>
