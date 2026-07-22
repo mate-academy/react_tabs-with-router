@@ -1,31 +1,36 @@
-import { NavLink } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-export const Navbar = () => (
-  <nav
-    className="navbar is-light is-fixed-top is-mobile has-shadow"
-    data-cy="Nav"
-  >
-    <div className="container">
-      <div className="navbar-brand">
-        <NavLink
-          to="/"
-          end
-          className={({ isActive }) =>
-            isActive ? 'navbar-item is-active' : 'navbar-item'
-          }
-        >
-          Home
-        </NavLink>
+export const Navbar = () => {
+  const { pathname } = useLocation();
 
-        <NavLink
-          to="/tabs"
-          className={({ isActive }) =>
-            isActive ? 'navbar-item is-active' : 'navbar-item'
-          }
-        >
-          Tabs
-        </NavLink>
+  return (
+    <nav
+      className="navbar is-light is-fixed-top is-mobile has-shadow"
+      data-cy="Nav"
+    >
+      <div className="container">
+        <div className="navbar-brand">
+          <Link
+            to="/"
+            className={
+              pathname === '/' ? 'navbar-item is-active' : 'navbar-item'
+            }
+          >
+            Home
+          </Link>
+
+          <Link
+            to="/tabs"
+            className={
+              pathname.startsWith('/tabs')
+                ? 'navbar-item is-active'
+                : 'navbar-item'
+            }
+          >
+            Tabs
+          </Link>
+        </div>
       </div>
-    </div>
-  </nav>
-);
+    </nav>
+  );
+};
