@@ -1,16 +1,22 @@
 import React from 'react';
-import { NavLink, NavLinkRenderProps } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const NAV_ITEMS = [
   { path: '/', label: 'Home' },
   { path: '/tabs', label: 'Tabs' },
 ] as const;
 
-const getClassName = ({ isActive }: NavLinkRenderProps) => {
-  return isActive ? 'navbar-item is-active' : 'navbar-item';
-};
-
 export const Navigation: React.FC = () => {
+  const { pathname } = useLocation();
+
+  const checkIsActive = (path: string, currentPath: string): boolean => {
+    if (path === '/') {
+      return currentPath === '/';
+    }
+
+    return currentPath.startsWith(path);
+  };
+
   return (
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
@@ -19,9 +25,14 @@ export const Navigation: React.FC = () => {
       <div className="container">
         <div className="navbar-brand">
           {NAV_ITEMS.map(({ path, label }) => (
-            <NavLink key={path} to={path} className={getClassName}>
+            <Link
+              key={path}
+              to={path}
+              className={`navbar-item ${checkIsActive(path, pathname) ? 'is-active' : ''}`}
+              data-cy="NavItem"
+            >
               {label}
-            </NavLink>
+            </Link>
           ))}
         </div>
       </div>
