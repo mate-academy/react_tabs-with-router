@@ -1,5 +1,7 @@
+import '@fortawesome/fontawesome-free/css/all.css';
+import './App.scss';
 import React from 'react';
-import { Routes, Route, Navigate, NavLink } from 'react-router-dom';
+import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
 import { TabsPage } from './pages/TabsPage';
@@ -7,10 +9,7 @@ import { HomePage } from './pages/HomePage';
 import { NotFoundPage } from './pages/NotFoundPage';
 
 export const App: React.FC = () => {
-  const getNavClass = ({ isActive }: { isActive: boolean }) =>
-    classNames('navbar-item', {
-      'is-active': isActive,
-    });
+  const { pathname } = useLocation();
 
   return (
     <div className="container">
@@ -21,13 +20,23 @@ export const App: React.FC = () => {
         aria-label="main navigation"
       >
         <div className="navbar-brand">
-          <NavLink to="/" className={getNavClass}>
+          <Link
+            to="/"
+            className={classNames('navbar-item', {
+              'is-active': pathname === '/',
+            })}
+          >
             Home
-          </NavLink>
+          </Link>
 
-          <NavLink to="/tabs" className={getNavClass}>
+          <Link
+            to="/tabs"
+            className={classNames('navbar-item', {
+              'is-active': pathname.startsWith('/tabs'),
+            })}
+          >
             Tabs
-          </NavLink>
+          </Link>
         </div>
       </nav>
 
