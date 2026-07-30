@@ -1,12 +1,8 @@
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import React from 'react';
-import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, Outlet } from 'react-router-dom';
 import classNames from 'classnames';
-
-import { TabsPage } from './pages/TabsPage';
-import { HomePage } from './pages/HomePage';
-import { NotFoundPage } from './pages/NotFoundPage';
 
 export const App: React.FC = () => {
   const { pathname } = useLocation();
@@ -41,16 +37,7 @@ export const App: React.FC = () => {
       </nav>
 
       <div className="section">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="home" element={<Navigate to="/" replace />} />
-
-          <Route path="tabs" element={<TabsPage />}>
-            <Route path=":tabId?" element={<TabsPage />} />
-          </Route>
-
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        <Outlet />
       </div>
     </div>
   );

@@ -1,23 +1,21 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { Tab } from '../types/Tab';
 
 interface Props {
   tabs: Tab[];
+  selectedTab?: Tab;
+  onSelect?: (tab: Tab) => void;
 }
 
-export const Tabs: React.FC<Props> = ({ tabs }) => {
-  const { tabId } = useParams<{ tabId?: string }>();
-
-  const selectedTab = tabs.find(tab => tab.id === tabId);
-
+export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onSelect }) => {
   return (
     <>
       <div data-cy="Tabs" className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
-            const isActive = tab.id === tabId;
+            const isActive = selectedTab?.id === tab.id;
 
             return (
               <li
@@ -29,6 +27,7 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
               >
                 <Link
                   to={`/tabs/${tab.id}`}
+                  onClick={() => onSelect && onSelect(tab)}
                   style={{
                     display: 'flex',
                     width: '100%',
