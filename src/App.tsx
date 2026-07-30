@@ -35,6 +35,28 @@ export const App: React.FC = () => {
             >
               Tabs
             </Link>
+
+            {/* <ul className="navbar-start" style={{ display: 'flex' }}>
+              <li
+                className={classNames('navbar-item', {
+                  'is-active': isHomeActive,
+                })}
+              >
+                <Link to="/" data-cy="NavTab">
+                  Home
+                </Link>
+              </li>
+
+              <li
+                className={classNames('navbar-item', {
+                  'is-active': isTabsActive,
+                })}
+              >
+                <Link to="/tabs" data-cy="NavTab">
+                  Tabs
+                </Link>
+              </li>
+            </ul> */}
           </div>
         </div>
       </nav>

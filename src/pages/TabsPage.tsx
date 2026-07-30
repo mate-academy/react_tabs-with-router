@@ -1,25 +1,34 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import React from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 import { tabs } from '../types/Tab';
-import { Tabs } from '../components/Tabs';
 
 export const TabsPage: React.FC = () => {
   const { tabId } = useParams();
-  const navigate = useNavigate();
 
-  const handleTabSelect = (selectedTabId: string) => {
-    navigate(`/tabs/${selectedTabId}`);
-  };
-
-  const selectedTab = tabs.find(tab => tab.id === tabId);
+  const selectedIndex = tabs.findIndex(tab => tab.id === tabId);
+  const isSelected = selectedIndex >= 0;
 
   return (
     <div className="container">
       <h1 className="title">Tabs page</h1>
 
-      <Tabs tabs={tabs} selectedTabId={tabId} onTabSelect={handleTabSelect} />
+      <Tabs selectedIndex={isSelected ? selectedIndex : -1} onSelect={() => {}}>
+        <TabList className="tabs">
+          {tabs.map(tab => (
+            <Tab key={tab.id} data-cy="Tab" selectedClassName="is-active">
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
+            </Tab>
+          ))}
+        </TabList>
+
+        {tabs.map(tab => (
+          <TabPanel key={tab.id} />
+        ))}
+      </Tabs>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab ? selectedTab.content : 'Please select a tab'}
+        {isSelected ? tabs[selectedIndex].content : 'Please select a tab'}
       </div>
     </div>
   );
