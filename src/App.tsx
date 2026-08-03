@@ -1,9 +1,11 @@
+import React from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
+import { Routes, Route, Link, Navigate, useLocation } from 'react-router-dom';
 import cn from 'classnames';
-import { Tabss } from './tabs/tacticalaccuratebattlesimulator';
+
+import { TabsPage } from './components/TabsPage';
 
 const Tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -12,24 +14,33 @@ const Tabs = [
 ];
 
 export const App: React.FC = () => {
-  const getLinkClass = ({ isActive }: { isActive: boolean }) =>
-    cn('navbar-item', { 'is-active': isActive });
+  const { pathname } = useLocation();
 
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <nav
         className="navbar is-light is-fixed-top is-mobile has-shadow"
         data-cy="Nav"
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink to="/" end className={getLinkClass}>
+            <Link
+              to="/"
+              className={cn('navbar-item', {
+                'is-active': pathname === '/',
+              })}
+            >
               Home
-            </NavLink>
-            <NavLink to="/tabs" className={getLinkClass}>
+            </Link>
+
+            <Link
+              to="/tabs"
+              className={cn('navbar-item', {
+                'is-active': pathname.startsWith('/tabs'),
+              })}
+            >
               Tabs
-            </NavLink>
+            </Link>
           </div>
         </div>
       </nav>
@@ -39,11 +50,16 @@ export const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<h1 className="title">Home page</h1>} />
             <Route path="/home" element={<Navigate to="/" replace />} />
-            <Route path="/tabs/:tabId?" element={<Tabss Tabs={Tabs} />} />
+
+            <Route path="tabs">
+              <Route index element={<TabsPage tabs={Tabs} />} />
+              <Route path=":tabId" element={<TabsPage tabs={Tabs} />} />
+            </Route>
+
             <Route
               path="*"
               element={<h1 className="title">Page not found</h1>}
-            ></Route>
+            />
           </Routes>
         </div>
       </div>

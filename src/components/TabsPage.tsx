@@ -1,15 +1,15 @@
 import React from 'react';
 import cn from 'classnames';
-import { Tab } from '../types/Tab';
 import { Link, useParams } from 'react-router-dom';
+import { Tab } from '../types/Tab';
 
 interface Props {
-  Tabs: Tab[];
+  tabs: Tab[];
 }
 
-export const Tabss: React.FC<Props> = ({ Tabs }) => {
+export const TabsPage: React.FC<Props> = ({ tabs }) => {
   const { tabId } = useParams<{ tabId?: string }>();
-  const selectedTab = Tabs.find(tab => tab.id === tabId);
+  const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <>
@@ -17,7 +17,7 @@ export const Tabss: React.FC<Props> = ({ Tabs }) => {
 
       <div className="tabs is-boxed">
         <ul>
-          {Tabs.map(tab => (
+          {tabs.map(tab => (
             <li
               key={tab.id}
               data-cy="Tab"
