@@ -2,13 +2,15 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 
-import { NavLink, Navigate, Route, Routes } from 'react-router-dom';
+import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 
 import { HomePage } from './pages/HomePage';
 import { TabsPage } from './pages/TabsPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 
 export const App = () => {
+  const { pathname } = useLocation();
+
   return (
     <>
       <nav
@@ -17,24 +19,17 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink
-              to="/"
-              end
-              className={({ isActive }) =>
-                `navbar-item ${isActive ? 'is-active' : ''}`
-              }
-            >
-              Home
-            </NavLink>
+            <div className={pathname === '/' ? 'is-active' : ''}>
+              <Link to="/" className="navbar-item">
+                Home
+              </Link>
+            </div>
 
-            <NavLink
-              to="/tabs"
-              className={({ isActive }) =>
-                `navbar-item ${isActive ? 'is-active' : ''}`
-              }
-            >
-              Tabs
-            </NavLink>
+            <div className={pathname.startsWith('/tabs') ? 'is-active' : ''}>
+              <Link to="/tabs" className="navbar-item">
+                Tabs
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
@@ -44,9 +39,9 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
 
-            <Route path="home" element={<Navigate to="/" replace />} />
+            <Route path="/home" element={<Navigate to="/" replace />} />
 
-            <Route path="tabs">
+            <Route path="/tabs">
               <Route index element={<TabsPage />} />
               <Route path=":tabId" element={<TabsPage />} />
             </Route>
