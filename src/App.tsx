@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
-import { Tab } from './types/Tab';
 import cn from 'classnames';
 import { Tabss } from './tabs/tacticalaccuratebattlesimulator';
 
@@ -14,8 +12,6 @@ const Tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [number, setNumber] = useState<Tab | null>(null);
-
   const getLinkClass = ({ isActive }: { isActive: boolean }) =>
     cn('navbar-item', { 'is-active': isActive });
 
@@ -43,12 +39,7 @@ export const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<h1 className="title">Home page</h1>} />
             <Route path="/home" element={<Navigate to="/" replace />} />
-            <Route
-              path="/tabs/:tabId?"
-              element={
-                <Tabss number={number} setNumber={setNumber} Tabs={Tabs} />
-              }
-            />
+            <Route path="/tabs/:tabId?" element={<Tabss Tabs={Tabs} />} />
             <Route
               path="*"
               element={<h1 className="title">Page not found</h1>}
