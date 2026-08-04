@@ -1,31 +1,48 @@
-import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
+import { Link, useLocation } from 'react-router-dom';
 
-export const Navigation = () => (
-  <nav
-    className="navbar is-light is-fixed-top is-mobile has-shadow"
-    data-cy="Nav"
-  >
-    <div className="container">
-      <div className="navbar-brand">
-        <NavLink
-          to="/"
-          end
-          className={({ isActive }) =>
-            `navbar-item${isActive ? ' is-active' : ''}`
-          }
-        >
-          Home
-        </NavLink>
+export const Navigation = () => {
+  const { pathname } = useLocation();
 
-        <NavLink
-          to="/tabs"
-          className={({ isActive }) =>
-            `navbar-item${isActive ? ' is-active' : ''}`
-          }
-        >
-          Tabs
-        </NavLink>
+  const isHomeActive = pathname === '/';
+  const isTabsActive = pathname === '/tabs' || pathname.startsWith('/tabs/');
+
+  return (
+    <nav
+      className="navbar is-light is-fixed-top is-mobile has-shadow"
+      data-cy="Nav"
+    >
+      <div className="container">
+        <ul className="navbar-brand">
+          <li
+            className={classNames({
+              'is-active': isHomeActive,
+            })}
+          >
+            <Link
+              to="/"
+              className="navbar-item"
+              aria-current={isHomeActive ? 'page' : undefined}
+            >
+              Home
+            </Link>
+          </li>
+
+          <li
+            className={classNames({
+              'is-active': isTabsActive,
+            })}
+          >
+            <Link
+              to="/tabs"
+              className="navbar-item"
+              aria-current={isTabsActive ? 'page' : undefined}
+            >
+              Tabs
+            </Link>
+          </li>
+        </ul>
       </div>
-    </div>
-  </nav>
-);
+    </nav>
+  );
+};
