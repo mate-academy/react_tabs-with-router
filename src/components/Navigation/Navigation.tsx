@@ -8,40 +8,41 @@ export const Navigation = () => {
   const isTabsActive = pathname === '/tabs' || pathname.startsWith('/tabs/');
 
   return (
-    <nav
-      className="navbar is-light is-fixed-top is-mobile has-shadow"
-      data-cy="Nav"
-    >
+    <nav className="navbar is-fixed-top has-shadow" data-cy="Nav">
       <div className="container">
-        <ul className="navbar-brand">
-          <li
-            className={classNames({
-              'is-active': isHomeActive,
-            })}
-          >
-            <Link
-              to="/"
-              className="navbar-item"
-              aria-current={isHomeActive ? 'page' : undefined}
+        <div className="navbar-menu">
+          <div className="navbar-start">
+            <li
+              className={classNames({
+                'is-active': isHomeActive,
+              })}
             >
-              Home
-            </Link>
-          </li>
+              <Link
+                to="/"
+                className={classNames('navbar-item', {
+                  'is-active': isHomeActive,
+                })}
+              >
+                Home
+              </Link>
+            </li>
 
-          <li
-            className={classNames({
-              'is-active': isTabsActive,
-            })}
-          >
-            <Link
-              to="/tabs"
-              className="navbar-item"
-              aria-current={isTabsActive ? 'page' : undefined}
+            <li
+              className={classNames({
+                'is-active': isTabsActive,
+              })}
             >
-              Tabs
-            </Link>
-          </li>
-        </ul>
+              <Link
+                to="/tabs"
+                className={classNames('navbar-item', {
+                  'is-active': isTabsActive,
+                })}
+              >
+                Tabs
+              </Link>
+            </li>
+          </div>
+        </div>
       </div>
     </nav>
   );
