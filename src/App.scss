@@ -1,3 +1,12 @@
 iframe {
   display: none;
 }
+
+.navbar-brand > li {
+  display: flex;
+}
+
+.navbar-brand > li.is-active > .navbar-item {
+  background-color: #fafafa;
+  color: #485fc7;
+}
