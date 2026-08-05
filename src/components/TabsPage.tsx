@@ -15,7 +15,7 @@ export const TabsPage = () => {
     <>
       <h1 className="title">Tabs page</h1>
 
-      <Tabs tabs={tabs} selectedTabId={tabId} />
+      <Tabs tabs={tabs} activeTabId={tabId} />
     </>
   );
 };

@@ -15,20 +15,22 @@ const Navigation = () => {
     >
       <div className="container">
         <div className="navbar-brand">
-          <div
+          <Link
+            to="/"
             className={classNames('navbar-item', {
               'is-active': pathname === '/',
             })}
           >
-            <Link to="/">Home</Link>
-          </div>
-          <div
+            Home
+          </Link>
+          <Link
+            to="/tabs"
             className={classNames('navbar-item', {
               'is-active': pathname.startsWith('/tabs'),
             })}
           >
-            <Link to="/tabs">Tabs</Link>
-          </div>
+            Tabs
+          </Link>
         </div>
       </div>
     </nav>

@@ -4,11 +4,11 @@ import { Tab } from '../types/Tab';
 
 type Props = {
   tabs: Tab[];
-  selectedTabId?: string;
+  activeTabId?: string;
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, selectedTabId }) => {
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
+export const Tabs: React.FC<Props> = ({ tabs, activeTabId }) => {
+  const activeTab = tabs.find(tab => tab.id === activeTabId);
 
   return (
     <>
@@ -18,7 +18,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId }) => {
             <li
               key={tab.id}
               data-cy="Tab"
-              className={classNames({ 'is-active': tab.id === selectedTabId })}
+              className={classNames({ 'is-active': tab.id === activeTabId })}
             >
               <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
@@ -27,7 +27,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab?.content || 'Please select a tab'}
+        {activeTab?.content || 'Please select a tab'}
       </div>
     </>
   );
