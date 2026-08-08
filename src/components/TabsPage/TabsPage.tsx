@@ -1,24 +1,34 @@
+import { NavLink, useParams } from 'react-router-dom';
+import { useTabs } from '../../hooks/useTabs';
+import classNames from 'classnames';
+
 export const TabsPage = () => {
+  const tabs = useTabs();
+
+  const { tabId } = useParams();
+
+  const selectedTab = tabs.find(tab => tab.id === tabId);
+
   return (
     <>
       <h1 className="title">Tabs page</h1>
 
       <div className="tabs is-boxed">
         <ul>
-          <li data-cy="Tab" className="is-active">
-            <a href="#/">Tab 1</a>
-          </li>
-          <li data-cy="Tab">
-            <a href="#/">Tab 2</a>
-          </li>
-          <li data-cy="Tab">
-            <a href="#/">Tab 3</a>
-          </li>
+          {tabs.map(tab => (
+            <li
+              key={tab.id}
+              data-cy="Tab"
+              className={classNames({ 'is-active': tab.id === tabId })}
+            >
+              <NavLink to={`${tab.id}`}>{tab.title}</NavLink>
+            </li>
+          ))}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        Please select a tab
+        {selectedTab ? selectedTab.content : 'Please select a tab'}
       </div>
     </>
   );
