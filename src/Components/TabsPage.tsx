@@ -7,7 +7,6 @@ const validTabs = ['tab-1', 'tab-2', 'tab-3'];
 
 export const TabsPage = () => {
   const { tabId } = useParams();
-
   const isValid = tabId && validTabs.includes(tabId);
 
   return (
@@ -17,13 +16,13 @@ export const TabsPage = () => {
       <div className="tabs is-boxed">
         <ul>
           <li data-cy="Tab" className={tabId === 'tab-1' ? 'is-active' : ''}>
-            <Link to="tab-1">Tab 1</Link>
+            <Link to="/tabs/tab-1">Tab 1</Link>
           </li>
           <li data-cy="Tab" className={tabId === 'tab-2' ? 'is-active' : ''}>
-            <Link to="tab-2">Tab 2</Link>
+            <Link to="/tabs/tab-2">Tab 2</Link>
           </li>
           <li data-cy="Tab" className={tabId === 'tab-3' ? 'is-active' : ''}>
-            <Link to="tab-3">Tab 3</Link>
+            <Link to="/tabs/tab-3">Tab 3</Link>
           </li>
         </ul>
       </div>

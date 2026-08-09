@@ -1,39 +1,39 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 
-export const App = () => (
-  <>
-    <nav
-      className="navbar is-light is-fixed-top is-mobile has-shadow"
-      data-cy="Nav"
-    >
-      <div className="container">
+export const App = () => {
+  const location = useLocation();
+
+  return (
+    <>
+      <nav className="navbar" role="navigation" data-cy="Nav">
         <div className="navbar-brand">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `navbar-item ${isActive ? 'is-active' : ''}`
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/tabs"
-            className={({ isActive }) =>
-              `navbar-item ${isActive ? 'is-active' : ''}`
-            }
-          >
-            Tabs
-          </NavLink>
+          <div className="navbar-item">
+            <Link
+              to="/"
+              className={location.pathname === '/' ? 'is-active' : ''}
+            >
+              Home
+            </Link>
+          </div>
+          <div className="navbar-item">
+            <Link
+              to="/tabs"
+              className={location.pathname.startsWith('/tabs') ? 'is-active' : ''}
+            >
+              Tabs
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      <div className="section">
+        <div className="container">
+          <Outlet />
         </div>
       </div>
-    </nav>
-    <div className="section">
-      <div className="container">
-        <Outlet />
-      </div>
-    </div>
-  </>
-);
+    </>
+  );
+};
