@@ -1,7 +1,8 @@
 import React from 'react';
-import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import { TabsPage } from './pages/TabsPage';
+import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
+import { TabsPage } from './pages/TabsPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 export const App: React.FC = () => {
   const { pathname } = useLocation();
@@ -27,10 +28,17 @@ export const App: React.FC = () => {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/tabs">
+
+        {/* Редирект з /home на / */}
+        <Route path="home" element={<Navigate to="/" replace />} />
+
+        <Route path="tabs">
           <Route index element={<TabsPage />} />
           <Route path=":tabId" element={<TabsPage />} />
         </Route>
+
+        {/* Сторінка не знайдена */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );
