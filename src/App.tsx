@@ -9,7 +9,6 @@ export const App: React.FC = () => {
 
   return (
     <div>
-      {/* Додано data-cy="Nav" */}
       <nav
         className="navbar"
         role="navigation"
