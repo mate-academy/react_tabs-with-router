@@ -9,7 +9,13 @@ export const App: React.FC = () => {
 
   return (
     <div>
-      <nav className="navbar" role="navigation" aria-label="main navigation">
+      {/* Додано data-cy="Nav" */}
+      <nav
+        className="navbar"
+        role="navigation"
+        aria-label="main navigation"
+        data-cy="Nav"
+      >
         <div className="navbar-menu">
           <Link
             to="/"
@@ -28,16 +34,11 @@ export const App: React.FC = () => {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-
-        {/* Редирект з /home на / */}
         <Route path="home" element={<Navigate to="/" replace />} />
-
         <Route path="tabs">
           <Route index element={<TabsPage />} />
           <Route path=":tabId" element={<TabsPage />} />
         </Route>
-
-        {/* Сторінка не знайдена */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
