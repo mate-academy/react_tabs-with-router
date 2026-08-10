@@ -8,14 +8,13 @@ export const TabsPage: React.FC = () => {
   const { tabId } = useParams<{ tabId?: string }>();
   const navigate = useNavigate();
 
-  const selectedIndex = tabId
-    ? tabsData.findIndex(tab => tab.id === tabId)
-    : 0;
+  const selectedIndex = tabId ? tabsData.findIndex(tab => tab.id === tabId) : 0;
 
   const isInvalidTab = tabId !== undefined && selectedIndex === -1;
 
   const handleTabSelect = (index: number) => {
     const targetTab = tabsData[index];
+
     if (targetTab) {
       navigate(`/tabs/${targetTab.id}`);
     }
