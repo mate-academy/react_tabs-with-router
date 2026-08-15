@@ -1,6 +1,12 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+import { Routes, Route, Navigate, NavLink } from 'react-router-dom';
+
+import { HomePage } from './pages/HomePage';
+import { TabsPage } from './pages/TabsPage';
+import { PageNotFound } from './pages/PageNotFound';
+import classNames from 'classnames';
 
 // const tabs = [
 //   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -17,39 +23,40 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <a href="/" className="navbar-item is-active">
+          <NavLink
+            to="/"
+            className={({ isActive }) => {
+              return classNames('navbar-item', { 'is-active': isActive });
+            }}
+          >
             Home
-          </a>
-          <a href="/tabs" className="navbar-item">
+          </NavLink>
+          <NavLink
+            to="/tabs"
+            className={({ isActive }) =>
+              `navbar-item ${isActive ? 'is-active' : ''}`
+            }
+          >
             Tabs
-          </a>
+          </NavLink>
         </div>
       </div>
     </nav>
 
     <div className="section">
       <div className="container">
-        <h1 className="title">Home page</h1>
-        <h1 className="title">Tabs page</h1>
-        <h1 className="title">Page not found</h1>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
 
-        <div className="tabs is-boxed">
-          <ul>
-            <li data-cy="Tab" className="is-active">
-              <a href="#/">Tab 1</a>
-            </li>
-            <li data-cy="Tab">
-              <a href="#/">Tab 2</a>
-            </li>
-            <li data-cy="Tab">
-              <a href="#/">Tab 3</a>
-            </li>
-          </ul>
-        </div>
+          <Route path="tabs">
+            <Route index element={<TabsPage />} />
+            <Route path=":tabId" element={<TabsPage />} />
+          </Route>
 
-        <div className="block" data-cy="TabContent">
-          Please select a tab
-        </div>
+          <Route path="home" element={<Navigate to="/" replace />} />
+
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
       </div>
     </div>
   </>
