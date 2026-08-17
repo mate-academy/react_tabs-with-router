@@ -18,13 +18,13 @@ export const App = () => (
   <TabsContext.Provider value={tabs}>
     <Header />
 
-    <div className="section ">
+    <div className="section">
       <div className="container">
         <Routes>
           <Route path="/" element={<h1 className="title">Home page</h1>} />
           <Route path="/home" element={<Navigate to="/" replace />} />
 
-          <Route path="tabs" element={<Tabs />}>
+          <Route path="/tabs" element={<Tabs />}>
             <Route index element={<p>Please select a tab</p>} />
             <Route path=":tabId" element={<TabItem />} />
           </Route>
