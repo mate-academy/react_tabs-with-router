@@ -24,7 +24,7 @@ export const Tabs = () => {
         </ul>
       </div>
 
-      <div className="tab-content">
+      <div className="tab-content" data-cy="TabContent">
         <Outlet />
       </div>
     </>
