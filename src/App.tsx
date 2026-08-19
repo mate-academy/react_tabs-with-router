@@ -5,8 +5,9 @@ import { Link, Outlet, useMatch } from 'react-router-dom';
 import classNames from 'classnames';
 
 export const App = () => {
-  const matchHome = useMatch('/');
+  const matchHome = useMatch({ path: '/', end: true });
   const matchTabs = useMatch('/tabs/*');
+
 
   return (
     <>
