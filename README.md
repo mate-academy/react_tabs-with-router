@@ -3,7 +3,7 @@
 Implement the `App` with `Home` page available at `/` and `Tabs` page available
 at `/tabs`. Each page should have the correct title `Home page` or `Tabs page`.
 The `Tabs` page should also show a `Tabs` component implemented in [React Tabs JS](https://github.com/mate-academy/react_tabs-js#react-tabs-js)
-or [React Tabs](https://github.com/mate-academy/react_tabs#react-tabs).
+or [React Tabs](https://github.com/mate-academy/react_tabs#xx).
 
 > Here is [the working version](https://mate-academy.github.io/react_tabs-with-router)
 
@@ -32,5 +32,5 @@ or [React Tabs](https://github.com/mate-academy/react_tabs#react-tabs).
 - Implement a solution following the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline).
 - Use the [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript).
 - Open one more terminal and run tests with `npm test` to ensure your solution is correct.
-- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_tabs-with-router/) and add it to the PR description.
+- Replace `<your_account>` with your Github username in the [DEMO LINK](https://ferenssofia.github.io/react_tabs-with-router/) and add it to the PR description.
 
