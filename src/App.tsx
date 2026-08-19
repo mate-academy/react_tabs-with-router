@@ -6,15 +6,11 @@ import classNames from 'classnames';
 
 export const App = () => {
   const matchHome = useMatch('/');
-  const matchTabs = useMatch('tabs/*');
+  const matchTabs = useMatch('/tabs/*');
 
   return (
     <>
-      <html className="has-navbar-fixed-top"></html>
-      <nav
-        className="navbar is-light is-fixed-top is-mobile has-shadow"
-        data-cy="Nav"
-      >
+      <nav className="navbar is-light is-mobile has-shadow " data-cy="Nav">
         <div className="container">
           <div className="navbar-brand">
             <Link
