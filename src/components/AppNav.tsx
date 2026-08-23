@@ -1,24 +1,32 @@
 import cn from 'classnames';
-import { NavLink } from 'react-router-dom';
-import type { NavLinkRenderProps } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-const getLinkClass = ({ isActive }: NavLinkRenderProps) =>
-  cn('navbar-item', isActive && 'is-active');
+export const AppNav = () => {
+  const { pathname } = useLocation();
 
-export const AppNav = () => (
-  <nav
-    className="navbar is-light is-fixed-top is-mobile has-shadow"
-    data-cy="Nav"
-  >
-    <div className="container">
-      <div className="navbar-brand">
-        <NavLink to="/" className={getLinkClass}>
-          Home
-        </NavLink>
-        <NavLink to="/tabs" className={getLinkClass}>
-          Tabs
-        </NavLink>
+  return (
+    <nav className="navbar is-light" data-cy="Nav">
+      <div className="container">
+        <div className="navbar-brand">
+          <Link
+            to="/"
+            className={cn('navbar-item', {
+              'is-active': pathname === '/',
+            })}
+          >
+            Home
+          </Link>
+
+          <Link
+            to="/tabs"
+            className={cn('navbar-item', {
+              'is-active': pathname.startsWith('/tabs'),
+            })}
+          >
+            Tabs
+          </Link>
+        </div>
       </div>
-    </div>
-  </nav>
-);
+    </nav>
+  );
+};
