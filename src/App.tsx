@@ -4,10 +4,10 @@ import './App.scss';
 import {
   Routes,
   Route,
-  NavLink,
   Link,
   Navigate,
   useParams,
+  useLocation,
 } from 'react-router-dom';
 
 const tabs = [
@@ -15,9 +15,6 @@ const tabs = [
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
-
-const getLinkClass = ({ isActive }: { isActive: boolean }) =>
-  isActive ? 'navbar-item is-active' : 'navbar-item';
 
 const TabsPage = () => {
   const { tabId } = useParams();
@@ -48,39 +45,54 @@ const TabsPage = () => {
   );
 };
 
-export const App = () => (
-  <>
-    <nav
-      className="navbar is-light is-fixed-top is-mobile has-shadow"
-      data-cy="Nav"
-    >
-      <div className="container">
-        <div className="navbar-brand">
-          <NavLink to="/" className={getLinkClass}>
-            Home
-          </NavLink>
-          <NavLink to="/tabs" className={getLinkClass}>
-            Tabs
-          </NavLink>
+export const App = () => {
+  const location = useLocation();
+
+  const isHomeActive = location.pathname === '/';
+  const isTabsActive = location.pathname.startsWith('/tabs');
+
+  return (
+    <>
+      <nav
+        className="navbar is-light is-fixed-top is-mobile has-shadow"
+        data-cy="Nav"
+      >
+        <div className="container">
+          <div className="navbar-brand">
+            <Link
+              to="/"
+              className={`navbar-item ${isHomeActive ? 'is-active' : ''}`}
+            >
+              Home
+            </Link>
+            <Link
+              to="/tabs"
+              className={`navbar-item ${isTabsActive ? 'is-active' : ''}`}
+            >
+              Tabs
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      <div className="section">
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<h1 className="title">Home page</h1>} />
+            <Route path="home" element={<Navigate to="/" replace />} />
+
+            <Route path="tabs">
+              <Route index element={<TabsPage />} />
+              <Route path=":tabId" element={<TabsPage />} />
+            </Route>
+
+            <Route
+              path="*"
+              element={<h1 className="title">Page not found</h1>}
+            />
+          </Routes>
         </div>
       </div>
-    </nav>
-
-    <div className="section">
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<h1 className="title">Home page</h1>} />
-          <Route path="home" element={<Navigate to="/" replace />} />
-
-          {}
-          <Route path="tabs">
-            <Route index element={<TabsPage />} />
-            <Route path=":tabId" element={<TabsPage />} />
-          </Route>
-
-          <Route path="*" element={<h1 className="title">Page not found</h1>} />
-        </Routes>
-      </div>
-    </div>
-  </>
-);
+    </>
+  );
+};
