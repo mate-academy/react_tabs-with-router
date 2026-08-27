@@ -15,29 +15,31 @@ export const TabsPages = () => {
       <div className="container">
         <h1 className="title">Tabs page</h1>
 
-        <div className="tabs is-boxed">
-          <ul>
-            {tabs.map(tab => (
-              <li
-                key={tab.id}
-                data-cy="Tab"
-                className={tab.id === tabId ? 'is-active' : ''}
-              >
-                <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <div data-cy="TabsComponent">
+          <div className="tabs is-boxed">
+            <ul>
+              {tabs.map(tab => (
+                <li
+                  key={tab.id}
+                  data-cy="Tab"
+                  className={tab.id === tabId ? 'is-active' : ''}
+                >
+                  <Link to={`/tabs/${tab.id}`} data-cy="TabLink">
+                    {tab.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {!selectedTab ? (
           <div className="block" data-cy="TabContent">
-            Please select a tab
+            {!selectedTab ? (
+              <p>Please select a tab</p>
+            ) : (
+              <p>{selectedTab.content}</p>
+            )}
           </div>
-        ) : (
-          <div className="block" data-cy="TabContent">
-            {selectedTab.content}
-          </div>
-        )}
+        </div>
       </div>
     </div>
   );
