@@ -118,12 +118,7 @@ const TabsPage = () => {
                   : ''
               }
             >
-              <Link
-                to={`/tabs/${tab.id}`}
-                onClick={event => {
-                  event.stopPropagation();
-                }}
-              >
+              <Link to={`/tabs/${tab.id}`}>
                 {tab.title}
               </Link>
             </Tab>
