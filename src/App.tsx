@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable prettier/prettier */
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
@@ -9,12 +10,22 @@ import {
   Route,
   Routes,
   useLocation,
+  useNavigate,
   useParams,
 } from 'react-router-dom';
 
-import { Tab } from './types/Tab';
+import {
+  Tabs,
+  TabList,
+  Tab,
+  TabPanel,
+} from 'react-tabs';
 
-const tabs: Tab[] = [
+import 'react-tabs/style/react-tabs.css';
+
+import { Tab as TabType } from './types/Tab';
+
+const tabs: TabType[] = [
   {
     id: 'tab-1',
     title: 'Tab 1',
@@ -35,8 +46,8 @@ const tabs: Tab[] = [
 const Navigation = () => {
   const location = useLocation();
 
-  const isTabsPage = location.pathname.startsWith('/tabs');
   const isHomePage = location.pathname === '/';
+  const isTabsPage = location.pathname.startsWith('/tabs');
 
   return (
     <nav
@@ -74,38 +85,70 @@ const HomePage = () => {
 
 const TabsPage = () => {
   const { tabId } = useParams();
+  const navigate = useNavigate();
 
   const selectedTab = tabs.find(tab => tab.id === tabId);
+
+  const selectedIndex = tabs.findIndex(
+    tab => tab.id === tabId,
+  );
+
+  const handleTabSelect = (index: number) => {
+    navigate(`/tabs/${tabs[index].id}`);
+  };
 
   return (
     <>
       <h1 className="title">Tabs page</h1>
 
-      <div className="tabs is-boxed">
-        <ul>
+      <Tabs
+        selectedIndex={
+          selectedIndex >= 0 ? selectedIndex : -1
+        }
+        onSelect={handleTabSelect}
+      >
+        <TabList>
           {tabs.map(tab => (
-            <li
+            <Tab
               key={tab.id}
               data-cy="Tab"
               className={
-                selectedTab?.id === tab.id ? 'is-active' : ''
+                selectedTab?.id === tab.id
+                  ? 'is-active'
+                  : ''
               }
             >
-              <Link to={`/tabs/${tab.id}`}>
+              <Link
+                to={`/tabs/${tab.id}`}
+                onClick={event => {
+                  event.stopPropagation();
+                }}
+              >
                 {tab.title}
               </Link>
-            </li>
+            </Tab>
           ))}
-        </ul>
-      </div>
+        </TabList>
 
-      <div className="block" data-cy="TabContent">
-        {selectedTab ? (
-          selectedTab.content
-        ) : (
-          'Please select a tab'
-        )}
-      </div>
+        {tabs.map(tab => (
+          <TabPanel key={tab.id}>
+            {selectedTab?.id === tab.id && (
+              <div
+                className="block"
+                data-cy="TabContent"
+              >
+                {tab.content}
+              </div>
+            )}
+          </TabPanel>
+        ))}
+      </Tabs>
+
+      {!selectedTab && (
+        <div className="block" data-cy="TabContent">
+          Please select a tab
+        </div>
+      )}
     </>
   );
 };
