@@ -4,15 +4,11 @@ import { Link, useParams } from 'react-router-dom';
 
 type Props = {
   tabs: Tab[];
-  selectedTabId?: string;
-  onTabSelected: (tab: Tab) => void;
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, selectedTabId }) => {
+export const Tabs: React.FC<Props> = ({ tabs }) => {
   const { tabId } = useParams();
-
-  const currentTabId = tabId ?? selectedTabId;
-  const selectedTab = tabs.find(tab => tab.id === currentTabId);
+  const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <div data-cy="TabsComponent">

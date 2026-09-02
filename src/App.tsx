@@ -2,9 +2,7 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Tabs } from './components/Tabs';
-import { useState } from 'react';
-import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
-import classNames from 'classnames';
+import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -13,9 +11,12 @@ const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState<string>();
-  const getLinkClass = ({ isActive }: { isActive: boolean }) =>
-    classNames('navbar-item', { 'is-active': isActive });
+  const location = useLocation();
+
+  const isHomeActive =
+    location.pathname === '/' || location.pathname === '/home';
+
+  const isTabsActive = location.pathname.startsWith('/tabs');
 
   return (
     <>
@@ -26,12 +27,18 @@ export const App: React.FC = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink to="/" className={getLinkClass}>
+            <Link
+              to="/"
+              className={`navbar-item ${isHomeActive ? 'is-active' : ''}`}
+            >
               Home
-            </NavLink>
-            <NavLink to="/tabs" className={getLinkClass}>
+            </Link>
+            <Link
+              to="/tabs"
+              className={`navbar-item ${isTabsActive ? 'is-active' : ''}`}
+            >
               Tabs
-            </NavLink>
+            </Link>
           </div>
         </div>
       </nav>
@@ -42,26 +49,8 @@ export const App: React.FC = () => {
             <Route path="/" element={<h1 className="title">Home page</h1>} />
             <Route path="/home" element={<Navigate to="/" replace />} />
             <Route path="tabs">
-              <Route
-                index
-                element={
-                  <Tabs
-                    tabs={tabs}
-                    selectedTabId={selectedTabId}
-                    onTabSelected={tab => setSelectedTabId(tab.id)}
-                  />
-                }
-              />
-              <Route
-                path=":tabId"
-                element={
-                  <Tabs
-                    tabs={tabs}
-                    selectedTabId={selectedTabId}
-                    onTabSelected={tab => setSelectedTabId(tab.id)}
-                  />
-                }
-              />
+              <Route index element={<Tabs tabs={tabs} />} />
+              <Route path=":tabId" element={<Tabs tabs={tabs} />} />
             </Route>
             <Route
               path="*"
