@@ -26,15 +26,18 @@ export const App: React.FC = () => {
         data-cy="Nav"
       >
         <div className="container">
-          <div
-            className={`navbar-brand ${isTabsActive || isHomeActive ? 'is-active' : ''}`}
-          >
-            <Link to="/" className="navbar-item">
-              Home
-            </Link>
-            <Link to="/tabs" className="navbar-item">
-              Tabs
-            </Link>
+          <div className="navbar-brand">
+            <div className={isHomeActive ? 'is-active' : ''}>
+              <Link to="/" className="navbar-item">
+                Home
+              </Link>
+            </div>
+
+            <div className={isTabsActive ? 'is-active' : ''}>
+              <Link to="/tabs" className="navbar-item">
+                Tabs
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
