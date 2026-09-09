@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { Link, useParams, Navigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -10,10 +10,6 @@ const tabs = [
 export const TabsPage = () => {
   const { tabId } = useParams();
   const selectedTab = tabs.find(tab => tab.id === tabId);
-
-  if (tabId && !selectedTab) {
-    return <Navigate to="/tabs" replace />;
-  }
 
   return (
     <>
@@ -34,7 +30,7 @@ export const TabsPage = () => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {!tabId ? 'Please select a tab' : selectedTab?.content}
+        {selectedTab ? selectedTab.content : 'Please select a tab'}
       </div>
     </>
   );
