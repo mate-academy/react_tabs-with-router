@@ -7,17 +7,21 @@ type Props = {
 };
 
 export const Tabs: React.FC<Props> = ({ tabs, activeTabId }) => (
-  <div className="tabs is-boxed">
-    <ul>
-      {tabs.map(tab => (
-        <li
-          key={tab.id}
-          data-cy="Tab"
-          className={tab.id === activeTabId ? 'is-active' : ''}
-        >
-          <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
-        </li>
-      ))}
-    </ul>
+  <div data-cy="TabsComponent">
+    <div className="tabs is-boxed">
+      <ul>
+        {tabs.map(tab => (
+          <li
+            key={tab.id}
+            className={tab.id === activeTabId ? 'is-active' : ''}
+            data-cy="Tab"
+          >
+            <Link to={`/tabs/${tab.id}`} data-cy="TabLink">
+              {tab.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
 );
