@@ -1,3 +1,112 @@
 iframe {
   display: none;
 }
+
+:root {
+  --accent: #1f6f5c;
+  --accent-soft: rgba(31, 111, 92, 0.08);
+  --ink: #1c2321;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.navbar.is-light[data-cy='Nav'] {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(28, 35, 33, 0.08);
+
+  .navbar-item {
+    position: relative;
+    font-weight: 500;
+    color: rgba(28, 35, 33, 0.65);
+    transition: color 0.15s ease;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 0.4rem;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.2s ease;
+    }
+
+    &:hover {
+      background-color: transparent;
+      color: var(--ink);
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    &.is-active {
+      background-color: transparent;
+      color: var(--ink);
+      font-weight: 600;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
+
+.section {
+  animation: rise 0.25s ease-out;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title {
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.tabs.is-boxed {
+  ul {
+    border-bottom-color: rgba(28, 35, 33, 0.12);
+  }
+
+  li {
+    a {
+      border-color: transparent;
+      color: rgba(28, 35, 33, 0.65);
+      border-radius: 6px 6px 0 0;
+      transition: background-color 0.15s ease, color 0.15s ease;
+
+      &:hover {
+        background-color: var(--accent-soft);
+        color: var(--ink);
+        border-color: transparent;
+      }
+    }
+
+    &[data-cy='Tab'].is-active a {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+  }
+}
+
+.block[data-cy='TabContent'] {
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  background-color: #fafaf9;
+  border: 1px solid rgba(28, 35, 33, 0.08);
+  color: rgba(28, 35, 33, 0.85);
+}
