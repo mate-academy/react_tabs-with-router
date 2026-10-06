@@ -1,6 +1,15 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+import { NavLink, Routes, Route, Navigate } from 'react-router-dom';
+import classNames from 'classnames';
+
+import { NotFoundPage } from './components/NotFoundPage';
+import { HomePage } from './components/HomePage';
+import { TabsPage } from './components/TabsPage';
+import { Tab1 } from './components/Tab-1';
+import { Tab2 } from './components/Tab-2';
+import { Tab3 } from './components/Tab-3';
 
 // const tabs = [
 //   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -17,17 +26,41 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <a href="/" className="navbar-item is-active">
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) =>
+              classNames('navbar-item', { 'is-active': isActive })
+            }
+          >
             Home
-          </a>
-          <a href="/tabs" className="navbar-item">
+          </NavLink>
+          <NavLink
+            to="/tabs"
+            className={({ isActive }) =>
+              classNames('navbar-item', { 'is-active': isActive })
+            }
+          >
             Tabs
-          </a>
+          </NavLink>
         </div>
       </div>
     </nav>
 
-    <div className="section">
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/home" element={<Navigate to="/" />} />
+      <Route path="/tabs/" element={<TabsPage />}>
+        <Route path="tab-1" element={<Tab1 />} />
+        <Route path="tab-2" element={<Tab2 />} />
+        <Route path="tab-3" element={<Tab3 />} />
+      </Route>
+      <Route path="/tabs/*" element={<TabsPage />} />
+
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
+
+    {/* <div className="section">
       <div className="container">
         <h1 className="title">Home page</h1>
         <h1 className="title">Tabs page</h1>
@@ -51,6 +84,6 @@ export const App = () => (
           Please select a tab
         </div>
       </div>
-    </div>
+    </div> */}
   </>
 );
