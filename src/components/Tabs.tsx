@@ -1,9 +1,8 @@
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { tabs } from '../data/tabs';
 
 export const Tabs = () => {
   const { tabId } = useParams();
-  const navigate = useNavigate();
 
   const activeTab = tabs.find(tab => tab.id === tabId);
 
@@ -16,7 +15,6 @@ export const Tabs = () => {
               key={tab.id}
               data-cy="Tab"
               className={tab.id === tabId ? 'is-active' : ''}
-              onClick={() => navigate(`/tabs/${tab.id}`)}
             >
               <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
