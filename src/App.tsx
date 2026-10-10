@@ -3,7 +3,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Route, Routes, Link, useLocation, Navigate } from 'react-router-dom';
 import { Home } from './pages/Home';
-import { TabsPage } from './pages/Tabs';
+import { Tabs } from './pages/Tabs';
 
 export const App = () => {
   const location = useLocation();
@@ -48,8 +48,8 @@ export const App = () => {
             <Route path="/home" element={<Navigate to="/" replace />} />
             <Route path="/" element={<Home />} />
             <Route path="tabs">
-              <Route index element={<TabsPage />} />
-              <Route path=":tabId" element={<TabsPage />} />
+              <Route index element={<Tabs />} />
+              <Route path=":tabId" element={<Tabs />} />
             </Route>
           </Routes>
         </div>
