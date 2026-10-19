@@ -18,11 +18,6 @@ import classNames from 'classnames';
 export const App = () => {
   const { pathname } = useLocation();
 
-  const isHomePage = pathname === '/';
-
-  const isTabsPage =
-    pathname === '/tabs' || pathname.startsWith('/tabs/');
-
   return (
     <>
       <nav
@@ -31,23 +26,24 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <ul>
-              <li
-                className={classNames('navbar-item', {
-                  'is-active': isHomePage,
-                })}
-              >
-                <Link to="/">Home</Link>
-              </li>
+            <Link
+              to="/"
+              className={classNames('navbar-item', {
+                'is-active': pathname === '/',
+              })}
+            >
+              Home
+            </Link>
 
-              <li
-                className={classNames('navbar-item', {
-                  'is-active': isTabsPage,
-                })}
-              >
-                <Link to="/tabs">Tabs</Link>
-              </li>
-            </ul>
+            <Link
+              to="/tabs"
+              className={classNames('navbar-item', {
+                'is-active':
+                  pathname === '/tabs' || pathname.startsWith('/tabs/'),
+              })}
+            >
+              Tabs
+            </Link>
           </div>
         </div>
       </nav>
@@ -62,11 +58,7 @@ export const App = () => {
               <Route path=":tabId" element={<TabsPage />} />
             </Route>
 
-            <Route
-              path="/home"
-              element={<Navigate to="/" replace />}
-            />
-
+            <Route path="/home" element={<Navigate to="/" replace />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>
