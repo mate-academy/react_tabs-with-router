@@ -1,0 +1,26 @@
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
+
+export const Navbar: React.FC = () => {
+  const getLinkClass = ({ isActive }: { isActive: boolean }) =>
+    classNames('navbar-item', { 'is-active': isActive });
+
+  return (
+    <nav
+      className="navbar is-light"
+      data-cy="Nav"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div className="navbar-brand">
+        <NavLink to="/" className={getLinkClass}>
+          Home
+        </NavLink>
+        <NavLink to="/tabs" className={getLinkClass}>
+          Tabs
+        </NavLink>
+      </div>
+    </nav>
+  );
+};
