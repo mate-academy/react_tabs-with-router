@@ -17,7 +17,8 @@ export const App = () => {
       <Route path="/home" element={<Navigate to="/" />}></Route>
       <Route element={<Layout />}>
         <Route index element={<h1 className="title">Home page</h1>}></Route>
-        <Route path="tabs" element={<Tabs tabs={tabs} />}>
+        <Route path="tabs">
+          <Route index element={<Tabs tabs={tabs} />}></Route>
           <Route path=":tabId" element={<Tabs tabs={tabs} />}></Route>
         </Route>
         <Route

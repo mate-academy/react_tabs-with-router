@@ -26,7 +26,7 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
                 className={clsx(params.tabId === tabItem.id && 'is-active')}
                 key={tabItem.id}
               >
-                <Link to={`${tabItem.id}`}>{tabItem.title}</Link>
+                <Link to={`/tabs/${tabItem.id}`}>{tabItem.title}</Link>
               </li>
             );
           })}
