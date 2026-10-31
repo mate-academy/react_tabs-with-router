@@ -25,7 +25,7 @@ export const Layout = () => {
             <Link
               to="/tabs"
               className={clsx(
-                location.pathname === '/tabs' && 'is-active',
+                location.pathname.includes('/tabs') && 'is-active',
                 'navbar-item',
               )}
             >
