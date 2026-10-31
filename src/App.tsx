@@ -11,6 +11,9 @@ import {
   useParams,
 } from 'react-router-dom';
 
+import { HomePage } from './components/HomePage';
+import { TabsPage } from './components/TabsPage';
+
 // const tabs = [
 //   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
 //   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
@@ -40,9 +43,15 @@ export const App = () => {
 
         <div className="section">
           <div className="container">
-            <h1 className="title">Home page</h1>
-            <h1 className="title">Tabs page</h1>
-            <h1 className="title">Page not found</h1>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/tabs" element={<TabsPage />} />
+              <Route path="/tabs/:tabId" element={<TabsPage />} />
+              <Route
+                path="*"
+                element={<h1 className="title">Page not found</h1>}
+              />
+            </Routes>
 
             <div className="tabs is-boxed">
               <ul>
