@@ -1,6 +1,9 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import clsx from 'clsx';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 
 export const Layout = () => {
+  const location = useLocation();
+
   return (
     <>
       {/* Also requires <html class="has-navbar-fixed-top"> */}
@@ -10,22 +13,24 @@ export const Layout = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink
+            <Link
               to="/"
-              className={({ isActive }) =>
-                isActive ? 'navbar-item is-active' : 'navbar-item'
-              }
+              className={clsx(
+                location.pathname === '/' && 'is-active',
+                'navbar-item',
+              )}
             >
               Home
-            </NavLink>
-            <NavLink
+            </Link>
+            <Link
               to="/tabs"
-              className={({ isActive }) =>
-                isActive ? 'navbar-item is-active' : 'navbar-item'
-              }
+              className={clsx(
+                location.pathname === '/tabs' && 'is-active',
+                'navbar-item',
+              )}
             >
               Tabs
-            </NavLink>
+            </Link>
           </div>
         </div>
       </nav>
