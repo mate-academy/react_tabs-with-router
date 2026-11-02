@@ -45,6 +45,7 @@ export const App = () => {
           <div className="container">
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/home" element={<Navigate to="/" replace />} />
               <Route path="/tabs" element={<TabsPage />} />
               <Route path="/tabs/:tabId" element={<TabsPage />} />
               <Route
