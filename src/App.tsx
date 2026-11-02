@@ -20,8 +20,6 @@ const tabs = [
 export const App = () => {
   const { pathname } = useLocation();
 
-  const isTabsPage = pathname.startsWith('/tabs');
-
   return (
     <>
       <nav
@@ -42,10 +40,8 @@ export const App = () => {
 
             <NavLink
               to="/tabs"
-              className={() =>
-                isTabsPage
-                  ? 'navbar-item is-active'
-                  : 'navbar-item'
+              className={({ isActive }) =>
+                isActive ? 'navbar-item is-active' : 'navbar-item'
               }
             >
               Tabs
@@ -63,6 +59,11 @@ export const App = () => {
 
             <Route
               path="/tabs"
+              element={<h1 className="title">Tabs page</h1>}
+            />
+
+            <Route
+              path="/tabs/:tabId"
               element={
                 <>
                   <h1 className="title">Tabs page</h1>
@@ -87,37 +88,10 @@ export const App = () => {
                     </ul>
                   </div>
 
-                  <Routes>
-                    <Route
-                      index
-                      element={
-                        <div className="block" data-cy="TabContent">
-                          Please select a tab
-                        </div>
-                      }
-                    />
-
-                    {tabs.map(tab => (
-                      <Route
-                        key={tab.id}
-                        path={tab.id}
-                        element={
-                          <div className="block" data-cy="TabContent">
-                            {tab.content}
-                          </div>
-                        }
-                      />
-                    ))}
-
-                    <Route
-                      path="*"
-                      element={
-                        <div className="block" data-cy="TabContent">
-                          Please select a tab
-                        </div>
-                      }
-                    />
-                  </Routes>
+                  <div className="block" data-cy="TabContent">
+                    {tabs.find(tab => tab.id === pathname.split('/').pop())
+                      ?.content || 'Please select a tab'}
+                  </div>
                 </>
               }
             />
