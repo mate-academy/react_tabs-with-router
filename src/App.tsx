@@ -1,3 +1,4 @@
+
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -19,6 +20,8 @@ const tabs = [
 export const App = () => {
   const { pathname } = useLocation();
 
+  const isTabsPage = pathname.startsWith('/tabs');
+
   return (
     <>
       <nav
@@ -39,8 +42,10 @@ export const App = () => {
 
             <NavLink
               to="/tabs"
-              className={({ isActive }) =>
-                isActive ? 'navbar-item is-active' : 'navbar-item'
+              className={() =>
+                isTabsPage
+                  ? 'navbar-item is-active'
+                  : 'navbar-item'
               }
             >
               Tabs
@@ -57,7 +62,7 @@ export const App = () => {
             <Route path="/home" element={<Navigate to="/" replace />} />
 
             <Route
-              path="/tabs/*"
+              path="/tabs"
               element={
                 <>
                   <h1 className="title">Tabs page</h1>
@@ -69,10 +74,14 @@ export const App = () => {
                           key={tab.id}
                           data-cy="Tab"
                           className={
-                            pathname === `/tabs/${tab.id}` ? 'is-active' : ''
+                            pathname === `/tabs/${tab.id}`
+                              ? 'is-active'
+                              : ''
                           }
                         >
-                          <NavLink to={`/tabs/${tab.id}`}>{tab.title}</NavLink>
+                          <NavLink to={`/tabs/${tab.id}`}>
+                            {tab.title}
+                          </NavLink>
                         </li>
                       ))}
                     </ul>
