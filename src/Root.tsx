@@ -17,7 +17,6 @@ export const Root = () => {
           <Route path="tabs/">
             <Route index element={<Tabs />} />
             <Route path=":tabId" element={<Tabs />} />
-            <Route path="*" element="Please select a tab" />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Route>
