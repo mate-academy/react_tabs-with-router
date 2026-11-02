@@ -9,6 +9,7 @@ import {
   Link,
   Navigate,
   useParams,
+  useLocation,
 } from 'react-router-dom';
 
 import { HomePage } from './components/HomePage';
@@ -23,57 +24,66 @@ import { TabsPage } from './components/TabsPage';
 export const App = () => {
   return (
     <BrowserRouter>
-      <>
-        {/* Also requires <html class="has-navbar-fixed-top"> */}
-        <nav
-          className="navbar is-light is-fixed-top is-mobile has-shadow"
-          data-cy="Nav"
-        >
-          <div className="container">
-            <div className="navbar-brand">
-              <Link to="/" className="navbar-item">
-                Home
-              </Link>
-              <Link to="/tabs" className="navbar-item">
-                Tabs
-              </Link>
-            </div>
-          </div>
-        </nav>
+      <Main />
+    </BrowserRouter>
+  );
+};
 
-        <div className="section">
-          <div className="container">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/home" element={<Navigate to="/" replace />} />
-              <Route path="/tabs" element={<TabsPage />} />
-              <Route path="/tabs/:tabId" element={<TabsPage />} />
-              <Route
-                path="*"
-                element={<h1 className="title">Page not found</h1>}
-              />
-            </Routes>
+const Main = () => {
+  const location = useLocation();
+  const locationPath = location.pathname;
 
-            <div className="tabs is-boxed">
-              <ul>
-                <li data-cy="Tab" className="is-active">
-                  <a href="#/">Tab 1</a>
-                </li>
-                <li data-cy="Tab">
-                  <a href="#/">Tab 2</a>
-                </li>
-                <li data-cy="Tab">
-                  <a href="#/">Tab 3</a>
-                </li>
-              </ul>
-            </div>
+  return (
+    <>
+      <nav
+        className="navbar is-light is-fixed-top is-mobile has-shadow"
+        data-cy="Nav"
+      >
+        <div className="container">
+          <div className="navbar-brand">
+            <Link to="/" className="navbar-item">
+              Home
+            </Link>
 
-            <div className="block" data-cy="TabContent">
-              Please select a tab
-            </div>
+            <Link to="/tabs" className="navbar-item">
+              Tabs
+            </Link>
           </div>
         </div>
-      </>
-    </BrowserRouter>
+      </nav>
+
+      <div className="section">
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/home" element={<Navigate to="/" replace />} />
+            <Route path="/tabs" element={<TabsPage />} />
+            <Route path="/tabs/:tabId" element={<TabsPage />} />
+            <Route
+              path="*"
+              element={<h1 className="title">Page not found</h1>}
+            />
+          </Routes>
+
+          <div className="tabs is-boxed">
+            <ul>
+              <li data-cy="Tab" className="is-active">
+                <a href="#/">Tab 1</a>
+              </li>
+              <li data-cy="Tab">
+                <a href="#/">Tab 2</a>
+              </li>
+              <li data-cy="Tab">
+                <a href="#/">Tab 3</a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="block" data-cy="TabContent">
+            Please select a tab
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
