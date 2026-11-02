@@ -13,9 +13,7 @@ export const Navigation = () => {
           <Link
             to="/"
             className={
-              pathname === '/'
-                ? 'navbar-item is-active'
-                : 'navbar-item'
+              pathname === '/' ? 'navbar-item is-active' : 'navbar-item'
             }
           >
             Home

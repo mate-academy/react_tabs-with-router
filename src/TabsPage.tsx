@@ -6,14 +6,6 @@ import {
   TabPanel,
 } from '@mate-academy/react_tabs-js';
 
-
-
-
-
-
-
-
-
 import { Link, useParams } from 'react-router-dom';
 
 import { Tab as TabType } from './types/Tab';
@@ -59,18 +51,14 @@ export const TabsPage = () => {
         <TabList>
           {tabs.map(tab => (
             <Tab key={tab.id}>
-              <Link to={`/tabs/${tab.id}`}>
-                {tab.title}
-              </Link>
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </Tab>
           ))}
         </TabList>
 
         <TabPanels>
           {tabs.map(tab => (
-            <TabPanel key={tab.id}>
-              {tab.content}
-            </TabPanel>
+            <TabPanel key={tab.id}>{tab.content}</TabPanel>
           ))}
         </TabPanels>
       </Tabs>
