@@ -31,12 +31,12 @@ export const App = () => {
         >
           <div className="container">
             <div className="navbar-brand">
-              <a href="/" className="navbar-item is-active">
+              <Link to="/" className="navbar-item">
                 Home
-              </a>
-              <a href="/tabs" className="navbar-item">
+              </Link>
+              <Link to="/tabs" className="navbar-item">
                 Tabs
-              </a>
+              </Link>
             </div>
           </div>
         </nav>
