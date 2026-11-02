@@ -55,7 +55,7 @@ const Main = () => {
               className={
                 locationPath.startsWith('/tabs')
                   ? 'navbar-item is-active'
-                  : 'is-active'
+                  : 'navbar-item'
               }
             >
               Tabs
