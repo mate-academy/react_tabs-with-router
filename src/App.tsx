@@ -1,4 +1,3 @@
-
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -58,12 +57,7 @@ export const App = () => {
             <Route path="/home" element={<Navigate to="/" replace />} />
 
             <Route
-              path="/tabs"
-              element={<h1 className="title">Tabs page</h1>}
-            />
-
-            <Route
-              path="/tabs/:tabId"
+              path="/tabs/*"
               element={
                 <>
                   <h1 className="title">Tabs page</h1>
@@ -75,23 +69,46 @@ export const App = () => {
                           key={tab.id}
                           data-cy="Tab"
                           className={
-                            pathname === `/tabs/${tab.id}`
-                              ? 'is-active'
-                              : ''
+                            pathname === `/tabs/${tab.id}` ? 'is-active' : ''
                           }
                         >
-                          <NavLink to={`/tabs/${tab.id}`}>
-                            {tab.title}
-                          </NavLink>
+                          <NavLink to={`/tabs/${tab.id}`}>{tab.title}</NavLink>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="block" data-cy="TabContent">
-                    {tabs.find(tab => tab.id === pathname.split('/').pop())
-                      ?.content || 'Please select a tab'}
-                  </div>
+                  <Routes>
+                    <Route
+                      index
+                      element={
+                        <div className="block" data-cy="TabContent">
+                          Please select a tab
+                        </div>
+                      }
+                    />
+
+                    {tabs.map(tab => (
+                      <Route
+                        key={tab.id}
+                        path={tab.id}
+                        element={
+                          <div className="block" data-cy="TabContent">
+                            {tab.content}
+                          </div>
+                        }
+                      />
+                    ))}
+
+                    <Route
+                      path="*"
+                      element={
+                        <div className="block" data-cy="TabContent">
+                          Please select a tab
+                        </div>
+                      }
+                    />
+                  </Routes>
                 </>
               }
             />
