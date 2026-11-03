@@ -1,55 +1,69 @@
-import 'bulma/css/bulma.css';
+import classNames from 'classnames';
+import React from 'react';
+import { Navigate, NavLink, Route, Routes, useParams } from 'react-router-dom';
+
 import '@fortawesome/fontawesome-free/css/all.css';
+import 'bulma/css/bulma.css';
 import './App.scss';
 
-// const tabs = [
-//   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-//   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-//   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-// ];
+import { Tabs } from './components/Tabs';
 
-export const App = () => (
+export const tabs = [
+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
+  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
+  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+];
+
+const getNavClass = ({ isActive }: { isActive: boolean }) =>
+  classNames('navbar-item', {
+    'is-active': isActive,
+  });
+
+const HomePage: React.FC = () => <h1 className="title">Home page</h1>;
+
+const TabsPage: React.FC = () => {
+  const { tabId } = useParams<{ tabId: string }>();
+
+  return (
+    <>
+      <h1 className="title">Tabs page</h1>
+      <Tabs tabs={tabs} selectedTabId={tabId} />
+    </>
+  );
+};
+
+export const App: React.FC = () => (
   <>
-    {/* Also requires <html class="has-navbar-fixed-top"> */}
     <nav
       className="navbar is-light is-fixed-top is-mobile has-shadow"
       data-cy="Nav"
     >
       <div className="container">
         <div className="navbar-brand">
-          <a href="/" className="navbar-item is-active">
+          <NavLink to="/" className={getNavClass}>
             Home
-          </a>
-          <a href="/tabs" className="navbar-item">
+          </NavLink>
+
+          <NavLink to="/tabs" className={getNavClass}>
             Tabs
-          </a>
+          </NavLink>
         </div>
       </div>
     </nav>
 
     <div className="section">
       <div className="container">
-        <h1 className="title">Home page</h1>
-        <h1 className="title">Tabs page</h1>
-        <h1 className="title">Page not found</h1>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<Navigate to="/" replace />} />
 
-        <div className="tabs is-boxed">
-          <ul>
-            <li data-cy="Tab" className="is-active">
-              <a href="#/">Tab 1</a>
-            </li>
-            <li data-cy="Tab">
-              <a href="#/">Tab 2</a>
-            </li>
-            <li data-cy="Tab">
-              <a href="#/">Tab 3</a>
-            </li>
-          </ul>
-        </div>
+          <Route path="tabs">
+            <Route index element={<TabsPage />} />
+            <Route path=":tabId" element={<TabsPage />} />
+          </Route>
 
-        <div className="block" data-cy="TabContent">
-          Please select a tab
-        </div>
+          <Route path="*" element={<h1 className="title">Page not found</h1>} />
+        </Routes>
       </div>
     </div>
   </>
