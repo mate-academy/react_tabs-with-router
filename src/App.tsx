@@ -1,13 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import {
-  Link,
-  Navigate,
-  Route,
-  Routes,
-  useLocation,
-  useParams,
-} from 'react-router-dom';
+import { Navigate, NavLink, Route, Routes, useParams } from 'react-router-dom';
 
 import '@fortawesome/fontawesome-free/css/all.css';
 import 'bulma/css/bulma.css';
@@ -20,6 +13,11 @@ export const tabs = [
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
+
+const getNavClass = ({ isActive }: { isActive: boolean }) =>
+  classNames('navbar-item', {
+    'is-active': isActive,
+  });
 
 const HomePage: React.FC = () => <h1 className="title">Home page</h1>;
 
@@ -34,58 +32,39 @@ const TabsPage: React.FC = () => {
   );
 };
 
-export const App: React.FC = () => {
-  const location = useLocation();
+export const App: React.FC = () => (
+  <>
+    <nav
+      className="navbar is-light is-fixed-top is-mobile has-shadow"
+      data-cy="Nav"
+    >
+      <div className="container">
+        <div className="navbar-brand">
+          <NavLink to="/" className={getNavClass}>
+            Home
+          </NavLink>
 
-  const isHomeActive = location.pathname === '/';
-  const isTabsActive = location.pathname.startsWith('/tabs');
-
-  return (
-    <>
-      <nav
-        className="navbar is-light is-fixed-top is-mobile has-shadow"
-        data-cy="Nav"
-      >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link
-              to="/"
-              className={classNames('navbar-item', {
-                'is-active': isHomeActive,
-              })}
-            >
-              Home
-            </Link>
-            <Link
-              to="/tabs"
-              className={classNames('navbar-item', {
-                'is-active': isTabsActive,
-              })}
-            >
-              Tabs
-            </Link>
-          </div>
-        </div>
-      </nav>
-
-      <div className="section">
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/home" element={<Navigate to="/" replace />} />
-
-            <Route path="tabs">
-              <Route index element={<TabsPage />} />
-              <Route path=":tabId" element={<TabsPage />} />
-            </Route>
-
-            <Route
-              path="*"
-              element={<h1 className="title">Page not found</h1>}
-            />
-          </Routes>
+          <NavLink to="/tabs" className={getNavClass}>
+            Tabs
+          </NavLink>
         </div>
       </div>
-    </>
-  );
-};
+    </nav>
+
+    <div className="section">
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<Navigate to="/" replace />} />
+
+          <Route path="tabs">
+            <Route index element={<TabsPage />} />
+            <Route path=":tabId" element={<TabsPage />} />
+          </Route>
+
+          <Route path="*" element={<h1 className="title">Page not found</h1>} />
+        </Routes>
+      </div>
+    </div>
+  </>
+);
