@@ -1,25 +1,38 @@
+import { tabs } from '../App';
+import { useParams, Link } from 'react-router-dom';
+
 export const TabsPage = () => {
-    return (
-      <>
-        <h1 className="title">Tabs page</h1>
+  const { tabId } = useParams();
 
-        <div className="tabs is-boxed">
-          <ul>
-            <li data-cy="Tab" className="is-active">
-              <a href="#/">Tab 1</a>
+  const selectedTab = tabs.find(tab => tab.id === tabId);
+
+  return (
+    <>
+      <h1 className="title">Tabs page</h1>
+
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map(tab => (
+            <li
+              key={tab.id}
+              data-cy="Tab"
+              className={tab.id === tabId ? 'is-active' : ''}
+            >
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
-            <li data-cy="Tab">
-              <a href="#/">Tab 2</a>
-            </li>
-            <li data-cy="Tab">
-              <a href="#/">Tab 3</a>
-            </li>
-          </ul>
+          ))}
+        </ul>
+      </div>
+
+      {selectedTab ? (
+        <div className="block" data-cy="TabContent">
+          {selectedTab.content}
         </div>
-
+      ) : (
         <div className="block" data-cy="TabContent">
           Please select a tab
         </div>
-      </>
-    );
-  };
+      )}
+    </>
+  );
+};
