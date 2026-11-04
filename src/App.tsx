@@ -21,11 +21,7 @@ export const tabs = [
 ];
 
 export const App = () => {
-  return (
-    <BrowserRouter>
-      <Main />
-    </BrowserRouter>
-  );
+  return <Main />;
 };
 
 const Main = () => {
