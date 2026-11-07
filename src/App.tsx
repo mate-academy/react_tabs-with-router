@@ -22,9 +22,10 @@ export const App: React.FC = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to="/" className={getLinkClass}>
+          <NavLink to="/" end className={getLinkClass}>
             Home
           </NavLink>
+
           <NavLink to="/tabs" className={getLinkClass}>
             Tabs
           </NavLink>
