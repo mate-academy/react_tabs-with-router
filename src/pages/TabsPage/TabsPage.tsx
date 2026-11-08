@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
+import classNames from 'classnames';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -20,7 +21,9 @@ export const TabsPage = () => {
             <li
               data-cy="Tab"
               key={tab.id}
-              className={tab.id === tabId ? 'is-active' : ''}
+              className={classNames({
+                'is-active': tab.id === tabId,
+              })}
             >
               <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
