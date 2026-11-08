@@ -1,7 +1,7 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { NavLink, Routes, Route, Navigate, useParams } from 'react-router-dom';
+import { NavLink, Routes, Route, Navigate } from 'react-router-dom';
 import classNames from 'classnames';
 
 import { NotFoundPage } from './components/NotFoundPage';
