@@ -1,3 +1,4 @@
+import React from 'react';
 import { Tabs } from '../components/Tabs';
 import { Tab } from '../types/Tab';
 
@@ -19,9 +20,9 @@ const tabs: Tab[] = [
   },
 ];
 
-export const TabsPage = () => (
-  <>
+export const TabsPage: React.FC = () => (
+  <div className="page">
     <h1 className="title">Tabs page</h1>
     <Tabs tabs={tabs} />
-  </>
+  </div>
 );
