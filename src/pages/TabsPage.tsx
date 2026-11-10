@@ -1,3 +1,4 @@
+import { useParams } from 'react-router-dom';
 import { Tabs } from '../components/Tabs/Tabs';
 
 const tabs = [
@@ -7,11 +8,14 @@ const tabs = [
 ];
 
 export const TabsPage = () => {
+  const { tabId } = useParams();
+  const selectedTab = tabs.find(tab => tab.id === tabId);
+
   return (
     <>
       <h1 className="title">Tabs page</h1>
 
-      <Tabs tabs={tabs} />
+      <Tabs tabs={tabs} selectedTabId={selectedTab?.id} />
     </>
   );
 };

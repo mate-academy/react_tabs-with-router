@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 type Tab = {
   id: string;
@@ -8,12 +8,11 @@ type Tab = {
 
 type Props = {
   tabs: Tab[];
+  selectedTabId?: string;
 };
 
-export const Tabs = ({ tabs }: Props) => {
-  const { tabId } = useParams();
-
-  const selectedTab = tabs.find(tab => tab.id === tabId);
+export const Tabs = ({ tabs, selectedTabId }: Props) => {
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
 
   return (
     <>
@@ -23,7 +22,7 @@ export const Tabs = ({ tabs }: Props) => {
             <li
               key={tab.id}
               data-cy="Tab"
-              className={tab.id === tabId ? 'is-active' : ''}
+              className={tab.id === selectedTabId ? 'is-active' : ''}
             >
               <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
