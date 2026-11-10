@@ -1,5 +1,5 @@
-import { useParams } from "react-router-dom";
-import { Tabs } from "../Tabs/Tabs";
+import { useParams } from 'react-router-dom';
+import { Tabs } from '../Tabs/Tabs';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -8,7 +8,11 @@ const tabs = [
 ];
 
 export const TabsPage = () => {
-  const {tabId} = useParams();
+  const { tabId } = useParams();
+
+  const selectedTab = tabs.find(tab => tab.id === tabId);
+
+  const content = !tabId || !selectedTab ? 'Please select a tab' : selectedTab.content;
 
   return (
     <>
@@ -16,8 +20,9 @@ export const TabsPage = () => {
 
       <Tabs
         tabs={tabs}
-        selectedTabId={tabId}
+        selectedTabId={selectedTab?.id}
+        content={content}
       />
     </>
   );
-}
+};

@@ -11,7 +11,7 @@ export const App = () => {
   const isTabsActive = location.pathname.startsWith('/tabs');
 
   return (
-      <>
+    <>
       {/* Also requires <html class="has-navbar-fixed-top"> */}
       <nav
         className="navbar is-light is-fixed-top is-mobile has-shadow"
@@ -19,10 +19,16 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link to="/" className={`navbar-item ${isHomeActive ? 'is-active' : ''}`}>
+            <Link
+              to="/"
+              className={`navbar-item ${isHomeActive ? 'is-active' : ''}`}
+            >
               Home
             </Link>
-            <Link to="/tabs" className={`navbar-item ${isTabsActive ? 'is-active' : ''}`}>
+            <Link
+              to="/tabs"
+              className={`navbar-item ${isTabsActive ? 'is-active' : ''}`}
+            >
               Tabs
             </Link>
           </div>
@@ -32,36 +38,20 @@ export const App = () => {
       <div className="section">
         <div className="container">
           <Routes>
-            <Route
-              path='/'
-              element={
-                <h1 className="title">Home page</h1>
-              }
-            />
+            <Route path="/" element={<h1 className="title">Home page</h1>} />
 
-            <Route
-              path='home'
-              element={
-                <Navigate to='/' replace/>
-              }
-            />
+            <Route path="home" element={<Navigate to="/" replace />} />
 
-            <Route path='tabs'>
-              <Route
-                index
-                element={<TabsPage />}
-              />
+            <Route path="tabs">
+              <Route index element={<TabsPage />} />
 
-              <Route
-                path=':tabId'
-                element={<TabsPage />}
-              />
+              <Route path=":tabId" element={<TabsPage />} />
             </Route>
 
             <Route
-                path='*'
-                element={<h1 className="title">Page not found</h1>}
-              />
+              path="*"
+              element={<h1 className="title">Page not found</h1>}
+            />
           </Routes>
         </div>
       </div>
