@@ -16,7 +16,7 @@ export const TabsPage = () => {
     <>
       <h1 className="title">Tabs page</h1>
 
-      {selectedTab ? (
+      {!tabId || selectedTab ? (
         <Tabs tabs={tabs} selectedTabId={selectedTab.id} />
       ) : (
         <div className="block" data-cy="TabContent">
