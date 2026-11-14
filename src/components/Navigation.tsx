@@ -1,30 +1,49 @@
-import { NavLink } from 'react-router-dom';
+
+import { Link, useLocation } from 'react-router-dom';
+import cn from 'classnames';
 
 const links = [
-  { to: '/', title: 'Home', end: true },
-  { to: '/tabs', title: 'Tabs', end: false },
+  {
+    to: '/',
+    title: 'Home',
+  },
+  {
+    to: '/tabs',
+    title: 'Tabs',
+  },
 ];
 
-export const Navigation = () => (
-  <nav
-    className="navbar is-light is-fixed-top is-mobile has-shadow"
-    data-cy="Nav"
-  >
-    <div className="container">
-      <div className="navbar-brand">
-        {links.map(link => (
-          <NavLink
-            key={link.to}
-            to={link.to}
-            end={link.end}
-            className={({ isActive }) =>
-              isActive ? 'navbar-item is-active' : 'navbar-item'
-            }
-          >
-            {link.title}
-          </NavLink>
-        ))}
+export const Navigation = () => {
+  const { pathname } = useLocation();
+
+  return (
+    <nav
+      className="navbar is-light is-fixed-top is-mobile has-shadow"
+      data-cy="Nav"
+    >
+      <div className="container">
+        <div className="navbar-brand">
+          {links.map(link => {
+            const isActive =
+              link.to === '/'
+                ? pathname === '/'
+                : pathname === link.to ||
+                  pathname.startsWith(`${link.to}/`);
+
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={cn('navbar-item', {
+                  'is-active': isActive,
+                })}
+              >
+                {link.title}
+              </Link>
+            );
+          })}
+        </div>
       </div>
-    </div>
-  </nav>
-);
+    </nav>
+  );
+};
