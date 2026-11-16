@@ -21,18 +21,22 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link
-              to="/"
-              className={cn('navbar-item', { 'is-active': isHomeActive })}
-            >
-              Home
-            </Link>
-            <Link
-              to="/tabs"
-              className={cn('navbar-item', { 'is-active': isTabsActive })}
-            >
-              Tabs
-            </Link>
+            <div className={cn('navbar-item', { 'is-active': isHomeActive })}>
+              <Link
+                to="/"
+                className={cn('navbar-item', { 'is-active': isHomeActive })}
+              >
+                Home
+              </Link>
+            </div>
+            <div className={cn('navbar-item', { 'is-active': isTabsActive })}>
+              <Link
+                to="/tabs"
+                className={cn('navbar-item', { 'is-active': isTabsActive })}
+              >
+                Tabs
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
