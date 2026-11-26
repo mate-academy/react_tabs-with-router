@@ -17,11 +17,12 @@ export const TabsPage = ({ tabs }: Props) => {
           {tabs.map(tab => (
             <li
               key={tab.id}
-              className={
-                pathname === `/tabs/${tab.id}` ? 'is-active' : ''
-              }
+              className={pathname === `/tabs/${tab.id}` ? 'is-active' : ''}
             >
-              <Link to={`/tabs/${tab.id}`}>
+              <Link
+                to={`/tabs/${tab.id}`}
+                data-cy="Tab"
+              >
                 {tab.title}
               </Link>
             </li>

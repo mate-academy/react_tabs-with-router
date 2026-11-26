@@ -2,13 +2,7 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 
-import {
-  Link,
-  Navigate,
-  Route,
-  Routes,
-  useLocation,
-} from 'react-router-dom';
+import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 
 import { TabsPage } from './TabsPage';
 import TabSelect from './TabSelect';
@@ -33,9 +27,7 @@ export const App = () => {
           <div className="navbar-brand">
             <Link
               to="/"
-              className={`navbar-item ${
-                pathname === '/' ? 'is-active' : ''
-              }`}
+              className={`navbar-item ${pathname === '/' ? 'is-active' : ''}`}
             >
               Home
             </Link>
@@ -55,15 +47,9 @@ export const App = () => {
       <div className="section">
         <div className="container">
           <Routes>
-            <Route
-              path="/"
-              element={<h1 className="title">Home page</h1>}
-            />
+            <Route path="/" element={<h1 className="title">Home page</h1>} />
 
-            <Route
-              path="/home"
-              element={<Navigate to="/" replace />}
-            />
+            <Route path="/home" element={<Navigate to="/" replace />} />
 
             <Route path="/tabs" element={<TabsPage tabs={tabs} />}>
               <Route index element={<TabSelect tabs={tabs} />} />
